@@ -32,10 +32,10 @@ public class Drone implements StandardDrone{
 	
 	private int pomeri(int k, int i){
 		
-		if(k + i == 0 || k + i == 50){
+		if(k + i == sGranica1 || k + i == sGranica2){
 			return k + i;
 		}
-		if(k == 0 && i == -1 || k == 50  && i == 1){
+		if(k == sGranica1 && i == -1 || k == sGranica2  && i == 1){
 			return k;
 		}
 		return k + i;
@@ -43,10 +43,10 @@ public class Drone implements StandardDrone{
 	
 	private int pomeriSigurno(int k, int i){
 		
-		if(k + i == 0 || k + i == 10 || k + i == 40 || k + i == 50){
+		if(k + i == sGranica1 || k + i == uGranica1 || k + i == uGranica2 || k + i == sGranica2){
 			return k + i;
 		}
-		if(k == 0 && i == -1 || k == 10  && i == 1|| k == 40  && i == -1|| k == 50  && i == 1){
+		if(k == sGranica1 && i == -1 || k == uGranica1  && i == 1|| k == uGranica2  && i == -1|| k == sGranica2  && i == 1){
 			
 			return k;
 		}

@@ -1,7 +1,7 @@
 package drone;
 
 public class Drone implements StandardDrone {
-	
+	 
 	int x = 30;
 	int y = 0;
 	int z = 30;

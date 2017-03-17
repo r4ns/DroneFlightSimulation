@@ -19,7 +19,7 @@ public class Drone implements StandardDrone{
 		else if(koordinataY < 50){
 			koordinataY++;
 		}
-		return getFormatedCoordinates();
+		return getFormatedCoordinates(); 
 	}
 
 	public String moveDown() {

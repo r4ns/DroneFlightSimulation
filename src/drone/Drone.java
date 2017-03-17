@@ -5,6 +5,7 @@ public class Drone implements StandardDrone {
 	private int y = 0;
 	private int z = 30;
 	public int[] spoljasnja_granica;
+	
 
 	public Drone() {
 

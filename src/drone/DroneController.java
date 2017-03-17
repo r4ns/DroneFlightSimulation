@@ -9,6 +9,7 @@ public class DroneController {
 		
 		Drone dronic = new Drone();
 		
+		
 		System.out.println(dronic.getFormatedCoordinates());
 		
 	}

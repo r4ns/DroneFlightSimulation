@@ -48,6 +48,10 @@ public class DroneController {
 		for(int i=0;i<=19;i++){
 			System.out.println(dron.moveDown());
 		}
+		if(dron.getX()==0&&dron.getY()==30&&dron.getZ()==30)
+			System.out.println("Uspeo");
+		else
+			System.out.println("Drugi put");
 
 
 	}

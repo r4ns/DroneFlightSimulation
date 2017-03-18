@@ -51,7 +51,7 @@ public class DroneController {
 		if(dron.getX()==0&&dron.getY()==30&&dron.getZ()==30)
 			System.out.println("Uspeo");
 		else
-			System.out.println("Drugi put");
+			System.out.println("Probaj ponovo");
 
 
 	}

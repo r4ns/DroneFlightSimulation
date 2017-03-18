@@ -1,11 +1,9 @@
 package drone;
 
 public class Drone implements StandardDrone{
-	
 	int x=30;
 	int y=0;
 	int z=30;
-	
 	
 	public Drone(int x, int y, int z){
 		this.x = x;
@@ -16,43 +14,45 @@ public class Drone implements StandardDrone{
 	
 	@Override
 	public String moveUp() {
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.y++;
+		return (getFormatedCoordinates());
+		
 	}
 
 	@Override
 	public String moveDown() {
-		// TODO Auto-generated method stub
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.y--;
+		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String moveLeft() {
-		// TODO Auto-generated method stub
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.x--;
+		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String moveRight() {
-		// TODO Auto-generated method stub
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.x++;
+		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String moveBack() {
-		// TODO Auto-generated method stub
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.z--;
+		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String moveForth() {
-		// TODO Auto-generated method stub
-		return ("Drone position ("+x+","+y+","+z+")");
+		this.z++;
+		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		return null;
+		return ("Drone position ("+x+","+y+","+z+")");
 	}
 	
 }

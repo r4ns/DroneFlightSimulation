@@ -38,7 +38,7 @@ public class Drone implements StandardDrone {
 	}
 	public String moveDown(){
 		if(((x<=10&& x>=0)||(x>=40&&x<=50))&&y>0){
-			y=y-1;
+			y--;
 			return getFormatedCoordinates();
 		}
 		else if(((z<=10 &&z>=0)||(z>=40 &&z<=50))&&y>0){

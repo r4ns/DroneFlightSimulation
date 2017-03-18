@@ -24,11 +24,11 @@ public class DroneController {
 		for(int i=0;i<=10;i++){
 			System.out.println(dron.moveLeft());
 		}
-		System.out.println("Gotovo");
+		System.out.println("Gotovo, sad pravo");
 		for(int i=0;i<=5;i++){
 			System.out.println(dron.moveForth());
 		}
-		System.out.println("Gotovo");
+		System.out.println("Gotovo, sad levo");
 		for(int i=0;i<=18;i++){
 			System.out.println(dron.moveLeft());
 		}

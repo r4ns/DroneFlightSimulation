@@ -131,7 +131,7 @@ public class Drone implements StandardDrone {
 			return getFormatedCoordinates();
 		}
 		else if(((x<=10 &&x>=0)||(x>=40 &&x<=50))&&z>0){
-			z=z-1;
+			z--;
 			return getFormatedCoordinates();
 		}
 		else if((z<=50&&z>40)||(z>0&&z<=10)){

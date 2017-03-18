@@ -28,9 +28,9 @@ public class DroneController {
 			System.out.println(MojDron.moveLeft());
 		}
 		
-		System.out.println("----- MOVE BACK -----");
+		System.out.println("----- MOVE FORTH -----");
 		while (MojDron.z > 0) {
-			System.out.println(MojDron.moveBack());
+			System.out.println(MojDron.moveForth());
 		}
 		
 		System.out.println("----- MOVE DOWN -----");
@@ -43,9 +43,9 @@ public class DroneController {
 			System.out.println(MojDron.moveLeft());
 		}
 		
-		System.out.println("----- MOVE FORTH -----");
+		System.out.println("----- MOVE BACK -----");
 		while (MojDron.z < 30) {
-			System.out.println(MojDron.moveForth());
+			System.out.println(MojDron.moveBack());
 		}
 		
 		System.out.println("----- END COORDINATES -----");

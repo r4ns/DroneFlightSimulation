@@ -39,13 +39,13 @@ public class Drone implements StandardDrone{
 
 	@Override
 	public String moveBack() {
-		this.z--;
+		this.z++;
 		return (getFormatedCoordinates());
 	}
 
 	@Override
 	public String moveForth() {
-		this.z++;
+		this.z--;
 		return (getFormatedCoordinates());
 	}
 

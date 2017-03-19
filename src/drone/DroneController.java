@@ -41,7 +41,7 @@ public class DroneController {
 			System.out.println(dron.moveBack());
 		}
 		System.out.println("Gotovo");
-		for(int i=0;i<=23;i++){
+		for(int i=0;i<=25;i++){
 			System.out.println(dron.moveLeft());
 		}
 		System.out.println("Gotovo");
@@ -50,8 +50,8 @@ public class DroneController {
 		}
 		if(dron.getX()==0&&dron.getY()==30&&dron.getZ()==30)
 			System.out.println("Uspeo");
-		else
-			System.out.println("Probaj ponovo");
+		
+			
 
 
 	}

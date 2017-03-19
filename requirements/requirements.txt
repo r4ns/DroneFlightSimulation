@@ -7,6 +7,7 @@ Spoljasnja granica prostora u kojem je dozvoljen
 let je definisana sa x = 50, y = 50 i z = 50, dok
  je unutrasnja granica za 10 manja od spoljasnje (granice unutrasnje kocke).
 Dron ima mogucnost leta izmedju dve kocke.
+
  Cilj zadatka jeste dovesti dron iz pocetne pozicije do krajnje pozicije. 
  Pocetna pozicija je definisana sa koordinatama (x,y,z) = (30, 0, 30), 
 a krajnja sa koordinatama (x,y,z) = (0, 30, 30). 

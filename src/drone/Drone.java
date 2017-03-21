@@ -92,7 +92,7 @@ public class Drone implements StandardDrone{
 		return getFormatedCoordinates();
 	}
 
-	@Override
+	
 	public String moveForth() {
 		if (y>10 && y<40) {
 			if (x>10 && x<40) {

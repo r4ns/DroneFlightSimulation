@@ -18,18 +18,19 @@ public class Drone implements StandardDrone {
 		
 		System.out.println("-------------Moving up-------------");
 		
-		if(y>=10 && x==30 && y==30){
+		if(y>=10 && /*x==30 && z==30*/ x<=40 && x>=10 && z<=40 && z>=10){
 			
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		
 		} else if(y<=10) {
 			
-			for(int k=0; k<10; k++){
+			for(int k=0; k<10; k++){ 
 				
 				y++;
 				System.out.println("Drone position: ("+x+","+y+","+z+")");
 				
 			}
+			
 		} else if(x==20 &&  y==20 && z==0) {
 			
 			for(int k=0; k<30; k++){
@@ -61,12 +62,9 @@ public class Drone implements StandardDrone {
 		}
 		
 		
-		
 
 	@Override
 	public String moveDown() {
-		
-		
 		
 		
 		if(x==0 && y==50 && z==20){

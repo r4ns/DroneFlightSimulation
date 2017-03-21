@@ -80,10 +80,10 @@ public class Drone implements StandardDrone {
 		if(z < 10 || z > 40){
 			if(z == 50)
 				return getFormatedCoordinates() + " // Drone hit outside square border";
-			z -= 1;
+			z += 1;
 			return getFormatedCoordinates();
 		} else if((z >= 10 || z <= 40) && ((x <= 10 || x >= 40) || (y <= 10 || y >= 40))){
-			z -= 1;
+			z += 1;
 			return getFormatedCoordinates();
 		} else
 			return getFormatedCoordinates() + " // Drone hit inside square border";

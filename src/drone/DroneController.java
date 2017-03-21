@@ -6,161 +6,23 @@ public class DroneController {
 
 		Drone nekiDrone = new Drone();
 		
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveUp());
 		
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
-		System.out.println(nekiDrone.moveLeft());
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveLeft());
 		
-		//We go UP UP UP
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
-		System.out.println(nekiDrone.moveUp());
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveUp());
 		
-		//We go Right Right Right
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
-		System.out.println(nekiDrone.moveRight());
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveRight());
+
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveDown());
+
+		for(int i = 0; i < 50; i++)
+			System.out.println(nekiDrone.moveForth());
 		
-		System.out.println("Radi sve, mrzelo me da namestam da obilazi svih 5 stranica.");
 	}
 }

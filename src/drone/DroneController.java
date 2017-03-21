@@ -7,44 +7,47 @@ public class DroneController {
 		Drone drone = new Drone();
 		int i;
 		
-		for(i=drone.y; i<10;i++)
+		System.out.println("Penjes se gore");
+		
+		for (i=drone.y; i<10; i++)
 		{
 			drone.moveUp();
-			
 		}
-		for(i=drone.x; i<=49; i++)
+		System.out.println("Ides skroz desno");
+		for (i=drone.x; i<50; i++)
 		{
 			drone.moveRight();
 		}
-		
+		System.out.println("Ides skroz gore");
 		for(i=drone.y; i<50; i++)
 		{
 			drone.moveUp();
 		}
-		
-		for (i=drone.z; i>10; i--)
+		System.out.println("Ides skroz napred");
+		for(i=drone.z; i<50; i++)
 		{
 			drone.moveForth();
 		}
-		
-		for (i=drone.x; i>10; i--)
+		System.out.println("Ides levo");
+		for(i=drone.x; i>30;i--)
 		{
 			drone.moveLeft();
 		}
-		
-		for (i=drone.z; i<30; i++)
+		System.out.println("Na kocki si");
+		for(i=drone.z; i>30; i--)
 		{
 			drone.moveBack();
 		}
-		
-		for (i=drone.y; i>30; i--)
+		System.out.println("Ides levo do 0");
+		for(i=drone.x; i>0; i--)
+		{
+			drone.moveLeft();
+		}
+		System.out.println("Spusta se");
+		for(i=drone.y; i>30; i--)
 		{
 			drone.moveDown();
 		}
 		
-		for (i=drone.x; i>0; i--)
-		{
-			drone.moveLeft();
-		}
-	}
+}
 }

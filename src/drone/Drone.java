@@ -42,14 +42,14 @@ public class Drone implements StandardDrone{
 	@Override
 	public String moveBack() {
 		// TODO Auto-generated method stub
-		z++;
+		z--;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
 		// TODO Auto-generated method stub
-		z--;
+		z++;
 		
 		//System.out.println(x +","+y+","+z);
 		return getFormatedCoordinates();

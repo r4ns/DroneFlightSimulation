@@ -15,42 +15,42 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveUp() {
 		// TODO Auto-generated method stub
-		this.y+=5;
+		this.y++;
 		return this.getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveDown() {
 		// TODO Auto-generated method stub
-		this.y-=5;
+		this.y--;
 		return this.getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveLeft() {
 		// TODO Auto-generated method stub
-		this.x-=5;
+		this.x--;
 		return this.getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveRight() {
 		// TODO Auto-generated method stub
-		this.x+=5;
+		this.x++;
 		return this.getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
 		// TODO Auto-generated method stub
-		z-=5;
+		z--;
 		return this.getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
 		// TODO Auto-generated method stub
-		z+=5;
+		z++;
 		return this.getFormatedCoordinates();
 	}
 

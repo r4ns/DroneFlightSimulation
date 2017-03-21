@@ -7,18 +7,18 @@ public class Drone implements StandardDrone {
 	
 	
 	public String moveUp() {
-		if (y < 10 || (y >= 40 & y < 50)) {
-			y++;
-			return "(" + x + ", " + y + ", " + z + ")";
-		}
-		else if ((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10))
-		{
-			y++;
-			return "(" + x + ", " + y + ", " + z + ")";
-		}
-		else 
-			return "(" + x + ", " + y + ", " + z + ")";
-	}
+			if ((y < 10 || (y >= 40 & y < 50))) {
+				y++;
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
+			else if (((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10)) & (y < 50 & y >= 0))
+			{
+				y++;
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
+			else 
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
 
 	@Override
 	public String moveDown() {
@@ -26,7 +26,7 @@ public class Drone implements StandardDrone {
 			y--;
 			return "(" + x + ", " + y + ", " + z + ")";
 		}
-		else if ((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10))
+		else if (((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10)) & (y <= 50 & y > 0))
 		{
 			y--;
 			return "(" + x + ", " + y + ", " + z + ")";
@@ -41,7 +41,7 @@ public class Drone implements StandardDrone {
 			x--;
 			return "(" + x + ", " + y + ", " + z + ")";
 		}
-		else if ((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10))
+		else if (((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10)) & (x <= 50 & x > 0))
 		{
 			x--;
 			return "(" + x + ", " + y + ", " + z + ")";
@@ -56,7 +56,7 @@ public class Drone implements StandardDrone {
 			x++;
 			return "(" + x + ", " + y + ", " + z + ")";
 		}
-		else if ((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10))
+		else if (((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10)) & (x < 50 & x >= 0))
 		{
 			x++;
 			return "(" + x + ", " + y + ", " + z + ")";
@@ -71,7 +71,7 @@ public class Drone implements StandardDrone {
 			z--;
 			return "(" + x + ", " + y + ", " + z + ")";
 		}
-		else if ((y >= 40 & y <= 50) || (x >= 40 & x <=50) || (y >= 0 & y <= 10) || (x >= 0 & x <=10))
+		else if (((y >= 40 & y <= 50) || (x >= 40 & x <=50) || (y >= 0 & y <= 10) || (x >= 0 & x <=10)) & (z <= 50 & z > 0))
 		{
 			z--;
 			return "(" + x + ", " + y + ", " + z + ")";
@@ -86,7 +86,7 @@ public class Drone implements StandardDrone {
 			z++;
 			return "(" + x + ", " + y + ", " + z + ")";
 		}
-		else if ((x >= 40 & x <= 50) || (y >= 40 & y <=50) || (x >= 0 & x <= 10) || (y >= 0 & y <=10))
+		else if (((x >= 40 & x <= 50) || (y >= 40 & y <=50) || (x >= 0 & x <= 10) || (y >= 0 & y <=10)) & (z < 50 & z >= 0))
 		{
 			z++;
 			return "(" + x + ", " + y + ", " + z + ")";

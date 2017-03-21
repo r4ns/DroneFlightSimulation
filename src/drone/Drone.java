@@ -46,7 +46,7 @@ public class Drone implements StandardDrone {
 			return getFormatedCoordinates();
 		}
 		else if((y<=50&&y>40)||(y>0&&y<=10)){
-			y=y-1;
+			y--;
 			return getFormatedCoordinates();
 		}
 		else{

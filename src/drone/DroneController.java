@@ -36,7 +36,7 @@ public class DroneController {
 		for(int i=0;i<=17;i++){
 			System.out.println(dron.moveUp());
 		}
-		System.out.println("Gotovo");
+		System.out.println("Gotovo nazad");
 		for(int i=0;i<=19;i++){
 			System.out.println(dron.moveBack());
 		}

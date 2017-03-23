@@ -6,6 +6,11 @@ public class Drone implements StandardDrone {
 	private int y = 0;
 	private int z = 30;
 	
+	private int [] outerBoundaries;
+	private int distanceFromOuterBox=10;
+	private int [] coordinates;
+	private int step=1;
+	
 	
 	public Drone(){
 		
@@ -17,12 +22,26 @@ public class Drone implements StandardDrone {
 		this.z = z;
 	}
 	
+	public Drone(int [] boundaries, int [] coordinates)
+	{
+		this.outerBoundaries= boundaries;
+		distanceFromOuterBox=10;
+		this.coordinates = coordinates;
+	}
+	
 	
 
 	@Override
 	public String moveUp() {
+		if (y<11)
+		{
+			y++;
+		}
+		else
+		{
+			System.out.println("Greska");
+		}
 		
-		y++;
 		return getFormatedCoordinates();
 	}
 

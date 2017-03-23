@@ -10,6 +10,7 @@ public class Drone implements StandardDrone {
 		
 		
 		
+		
 	}
 	public Drone(int x,int y,int z){
 		this.x=x;

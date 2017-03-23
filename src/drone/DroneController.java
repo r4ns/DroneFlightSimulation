@@ -12,8 +12,6 @@ public class DroneController {
 		dron.moveLeft();
 		dron.moveBack();
 		dron.moveDown();
-		
-		
 	
 	}
 }

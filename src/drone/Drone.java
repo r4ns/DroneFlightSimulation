@@ -4,114 +4,64 @@ public class Drone implements StandardDrone {
 	private int x = 30;
 	private int y = 0;
 	private int z = 30;
-	public int[] spoljasnja_granica;
 	
 
 	public Drone() {
 
 	}
 
+
+
 	@Override
 	public String moveUp() {
-		if (y < 10) {
-			if (y + 1 > 10)
-				return getFormatedCoordinates();
-			else
-				setY(y + 1);
-		} else {
-			if (y + 1 > 50)
-				return getFormatedCoordinates();
-			else
-				setY(y + 1);
-			return getFormatedCoordinates();
-		}
+		y++;
 		return getFormatedCoordinates();
 	}
+
+
 
 	@Override
 	public String moveDown() {
-		if (y > 40) {
-			if (y - 1 < 40)
-				return getFormatedCoordinates();
-			else
-				setY(y - 1);
-		} else {
-			if (y - 1 < 0)
-				return getFormatedCoordinates();
-			else
-				setY(y - 1);
-		}
+		y--;
 		return getFormatedCoordinates();
 	}
+
+
 
 	@Override
 	public String moveLeft() {
-		if (x < 10) {
-			if (x - 1 < 0)
-				return getFormatedCoordinates();
-			else
-				setX(x - 1);
-		} else {
-				if(x - 1 < 40)
-					return getFormatedCoordinates();
-				else setX(x - 1);
-		}
+		x--;
 		return getFormatedCoordinates();
 	}
+
+
 
 	@Override
 	public String moveRight() {
-		if(x < 10)
-		{
-			if(x + 1 > 10)
-				return getFormatedCoordinates();
-			else setX(x + 1);
-		}
-		else
-		{
-			if(x + 1 > 50)
-				return getFormatedCoordinates();
-			else setX(x + 1);
-		}
+		x++;
 		return getFormatedCoordinates();
 	}
+
+
 
 	@Override
 	public String moveBack() {
-		if(z > 40)
-		{
-			if(z + 1 > 50)
-				return getFormatedCoordinates();
-			else setZ(z + 1);
-		}
-		else
-		{
-			if(z + 1 > 10)
-				return getFormatedCoordinates();
-			else setZ(z + 1);
-		}
+		z++;
 		return getFormatedCoordinates();
 	}
+
+
 
 	@Override
 	public String moveForth() {
-		if(z <= 10)
-		{
-			if(z - 1 < 0)
-				return getFormatedCoordinates();
-			else setZ(z - 1);
-		}
-		else
-		{
-			if(z - 1 < 40)
-				return getFormatedCoordinates();
-			else setZ(z - 1);
-		}
+		z--;
 		return getFormatedCoordinates();
 	}
 
+
 	@Override
 	public String getFormatedCoordinates() {
+		System.out.println("Trenutna pozicija je (" + x + "," + y + "," + z + ").");
 		return "Trenutna pozicija je (" + x + "," + y + "," + z + ").";
 	}
 
@@ -138,5 +88,6 @@ public class Drone implements StandardDrone {
 	public void setZ(int z) {
 		this.z = z;
 	}
+
 
 }

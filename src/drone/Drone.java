@@ -7,7 +7,7 @@ public class Drone implements StandardDrone{
 	private int koordinataZ;
 	private boolean stop;
 	
-	public Drone(){
+	public Drone(){ 
 		this.koordinataX = 30;
 		this.koordinataY = 0;
 		this.koordinataZ = 30;

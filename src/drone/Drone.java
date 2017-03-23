@@ -17,6 +17,7 @@ public class Drone implements StandardDrone {
 		this.z=z;
 	} 
 	@Override
+	
 	public String moveUp() {
 		if(x==30 && y<=10 && z==30)
 		{

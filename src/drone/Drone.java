@@ -5,6 +5,10 @@ public class Drone implements StandardDrone {
 	private int x=30;
 	private int y=0;
 	private int z=30;
+	private int [] outerBoundaries;
+	private int distanceFromOuterBox=10;
+	private int [] coordinates;
+	private int step=1;
 
    public Drone ()
    {
@@ -16,20 +20,26 @@ public class Drone implements StandardDrone {
 	   y=this.y;
 	   z=this.z;
    }
+   public Drone (int [] boundaries, int [] coordinates)
+   {
+	   this.outerBoundaries=boundaries;
+	  // distanceFromOuterBox=10;
+	   this.coordinates=coordinates;
+   }
    
 	public String moveUp() {
 		
 		
-		if (x==30 && y<10  )
+		if (coordinates[0]==30 && coordinates[1]<10  )
 		{  
 			
-				y++;
+				coordinates[1]++;
 			
 			
 		}
 		else {
 			
-				y++;
+			coordinates[1]++;
 			
 		}
 		
@@ -99,7 +109,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		
-		return "Dron:"  + "( " + x + " , " + y +  " , " + z + " )";
+		return "Dron position:"  + "(" + Integer.toString(coordinates[0]) + "," + Integer.toString(coordinates[1])  +  "," + Integer.toString(coordinates[2]) + ")";
 	}
 
 	public int getX() {

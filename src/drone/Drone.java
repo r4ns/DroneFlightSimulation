@@ -22,7 +22,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<10;i++)
 			{
 				y++;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}
@@ -31,7 +31,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<30;i++)
 			{
 				y++;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 			
 		}
@@ -47,7 +47,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<10;i++)
 			{
 				y--;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}
@@ -61,7 +61,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<50;i++)
 			{
 				x--;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}
@@ -75,7 +75,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<20;i++)
 			{
 				x++;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}
@@ -89,7 +89,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<20;i++)
 			{
 				z--;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}
@@ -103,7 +103,7 @@ public class Drone implements StandardDrone {
 			for(int i=0;i<20;i++)
 			{
 				z++;
-				System.out.println("Drone ("+x+","+y+","+z+")");
+				System.out.println(this.getFormatedCoordinates());
 			}
 				
 		}

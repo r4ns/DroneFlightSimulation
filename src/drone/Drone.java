@@ -9,6 +9,9 @@ public class Drone implements StandardDrone{
 	private int sGranica2 = 50;
 	private int[] cilj = {0, 30, 30};
 	
+	
+	private String poruka = "";
+	
 	public Drone(int c[]){
 		this.x = c[0];
 		this.y = c[1];
@@ -38,7 +41,9 @@ public class Drone implements StandardDrone{
 	
 	private int pomeri(int k, int i){
 		
+		poruka = "";
 		if(k + i == sGranica1 || k + i == sGranica2){
+			poruka = "//zvekio";
 			return k + i;
 		}
 		if(k == sGranica1 && i == -1 || k == sGranica2  && i == 1){
@@ -49,7 +54,9 @@ public class Drone implements StandardDrone{
 	
 	private int pomeriSigurno(int k, int i){
 		
+		poruka = "";
 		if(k + i == sGranica1 || k + i == uGranica1 || k + i == uGranica2 || k + i == sGranica2){
+			poruka = "//zvekio";
 			return k + i;
 		}
 		if(k == sGranica1 && i == -1 || k == uGranica1  && i == 1|| k == uGranica2  && i == -1|| k == sGranica2  && i == 1){
@@ -123,13 +130,13 @@ public class Drone implements StandardDrone{
 
 	public String getFormatedCoordinates()
 	{
-		String s = "";
+		
 		if(stigaoNaCilj())
-			s = "//Target reached";
+			poruka = "//Target reached";
 		
 		return "My position is: (" + Integer.toString(getX()) + ","
 				+ Integer.toString(getY()) + ","  
-				+ Integer.toString(getZ()) + ") " + s;
+				+ Integer.toString(getZ()) + ") " + poruka;
 	}
 	
 	

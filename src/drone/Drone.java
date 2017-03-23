@@ -22,39 +22,30 @@ public class Drone implements StandardDrone {
 		
 		if (x==30 && y<10  )
 		{  
-			System.out.println("Move up:");
-			for(int i=0; i<10; i++)
-			{
+			
 				y++;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
+			
 		}
 		else {
-			System.out.println("Move up:");
-			for(int i=0; i<30; i++)
-			{
+			
 				y++;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
 		}
 		
-		return null;
+		return getFormatedCoordinates();
 		
 	}
 
 	@Override
 	public String moveDown() {
-		if (x==0 && y>=30 && y>=40  )
+		if (x==0 && y>=30 && y<=40 )
 		{  
-			System.out.println("Move down:");
-			for(int i=30; i<40; i++)
-			{
 				y--;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
 		}
 		
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	@Override
@@ -62,15 +53,12 @@ public class Drone implements StandardDrone {
 	
 		if (x>=0 && x<=50 && y==40 && z==50 )
 		{  
-			System.out.println("Move left:");
-			for(int i=0; i<50; i++)
-			{
+			
 				x--;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
 		}
 		
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	@Override
@@ -78,49 +66,40 @@ public class Drone implements StandardDrone {
 		
 		if (x>=30 && x<=50 && y==10 )
 		{  
-			System.out.println("Move right:");
-			for(int i=30; i<50; i++)
-			{
+			
 				x++;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+				
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
 		if (x==0 && y==40 && z>=30 && z<=50 )
 		{  
-			System.out.println("Move right:");
-			for(int i=0; i<20; i++)
-			{
+			
 				z--;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
 		}
 		
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
 		if (z>=30 && z<=50 && x==50 && y==40 )
 		{  
-			System.out.println("Move forth:");
-			for(int i=30; i<50; i++)
-			{
 				z++;
-				System.out.println("x=" + x + " y=" + y +  " z=" + z);
-			}
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String getFormatedCoordinates() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "Dron:"  + "( " + x + " , " + y +  " , " + z + " )";
 	}
 
 	public int getX() {

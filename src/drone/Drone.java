@@ -1,98 +1,107 @@
 package drone;
 
 public class Drone implements StandardDrone{
-	private int x=0;
+	private int x=30;
 	private int y=0;
-	private int z=0;
+	private int z=30;
 
-	public void movement(String unos){
-		if(unos=="XD"){
-			if(checkPosition(y)&checkPosition(z)&checkPosition(x)){
-				moveRight();
-			}else{
-				System.out.println(toString());
-			}
-		}else if(unos=="XL"){
-			if(checkPosition(y)&checkPosition(z)&checkPosition(x)){
-				moveLeft();
-			}else{
-				System.out.println(toString());			}
-		}else if(unos=="YG"){
-			if(checkPosition(x)&&checkPosition(z)&checkPosition(y)){
-				moveUp();
-			}else{
-				System.out.println(toString()+"//Drone hits");			}
-		}else if(unos=="YD"){
-			if(checkPosition(x)&checkPosition(z)&checkPosition(y)){
-				moveDown();
-			}else{
-				System.out.println(toString());			}
-		}
-		else if(unos=="ZN"){
-			if(checkPosition(x)&checkPosition(y)&checkPosition(z)){
-				moveForth();
-			}else{
-				System.out.println(toString());			}
-		}
-		else if(unos=="ZNZ"){
-			if(checkPosition(x)&checkPosition(y)&checkPosition(z)){
-				moveUp();
-			}else{
-				System.out.println(toString());			}
-		}
-	}
-	
-	public boolean checkPosition(int k){
-		if((k>=0&&k<10)||(k>=40&&k<50))		
-			return true;
-		else 
-			return false;
-	}
-
-	@Override
-	public String toString(){
-		return String.format("Drone position: ("+x+","+y+","+z+")");
-	}
 	@Override
 	public String moveUp() {
-		y++;
-		System.out.println(toString());
-		return null;
+		if(((x>=0&&x<=10)||(x>=40&&x<=50))&&(z>=0&&z<=50)&&(y>=0&&y<50)){
+			y++;
+			return getFormatedCoordinates();
+		}else if(((y>=0&&y<10)||(y>=40&&y<50))&&((z>=0&&z<=50)&&(x>=0&&x<=50))){
+			y++;
+			return getFormatedCoordinates();
+		}else if((x>=0&&x<=50)&&((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=0&&y<50)){
+			y++;
+			return getFormatedCoordinates();
+		}else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
 	}
 	@Override
 	public String moveDown() {
-		y--;
-		System.out.println(toString());
-		return null;
+		if(((x>=0&&x<=10)||(x>=40&&x<=50))&&(z>=0&&z<=50)&&(y>0&&y<=50)){
+			y--;
+			return getFormatedCoordinates();
+		}else if(((y>0&&y<=10)||(y>40&&y<=50))&&((z>=0&&z<=50)&&(x>=0&&x<=50))){
+			y--;
+			return getFormatedCoordinates();
+		}else if((x>=0&&x<=50)&&((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>0&&y<=50)){
+			y--;
+			return getFormatedCoordinates();
+		}else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
 	}
 	@Override
 	public String moveLeft() {
-		x++;
-		System.out.println(toString());
-		return null;
+		if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(x>0&&x<=50)&&((z>=0&&z<=50))){
+			x--;
+			return getFormatedCoordinates();
+		}else if((y>=10&&y<=40)&&((x>0&&x<=10)||(x>40&&x<=50))&&z>=0&&z<=50){
+			x--;
+			return getFormatedCoordinates();
+		}else if(((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=10&&y<=40)&&(x>10&&x<=40)){
+			x--;
+			return getFormatedCoordinates();
+		}
+		else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
 	}
 	@Override
 	public String moveRight() {
-		x--;
-		System.out.println(toString());
-		return null;
-	}
-	@Override
-	public String moveBack() {
-		z--;
-		System.out.println(toString());
-		return null;
+		if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(x>=0&&x<50)&&((z>=0&&z<=50))){
+			x++;
+			return getFormatedCoordinates();
+		}else if((y>=10&&y<=40)&&((x>=0&&x<10)||(x>=40&&x<50))&&(z>=0&&z<=50)){
+			x++;
+			return getFormatedCoordinates();
+		}else if(((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=10&&y<=40)&&(x>=10&&x<40)){
+			x++;
+			return getFormatedCoordinates();
+		}
+		else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
 	}
 	@Override
 	public String moveForth() {
-		z++;
-		System.out.println(toString());
-		return null;
+		if(((z>0&&z<=10)||(z>40&&y<=50))&&(x>=0&&x<=50)&&((y>=0&&y<=50))){
+			z--;
+			return getFormatedCoordinates();
+		}else if((z>10&&z<=40)&&((x>=0&&x<=10)||(x>=40&&x<=50))&&(y>=0&&y<=50)){
+			z--;
+			return getFormatedCoordinates();
+		}else if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(z>10&&z<=40)&&(x>=10&&x<=40)){
+			z--;
+			return getFormatedCoordinates();
+		}
+		else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
+	}
+	@Override
+	public String moveBack() {
+		if(((z>=0&&z<10)||(z>=40&&y<50))&&(x>=0&&x<=50)&&((y>=0&&y<=50))){
+			z++;
+			return getFormatedCoordinates();
+		}else if((z>=10&&z<40)&&((x>=0&&x<=10)||(x>=40&&x<=50))&&(y>=0&&y<50)){
+			z++;
+			return getFormatedCoordinates();
+		}else if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(z>=10&&z<40)&&(x>=10&&x<=40)){
+			z++;
+			return getFormatedCoordinates();
+		}
+		else {
+			return getFormatedCoordinates()+"//dron hits edge !!!";
+		}
 	}
 	@Override
 	public String getFormatedCoordinates() {
-		
-		return null;
+		return String.format("Drone position: ("+x+","+y+","+z+")");
 	}
 	public int getX() {
 		return x;

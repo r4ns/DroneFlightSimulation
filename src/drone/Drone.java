@@ -1,9 +1,9 @@
 package drone;
 
 public class Drone implements StandardDrone {
-	private int x = 30;
-	private int y = 0;
-	private int z = 30;
+	private int x;
+	private int y;
+	private int z;
 	
 	
 	
@@ -13,47 +13,101 @@ public class Drone implements StandardDrone {
 		this.z = z;				
 	}
 	
-	public String moveUp() {
-		if(y < 10){
-			y += 1;
-		}
-		return this.toString();
-	}
-	public String moveDown() {
-		if(y < 0){
-			y -= 1;
-		}
-		return this.toString();
-	}
-	public String moveLeft() {
-		if(x > 40){
-			x -= 1;
-		}
-		return this.toString();
-	}
-	public String moveRight() {
-		if(x < 50){
-		x += 1;
-		}
-		return this.toString();
-	}
-	public String moveBack() {
-		if(z < 50){
-		z += 1;
-		}
-		return this.toString();
-	}
-	public String moveForth() {
-		if(z > 0){
-		z -= 1;
-		}
-		return this.toString();
-	}
-	
-	
 	public String toString() {
 		return String.format("Pozicija ("+x+","+y+","+z+")");
 	}
+	
+	public String moveUp() {
+		if (x < 40 && x > 10 && z < 40 && z > 10 && y < 10){
+			y += 1;
+			return getFormatedCoordinates();		
+		} else if (x < 40 && x > 10 && z < 40 && z > 10 && y >= 40 && y < 50){
+			y += 1;
+			return getFormatedCoordinates();	
+		} else if ((x >= 40 || x <= 10) || (z >= 40 || z <= 10) && y < 50){
+			y += 1;
+			return getFormatedCoordinates();
+		} else 
+			return getFormatedCoordinates();
+	}
+	public String moveDown() {
+		if(y > 40 && x < 40 && x > 10 && z < 40 && z > 10) {
+			y -= 1;
+			return getFormatedCoordinates();		
+		} else if (y > 0 && (x >= 40 || x <= 10) || (z >= 10 || x <= 40)) {
+			y -= 1;
+			return getFormatedCoordinates();			
+		} else if (y > 0 && x < 40 && x > 10 && z < 40 && z > 10) {
+			y -= 1;
+			return getFormatedCoordinates();	
+		} else {
+			return getFormatedCoordinates();
+		}
+	}
+	public String moveLeft() {
+		if (x > 40 && y > 10 && y < 40 && z > 10 && z < 40) {
+			x -= 1;
+			return getFormatedCoordinates();
+		} else if (x > 0 && (y >= 40 || y <= 10) || (z >= 40 || z <= 10)) {
+			x -= 1;
+			return getFormatedCoordinates();		
+		} else if (x > 0 && y > 10 && y < 40 && z > 10 && z < 40) {
+			x -= 1;
+			return getFormatedCoordinates();
+		} else {
+			return getFormatedCoordinates();
+		}
+	}
+	public String moveRight() {
+		if(x < 10 && y > 10 && y < 40 && z > 10 && z < 40 ) {
+			x += 1;
+			return getFormatedCoordinates();				
+		} else if (x < 50 && (y >= 40 || y <= 10) || (z >= 40 || z <= 10)) {
+			x += 1;
+			return getFormatedCoordinates();		
+		} else if (x < 50 && x >= 40 && y > 10 && y < 40 && z > 10 && z < 40) {
+			x += 1;
+			return getFormatedCoordinates();		
+		} else {
+			return getFormatedCoordinates();
+		}
+		
+		/*if (x < 10 && z < 40 && z > 10 && y > 10 && y < 40){
+			x += 1;
+			return getFormatedCoordinates();
+		}*/
+	}
+	public String moveBack() {
+		if (z < 10 && x > 10 && x < 40 && y > 10 && y < 40) {
+			z += 1;
+			return getFormatedCoordinates();
+		} else if (z < 50 && (x >= 10 || x <= 40) || (y >= 10 || y <= 40)) {
+			z += 1;
+			return getFormatedCoordinates();
+		} else if (z > 40 && x > 10 && x < 40 && y > 10 && y < 40) {
+			z += 1;
+			return getFormatedCoordinates();
+		} else {
+			return getFormatedCoordinates();
+		}
+	}
+	public String moveForth() {
+		if (z > 40 && x > 10 && x < 40 && y > 10 && y < 40) {
+			z -= 1;
+			return getFormatedCoordinates();
+		} else if (z < 50 && (x >= 10 || x <= 40) || (y >= 10 || y <= 40)) {
+			z -= 1;
+			return getFormatedCoordinates();
+		} else if (z < 10 && x > 10 && x < 40 && y > 10 && y < 40) {
+			z -= 1;
+			return getFormatedCoordinates();
+		} else {
+			return getFormatedCoordinates();
+		}
+	}
+	
+	
+	
 	
 	public String getFormatedCoordinates() {
 		return this.toString();

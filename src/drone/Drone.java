@@ -1,3 +1,4 @@
+
 package drone;
 
 public class Drone implements StandardDrone {
@@ -14,56 +15,192 @@ public class Drone implements StandardDrone {
 		this.z=z;
 	}
 	
-	public String toString()
-	{
-		return "Trenutna pozicija: ("+x+","+y+","+z+")";
-	}
-	
 	public String moveUp() {
 		// TODO Auto-generated method stub
-		y+=1;
-		return null;
-	}
 
+		if((0<=x && x<=50) && (0<=y && y<10) && (0<=z && z<=50))
+		{
+			y++;
+		}
+		else if((0<=x && x<=50) && (40<=y && y<50) && (0<=z && z<=50))
+		{
+			y++;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<50) && (0<=z && z<=10))
+		{
+			y++;
+		}
+		else if((0<=x && x<=10) && (0<=y && y<50) && (0<=z && z<=50))
+		{
+			y++;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<50) && (40<=z && z<=50))
+		{
+			y++;
+		}
+		else if((40<=x && x<=50) && (0<=y && y<50) && (0<=z && z<=50))
+		{
+			y++;	
+		}
+		return getFormatedCoordinates();
+	}
+	
 	@Override
 	public String moveDown() {
 		// TODO Auto-generated method stub
-		y=y-1;
-		return null;
+		if((0<=x && x<=50) && (0<y && y<=10) && (0<=z && z<=50))
+		{
+			y--;
+		}
+		else if((0<=x && x<=50) && (40<y && y<=50) && (0<=z && z<=50))
+		{
+			y--;
+		}
+		else if((0<=x && x<=50) && (0<y && y<=50) && (0<=z && z<=10))
+		{
+			y--;
+		}
+		else if((0<=x && x<=10) && (0<y && y<=50) && (0<=z && z<=50))
+		{
+			y--;
+		}
+		else if((0<=x && x<=50) && (0<y && y<=50) && (40<=z && z<=50))
+		{
+			y--;
+		}
+		else if((40<=x && x<=50) && (0<y && y<=50) && (0<=z && z<=50))
+		{
+			y--;
+		}
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveLeft() {
 		// TODO Auto-generated method stub
-		x=x-1;
-		return null;
+
+		if((0<x && x<=50) && (0<=y && y<=10) && (0<=z && z<=50))
+		{
+			x--;
+		}
+		else if((0<x && x<=50) && (40<=y && y<=50) && (0<=z && z<=50))
+		{
+			x--;
+		}
+		else if((0<x && x<=50) && (0<=y && y<=50) && (0<=z && z<=10))
+		{
+			x--;
+		}
+		else if((0<x && x<=10) && (0<=y && y<=50) && (0<=z && z<=50))
+		{
+			x--;
+		}
+		else if((0<x && x<=50) && (0<=y && y<=50) && (40<=z && z<=50))
+		{
+			x--;
+		}
+		else if((40<x && x<=50) && (0<=y && y<=50) && (0<=z && z<=50))
+		{
+			x--;
+		}
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveRight() {
 		// TODO Auto-generated method stub
-		x+=1;
-		return null;
+		if((0<=x && x<50) && (0<=y && y<=10) && (0<=z && z<=50))
+		{
+			x++;
+		}
+		else if((0<=x && x<50) && (40<=y && y<=50) && (0<=z && z<=50))
+		{
+			x++;
+		}
+		else if((0<=x && x<50) && (0<=y && y<=50) && (0<=z && z<=10))
+		{
+			x++;
+		}
+		else if((0<=x && x<10) && (0<=y && y<=50) && (0<=z && z<=50))
+		{
+			x++;
+		}
+		else if((0<=x && x<50) && (0<=y && y<=50) && (40<=z && z<=50))
+		{
+			x++;
+		}
+		else if((40<=x && x<50) && (0<=y && y<=50) && (0<=z && z<=50))
+		{
+			x++;
+		}
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
 		// TODO Auto-generated method stub
-		z=z+1;
-		return null;
+		if((0<=x && x<=50) && (0<=y && y<=10) && (0<=z && z<50))
+		{
+			z++;
+		}
+		else if((0<=x && x<=50) && (40<=y && y<=50) && (0<=z && z<50))
+		{
+			z++;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<=50) && (0<=z && z<10))
+		{
+			z++;
+		}
+		else if((0<=x && x<=10) && (0<=y && y<=50) && (0<=z && z<50))
+		{
+			z++;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<=50) && (40<=z && z<50))
+		{
+			z++;
+		}
+		else if((40<=x && x<=50) && (0<=y && y<=50) && (0<=z && z<50))
+		{
+			z++;
+		}
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
 		// TODO Auto-generated method stub
-		z=z-1;
-		return null;
+		if((0<=x && x<=50) && (0<=y && y<=10) && (0<z && z<=50))
+		{
+			z--;
+		}
+		else if((0<=x && x<=50) && (40<=y && y<=50) && (0<z && z<=50))
+		{
+			z--;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<=50) && (0<z && z<=10))
+		{
+			z--;
+		}
+		else if((0<=x && x<=10) && (0<=y && y<=50) && (0<z && z<=50))
+		{
+			z--;
+		}
+		else if((0<=x && x<=50) && (0<=y && y<=50) && (40<z && z<=50))
+		{
+			z--;
+		}
+		else if((40<=x && x<=50) && (0<=y && y<=50) && (0<z && z<=50))
+		{
+			z--;
+		}
+		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		return null;
+		System.out.println("Trenutna pozicija: ("+x+","+y+","+z+")");
+		return null ;
 	}
 
 }

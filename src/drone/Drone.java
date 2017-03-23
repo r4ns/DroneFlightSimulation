@@ -10,6 +10,7 @@ public class Drone implements StandardDrone {
 	
 	Drone (){
 		
+		
 	}
 	
 	Drone(int x ,int y ,int z){

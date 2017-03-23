@@ -13,37 +13,51 @@ public class DroneController {
 		{
 			drone.moveUp();
 		}
-		System.out.println("Ides skroz desno");
-		for (i=drone.x; i<50; i++)
+		
+		System.out.println("Ides desno");
+		
+		for(i=drone.x; i<50; i++)
 		{
 			drone.moveRight();
 		}
-		System.out.println("Ides skroz gore");
-		for(i=drone.y; i<50; i++)
+		
+		System.out.println("Penjes se gore");
+		
+		for (i=drone.y; i<50; i++)
 		{
 			drone.moveUp();
 		}
-		System.out.println("Ides skroz napred");
+		
+		System.out.println("Ides napred i oblilazis drugu stranu kocke");
+		
 		for(i=drone.z; i<50; i++)
 		{
 			drone.moveForth();
 		}
+		
 		System.out.println("Ides levo");
-		for(i=drone.x; i>30;i--)
+		
+		for(i=drone.x; i>25; i--)
 		{
 			drone.moveLeft();
 		}
+		
 		System.out.println("Na kocki si");
-		for(i=drone.z; i>30; i--)
+		
+		for(i=drone.z; i<30; i++)
 		{
 			drone.moveBack();
 		}
-		System.out.println("Ides levo do 0");
+		
+		System.out.println("Ides levo do kraja kocke");
+		
 		for(i=drone.x; i>0; i--)
 		{
 			drone.moveLeft();
 		}
-		System.out.println("Spusta se");
+		
+		System.out.println("Spusta se na cilj");
+		
 		for(i=drone.y; i>30; i--)
 		{
 			drone.moveDown();

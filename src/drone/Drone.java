@@ -9,12 +9,18 @@ public class Drone implements StandardDrone{
 	private int sGranica2 = 50;
 	private int[] cilj = {0, 30, 30};
 	
+	public Drone(int c[]){
+		this.x = c[0];
+		this.y = c[1];
+		this.z = c[2];
+	}
+	
 	public Drone(int x, int y, int z){
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
-	
+
 	
 	private boolean uIvici(int k){
 		if(k>= sGranica1 && k <=uGranica1 || k>=uGranica2 && k <= sGranica2){

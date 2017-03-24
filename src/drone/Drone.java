@@ -3,9 +3,10 @@ package drone;
 public class Drone implements StandardDrone {
 	
 	
-	public  int x;
-	public  int y;
-	public  int z;
+	private  int x;
+	private  int y;
+	private  int z;
+	private int [] granice;
 
 
 	Drone(int x,int y,int z)
@@ -13,6 +14,15 @@ public class Drone implements StandardDrone {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+	}
+
+
+	public Drone(int[] granice, int[] pocetneKordinate) 
+	{
+		this.granice = granice;
+		x = pocetneKordinate[0];
+		y = pocetneKordinate[1];
+		z = pocetneKordinate[2];
 	}
 
 

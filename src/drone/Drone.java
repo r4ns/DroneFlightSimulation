@@ -199,8 +199,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		System.out.println("Trenutna pozicija: ("+x+","+y+","+z+")");
-		return null ;
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
 
 }

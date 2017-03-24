@@ -110,9 +110,11 @@ public class Drone implements StandardDrone{
 		return getFormatedCoordinates() ;
 	}
 
-	@Override
+	
 	public String getFormatedCoordinates() {
 		return "Drone position: "+"("+x+","+y+","+z+")" ;
 	}
+	
+	
 
 }

@@ -2,10 +2,20 @@ package drone;
 
 public class Drone {
 	private int x,y,z;
+	private int [] boundaries;
+	public int[] getBoundaries() {
+		return boundaries;
+	}
+	public void setBoundaries(int[] boundaries) {
+		this.boundaries = boundaries;
+	}
 	public Drone (int x, int y, int z) {
 		this.x=x;
 		this.y=y;
 		this.z=z;
+	}
+	public Drone() {
+		
 	}
 	public  String moveUp(){
 		

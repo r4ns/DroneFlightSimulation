@@ -2,9 +2,9 @@ package drone;
 
 public class Drone implements StandardDrone {
 	
-	private int x=30;
-	private int y=0;
-	private int z=30;
+	private int x;
+	private int y;
+	private int z;
 	
 	public Drone(){
 		
@@ -14,47 +14,82 @@ public class Drone implements StandardDrone {
 		this.y=y;
 		this.z=z;
 	}
+	public String toString(){
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
+	}
 	@Override
 	public String moveUp() {
-		if(y>=0&&y<=10&&x<=40&&x>=10&&z>=10&&z<=40)
+		if(x>10&&x<40&&z>10&&z<40&&y<10)
 		{
-			y=y+1;			
-		}
-		else if((x>=0&&x<=10)||(x<=50&&x>=40)&&(y>=0&&y<=50)&&(z>=0&&z<=10)||(z<=50&&z>=40)){
+			if(y==10)
+			{
+				System.out.println("Dron je dotakao plafon");
+			}
+			y++;
 			
-		}			
-		return "("+x+","+y+","+z+")";
+			
+		}else if(x>=0&&x<50&&y>=0&&y<50&&z>40&&z<=50){
+			y++;
+			
+		}else if(x>=0&&x<=50&&y>0&&y<50&&z>=0&&z<=10){
+			y++;
+			
+		}
+		return "Trenutna pozicija drona: ("+this.x+","+this.y+","+this.z+")";
 		
 	}
 
+	
 	@Override
 	public String moveDown() {
-		
-		return null;
+		if(x>=0&&x<=50&&y>40&&y<=50&&z>=0&&z<=50){
+			y--;
+		}else if(x>=0&&x<=10&&y>=0&&y<=50&&z>=0&&z<=50){
+			y--;
+		}
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveLeft() {
-		
-		return null;
+		if(x>40&&x<=50&&y>=0&&y<=50&&z>=0&&z<=50){
+			x--;
+		}else if(x>0&&x<=50&&y>0&&y<=50&&z>=0&&z<=10){
+			x--;
+		}else if(x>0&&x<=50&&y>=40&&y<=50&&z>=0&&z<=50){
+			x--;
+		}
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveRight() {
-		
-		return null;
+		if(x>=0&&x<50&&y>=0&&y<=50&&z>=40&&z<=50){
+			x++;
+		}
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveBack() {
-		
-		return null;
+		if(x>=0&&x<50&&y>=0&&y<=10&&z>=0&&z<50){
+			z++;
+		}else if(x>=0&&x<50&&y>=0&&y<=50&&z>=0&&z<10){
+			z++;
+		}else if(x>=0&&x<=50&&y>40&&y<=50&&z>=0&&z<50){
+			z++;
+		}
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveForth() {
-		
-		return null;
+		if(x>=0&&x<=50&&y>=0&&y<=50&&z>40&&z<=50){
+			z--;
+		}else if(x>=40&&x<=50&&y>=0&&y<=50&&z>0&&z<=50){
+			z--;
+		}
+		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
@@ -62,5 +97,22 @@ public class Drone implements StandardDrone {
 		
 		return null;
 	}
-
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+	public int getZ() {
+		return z;
+	}
+	public void setZ(int z) {
+		this.z = z;
+	}
 }

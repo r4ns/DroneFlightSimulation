@@ -5,11 +5,11 @@ public class Drone implements StandardDrone {
 	private int y;
 	private int z;
 
-	Drone() {
+	public Drone() {
 
 	}
 
-	Drone(int x, int y, int z) {
+	public Drone(int x, int y, int z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
@@ -27,7 +27,7 @@ public class Drone implements StandardDrone {
 					System.out.println(getFormatedCoordinates());
 				}
 			}
-			System.out.println("Hitting the wall !!!");
+			
 		} else if (this.x >= 10 && this.x <= 40 && this.z >= 10 && this.z <= 40 && this.y >= 0 && this.y < 10) {
 
 			for (int i = 0; i < m; i++) {
@@ -37,7 +37,7 @@ public class Drone implements StandardDrone {
 				}
 
 			}
-			System.out.println("Hitting the wall !!!");
+			
 		} else if (this.x >= 10 && this.x <= 40 && this.z >= 10 && this.z <= 40 && y >= 40 && y < 50) {
 
 			for (int i = 0; i < m; i++) {
@@ -47,7 +47,7 @@ public class Drone implements StandardDrone {
 				}
 
 			}
-			System.out.println("Hitting the wall !!!");
+			
 		} else
 			System.out.println("Hitting the wall !!!");
 
@@ -251,7 +251,11 @@ public class Drone implements StandardDrone {
 	}
 
 	public String getFormatedCoordinates() {
+		if(this.x == 0 && this.y == 30 && this.z == 30){
+			System.out.println("Destination reched :");
+		}
 		return "Drone position : (" + x + "," + y + "," + z + ")";
+		
 	}
 
 }

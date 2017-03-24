@@ -17,7 +17,7 @@ public class DroneController {
 		mojDron.moveBack(21);
 		mojDron.moveLeft(32);
 		mojDron.moveDown(20);
-		System.out.println("Destination reached !!!");
+		
 		
 		
 		

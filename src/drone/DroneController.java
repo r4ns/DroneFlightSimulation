@@ -38,6 +38,7 @@ public class DroneController {
 			dron.moveForth();
 			System.out.println(dron.toString());
 		}
+		
 		System.out.println("----------Dron krece levo--------------");
 		for(i=0;i<12;i++){
 			dron.moveLeft();

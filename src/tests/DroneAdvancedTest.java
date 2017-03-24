@@ -17,6 +17,7 @@ public class DroneAdvancedTest {
 	public void testClassRun(){
 		drone= new Drone(startCoordinates[0],startCoordinates[1],startCoordinates[2]);
 		
+		
 		String expectedCoordinates="Trenutna pozicija drona: ("
 		+Integer.toString(endCoordinates[0])+","
 		+Integer.toString(endCoordinates[1])+","

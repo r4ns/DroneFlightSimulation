@@ -5,6 +5,9 @@ public class Drone implements StandardDrone{
 	private int y;
 	private int z;
 	
+	public Drone(){
+		
+	}
 	public Drone(int x, int y, int z){
 		this.x=x;
 		this.y=y;

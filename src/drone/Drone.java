@@ -12,22 +12,27 @@ public class Drone implements StandardDrone {
 		this.y=y;
 		this.z=z;
 	}
+	
+	public Drone(){
+		
+		
+	}
 
 	@Override
 	public String moveUp() {
 		
 		System.out.println("-------------Moving up-------------");
 		
-		if(y>=10 && /*x==30 && z==30*/ x<=40 && x>=10 && z<=40 && z>=10){
+		if(y>=10 &&  x<=40 && x>=10 && z<=40 && z>=10){
 			
-			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			getFormatedCoordinates();
 		
 		} else if(y<=10) {
 			
 			for(int k=0; k<10; k++){ 
 				
 				y++;
-				System.out.println("Drone position: ("+x+","+y+","+z+")");
+				getFormatedCoordinates();
 				
 			}
 			
@@ -38,7 +43,7 @@ public class Drone implements StandardDrone {
 				if(y<50){
 					
 					y++;
-					System.out.println("Drone position: ("+x+","+y+","+z+")");
+					getFormatedCoordinates();
 				}
 
 			}
@@ -50,16 +55,17 @@ public class Drone implements StandardDrone {
 				if(y<10){
 					
 					y++;
-					System.out.println("Drone position: ("+x+","+y+","+z+")");
+					getFormatedCoordinates();
+					
 				}
 			}
 		}
 		
 		
-		return null;
+		return getFormatedCoordinates();
 	
 			
-		}
+	}
 		
 		
 
@@ -203,9 +209,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String getFormatedCoordinates() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
+	
+	
+	
 
 	public int getX() {
 		return x;

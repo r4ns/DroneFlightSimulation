@@ -1,14 +1,18 @@
 package drone;
 
 public class Drone implements StandardDrone {
-	int x = 30;
-	int y = 0;
-	int z = 30;
+	private int x = 30;
+	private int y = 0;
+	private int z = 30;
 	
 	public Drone(int x, int y, int z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+	}
+	
+	public Drone()
+	{
 	}
 
 	@Override
@@ -21,7 +25,10 @@ public class Drone implements StandardDrone {
 		else if(y < 50)
 			y++;
 		
-		return "Drone position: (" + x + "," + y + "," + z + ")" ;
+		if(x == 0 && y == 30 && z == 30)
+			return "Drone reach the final position: (0, 30, 30)";
+		else
+			return "Drone position: (" + x + "," + y + "," + z + ")" ;
 	}
 
 	@Override

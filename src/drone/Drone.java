@@ -11,6 +11,12 @@ public class Drone implements StandardDrone{
 		z = 30;
 		CheckSides();
 	}
+	public Drone(int[] startCoordinates){
+		x = startCoordinates[0];
+		y = startCoordinates[1];
+		z =  startCoordinates[2];
+		CheckSides();
+	}
 	
 	public void takeAFlight(){
 		for (int i = 0; i < 5; i++){

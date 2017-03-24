@@ -2,7 +2,7 @@ package drone;
 
 public class Drone implements StandardDrone{
 	private int x, y, z;
-	
+	private int[] boundaries;
 	
 
 	public String moveUp() {
@@ -61,6 +61,14 @@ public class Drone implements StandardDrone{
 
 	public void setZ(int z) {
 		this.z = z;
+	}
+
+	public int[] getBoundaries() {
+		return boundaries;
+	}
+
+	public void setBoundaries(int[] boundaries) {
+		this.boundaries = boundaries;
 	}
 
 }

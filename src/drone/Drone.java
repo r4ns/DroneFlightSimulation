@@ -13,7 +13,22 @@ public class Drone implements StandardDrone {
 	
 	@Override
 	public String moveUp() {
-		y++;
+		if (y>=0 && y <= 10 && x >=0 && x<= 50  && z >=0 && z <=50)
+			y++;
+		
+		if (y>=0 && y <= 10 && x >=10 && x<= 40  && z >=40 && z <=50)
+			y++;
+		
+		if (y>=0 && y <= 50 && x >=0 && x<= 10  && z >=0 && z <=50)
+			y++;
+		
+		if (y>=0 && y <= 50 && x >=40 && x<= 50  && z >=0 && z <=10)
+			y++;
+	
+		if (y>=0 && y <= 10 && x >=10 && x<= 40  && z >=40 && z <=50)
+			y++;
+		
+		
 		return getFormatedCoordinates();
 	}
 

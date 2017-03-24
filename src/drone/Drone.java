@@ -5,6 +5,19 @@ public class Drone implements StandardDrone {
 	private int x=30;
 	private int y=0;
 	private int z=30;
+	private int [] boundaries;
+	
+
+public void setBoundaries(int[] boundaries) {
+		this.boundaries = boundaries;
+	}
+
+public Drone()
+{
+	
+}
+
+
 	
 
 @Override
@@ -302,7 +315,7 @@ public String moveForth() {
 @Override
 public String getFormatedCoordinates() {
 	// TODO Auto-generated method stub
-	System.out.println("drone position: (" + x + ", " + y + ", " + z + ")");
-	return null;
+	// System.out.println("drone position: (" + x + ", " + y + ", " + z + ")");
+	return ("Drone position: (" + x + "," + y + "," + z + ")");
 
 }}

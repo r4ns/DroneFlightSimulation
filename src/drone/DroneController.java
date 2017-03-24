@@ -45,6 +45,7 @@ public class DroneController {
 			System.out.println(dron.moveDown());
 		}
 		
+		
 		if(dron.getX()==0&&dron.getY()==30&&dron.getZ()==30)
 			System.out.println("Uspeo");
 		

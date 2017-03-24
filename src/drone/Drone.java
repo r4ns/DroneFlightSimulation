@@ -8,6 +8,9 @@ public class Drone implements StandardDrone{
 	
 	private int brojUdarenihIvica;
 	
+	public Drone(){
+		
+	}
 
 	public Drone(int xKordinata, int yKordinata, int zKordinata){
 		this.xKordinata = xKordinata;
@@ -61,7 +64,7 @@ public class Drone implements StandardDrone{
 		if(xKordinata == 10 || xKordinata == 40 || yKordinata == 10 || yKordinata == 40 || zKordinata == 10 || zKordinata == 50)
 			System.out.print("Drone hits inner square border: ");
 			*/
-		return "Drone position (" + xKordinata +  ", " + yKordinata + ", " + zKordinata + ")";
+		return "Drone position (" + xKordinata +  "," + yKordinata + "," + zKordinata + ")";
 	}
 	
 	public int getxKordinata() {
@@ -75,5 +78,23 @@ public class Drone implements StandardDrone{
 	public int getzKordinata() {
 		return zKordinata;
 	}
+
+	public void setxKordinata(int xKordinata) {
+		this.xKordinata = xKordinata;
+	}
+
+	public void setyKordinata(int yKordinata) {
+		this.yKordinata = yKordinata;
+	}
+
+	public void setzKordinata(int zKordinata) {
+		this.zKordinata = zKordinata;
+	}
+
+	public void setBrojUdarenihIvica(int brojUdarenihIvica) {
+		this.brojUdarenihIvica = brojUdarenihIvica;
+	}
+	
+	
 
 }

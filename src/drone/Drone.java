@@ -19,7 +19,6 @@ public class Drone implements StandardDrone{
 		}
 	}
 	
-	
 	public int getX() {
 		return x;
 	}
@@ -92,7 +91,6 @@ public class Drone implements StandardDrone{
 			
 	}
 	
-	@Override
 	public String moveUp() {
 		if (y == 50 || (y == 10 && x > 10 && x < 40 && z > 10 && z < 40 ))
 			return "Drone can't perform this move.";
@@ -100,7 +98,6 @@ public class Drone implements StandardDrone{
 		return "Drone went up to " + ++y + " height.";
 	}
 
-	@Override
 	public String moveDown() {
 		if ((y == 40 && x > 10 && x < 40 && z > 10 && z < 40)|| y == 0)
 			return "Drone can't perform this move.";
@@ -108,35 +105,30 @@ public class Drone implements StandardDrone{
 		return "Drone went down to " + --y + " height.";
 	}
 
-	@Override
 	public String moveLeft() {
 		if (x == 0 || (x== 40 && z > 10 && z < 40 && y > 10 && y < 40))
 			return "Drone can't perfom this move";
 		return "Drone went left to " + --x + " x coordinate.";
 	}
 
-	@Override
 	public String moveRight() {
 		if (x == 50 || (x == 10  && z > 10 && z < 40 && y > 10 && y < 40))
 			return "Drone can't perfom this move";
 		return "Drone went right to " + ++x + " x coordinate.";
 	}
 
-	@Override
 	public String moveBack() {
 		if (z == 50 || (z == 10 && y > 10 && y < 40 && x > 10 && x < 50))
 			return "Drone can't perfom this move";
 		return "Drone moved backwards to " + ++z + " z coordinate.";
 	}
 
-	@Override
 	public String moveForth() {
 		if (z == 0 || (z == 40 && y > 10 && y < 40 && x > 10 && x < 40))
 			return "Drone can't perfom this move";
 		return "Drone moved forwart to " + --z + " z coordinate.";
 	}
 
-	@Override
 	public String getFormatedCoordinates() {
 		return "[" + x + ", " + y + ", " +  z + "]";
 	}

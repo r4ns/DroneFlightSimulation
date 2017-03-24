@@ -43,7 +43,7 @@ public class Drone implements StandardDrone{
 		
 		poruka = "";
 		if(k + i == sGranica1 || k + i == sGranica2){
-			poruka = "//zvekio";
+			poruka = "//udario";
 			return k + i;
 		}
 		if(k == sGranica1 && i == -1 || k == sGranica2  && i == 1){
@@ -56,7 +56,7 @@ public class Drone implements StandardDrone{
 		
 		poruka = "";
 		if(k + i == sGranica1 || k + i == uGranica1 || k + i == uGranica2 || k + i == sGranica2){
-			poruka = "//zvekio";
+			poruka = "//udario";
 			return k + i;
 		}
 		if(k == sGranica1 && i == -1 || k == uGranica1  && i == 1|| k == uGranica2  && i == -1|| k == sGranica2  && i == 1){
@@ -132,7 +132,7 @@ public class Drone implements StandardDrone{
 	{
 		
 		if(stigaoNaCilj())
-			poruka = "//Target reached";
+			poruka = "//stigao na cilj";
 		
 		return "My position is: (" + Integer.toString(getX()) + ","
 				+ Integer.toString(getY()) + ","  

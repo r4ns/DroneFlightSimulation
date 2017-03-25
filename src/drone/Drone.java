@@ -90,10 +90,10 @@ public class Drone implements StandardDrone {
 	}
 	
 	public String getFormatedCoordinates() {
-		return "Drone position is: " + 
-				Integer.toString(x) + " " +
-				Integer.toString(y) + " " +
-				Integer.toString(z);
+		return "Drone position: (" 
+				+ Integer.toString(x) + ","
+				+ Integer.toString(y) + ","
+				+ Integer.toString(z) + ")";
 	}
 
 	public int getX() {

@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import drone.Drone;
@@ -14,7 +16,33 @@ public class DroneAdvancedTest {
 	
 	private int[] freq = {12, 21, 23, 16, 12, 5, 18, 17, 21, 22, 20};
 	
-	/*@Test
+	
+	public String helperTestFinishPosition() 
+	{
+		for (int i = 0; i < freq.length; i++)
+		{
+			int j = freq[i];
+			for (int k = 0; k < j; k++)
+			{
+				if (strings[i] == "up")
+					drone.moveUp();
+				else if (strings[i] == "down")
+					drone.moveDown();
+				else if (strings[i] == "left")
+					drone.moveLeft();
+				else if (strings[i] == "forth")
+					drone.moveForth();
+				else if (strings[i] == "back")
+					drone.moveBack();
+				else
+					drone.moveRight();
+			}
+		}
+		String finishPosition = drone.getFormatedCoordinates();
+		return finishPosition;
+	}
+	
+	@Test
 	public void testFinishPosition() {
 		drone = new Drone(30, 0, 30);
 		
@@ -22,11 +50,7 @@ public class DroneAdvancedTest {
 				", " + Integer.toString(finishCoordinates[1]) +
 				", " + Integer.toString(finishCoordinates[2]) + ")";
 		
-		public String helperTestFinishPosition() {
-			for (int i = 0; i < 11; i++)
-			{
-			}
-		}
+		assertEquals(expectedCoordinates, helperTestFinishPosition());
 	
-	}*/
+	}
 }

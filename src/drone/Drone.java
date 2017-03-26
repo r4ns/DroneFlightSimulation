@@ -76,7 +76,7 @@ public class Drone implements StandardDrone {
 	}
 
 	@Override
-	public String moveBack() {
+	public String moveForth() {
 		if ((z > 0 & z <= 10) || (z > 40 & z <= 50)) {
 			z--;
 			return "(" + x + ", " + y + ", " + z + ")";
@@ -91,7 +91,7 @@ public class Drone implements StandardDrone {
 	}
 
 	@Override
-	public String moveForth() {
+	public String moveBack() {
 		if (z < 10 || (z >= 40 & z < 50)) {
 			z++;
 			return "(" + x + ", " + y + ", " + z + ")";

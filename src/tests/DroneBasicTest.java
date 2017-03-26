@@ -24,7 +24,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test 
-	public void testLowerBoundryForMoveDownCase1()
+	public void testBoundryForMoveDownCase1()
 	{
 		drone = new Drone(30,0,30);
 		
@@ -36,7 +36,7 @@ public class DroneBasicTest {
 		
 	}
 	@Test 
-	public void testLowerBoundryForMoveDownCase2()
+	public void testBoundryForMoveDownCase2()
 	{
 		drone = new Drone(30,40,30);
 		

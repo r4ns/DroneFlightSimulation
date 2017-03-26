@@ -44,34 +44,32 @@ public class DroneAdvancedTest {
 		
 		while(i<methods.length)
 		{
-			if(methods[i]=="moveUp"){
-				for(int j=0;j<execution[i];j++)
+			for(int j=0;j<execution[i];j++)
+			{
+				if(methods[i]=="moveUp"){
+					
 					drone.moveUp();	
-			}
-			else if(methods[i]=="moveDown")
-			{
-				for(int j=0;j<execution[i];j++)
+				}
+				else if(methods[i]=="moveDown")
+				{
 					drone.moveDown();	
-			}
-			else if(methods[i]=="moveLeft")
-			{
-				for(int j=0;j<execution[i];j++)
+				}
+				else if(methods[i]=="moveLeft")
+				{
 					drone.moveLeft();	
-			}
-			else if(methods[i]=="moveRight")
-			{
-				for(int j=0;j<execution[i];j++)
+				}
+				else if(methods[i]=="moveRight")
+				{
 					drone.moveRight();	
-			}
-			else if(methods[i]=="moveBack")
-			{
-				for(int j=0;j<execution[i];j++)
+				}
+				else if(methods[i]=="moveBack")
+				{
 					drone.moveBack();	
-			}
-			else if(methods[i]=="moveForth")
-			{
-				for(int j=0;j<execution[i];j++)
+				}
+				else if(methods[i]=="moveForth")
+				{
 					drone.moveForth();	
+				}
 			}
 			
 			i++;

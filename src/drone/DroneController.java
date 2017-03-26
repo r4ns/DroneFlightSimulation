@@ -85,5 +85,6 @@ public class DroneController {
 			System.out.println(dron.toString());
 		}
 		System.out.println("Dron je stigao na poziciju: "+dron.toString());
+		System.out.println("hej");
 	}
 }

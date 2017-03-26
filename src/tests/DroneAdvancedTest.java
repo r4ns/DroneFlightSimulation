@@ -12,7 +12,7 @@ public class DroneAdvancedTest {
 
 	Drone drone;
 	private String[] droneMovements = {"moveUp", 
-										"moveRight",
+									 	"moveRight",
 										"moveUp",
 										"moveForth", 
 										"moveLeft",

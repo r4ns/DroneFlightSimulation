@@ -1,23 +1,16 @@
 package drone;
 
 public class Drone implements StandardDrone{
-private int x,y,z;
+ 
+	private int x,y,z;
 	
 	public Drone(int x, int y, int z){
-		if(x>=0 && x<=50)
+		
 			this.x=x;
-		else 
-			this.x=0;
-		if(y>=0 && y<=50)
 			this.y=y;
-		else 
-			this.y=0;
-		if(z>=0 && z<=50)
 			this.z=z;
-		else 
-			this.z=0;
 	}
-	@Override
+		
 	public String moveUp() {
 		if((x>=0 && x<=10) || (x>=40 && x<=50))
 		{
@@ -46,7 +39,7 @@ private int x,y,z;
 		
 	}
 
-	@Override
+	
 	public String moveDown() {
 		if((x>=0 && x<=10) || (x>=40 && x<=50))
 		{
@@ -74,7 +67,7 @@ private int x,y,z;
 		
 	}
 
-	@Override
+
 	public String moveLeft() {
 		if((y>=0 && y<=10) || (y>=40 && y<=50))
 		{
@@ -102,7 +95,6 @@ private int x,y,z;
 			
 	}
 
-	@Override
 	public String moveRight() {
 		if((y>=0 && y<=10) || (y>=40 && y<=50))
 		{
@@ -129,7 +121,7 @@ private int x,y,z;
 		
 	}
 
-	@Override
+	
 	public String moveForth() {
 		if((x>=0 && x<=10) || (x>=40 && x<=50))
 		{
@@ -137,7 +129,7 @@ private int x,y,z;
 				z--;
 			return getFormatedCoordinates();
 		}
-		else if((y>=0 && y<=10) && (y>=40 && y<=50))
+		else if((y>=0 && y<=10) || (y>=40 && y<=50))
 		{
 			if(z>0)
 				z--;
@@ -156,7 +148,6 @@ private int x,y,z;
 		
 	}
 
-	@Override
 	public String moveBack() {
 		if((x>=0 && x<=10) || (x>=40 && x<=50))
 		{
@@ -164,7 +155,7 @@ private int x,y,z;
 				z++;
 			return getFormatedCoordinates();
 		}
-		else if((y>=0 && y<=10) && (y>=40 && y<=50))
+		else if((y>=0 && y<=10) || (y>=40 && y<=50))
 		{
 			if(z<50)
 				z++;
@@ -184,8 +175,8 @@ private int x,y,z;
 	}
 	public String getFormatedCoordinates() {
 		
-		System.out.println("Drone position is: (" +x+ ", "+y+", "+z+ ")");
-		return null;
+		return "Drone position: (" +x+ ", "+y+", "+z+ ")";
+		
 		
 	}
 

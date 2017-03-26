@@ -42,11 +42,11 @@ public class DroneAdvancedTest {
 			}
 			if(smer[i]=="back"){
 				for(int j=0;j<ponavljanja[i];j++)
-					System.out.println(drone.moveBack());
+					drone.moveBack();
 			}
 			if(smer[i]=="forth"){
 				for(int j=0;j<ponavljanja[i];j++)
-					System.out.println(drone.moveForth());
+					drone.moveForth();
 			}
 		
 				

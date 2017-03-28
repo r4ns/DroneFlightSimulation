@@ -2,7 +2,8 @@ package drone;
 
 public class DroneController {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
+		
 		Drone drone= new Drone();
 		System.out.println("Podizanje gore!");
 		while(drone.coordinates[1]<10){

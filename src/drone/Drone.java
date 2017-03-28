@@ -20,21 +20,28 @@ public class Drone implements StandardDrone {
 	}
 	@Override
 	public String moveUp() {
-		if(x>10&&x<40&&z>10&&z<40&&y<10)
+		if(x>10&&x<40&&z>10&&z<40&&y<10&&y>=0)
 		{
-			if(y==10)
-			{
-				System.out.println("Dron je dotakao plafon");
-			}
+			//donji deo y<10
 			y++;
-			
 			
 		}else if(x>=0&&x<50&&y>=0&&y<50&&z>40&&z<=50){
+			//prednji deo
 			y++;
 			
-		}else if(x>=0&&x<=50&&y>0&&y<50&&z>=0&&z<=10){
+		}else if(x>=0&&x<=50&&y>=0&&y<50&&z>=0&&z<=10){
+			//zadnji deo
 			y++;
 			
+		}else if(x>=0&&x<=10&&y>=0&&y<50&&z>=0&&z<=50){
+			//levi deo
+			y++;
+		}else if(x>=40&&x<=50&&y>=0&&y<50&&z>=0&&z<=50){
+			//desni deo
+			y++;
+		}else if(x>=0&&x<=50&&z>=0&&z<=50&&y>=40&&y<50){
+			//gornji deo
+			y++;
 		}
 		return "Trenutna pozicija drona: ("+this.x+","+this.y+","+this.z+")";
 		
@@ -44,8 +51,22 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveDown() {
 		if(x>=0&&x<=50&&y>40&&y<=50&&z>=0&&z<=50){
+			//gornji deo
 			y--;
-		}else if(x>=0&&x<=10&&y>=0&&y<=50&&z>=0&&z<=50){
+		}else if(x>=0&&x<=50&&y>0&&y<=10&&z>=0&&z<=50){
+			//donji deo y<=10
+			y--;
+		}else if(x>=0&&x<=10&&y>0&&y<=50&&z>=0&&z<=50){
+			//levi deo
+			y--;
+		}else if(x>=40&&x<=50&&y>0&&y<=50&&z>=0&&z<=50){
+			//desni deo
+			y--;
+		}else if(x>=0&&x<=50&&y>0&&y<=50&&z>=0&&z<=10){
+			//zadnji deo
+			y--;
+		}else if(x>=0&&x<=50&&y>0&&y<=50&&z>=40&&z<=50){
+			//prednji deo
 			y--;
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";

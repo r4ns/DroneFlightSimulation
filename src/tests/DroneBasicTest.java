@@ -17,9 +17,11 @@ public class DroneBasicTest {
 		
 		String expectedCoordinates = "Trenutna pozicija drona: "
 				+ "("+Integer.toString(startcoordinates[0])+","
-				+Integer.toString(startcoordinates[1])+","
+				+Integer.toString(startcoordinates[1]+1)+","
 				+Integer.toString(startcoordinates[2])+")";
 		assertEquals(expectedCoordinates, drone.moveUp());
 	}
+	
+	
 	
 }

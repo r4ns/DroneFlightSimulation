@@ -150,10 +150,7 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String getFormatedCoordinates() {
-		if (currentX == 0 && currentY == 30 && currentZ == 30)
-			return "Destination reached! Coordinates : (" + currentX + "," + currentY + "," + currentZ + ")";
-		else
-			return "Drone position : (" + currentX + "," + currentY + "," + currentZ + ")";
+		return "Drone position : (" + currentX + "," + currentY + "," + currentZ + ")";
 	}
 
 }

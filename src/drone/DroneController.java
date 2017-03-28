@@ -36,11 +36,8 @@ public class DroneController {
 		for(int i=0;i<22;i++)
 			System.out.println(d1.moveLeft());
 		System.out.println("-----------Moving Down-------------");
-		for(int i=0;i<21;i++){
-			if(d1.getX()==0&&d1.getY()==30&&d1.getZ()==30)
-				System.out.println(d1.getFormatedCoordinates()+"//target reached !!");
-			else 
-				System.out.println(d1.moveDown());
+		for(int i=0;i<20;i++){ 
+			System.out.println(d1.moveDown());
 		}
 	}
 }

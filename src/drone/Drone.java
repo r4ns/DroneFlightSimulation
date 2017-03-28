@@ -5,47 +5,112 @@ public class Drone implements StandardDrone {
 	private int x;
 	private int y;
 	private int z;
+	private int[] granice;
+	private int[] koordinate;
+	private int razdaljina = 10;
 
+	public Drone(int[] granice, int[] koordinate) {
+		this.granice = granice;
+		this.koordinate = koordinate;
+	}
+	
 	public Drone(int x, int y, int z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
+			
 	
+	public String moveUp() {		
 		
-	
-	public String moveUp() {
-		y++;	
-		return "(" + x + ", " + y + ", " + z + ")";		
+		if (koordinate[1] == 50 || (koordinate[1] == 10 && koordinate[0] > 10 && koordinate[0] < 40 && koordinate[2] > 10 && koordinate[2] < 40)) {
+			
+			return  "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			
+			koordinate[1]++;
+			
+		}
+		
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";		
 	}
 
 	public String moveDown() {
-		y--;		
-		return "(" + x + ", " + y + ", " + z + ")";
+		
+		if(koordinate[1] == 0 || (koordinate[1] == 40 && koordinate[0] > 10 && koordinate[0] < 40 && koordinate[2] > 10 && koordinate[2] < 40)) {
+			
+			return  "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			
+			koordinate[1]--;
+			
+		}				
+		
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
 	}
 	
 
 	
 	public String moveLeft() {
-		x--;		
-		return "(" + x + ", " + y + ", " + z + ")";
+				
+		if (koordinate[0] == 0 || (koordinate[0] == 40 && koordinate[1] > 10 && koordinate[1] < 40 && koordinate[2] > 10 && koordinate[2] < 40)) {
+			
+			 return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			
+			koordinate[0]--;
+			
+		}
+		
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
 	}
 
 	public String moveRight() {
-		x++;		
-		return "(" + x + ", " + y + ", " + z + ")";
+				
+		if (koordinate[0] == 50 || (koordinate[0] == 10 && koordinate[1] > 10 && koordinate[1] < 40 && koordinate[2] > 10 && koordinate[2] < 40)) {
+
+			return  "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			
+			koordinate[0]++;
+			
+		}
+		
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
 	}
 
 	
 	
 	public String moveBack() {
-		z++;		
-		return "(" + x + ", " + y + ", " + z + ")";
+					
+		if (koordinate[2] == 50 || (koordinate[2] == 10 && koordinate[0] > 10 && koordinate[0] < 40 && koordinate[1] > 10 && koordinate[1] < 40)) {
+			
+			return  "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			
+			koordinate[2]++;
+			
+		}
+		
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
 	}
 
 	public String moveForth() {
-		z--;		
-		return "(" + x + ", " + y + ", " + z + ")";
+				
+		if (koordinate[2] == 0 || (koordinate[2] == 40 && koordinate[0] > 10 && koordinate[0] < 40 && koordinate[1] > 10 && koordinate[1] < 40)) {
+			
+			return  "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
+			
+		} else {
+			koordinate[2]--;
+		}
+		 
+		return "(" + Integer.toString(koordinate[0]) + ", " + Integer.toString(koordinate[1]) + ", " + Integer.toString(koordinate[2]) + ")";
 	}
 
 	

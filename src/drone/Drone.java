@@ -3,6 +3,7 @@ package drone;
 public class Drone {
 	private int x,y,z;
 	private int [] boundaries;
+	private boolean signal;
 	public int[] getBoundaries() {
 		return boundaries;
 	}
@@ -19,39 +20,84 @@ public class Drone {
 	}
 	public  String moveUp(){
 		
+	    
 		y++;
-		return  "("+x+","+y+","+z+")";
+		if(!check())
+			y--;
 		
+	    
+		return  "("+x+","+y+","+z+")";
+	    
 	}
 	public  String moveDown() {
 		
+		
 		y--;
+		if(!check())
+			y++;
+		
+		
 		return"("+x+","+y+","+z+")";
 	}
 	public  String moveLeft(){
 		
+		
 		x--;
+		if(!check())
+			x++;
+		
+		
 		return "("+x+","+y+","+z+")";
 	}
 	public  String moveRight(){
 		
+		
 		x++;
+		if(!check())
+			x--;
+		
+		
 		return "("+x+","+y+","+z+")";
 	}
 	public  String moveBack(){
 		
+		
 		z++;
+		if(!check())
+			z--;
+		
+		
 		return "("+x+","+y+","+z+")";
 	}
 	public String moveForth(){
 		
+		
 		z--;
+		if(!check())
+			z++;
+		
+		
+		
 		return "("+x+","+y+","+z+")";
 	}
 	public  String getFormatedCoordinates(){
-		return "Dron se nalazi na (x,y,z) = ("+x+","+y+","+z+")";
+		return "("+x+","+y+","+z+")";
 	} 
-	
+	public boolean check() {
+		
+		if((10<x&&x<40)&&(10<y&&y<40)&&(10<z&&z<40))
+		{
+			return false;
+		}
+		else if (0>x||x>50||0>y||y>50||0>z||z>50)
+		{
+			return false;
+		}
+		else
+		{
+		return true;
+		}
+	}
 	public int getX() {
 		return x;
 	}

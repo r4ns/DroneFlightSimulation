@@ -13,7 +13,7 @@ public class DroneController {
     	   
     	   dr.moveUp();
     	   System.out.println(dr.getFormatedCoordinates());
-    	  
+    	   
        }
        System.out.println("Dron leti desno");
        for(int i=0;i<10;i++)

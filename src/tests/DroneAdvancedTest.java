@@ -34,12 +34,12 @@ public class DroneAdvancedTest {
 				"moveDown 20"
 		};
 		
-		droneMovement(commands);
+		helperDroneMovement(commands);
 		
 		assertEquals(expectedCoordinates, drone.getFormatedCoordinates());
 	}
 	
-	public void droneMovement(String[] commands){
+	public void helperDroneMovement(String[] commands){
 		for(int i = 0; i < commands.length; i++){
 			String[] command = commands[i].split(" ");
 			

@@ -19,6 +19,7 @@ public class DroneAdvancedTest {
 			System.out.println(drone.moveUp());
 		}
 		
+		
 		System.out.println("Drone position: ");
 		System.out.println("*********Moving right*********");
 		for(int i=0;i<21;i++)

@@ -11,18 +11,17 @@ import drone.Drone;
 
 public class DroneAdvancedTest {
 	
-	private int[] boundaries = {50, 50 ,50};
 	private int[] startCoordinates = {30, 0, 30};
 	Drone drone;
 	
 	@Test
 	public void testTravelingDroneToFinalPosition()
 	{
-		drone = new Drone();
+		drone = new Drone(startCoordinates[0], startCoordinates[1], startCoordinates[2]);
 		
 		String expectedCoordinates = "Drone position: (" 
-				+ Integer.toString(30) + ","
 				+ Integer.toString(0) + ","
+				+ Integer.toString(30) + ","
 				+ Integer.toString(30) + ")";
 		
 		String [] komande = {"moveUp() 12", 
@@ -36,21 +35,35 @@ public class DroneAdvancedTest {
 								"moveBack() 21", 
 								"moveLeft() 22", 
 								"moveDown() 20"};
-		helperTravelingDroneToFinalPosition(komande);
+		
+		assertEquals(expectedCoordinates, helperTravelingDroneToFinalPosition(komande));
 	}
 	
 	
 	public String helperTravelingDroneToFinalPosition(String[] komande)
 	{
 		for (int i = 0; i < komande.length; i++) {
-			String pomocni = komande[i];
-			String[] trenutneKomande = pomocni.split(" ");
+			String[] trenutneKomande = komande[i].split(" ");
 			
 			for (int j = 0; j < Integer.parseInt(trenutneKomande[1]); j++) {
-				
+				if(trenutneKomande[0] == "moveUp()")
+					drone.moveUp();
+				else if(trenutneKomande[0] == "moveDown()")
+					drone.moveDown();
+				else if(trenutneKomande[0] == "moveLeft()")
+					drone.moveLeft();
+				else if(trenutneKomande[0] == "moveRight()")
+					drone.moveRight();
+				else if(trenutneKomande[0] == "moveForth()")
+					drone.moveForth();
+				else if(trenutneKomande[0] == "moveBack()")
+					drone.moveBack();
 			}
 		}
 		
-		return "  ";
+		return "Drone position: (" 
+				+ drone.getX() + ","
+				+ drone.getY() + ","
+				+ drone.getZ() + ")";
 	}
 }

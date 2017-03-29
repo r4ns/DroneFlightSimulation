@@ -11,13 +11,54 @@ public class DroneAdvancedTest {
 	private int[] startCoordinates = {30, 0, 30};
 	Drone drone;
 	
+	public void helperDroneMovement(String[] commands){
+		for(int i = 0; i < commands.length; i++){
+			String[] command = commands[i].split(" ");
+			
+			if(command[0].equals("moveUp")){
+				System.out.println(command[0] + " " + command[1]);
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveUp());
+			}
+			
+			else if(command[0].equals("moveDown")){
+				System.out.println(command[0] + " " + command[1]);
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveDown());
+			}
+			
+			else if(command[0].equals("moveForth")){
+				System.out.println(command[0] + " " + command[1]);
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveForth());
+			}
+			
+			else if(command[0].equals("moveBack")){
+				System.out.println(command[0] + " " + command[1]);
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveBack());
+			}
+			
+			else if(command[0].equals("moveLeft")){
+				System.out.println(command[0] + " " + command[1]);
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveLeft());
+			}
+			
+			else if(command[0].equals("moveRight")){
+				for(int j = 0; j < Integer.parseInt(command[1]); j++)
+					System.out.println(drone.moveRight());
+			}
+		}
+	}
+	
 	@Test
 	public void testDroneMovementToFinalPosition(){
 		drone = new Drone();
 		
 		String expectedCoordinates = "Drone position: (" 
-				 + Integer.toString(30) + ","
 				 + Integer.toString(0) + ","
+				 + Integer.toString(30) + ","
 				 + Integer.toString(30) + ")";
 		
 		String[] commands = {
@@ -37,35 +78,5 @@ public class DroneAdvancedTest {
 		helperDroneMovement(commands);
 		
 		assertEquals(expectedCoordinates, drone.getFormatedCoordinates());
-	}
-	
-	public void helperDroneMovement(String[] commands){
-		for(int i = 0; i < commands.length; i++){
-			String[] command = commands[i].split(" ");
-			
-			if(command[0] == "moveUp")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveUp();
-			
-			if(command[0] == "moveDown")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveDown();
-			
-			if(command[0] == "moveForth")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveForth();
-			
-			if(command[0] == "moveBack")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveBack();
-			
-			if(command[0] == "moveLeft")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveLeft();
-			
-			if(command[0] == "moveRight")
-				for(int j = 0; j < Integer.parseInt(command[1]); j++)
-					drone.moveRight();
-		}
 	}
 }

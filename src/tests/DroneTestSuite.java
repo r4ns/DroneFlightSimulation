@@ -1,5 +1,16 @@
 package tests;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
-public class DroneTestSuite {
+	@RunWith (Suite.class) 
+	
+	@Suite.SuiteClasses({
+		DroneBasicTest.class,
+		DroneAdvancedTest.class
+	})
+	
+	public class DroneTestSuite {
+		
+	}
+		
 
-}

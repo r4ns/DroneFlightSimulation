@@ -18,7 +18,7 @@ public class Drone implements StandardDrone{
 	public String getFormatedCoordinates() {
 		if(koordinataX==0 && koordinataY==30 && koordinataZ==30){
 			stop=false;
-			return "Drone position: (" + koordinataX + ", " + koordinataY + ", " + koordinataZ + ") //Target reached";
+			return "Drone position: (" + koordinataX + ", " + koordinataY + ", " + koordinataZ + ")";
 		}
 		else
 		return "Drone position: (" + koordinataX + ", " + koordinataY + ", " + koordinataZ + ")";

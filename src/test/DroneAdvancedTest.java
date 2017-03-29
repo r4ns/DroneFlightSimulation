@@ -21,26 +21,32 @@ public class DroneAdvancedTest {
 				+ Integer.toString(coordinates[0]) + ", "
 				+ Integer.toString(coordinates[1]) + ", "
 				+ Integer.toString(coordinates[2]) + ")";
-		
-		assertEquals(coordinates, pomocna(niz, nizStringova));
+		assertEquals(expectedCoordinates, pomocna(niz, nizStringova));
 	}
 	public String pomocna(int[] k, String[] string){
-		int f=0;
-		for(int i=0; i<k.length;i++, f++){
-			if(string[f]=="gore")
-				dron.moveUp();
-			else if(string[f]== "dole")
-				dron.moveDown();
-			else if(string[f]=="levo")
-				dron.moveLeft();
-			else if(string[f]=="desno")
-				dron.moveRight();
-			else if(string[f]=="napred")
-				dron.moveForth();
-			else if(string[f]=="nazad")
-				dron.moveBack();
+		for(int i=0; i<k.length;i++){
+			if(string[i]=="gore"){
+				for (int j = 0; j < k[i]; j++)
+					dron.moveUp();
+			} else if(string[i]== "dole"){
+					for (int j = 0; j < k[i]; j++)
+						dron.moveDown();
+			} else if(string[i]== "desno"){
+				for (int j = 0; j < k[i]; j++)
+					dron.moveRight();
+			} else if(string[i]== "levo"){
+				for (int j = 0; j < k[i]; j++)
+					dron.moveLeft();
+			} else if(string[i]== "napred"){
+				for (int j = 0; j < k[i]; j++)
+					dron.moveForth();
+			} else if(string[i]== "nazad"){
+				for (int j = 0; j < k[i]; j++)
+					dron.moveBack();
+			}		
 			
 		}
+		
 		return dron.getFormatedCoordinates();
 		
 	}

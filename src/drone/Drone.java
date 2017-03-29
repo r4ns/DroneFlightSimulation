@@ -126,7 +126,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Pozicija drona: (" + x + ","+ y + "," + z + ")";
 	}
 
 	public int getX() {

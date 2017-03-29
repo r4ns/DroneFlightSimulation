@@ -75,6 +75,8 @@ public class DroneAdvancedTest {
 				"moveDown 20"
 		};
 		
+		
+		
 		helperDroneMovement(commands);
 		
 		assertEquals(expectedCoordinates, drone.getFormatedCoordinates());

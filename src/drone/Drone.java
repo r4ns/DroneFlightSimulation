@@ -1,220 +1,272 @@
 package drone;
 
 public class Drone implements StandardDrone {
-	
+
 	int x = 30;
 	int y= 0;
 	int z = 30;
 	
+
 	public Drone(int x, int y, int z){
-		
+
 		this.x=x;
 		this.y=y;
 		this.z=z;
-	}
-	
-	public Drone(){
-		
-		
 	}
 
 	@Override
 	public String moveUp() {
 		
-		System.out.println("-------------Moving up-------------");
 		
-		if(y>=10 &&  x<=40 && x>=10 && z<=40 && z>=10){
+		if(x>10 && x<40 && z>10 && z<40 && y>=0 && y<10){
 			
-			getFormatedCoordinates();
-		
-		} else if(y<=10) {
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-			for(int k=0; k<10; k++){ 
-				
-				y++;
-				getFormatedCoordinates();
-				
-			}
+		} else if(x>10 && x<40 && z>10 && z<40 && y>=40 && y<50) {
 			
-		} else if(x==20 &&  y==20 && z==0) {
+			y++;       
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-			for(int k=0; k<30; k++){
-				
-				if(y<50){
-					
-					y++;
-					getFormatedCoordinates();
-				}
-
-			}
-				
-			} else {
-		
-			for(int i=0; i<10; i++){
-				
-				if(y<10){
-					
-					y++;
-					getFormatedCoordinates();
-					
-				}
-			}
+		} else if (x>=0 && x<=10 && z>=0 && z<=50 && y>=0 && y<50){
+			
+			y++;
+			
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		} else if (x>=40 && x<=50 && z>=0 && z<=50 && y>=0 && y<50){
+			
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+			
+		} else if (x>=0 && x<=50 && z>=40 && z<=50 && y>=0 && y<50){
+			
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+			
+		} else if (x>=0 && x<=50 && z>=0 && z<=10 && y>=0 && y<50){
+			
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+			
+		} else {
+			
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		}
-		
-		
-		return getFormatedCoordinates();
-	
 			
+			return "Drone position: ("+x+","+y+","+z+")";
+		
+			
+
+		
+
+
+
 	}
-		
-		
+
+
+
 
 	@Override
 	public String moveDown() {
-		
-		
-		if(x==0 && y==50 && z==20){
+
+		if(x>=0 && x<=50 && z>=0 && z<=50 && y>0 && y<=10){
 			
-			for(int i=0; i<20; i++){
-				
-				y--;
-				System.out.println("Drone position: ("+x+","+y+","+z+")");
-			}
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(x>=0 && x<=50 && z>=0 && z<=50 && y>40 && y<=50){
+			
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=10 && z>=0 && z<=50 && y>0 && y<=50){
+			
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=40 && x<=50 && z>=0 && z<=50 && y>0 && y<=50){
+			
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=50 && z>=40 && z<=50 && y>0 && y<=50){
+			
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=50 && z>=0 && z<=10 && y>0 && y<=50){
+			
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		}
-		
-		return null;
+
+
+		return "Drone position: ("+x+","+y+","+z+")";
+
 	}
 
 	@Override
 	public String moveLeft() {
-		
-		System.out.println("-------------Moving left-------------");
-		
-		if(x<=20 && y==20 && z==0){
+
+		if(y>=0 && y<=10 && z>=0 && z<=50 && x>0 && x<50){
 			
+			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if (x>=20 && x<=50 && z==0){
+		} else if(y>10 && y<40 && z>10 && z<40 && x>0 && x<=10){
 			
-			for(int i=0; i<30; i++){
-				
-				x--;
-				System.out.println("Drone position: ("+x+","+y+","+z+")");
-				
-			}
-		} else if (x==20 && y==50 && z==20){
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-			for(int i=0; i<20; i++){
-				
-				x--;
-				System.out.println("Drone position: ("+x+","+y+","+z+")");
-				
-			}
-		}
-		
-		
-		
-		
-		
-		return null;
-	}
-
-	@Override
-	public String moveRight() {
-		
-		
-		System.out.println("-------------Moving right-------------");
-		
-		if(x>=50){
+		} else if(y>10 && y<40 && z>10 && z<40 && x>40 && x<=50){
 			
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=40 && y<=50 && z>=0 && z<=50 && x>0 && x<=50){
+			
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=0 && y<=50 && z>=40 && z<= 50 && x>0 && x<=50){
+			
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=0 && y<=50 && z>=0 && z<=10 && x>0 && x<=50){
+			
+			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
 		} else {
 			
-			for(int i=0; i<20; i++){
-				
-				if(x<50){
-					
-					x++;
-					System.out.println("Drone position: ("+x+","+y+","+z+")");
-				} 
-		
-			}
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		}
-		return null;
+
+
+		return "Drone position: ("+x+","+y+","+z+")";
+	}
+
+	@Override
+	public String moveRight() {
+
+
+		if(y>10 && y<40 && z>10 && z<40 && x>=0 && x<10){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		} else if(y>10 && y<40 && z>10 && z<40 && x>=40 && x<50){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(y>=0 && y<=10 && z>=0 && z<=50 && x>=0 && x<50){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=40 && y<=50 && z>=0 && z<=50 && x>=0 && x<50){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=0 && y<=50 && z>=0 && z<=10 && x>=0 & x<50){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(y>=0 && y<=50 && z>=40 && z<=50 && x>=0 && x<50){
+			
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else {
+			
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}
 		
+		return "Drone position: ("+x+","+y+","+z+")";
+
 	}
 
 	@Override
 	public String moveBack() {
 		
-		System.out.println("-------------Moving back-------------");
-		
-		if(z<=0){
+		if(y>=0 && y<=10 && x>=0 && x<=50 && z>=0 && z<50){
 			
+			z++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>10 && y<40 && x>10 && x<40 && z>=40 && z<50){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>10 && y<40 && x>10 && x<40 && z>=0 && z<10){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=40 && y<=50 && x>=0 && x<=50 && z>=0 && z<50){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=0 && y<=50 && x>=0 && x<=10 && z>=0 && z<50){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=0 && y<=50 && x>=40 && x<=50 && z>=0 && z<50){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
 		} else {
 			
-			for(int i = 0; i<30; i++){
-				
-				if(z<=30){
-					z--;
-					System.out.println("Drone position: ("+x+","+y+","+z+")");
-					
-				}
-				
-				
-				
-			}
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		}
-		
-		
-		
-		return null;
+
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveForth() {
 		
-		System.out.println("-------------Moving forth-------------");
-		
-		if(z>=20 && x==20 && y==50){
+		if(y>=0 && y<=10 && x>=0 && x<=50 && z>0 && z<=50){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		} else if(y>10 && y<40 && x>10 && x<40 && z>40 && z<=50){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>10 && y<40 && x>10 && x<40 && z>0 && z<=10){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=40 && y<=50 && x>=0 && x<=50 && z>0 && z<=50){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=0 && y<=50 && x>=0 && x<=10 && z>0 && z<=50){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(y>=0 && y<=50 && x>=40 && x<=50 && z>0 && z<=50){
+			
+			z--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else {
 			
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(x==0 && y==30 && z==20){
-			
-			for(int i=0; i<10; i++){
-				
-				z++;
-				System.out.println("Drone position: ("+x+","+y+","+z+")");
-			}
-			
-		}else {
-			
-			for(int i=0; i<20; i++){
-				
-				if(z<20){
-					
-					z++;
-					System.out.println("Drone position: ("+x+","+y+","+z+")");
-					
-				}
-			}
 		}
-		
-		
-		
-		return null;
-	}
 
-	@Override
-	public String getFormatedCoordinates() {
-		
+
 		return "Drone position: ("+x+","+y+","+z+")";
 	}
-	
-	
-	
+
+
+	public String getFormatedCoordinates() {
+
+		return "Drone position: ("+x+","+y+","+z+")";
+
+	}
 
 	public int getX() {
 		return x;
@@ -239,9 +291,9 @@ public class Drone implements StandardDrone {
 	public void setZ(int z) {
 		this.z = z;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

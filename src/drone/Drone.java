@@ -107,7 +107,7 @@ public class Drone implements StandardDrone {
 			
 		}
 		
-		
+		//
 		return getFormatedCoordinates();
 	}
 

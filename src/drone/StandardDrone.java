@@ -10,3 +10,4 @@ public interface StandardDrone {
 	public abstract String moveForth();
 	public abstract String getFormatedCoordinates();
 }
+//

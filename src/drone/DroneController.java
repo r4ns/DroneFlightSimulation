@@ -5,15 +5,19 @@ public class DroneController {
 	
 	public static void main(String[] args) {		
 	
+		
 		Drone dron = new Drone();
 		
 		System.out.println("Move up:");
 		
 		for(int i=0; i<10; i++)
+			//
 		{
 			System.out.println(dron.moveUp());
 		
 		}
+		
+		
 		
 		
 		

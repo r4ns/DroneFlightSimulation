@@ -6,9 +6,11 @@ public class Drone implements StandardDrone {
 	private int z;
 	
 	public Drone() {
+		
 		this.x = 30;
 		this.y = 0;
 		this.z = 30;
+		
 	}
 	
 	public String moveUp() {

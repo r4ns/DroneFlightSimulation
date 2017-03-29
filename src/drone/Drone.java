@@ -13,52 +13,105 @@ public class Drone implements StandardDrone {
 	
 	@Override
 	public String moveUp() {
-		if (y>=0 && y <= 10 && x >=0 && x<= 50  && z >=0 && z <=50)
+		if ((y >= 0 && y < 10) && (x >= 0 && x < 50) && (z >= 0 && z < 50))
 			y++;
-		
-		if (y>=0 && y <= 10 && x >=10 && x<= 40  && z >=40 && z <=50)
+		else if ((y >= 40 && y < 50) && (x >= 0 && x <= 50) && (z >= 0 && z <= 50))
 			y++;
-		
-		if (y>=0 && y <= 50 && x >=0 && x<= 10  && z >=0 && z <=50)
+		else if ((y >= 0 && y < 50) && (x >= 40 && x <= 50) && (z >= 0 && z <= 50))
 			y++;
-		
-		if (y>=0 && y <= 50 && x >=40 && x<= 50  && z >=0 && z <=10)
+		else if ((y >= 0 && y < 50) && (x >= 0 && x <= 10) && (z >= 0 && z <= 50))
 			y++;
-	
-		if (y>=0 && y <= 10 && x >=10 && x<= 40  && z >=40 && z <=50)
+		else if ((y >= 0 && y < 50) && (x >= 0 && x <= 50) && (z >= 40 && z <= 50))
 			y++;
-		
-		
+		else if ((y >= 0 && y < 50) && (x >= 0 && x <= 50) && (z >= 0 && z <= 10))
+			y++;
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveDown() {
-		y--;
+		if ((y > 0 && y <= 10) && (x >= 0 && x <= 50) && (z >= 0 && z <= 50))
+			y--;
+		else if ((y > 40 && y <= 50) && (x >= 0 && x <= 50) && (z >= 0 && z <= 50))
+			y--;
+		else if ((y > 0 && y <= 50) && (x >= 40 && x <= 50) && (z >= 0 && z <= 50))
+			y--;
+		else if ((y > 0 && y <= 50) && (x >= 0 && x <= 10) && (z >= 0 && z <= 50))
+			y--;
+		else if ((y > 0 && y <= 50) && (x >= 0 && x <= 50) && (z >= 40 && z <= 50))
+			y--;
+		else if ((y > 0 && y <= 50) && (x >= 0 && x <= 50) && (z >= 0 && z <= 10))
+			y--;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveLeft() {
-		x--;
+		if ((y >= 0 && y <= 10) && (x > 0 && x <= 50) && (z >= 0 && z <= 50))
+			x--;
+		else if ((y >= 40 && y <= 50) && (x > 0 && x <= 50) && (z >= 0 && z <= 50))
+			x--;
+		else if ((y >= 0 && y <= 50) && (x > 40 && x <= 50) && (z >= 0 && z <= 50))
+			x--;
+		else if ((y >= 0 && y <= 50) && (x > 0 && x <= 10) && (z >= 0 && z <= 50))
+			x--;
+		else if ((y >= 0 && y <= 50) && (x > 0 && x <= 50) && (z >= 40 && z <= 50))
+			x--;
+		else if ((y >= 0 && y <= 50) && (x > 0 && x <= 50) && (z >= 0 && z <= 10))
+			x--;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveRight() {
-		x++;
+		if ((y >= 0 && y <= 10) && (x >= 0 && x < 50) && (z >= 0 && z <= 50))
+			x++;
+		else if ((y >= 40 && y <= 50) && (x >= 0 && x < 50) && (z >= 0 && z <= 50))
+			x++;
+		else if ((y >= 0 && y <= 50) && (x >= 40 && x < 50) && (z >= 0 && z <= 50))
+			x++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x < 10) && (z >= 0 && z <= 50))
+			x++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x < 50) && (z >= 40 && z <= 50))
+			x++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x < 50) && (z >= 0 && z <= 10))
+			x++;
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
-		z++;
+		if ((y >= 0 && y <= 10) && (x >= 0 && x <= 50) && (z >= 0 && z < 50))
+			z++;
+		else if ((y >= 40 && y <= 50) && (x >= 0 && x <= 50) && (z >= 0 && z < 50))
+			z++;
+		else if ((y >= 0 && y <= 50) && (x >= 40 && x <= 50) && (z >= 0 && z < 50))
+			z++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 10) && (z >= 0 && z < 50))
+			z++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 50) && (z >= 40 && z < 50))
+			z++;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 50) && (z >= 0 && z < 10))
+			z++;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
-		z--;
+		if ((y >= 0 && y <= 10) && (x >= 0 && x <= 50) && (z > 0 && z <= 50))
+			z--;
+		else if ((y >= 40 && y <= 50) && (x >= 0 && x <= 50) && (z > 0 && z <= 50))
+			z--;
+		else if ((y >= 0 && y <= 50) && (x >= 40 && x <= 50) && (z > 0 && z <= 50))
+			z--;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 10) && (z > 0 && z <= 50))
+			z--;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 50) && (z > 40 && z <= 50))
+			z--;
+		else if ((y >= 0 && y <= 50) && (x >= 0 && x <= 50) && (z > 0 && z <= 10))
+			z--;
 		return getFormatedCoordinates();
 	}
 

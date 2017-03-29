@@ -1,11 +1,20 @@
-package drone;
+package tests;
 
-public class DroneController {
+import static org.junit.Assert.assertEquals;
 
-	public static void main(String[] args) {		
+import org.junit.Test;
 
-		Drone dron = new Drone(30,0,30);
-		System.out.println("Drone position: ("+dron.getX()+","+dron.getY()+","+dron.getZ()+")");
+import drone.Drone;
+
+public class DroneAdvancedTest  {
+	
+	Drone dron;
+	Drone dron1;
+
+
+
+	public String helperForFinish(){
+		
 		
 		System.out.println("-----Moving up-----");
 		for(int i=0; i<15; i++){
@@ -98,9 +107,25 @@ public class DroneController {
 			
 		}
 		
-		
-		
+		return "Drone position: ("+dron.getX()+","+dron.getY()+","+dron.getZ()+")";
 		
 		
 	}
+	
+	@Test
+	public void testTargetMoveUp(){
+		
+		dron = new Drone(30,0,30);
+		
+		String expectedCoordinates = "Drone position: ("+Integer.toString(0)+","+Integer.toString(30)+","+Integer.toString(30)+")";
+		
+		assertEquals(expectedCoordinates, helperForFinish());
+		
+	};
+		
+		
+
+
 }
+
+

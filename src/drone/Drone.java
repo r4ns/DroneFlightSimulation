@@ -2,12 +2,12 @@ package drone;
 
 public class Drone implements StandardDrone {
 	
-	private int x=30;
-	private int y=0;
-	private int z=30;
+	private int x;
+	private int y;
+	private int z;
 	private int [] outerBoundaries;
 	private int distanceFromOuterBox=10;
-	private int [] coordinates;
+	private int [] coordinates={30,0,30};
 	private int step=1;
 
    public Drone ()
@@ -30,13 +30,11 @@ public class Drone implements StandardDrone {
 	public String moveUp() {
 		
 		
-		if (coordinates[0]==30 && coordinates[1]<10  )
+		if (coordinates[1]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
 		{  
 			
-				coordinates[1]++;
 			
-			
-		}
+		}														
 		else {
 			
 			coordinates[1]++;
@@ -49,9 +47,14 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveDown() {
-		if (x==0 && y>=30 && y<=40 )
+		if (coordinates[1]<=0  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
 		{  
-				y--;
+			
+			
+		}														
+		else {
+			
+			coordinates[1]--;
 			
 		}
 		
@@ -61,10 +64,14 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveLeft() {
 	
-		if (x>=0 && x<=50 && y==40 && z==50 )
+		if (coordinates[0]<=0  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
 		{  
 			
-				x--;
+			
+		}														
+		else {
+			
+			coordinates[0]--;
 			
 		}
 		
@@ -74,11 +81,14 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveRight() {
 		
-		if (x>=30 && x<=50 && y==10 )
+		if (coordinates[0]>=50  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>10 && coordinates[1]<40 && coordinates[2]>10 && coordinates[2]<40))
 		{  
 			
-				x++;
-				
+			
+		}														
+		else {
+			
+			coordinates[0]++;
 			
 		}
 		return getFormatedCoordinates();
@@ -86,10 +96,14 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveBack() {
-		if (x==0 && y==40 && z>=30 && z<=50 )
+		if (coordinates[2]<=0  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
 		{  
 			
-				z--;
+			
+		}														
+		else {
+			
+			coordinates[2]--;
 			
 		}
 		
@@ -98,9 +112,14 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveForth() {
-		if (z>=30 && z<=50 && x==50 && y==40 )
+		if (coordinates[2]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
 		{  
-				z++;
+			
+			
+		}														
+		else {
+			
+			coordinates[2]++;
 			
 		}
 		return getFormatedCoordinates();

@@ -24,6 +24,7 @@ public class DroneBasicTest {
 			
 		}
 	
+	
 	@Test
 	public void testInitialMoveUpHitBottomInnerSquareBorder(){
 		

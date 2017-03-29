@@ -10,6 +10,7 @@ public class Drone implements StandardDrone {
 	private int [] coordinates={30,0,30};
 	private int step=1;
 	
+	
 
    public Drone ()
    {

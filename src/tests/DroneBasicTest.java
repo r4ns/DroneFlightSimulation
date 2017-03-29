@@ -72,7 +72,7 @@ public class DroneBasicTest {
 		String expectedCoordinates = "Drone position: (" 
 							+ Integer.toString(startCoordinates[0]) + ","
 							+ Integer.toString(startCoordinates[1]) + ","
-							+ Integer.toString(startCoordinates[2] + 1) + ")";
+							+ Integer.toString(startCoordinates[2] - 1) + ")";
 		
 		assertEquals(expectedCoordinates, drone.moveForth());
 	}
@@ -85,7 +85,7 @@ public class DroneBasicTest {
 		String expectedCoordinates = "Drone position: (" 
 							+ Integer.toString(startCoordinates[0]) + ","
 							+ Integer.toString(startCoordinates[1]) + ","
-							+ Integer.toString(startCoordinates[2] - 1) + ")";
+							+ Integer.toString(startCoordinates[2] + 1) + ")";
 		
 		assertEquals(expectedCoordinates, drone.moveBack());
 	}
@@ -122,6 +122,7 @@ public class DroneBasicTest {
 		} else if(command == "moveBack") {
 			for(int i = 0; i < 51; i++){
 				String s = drone.moveBack();
+				System.out.println(s);
 				if(s.contains(" // Drone hit inside square border") || s.contains(" // Drone hit outside square border")){
 					return true;
 				}
@@ -129,6 +130,7 @@ public class DroneBasicTest {
 		} else if(command == "moveForth") {
 			for(int i = 0; i < 51; i++){
 				String s = drone.moveForth();
+				System.out.println(s);
 				if(s.contains(" // Drone hit inside square border") || s.contains(" // Drone hit outside square border")){
 					return true;
 				}

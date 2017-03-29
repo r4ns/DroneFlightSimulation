@@ -65,7 +65,7 @@ public class Drone implements StandardDrone {
 	
 	public String moveBack() {
 		if(z < 10 || z > 40){
-			if(z == 0)
+			if(z == 50)
 				return getFormatedCoordinates() + " // Drone hit outside square border";
 			z += 1;
 			return getFormatedCoordinates();
@@ -78,7 +78,7 @@ public class Drone implements StandardDrone {
 	
 	public String moveForth() {
 		if(z < 10 || z > 40){
-			if(z == 50)
+			if(z == 0)
 				return getFormatedCoordinates() + " // Drone hit outside square border";
 			z -= 1;
 			return getFormatedCoordinates();

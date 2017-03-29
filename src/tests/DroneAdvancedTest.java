@@ -1,5 +1,7 @@
 package tests;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 
 import drone.Drone;
@@ -23,11 +25,52 @@ public class DroneAdvancedTest {
 		+Integer.toString(endCoordinates[1])+","
 		+Integer.toString(endCoordinates[2])+")";
 		
+		String help=helpMethod(drone,brojPonavljanja,nazivMetode);
+		
+		assertEquals(expectedCoordinates, help);
+		
 		
 	}
 	public String helpMethod(Drone helpDrone,int[] nizPonavljanja, String[] nazivMetoda){
 		for(int i=0;i<nizPonavljanja.length;i++){
-			
+			if(nazivMetoda[i]=="moveUp")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveUp();
+				}
+				
+			}else if(nazivMetoda[i]=="moveDown")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveDown();
+				}
+			}else if(nazivMetoda[i]=="moveLeft")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveLeft();
+				}
+			}else if(nazivMetoda[i]=="moveRight")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveRight();
+				}
+			}else if(nazivMetoda[i]=="moveBack")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveBack();
+				}
+			}else if(nazivMetoda[i]=="moveForth")
+			{
+				for(int j=0;j<nizPonavljanja[i];j++)
+				{
+					drone.moveForth();
+				}
+			}
 		}
 		
 		

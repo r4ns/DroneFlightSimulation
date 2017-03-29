@@ -24,24 +24,31 @@ public class Drone implements StandardDrone {
 		{
 			//donji deo y<10
 			y++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 			
-		}else if(x>=0&&x<50&&y>=0&&y<50&&z>40&&z<=50){
+		}else if(x>=0&&x<=50&&y>=0&&y<50&&z>=40&&z<=50){
 			//prednji deo
 			y++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 			
 		}else if(x>=0&&x<=50&&y>=0&&y<50&&z>=0&&z<=10){
 			//zadnji deo
 			y++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 			
 		}else if(x>=0&&x<=10&&y>=0&&y<50&&z>=0&&z<=50){
 			//levi deo
 			y++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=40&&x<=50&&y>=0&&y<50&&z>=0&&z<=50){
 			//desni deo
 			y++;
-		}else if(x>=0&&x<=50&&z>=0&&z<=50&&y>=40&&y<50){
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>40&&x<50&&z>10&&z<40&&y>=40&&y<50){
+			
 			//gornji deo
 			y++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+this.x+","+this.y+","+this.z+")";
 		
@@ -53,63 +60,147 @@ public class Drone implements StandardDrone {
 		if(x>=0&&x<=50&&y>40&&y<=50&&z>=0&&z<=50){
 			//gornji deo
 			y--;
-		}else if(x>=0&&x<=50&&y>0&&y<=10&&z>=0&&z<=50){
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>10&&x<40&&y>0&&y<=10&&z>10&&z<40){
 			//donji deo y<=10
 			y--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=0&&x<=10&&y>0&&y<=50&&z>=0&&z<=50){
 			//levi deo
 			y--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=40&&x<=50&&y>0&&y<=50&&z>=0&&z<=50){
 			//desni deo
 			y--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=0&&x<=50&&y>0&&y<=50&&z>=0&&z<=10){
 			//zadnji deo
 			y--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=0&&x<=50&&y>0&&y<=50&&z>=40&&z<=50){
 			//prednji deo
 			y--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveLeft() {
-		if(x>40&&x<=50&&y>=0&&y<=50&&z>=0&&z<=50){
+		if(x>40&&x<=50&&y>10&&y<40&&z>10&&z<40){
+			//desna strana
 			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>0&&x<=10&&y>10&&y<40&&z>10&&z<40){
+			//leva strana
+			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>0&&x<=50&&y>0&&y<=50&&z>=0&&z<=10){
+			//zadnja strana
 			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>0&&x<=50&&y>=0&&y<=50&&z>=40&&z<=50){
+			//prednja strana
+			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>0&&x<=50&&y>=40&&y<=50&&z>=0&&z<=50){
+			//gornja strana
 			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>0&&x<=50&&y>=0&&y<=10&&z>=0&&z<=50){
+			//donja strana
+			x--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveRight() {
-		if(x>=0&&x<50&&y>=0&&y<=50&&z>=40&&z<=50){
+		if(x>=0&&x<50&&y>10&&y<40&&z>=40&&z<=50){
+			//prednja strana
 			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<50&&y>10&&y<40&&z>=0&&z<=10){
+			//zadnja strana
+			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<50&&y>=0&&y<=10&&z>=0&&z<=50){
+			//donja strana
+			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<50&&y>=40&&y<=50&&z>=0&&z<=50){
+			//gornja strana
+			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<10&&y>10&&y<40&&z>10&&z<40){
+			//leva strana
+			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=40&&x<50&&y>10&&y<40&&z>10&&z<40){
+			//desna strana
+			x++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveBack() {
-		if(x>=0&&x<50&&y>=0&&y<=10&&z>=0&&z<50){
+		if(x>=0&&x<=50&&y>=0&&y<=10&&z>=0&&z<50){
+			//donja strana
 			z++;
-		}else if(x>=0&&x<50&&y>=0&&y<=50&&z>=0&&z<10){
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<=50&&y>=40&&y<=50&&z>=0&&z<50){
+			//gornja strana
 			z++;
-		}else if(x>=0&&x<=50&&y>40&&y<=50&&z>=0&&z<50){
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<=10&&y>=0&&y<=50&&z>=0&&z<50){
+			//leva strana
 			z++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=40&&x<=50&&y>=0&&y<=50&&z>=0&&z<50){
+			//desna strana
+			z++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>10&&x<40&&y>10&&y<40&&z>=40&&z<50){
+			//prednja strana
+			z++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>10&&x<40&&y>10&&y<40&&z>=0&&z<10){
+			//zadnja strana
+			z++;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveForth() {
-		if(x>=0&&x<=50&&y>=0&&y<=50&&z>40&&z<=50){
+		if(x>10&&x<40&&y>10&&y<40&&z>40&&z<=50){
+			//prednja strana
 			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>10&&x<40&&y>10&&y<40&&z>0&&z<=10){
+			//zadnja strana
+			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<=50&&y>=40&&y<=50&&z>0&&z<=50){
+			//gore strana
+			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<=50&&y>=0&&y<=10&&z>0&&z<=50){
+			//donja strana
+			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
+		}else if(x>=0&&x<=10&&y>=0&&y<=50&&z>0&&z<=50){
+			//leva strana
+			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}else if(x>=40&&x<=50&&y>=0&&y<=50&&z>0&&z<=50){
+			//desno strana
 			z--;
+			System.out.println("Trenutna pozicija drona: ("+x+","+y+","+z+")");
 		}
 		return "Trenutna pozicija drona: ("+x+","+y+","+z+")";
 	}
@@ -117,7 +208,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		
-		return null;
+		return "Trenutna pozicija drona: ("+this.x+","+this.y+","+this.z+")";
 	}
 	public int getX() {
 		return x;

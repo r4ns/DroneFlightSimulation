@@ -210,6 +210,7 @@ public class DroneBasicTest {
 		assertEquals(expectedCoordinates, drone.moveForth());
 		
 		
+		
 	}
 	@Test
 	public void testMoveForthHitBackSideInnerSquare(){

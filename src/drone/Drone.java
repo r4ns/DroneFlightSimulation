@@ -2,26 +2,16 @@ package drone;
 
 public class Drone implements StandardDrone {
 	
-	private int x = 30;
-	private int y = 0;
-	private int z = 30;
 	
 	private int [] outerBoundaries;
 	private int distanceFromOuterBox=10;
-	private int [] coordinates;
+	private int [] coordinates = {30,0,30};
 	private int step=1;
 	
 	
 	public Drone(){
 		
-	}
-	public Drone(int x, int y, int z){
-		
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
-	
+	}	
 	public Drone(int [] boundaries, int [] coordinates)
 	{
 		this.outerBoundaries= boundaries;
@@ -29,88 +19,116 @@ public class Drone implements StandardDrone {
 		this.coordinates = coordinates;
 	}
 	
-	
 
-	@Override
 	public String moveUp() {
-		if (y<11)
-		{
-			y++;
-		}
-		else
-		{
-			System.out.println("Greska");
-		}
+		if(coordinates[0] > 10 && coordinates[0]< 40 && coordinates[2] > 10 && coordinates[2] < 40)
+			 		{
+			 			if(coordinates[1] >= 0 && coordinates[1] < 10 || coordinates[1] >= 40 && coordinates[1] < 50)
+			 			{
+			 				coordinates[1]++;
+			 			}
+			 			
+			 		}
+			 		else if (coordinates[1]>=0 && coordinates[1] <50)
+			 			coordinates[1]++;
+		
 		
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveDown() {
-		y--;
+		if(coordinates[0] > 10 && coordinates[0] < 40 && coordinates[2] > 10 && coordinates[2] < 40)
+			 		{
+			 			if(coordinates[1] <= 50 && coordinates[1] > 40 || coordinates[1] <= 10 && coordinates[1] > 0)
+			 			{
+			 				coordinates[1]--;
+			 			}
+			 			
+			 		}
+			 		else if (coordinates[1] > 0 && coordinates[1]<=50)
+			 			coordinates[1]--;
+		
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveLeft() {
-		x--;
+		if(coordinates[1] > 10 && coordinates[1] < 40 && coordinates[2] > 10 && coordinates[2] < 40)
+			 		{
+			 			if(coordinates[0] <= 50 && coordinates[0] > 40 || coordinates[0] <= 10 && coordinates[0] > 0)
+			 			{
+			 				coordinates[0]--;
+			 			}
+			 			
+			 		}
+					else if (coordinates[0] > 0 && coordinates[0]<=50)
+						coordinates[0]--;
+		
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveRight() {
-		x++;
+		if(coordinates[1] > 10 && coordinates[1] < 40 && coordinates[2] > 10 && coordinates[2] < 40)
+			 		{
+			 			if(coordinates[0] >= 0 && coordinates[0] < 10 || coordinates[0] >= 40 && coordinates[0] < 50)
+			 			{
+			 				coordinates[0]++;
+			 			}
+			 			
+			 		}
+			 		else if (coordinates[0] >= 0 && coordinates[0] < 50)
+			 			coordinates[0]++;
+			 		
+		
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
-		z--;
+		if(coordinates[1] > 10 && coordinates[1] < 40 && coordinates[0] > 10 && coordinates[0] < 40)
+			 		{
+			 			if(coordinates[2] >= 0 && coordinates[2] < 10 || coordinates[2] >= 40 && coordinates[2] < 50)
+			 			{
+			 				coordinates[2]++;
+			 			}
+			 			
+			 		}
+			 		else if (coordinates[2]>=0 && coordinates[2] < 50)
+			 			coordinates[2]++;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
-		z++;
+		if(coordinates[1] > 10 && coordinates[1] < 40 && coordinates[0] > 10 && coordinates[0] < 40)
+			 		{
+			 			if(coordinates[2]<= 50 && coordinates[2] > 40 || coordinates[2] <= 10 && coordinates[2] > 0)
+			 			{
+			 				coordinates[2]--;
+			 			}
+			 			
+			 		}
+			 		else if (coordinates[2] > 0 && coordinates[2]<=50)
+			 			coordinates[2]--;
+			 		
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String getFormatedCoordinates() {
 		
-		System.out.println(("(" + this.x + "," + this.y + "," + this.z + ")"));
+		System.out.println("(" + Integer.toString(coordinates[0]) +
+				"," + Integer.toString(coordinates[1])  + 
+				"," + Integer.toString(coordinates[2]) + ")");
 		
-		return ("(" + this.x + "," + this.y + "," + this.z + ")") ;
+		return ("(" + Integer.toString(coordinates[0]) +
+				"," + Integer.toString(coordinates[1])  + 
+				"," + Integer.toString(coordinates[2]) + ")");
 	}
 
 
-	public int getX() {
-		return x;
-	}
 
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-
-	public int getY() {
-		return y;
-	}
-
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-
-	public int getZ() {
-		return z;
-	}
-
-
-	public void setZ(int z) {
-		this.z = z;
-	}
 
 }

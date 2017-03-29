@@ -1,123 +1,156 @@
 package drone;
 
 public class Drone implements StandardDrone {
+	
+	private int x;
+	private int y;
+	private int z;
+	private int [] outerBoundaries;
+	private int distanceFromOuterBox=10;
+	private int [] coordinates={30,0,30};
+	private int step=1;
 
-	private int x=30;
-	private int y=0;;
-	private int z=30;
-	
-	public Drone(){
-		
-		
-		
-	}
-	public Drone(int x,int y,int z){
-		this.x=x;
-		this.y=y;
-		this.z=z;
-	} 
-	@Override
-	
+   public Drone ()
+   {
+	   
+   }
+   public Drone (int x, int y, int z)
+   {
+	   x=this.x;
+	   y=this.y;
+	   z=this.z;
+   }
+   public Drone (int [] boundaries, int [] coordinates)
+   {
+	   this.outerBoundaries=boundaries;
+	  // distanceFromOuterBox=10;
+	   this.coordinates=coordinates;
+   }
+   
 	public String moveUp() {
-		if(x==30 && y<=10 && z==30)
-		{
-			System.out.print("------Moving UP------\n");
-			for(int i=0;i<10;i++)
-			{
-				y++;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
-		}
-		else{
-			System.out.print("------Moving UP------\n");
-			for(int i=0;i<30;i++)
-			{
-				y++;
-				System.out.println(this.getFormatedCoordinates());
-			}
+		
+			
+		if (coordinates[1]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[1]++;
 			
 		}
-			
-			
-		return null;
+		
+		return getFormatedCoordinates();
+		
 	}
+
 	@Override
 	public String moveDown() {
-		if(x==0 && y<=40 && y>=30 && z==30)
-		{
-			System.out.print("------Moving DOWN------\n");
-			for(int i=0;i<10;i++)
-			{
-				y--;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
+		if (coordinates[1]<=0  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[1]--;
+			
 		}
-		return null;
+		
+		return getFormatedCoordinates();
 	}
+
 	@Override
 	public String moveLeft() {
-		if(x<=50 &&  x>=0 && y==40 && z==50)
-		{
-			System.out.print("------Moving LEFT------\n");
-			for(int i=0;i<50;i++)
-			{
-				x--;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
+	
+		if (coordinates[0]<=0  || (coordinates[0]>10 && coordinates[0]<=40 && coordinates[1]>10 && coordinates[1]<40 && coordinates[2]>10 && coordinates[2]<40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[0]--;
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
+
 	@Override
 	public String moveRight() {
-		if(x>=30 &&  x<=50 && y==10 && z==30)
-		{
-			System.out.print("------Moving RIGHT------\n");
-			for(int i=0;i<20;i++)
-			{
-				x++;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
+		if (coordinates[0]>=50  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>10 && coordinates[1]<40 && coordinates[2]>10 && coordinates[2]<40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[0]++;
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
+
 	@Override
 	public String moveBack() {
-		if(x==0 && y==40 && z>=30 && z<=50)
-		{
-			System.out.print("------Moving BACK------\n");
-			for(int i=0;i<20;i++)
-			{
-				z--;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
+		
+		if (coordinates[2]<=0  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[2]--;
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
+
 	@Override
 	public String moveForth() {
-		if(x==50 && y==40 && z>=30 && z<=50)
-		{
-			System.out.print("------Moving FORTH------\n");
-			for(int i=0;i<20;i++)
-			{
-				z++;
-				System.out.println(this.getFormatedCoordinates());
-			}
-				
+		if (coordinates[2]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
+		{  
+			
+			
+		}														
+		else {
+			
+			coordinates[2]++;
+			
 		}
-		return null;
+		return getFormatedCoordinates();
 	}
+
 	@Override
 	public String getFormatedCoordinates() {
 		
-		return "Drone : "+"("+x+","+y+","+z+")";
+		return "Dron position:"  + "(" + Integer.toString(coordinates[0]) + "," + Integer.toString(coordinates[1])  +  "," + Integer.toString(coordinates[2]) + ")";
 	}
-	
-	
-	
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getZ() {
+		return z;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public void setZ(int z) {
+		this.z = z;
+	}
+
 }

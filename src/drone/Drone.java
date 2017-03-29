@@ -18,6 +18,12 @@ public class Drone implements StandardDrone{
 		this.z = z;
 	}
 	
+	public Drone(int[] coordinates){
+		this.x = coordinates[0];
+		this.y = coordinates[1];
+		this.z = coordinates[2];
+	}
+	
 	public boolean horizontala(){
 		if(((z >= 0  && z <= 10) || (z >=40 && z <= 50)) && (y >= 0 && y <= 50) && (x >=0 && x <=50)){
 			return true;
@@ -112,7 +118,7 @@ public class Drone implements StandardDrone{
 	}
 
 	@Override
-	public String moveBack() {
+	public String moveForth() {
 		if ((horizontala() || vertikala() || profil()) && unutrasnjaKocka(x, y)) {
 			if(z == 40){
 				z=40;
@@ -127,7 +133,7 @@ public class Drone implements StandardDrone{
 	}
 
 	@Override
-	public String moveForth() {
+	public String moveBack() {
 		if ((horizontala() || vertikala() || profil()) && unutrasnjaKocka(x, y)) {
 			if(z == 10){
 				z=10;
@@ -143,7 +149,7 @@ public class Drone implements StandardDrone{
 
 	@Override
 	public String getFormatedCoordinates() {
-		return "Drone position: (" + x + " ," + y + ", " + z + ")" ;
+		return "Drone position: (" + x + "," + y + "," + z + ")" ;
 	}
 	
 	public int getX() {
@@ -165,4 +171,3 @@ public class Drone implements StandardDrone{
 		this.z = z;
 	}
 }
-

@@ -52,4 +52,3 @@ public class DroneController {
 		System.out.println("Kraj TESTA");
 	}
 }
-

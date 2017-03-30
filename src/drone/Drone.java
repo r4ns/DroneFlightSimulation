@@ -1,52 +1,139 @@
 package drone;
-
-public class Drone implements StandardDrone {
-	  
-	int x = 30;
-	int y = 0;
-	int z = 30;
-
-	@Override
-	public String moveUp() {
-		this.y = this.y+1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
+  
+ public class Drone implements StandardDrone{
+ 	
+ 	private int[] outerBoundaries;
+ 	public int[] coordinates={30,0,30};
+ 	//private int distanceFromOuterBox;
+ 	//private int step=2;
+ 	
+ 	public Drone(){
+ 	};
+ 	
+ 	public Drone(int[] coordinates){
+ 		this.coordinates=coordinates;
+ 	}
+ 	
+ 	public Drone(int[] boundaries, int[] coordinates){
+ 		//,
+ 		this.outerBoundaries=boundaries;
+ 		//distanceFromOuterBox=10;
+ 		this.coordinates=coordinates;
+ 	}
+ 	public String moveUp() {
+ 		// TODO Auto-generated method stub
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]<10){
+ 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]>=40){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]< 50){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ @Override
+ 	public String moveDown() {
+ 		// TODO Auto-generated method stub
+	 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]>0 && coordinates[1]<=10){
+			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[1]<=50 && coordinates[1]>40)){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]>0){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 			
+			 		} else {
+			 			
+			 			return getFormatedCoordinates();
+			 		}
 	}
-
-	@Override
-	public String moveDown() {
-		this.y = this.y-1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
+ 	
+ 
+ 	@Override
+ 	public String moveLeft() {
+ 		// TODO Auto-generated method stub
+ 		
+ 		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]<=10 && coordinates[0]>0)){
+ 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[0]>40 && coordinates[0]<=50)){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]>0){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 		
+ 	}
+ 	
+ 	@Override
+ 	public String moveRight() {
+		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[0]<10){
+			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]>=40 && coordinates[0]<50)){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]<50){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else {
+			 			return getFormatedCoordinates();
+			 		}
+		
 	}
-
-	@Override
-	public String moveLeft() {
-		this.x = this.x-1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
-	}
-
-	@Override
-	public String moveRight() {
-		this.x = this.x+1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
-
-	}
-
-	@Override
-	public String moveBack() {
-		this.z = this.z-1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
-	}
-
-	@Override
-	public String moveForth() {
-		this.z = this.z+1;
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
-	}
-
-	@Override
-	public String getFormatedCoordinates() {
+ 	
+ 		// TODO Auto-generated method stub
+ 		
+ 
+ 	@Override
+ 	public String moveBack() {
+ 		// TODO Auto-generated method stub
+ 		 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && coordinates[2]<10){
+ 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>=40 && coordinates[2]<50)){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]<50){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	
+ 	}
+ 
+ 	@Override
+ 	public String moveForth() {
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>0 && coordinates[2]<=10)){
+ 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 && coordinates[1]<40) && coordinates[2]>40){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]>0){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ 	@Override
+ 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		return "Nove koordinate su: x - "+x+", y - "+y+", z - "+z;
+		return "("+coordinates[0]+","+coordinates[1]+","+coordinates[2]+")";
 	}
-
-}
+  
+ }

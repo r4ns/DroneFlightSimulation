@@ -7,7 +7,7 @@ public static void main(String[] args) {
 	 		Drone dron1 = new Drone();
 	  		
 	 		System.out.println(">>>Moving up<<<");
-	  		for (int i = 1; i<5; i++)
+	  		for (int i = 1; i<4; i++)
 	  		{
 	  			dron1.moveUp();
 	  		}

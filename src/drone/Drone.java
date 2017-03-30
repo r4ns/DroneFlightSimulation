@@ -61,6 +61,7 @@ public class Drone implements StandardDrone {
   	@Override
   	public String moveDown() {
  		y--;
+ 		
  	if(coordinates1[0] > 10 && coordinates1[0] < 40 && coordinates1[2] > 10 && coordinates1[2] < 40)
  			 		{
  			 			if(coordinates1[1] <= 50 && coordinates1[1] > 40 || coordinates1[1] <= 10 && coordinates1[1] > 0)

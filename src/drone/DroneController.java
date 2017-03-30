@@ -4,7 +4,7 @@ public class DroneController {
 
 	public static void main(String[] args) {
 		
-		Drone dron = new Drone();
+		Drone dron = new Drone(30,0,30);
 		System.out.println(dron.getFormatedCoordinates());
 		
 		System.out.println("move right");

@@ -18,7 +18,7 @@ public class Drone implements StandardDrone{
 	
 	public String moveUp(){
 		upBorder();
-		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
+		return "Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")";
 	}
 	public String moveDown(){
 		downBorder();
@@ -70,7 +70,7 @@ public class Drone implements StandardDrone{
 	
 	public void upBorder(){
 		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
-			if(y <= 10 && y > 0 || y > 40 && y <= 50){
+			if(y < 10 && y >= 0 || y >= 40 && y < 50){
 				y++;
 			}
 		}else if(y<=50){
@@ -80,7 +80,7 @@ public class Drone implements StandardDrone{
 	
 	public void downBorder(){
 		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
-			if(y <= 10 && y > 0 || y > 40 && y <= 50){
+			if(y < 10 && y > 0 || y >= 40 && y < 50){
 				y--;
 			}
 		}else if(y>0){
@@ -89,27 +89,35 @@ public class Drone implements StandardDrone{
 	}
 	
 	public void leftBorder(){
-		if((z<=10 && z>=0)||(z<=50 && z>=40)){
-			if(x>0)
-				x--;
-		}else if((z<=40 && z>=10)){
-			if((y<=10 && y>=0)||(y>=40 && y<50)){
-				if(x>0)
+		if(y>10 && y<40){
+			if(z>10 && z<40){
+				if((x<=10 && x>0) || (x<=50 && x>40)){
 					x--;
+				}
 			}
+			else if(x>0){
+				x--;
+			}
+		}
+		else if(x>0){
+			x--;
 		}
 		
 	}
 	
 	public void rightBorder(){
-		if((z<=10 && z>=0)||(z<=50 && z>=40)){
-			if(x<50)
-				x++;
-		}else if((z<=40 && z>=10)){
-			if((y<=10 && y>=0)||(y>=40 && y<50)){
-				if(x<50)
+		if (y>10 && y<40) {
+			if (z>10 && z<40) {
+				if((x<10 && x>=0)||(x<50 && x>=40)){
 					x++;
+				}
 			}
+			else if(x<50){
+				x++;
+			}
+		}
+		else if(x<50){
+			x++;
 		}
 		
 	}

@@ -27,4 +27,79 @@ public class DroneBasicTest {
 		assertEquals(expectedCoordinates, drone.moveUp());
 				
 	}
+	
+	@Test
+	public void testInitialMoveDown(){
+		drone = new Drone();
+		drone.setX(30);
+		drone.setY(0);
+		drone.setZ(30);
+		
+		String expectedCoordinates = "Drone position(x:"
+				+ Integer.toString(startCoordinates[0])+" y:"
+				+ Integer.toString(startCoordinates[1])+" z:"
+				+ Integer.toString(startCoordinates[2])+")";
+				
+		assertEquals(expectedCoordinates, drone.moveDown());
+	}
+	
+	@Test
+	public void testInitialMoveLeft(){
+		drone = new Drone();
+		drone.setX(30);
+		drone.setY(0);
+		drone.setZ(30);
+		
+		String expectedCoordinates = "Drone position(x:"
+				+ Integer.toString(startCoordinates[0]-1)+" y:"
+				+ Integer.toString(startCoordinates[1])+" z:"
+				+ Integer.toString(startCoordinates[2])+")";
+				
+		assertEquals(expectedCoordinates, drone.moveLeft());
+	}
+	
+	@Test
+	public void testInitialMoveRight(){
+		drone = new Drone();
+		drone.setX(30);
+		drone.setY(0);
+		drone.setZ(30);
+		
+		String expectedCoordinates = "Drone position(x:"
+				+ Integer.toString(startCoordinates[0]+1)+" y:"
+				+ Integer.toString(startCoordinates[1])+" z:"
+				+ Integer.toString(startCoordinates[2])+")";
+				
+		assertEquals(expectedCoordinates, drone.moveRight());
+	}
+	
+	@Test
+	public void testInitialMoveBack(){
+		drone = new Drone();
+		drone.setX(30);
+		drone.setY(0);
+		drone.setZ(30);
+		
+		String expectedCoordinates = "Drone position(x:"
+				+ Integer.toString(startCoordinates[0])+" y:"
+				+ Integer.toString(startCoordinates[1])+" z:"
+				+ Integer.toString(startCoordinates[2]+1)+")";
+				
+		assertEquals(expectedCoordinates, drone.moveBack());
+	}
+	
+	@Test
+	public void testInitialMoveForth(){
+		drone = new Drone();
+		drone.setX(30);
+		drone.setY(0);
+		drone.setZ(30);
+		
+		String expectedCoordinates = "Drone position(x:"
+				+ Integer.toString(startCoordinates[0])+" y:"
+				+ Integer.toString(startCoordinates[1])+" z:"
+				+ Integer.toString(startCoordinates[2]-1)+")";
+				
+		assertEquals(expectedCoordinates, drone.moveForth());
+	}
 }

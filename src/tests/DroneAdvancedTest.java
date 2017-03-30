@@ -45,17 +45,17 @@ public class DroneAdvancedTest {
 			
 			for(int j=0; j<pom;j++)
 			{
-				if (parts[0] == "moveUp()")
+				if (parts[0].equals("moveUp()"))
 					drone.moveUp();
-				if (parts[0] == "moveDown()")
+				if (parts[0].equals("moveDown()"))
 					drone.moveDown();
-				if (parts[0] == "moveLeft()")
+				if (parts[0].equals("moveLeft()"))
 					drone.moveLeft();
-				if (parts[0] == "moveRight()")
+				if (parts[0].equals("moveRight()"))
 					drone.moveRight();
-				if (parts[0] == "moveBack()")
+				if (parts[0].equals("moveBack()"))
 					drone.moveBack();
-				if (parts[0] == "moveForth()")
+				if (parts[0].equals("moveForth()"))
 					drone.moveForth();
 			}
 		}

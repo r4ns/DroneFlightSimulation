@@ -1,40 +1,40 @@
 package drone;
 
-import drone.dron;
+import drone.Drone;
 
 public class DroneController {
 
 	public static void main(String[] args) {		
-		dron dr1 = new dron();
+		Drone dr1 = new Drone();
 		System.out.println("Dole");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Dole());
+			System.out.println(dr1.moveDown());
 		}
 		System.out.println("Levo");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Levo());
+			System.out.println(dr1.moveLeft());
 		}
 		System.out.println("Gore");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Gore());
+			System.out.println(dr1.moveUp());
 		}
 		System.out.println("Desno");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Desno());
+			System.out.println(dr1.moveRight());
 		}
 		System.out.println("Nazad");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Nazad());
+			System.out.println(dr1.moveBack());
 		}
 		System.out.println("Levo");
 		for(int i = 0; i < 50; i++)
 		{
-			System.out.println(dr1.Levo());
+			System.out.println(dr1.moveLeft());
 		}
 		
 	}

@@ -2,12 +2,12 @@ package drone;
 
 public interface StandardDrone {
 	
-	public abstract String Levo();
-	public abstract String Desno();
-	public abstract String Gore();
-	public abstract String Dole();
-	public abstract String Nazad();
-	public abstract String Napred();
-	public abstract String Koordinate();
+	public abstract String moveUp();
+	public abstract String moveDown();
+	public abstract String moveLeft();
+	public abstract String moveRight();
+	public abstract String moveBack();
+	public abstract String moveForth();
+	public abstract String getFormatedCoordinates();
 	
 }

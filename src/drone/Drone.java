@@ -2,97 +2,97 @@ package drone;
 
 
 
-public class dron implements StandardDrone {
+public class Drone implements StandardDrone {
 	private int x;
 	private int y;
 	private int z;
 	
-	public dron() {
+	public Drone() {
 		this.x = 30;
 		this.z = 30;
 		this.y = 0;
 	}
 	
-	public String Gore() {
+	public String moveUp() {
 		if(y < 10 || y > 40){
 			if(y == 50)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			y += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if(((x <= 10 || x >= 40) || (z <= 10 || z >= 40)) && (y >= 10 || y <= 40)){
 			y += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
-	public String Dole() {
+	public String moveDown() {
 		if(y < 10 || y > 40){
 			if(y == 0)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			y -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if(((x <= 10 || x >= 40) || (z <= 10 || z >= 40)) && (y >= 10 || y <= 40)){
 			y -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
-	public String Levo() {
+	public String moveLeft() {
 		if(x < 10 || x > 40){
 			if(x == 0)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			x -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if((x >= 10 || x <= 40) && ((y <= 10 || y >= 40) || (z <= 10 || z >= 40))){
 			x -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
-	public String Desno() {
+	public String moveRight() {
 		if(x < 10 || x > 40){
 			if(x == 50)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			x += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if((x >= 10 || x <= 40) && ((y <= 10 || y >= 40) || (z <= 10 || z >= 40))){
 			x += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
 
-	public String Nazad() {
+	public String moveBack() {
 		if(z < 10 || z > 40){
 			if(z == 0)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			z -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if((z >= 10 || z <= 40) && ((x <= 10 || x >= 40) || (y <= 10 || y >= 40))){
 			z -= 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
-	public String Napred() {
+	public String moveForth() {
 		if(z < 10 || z > 40){
 			if(z == 50)
-				return Koordinate() + " Dron je na spoljnoj strani kvadrata!";
+				return getFormatedCoordinates() + " Dron je na spoljnoj strani kvadrata!";
 			z += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else if((z >= 10 || z <= 40) && ((x <= 10 || x >= 40) || (y <= 10 || y >= 40))){
 			z += 1;
-			return Koordinate();
+			return getFormatedCoordinates();
 		} else
-			return Koordinate() + " Dron je na unutrasnjoj strani kvadrata!";
+			return getFormatedCoordinates() + " Dron je na unutrasnjoj strani kvadrata!";
 	}
 	
-	public String Koordinate() {
+	public String getFormatedCoordinates() {
 		return "Kordinate drona su: " + 
 				Integer.toString(x) + " " +
 				Integer.toString(y) + " " +

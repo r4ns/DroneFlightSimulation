@@ -5,7 +5,7 @@ public class Drone implements StandardDrone {
 	private int y;
 	private int z;
 
-	public Drone() {
+	Drone() {
 
 	}
 
@@ -51,7 +51,7 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	public String moveDown(int m) {
@@ -90,7 +90,7 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	public String moveLeft(int m) {
@@ -106,21 +106,21 @@ public class Drone implements StandardDrone {
 				}
 			}
 
-		} else if (this.x >= 10 && this.x <= 40 && this.z >= 10 && this.z <= 40 && this.y > 0 && this.y <= 10) {
+		} else if ( this.z > 0 && this.z <= 50 && this.y > 0 && this.y <= 50 && x > 0 && x <= 10) {
 
 			for (int i = 0; i < m; i++) {
-				if (x > 0 && x <= 10) {
+				while (x > 0 && x <= 10) {
 					this.x -= 1;
 					System.out.println(getFormatedCoordinates());
 				}
 
 			}
 
-		} else if (this.x >= 10 && this.x <= 40 && this.z >= 10 && this.z <= 40 && y > 40 && y <= 50) {
+		} else if ( this.z > 10 && this.z <= 40 && y > 10 && y <= 40) {
 
 			for (int i = 0; i < m; i++) {
 				if (x > 40 && x <= 50) {
-					this.x -= 1;
+					this.x--;
 					System.out.println(getFormatedCoordinates());
 				}
 
@@ -129,7 +129,7 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 
 	}
 
@@ -169,7 +169,7 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	public String moveBack(int m) {
@@ -208,7 +208,7 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	public String moveForth(int m) {
@@ -247,15 +247,11 @@ public class Drone implements StandardDrone {
 		} else
 			System.out.println("Hitting the wall !!!");
 
-		return null;
+		return getFormatedCoordinates();
 	}
 
 	public String getFormatedCoordinates() {
-		if(this.x == 0 && this.y == 30 && this.z == 30){
-			System.out.println("Destination reched :");
-		}
-		return "Drone position : (" + x + "," + y + "," + z + ")";
-		
+		return "Drone position: (" + x + "," + y + "," + z + ")";
 	}
 
 }

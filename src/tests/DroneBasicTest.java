@@ -12,7 +12,7 @@ public class DroneBasicTest {
 	Drone drone;
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveUp()
+	public void testInitialMoveUp()		//proveravanje kretanja ka gore za 1
 	{
 		drone = new Drone();
 		
@@ -21,7 +21,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveDown()
+	public void testInitialMoveDown()	//proveravanje kretanja ka dole za 1
 	{
 		drone = new Drone();
 		
@@ -30,7 +30,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveLeft()
+	public void testInitialMoveLeft()	//proveravanje kretanja ulevo za 1
 	{
 		drone = new Drone();
 		
@@ -39,7 +39,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveRight()
+	public void testInitialMoveRight()	//proveravanje kretanja udesno za 1
 	{
 		drone = new Drone();
 		
@@ -48,7 +48,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveForth()
+	public void testInitialMoveForth()	//proveravanje kretanja napred za 1
 	{
 		drone = new Drone();
 		
@@ -57,7 +57,7 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testInitialMoveBack()
+	public void testInitialMoveBack()	//proveravanje kretanja nazad za 1
 	{
 		drone = new Drone();
 		
@@ -65,8 +65,10 @@ public class DroneBasicTest {
 		assertEquals(expectedCoordinates, drone.moveBack());
 	}
 	
+	//----------------------------------------------------------------------------------------------------------------------------------------------------
+	
 	@Test(timeout = 1000)
-	public void testFrontBoundary()
+	public void testOuterFrontBoundary()	//proveravanje probijanja spoljasnje granice kretanjem napred
 	{
 		int[] initCoordinates = {30, 40, 0};
 		
@@ -77,7 +79,18 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testBackBoundary()
+	public void testInnerFrontBoundary()	//proveravanje probijanja unutrasnje granice kretanjem napred
+	{
+		int[] initCoordinates = {30, 39, 40};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveForth());
+	}
+	
+	@Test(timeout = 1000)
+	public void testOuterBackBoundary()		//proveravanje probijanja spoljasnje granice kretanjem unazad
 	{
 		int[] initCoordinates = {30, 40, 50};
 		
@@ -88,7 +101,18 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testLeftBoundary()
+	public void testInnerBackBoundary()		//proveravanje probijanja unutrasnje granice kretanjem unazad
+	{
+		int[] initCoordinates = {30, 39, 10};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveBack());
+	}
+	
+	@Test(timeout = 1000)
+	public void testOuterLeftBoundary()		//proveravanje probijanja spoljasnje granice kretanjem ulevo
 	{
 		int[] initCoordinates = {0, 40, 50};
 		
@@ -99,7 +123,18 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testRightBoundary()
+	public void testInnerLeftBoundary()		//proveravanje probijanja unutrasnje granice kretanjem ulevo
+	{
+		int[] initCoordinates = {40, 39, 39};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveLeft());
+	}
+	
+	@Test(timeout = 1000)
+	public void testOuterRightBoundary()	//proveravanje probijanja spoljasnje granice kretanjem udesno
 	{
 		int[] initCoordinates = {50, 40, 50};
 		
@@ -110,9 +145,20 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testBottomBoundary()
+	public void testInnerRightBoundary()	//proveravanje probijanja unutrasnje granice kretanjem udesno
 	{
-		int[] initCoordinates = {30, 40, 30};
+		int[] initCoordinates = {10, 39, 39};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveRight());
+	}
+	
+	@Test(timeout = 1000)
+	public void testOuterBottomBoundary()	//proveravanje probijanja spoljasnje granice kretanem ka dole
+	{
+		int[] initCoordinates = {25, 0, 25};
 		
 		drone = new Drone(initCoordinates);
 		
@@ -121,13 +167,36 @@ public class DroneBasicTest {
 	}
 	
 	@Test(timeout = 1000)
-	public void testTopBoundary()
+	public void testInnerBottomBoundary()	//proveravanje probijanja unutrasnje granice kretanem ka dole
 	{
-		int[] initCoordinates = {30, 10, 25};
+		int[] initCoordinates = {25, 40, 25};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveDown());
+	}
+
+	@Test(timeout = 1000)
+	public void testOuterTopBoundary() //proveravanje probijanja spoljasnje granice kretanjem na gore
+	{
+		int[] initCoordinates = {25, 50, 25};
 		
 		drone = new Drone(initCoordinates);
 		
 		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
 		assertEquals(expectedCoordinates, drone.moveUp());
 	}
+	
+	@Test(timeout = 1000)
+	public void testInnerTopBoundary() //proveravanje probijanja unutrasnje granice kretanjem na gore
+	{
+		int[] initCoordinates = {25, 10, 25};
+		
+		drone = new Drone(initCoordinates);
+		
+		String expectedCoordinates = "Trenutna pozicija je (" + Integer.toString(initCoordinates[0]) + "," + Integer.toString(initCoordinates[1]) + "," + Integer.toString(initCoordinates[2]) + ").";
+		assertEquals(expectedCoordinates, drone.moveUp());
+	}
+	
 }

@@ -12,13 +12,15 @@ public class Drone implements StandardDrone {
 	public Drone(){
 		
 	}	
+	public Drone(int[] coordinates){
+		this.coordinates = coordinates;
+	}
 	public Drone(int [] boundaries, int [] coordinates)
 	{
 		this.outerBoundaries= boundaries;
 		distanceFromOuterBox=10;
 		this.coordinates = coordinates;
 	}
-	
 
 	public String moveUp() {
 		if(coordinates[0] > 10 && coordinates[0]< 40 && coordinates[2] > 10 && coordinates[2] < 40)
@@ -26,6 +28,7 @@ public class Drone implements StandardDrone {
 			 			if(coordinates[1] >= 0 && coordinates[1] < 10 || coordinates[1] >= 40 && coordinates[1] < 50)
 			 			{
 			 				coordinates[1]++;
+			 				
 			 			}
 			 			
 			 		}

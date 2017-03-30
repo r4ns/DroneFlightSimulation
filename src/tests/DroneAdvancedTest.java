@@ -6,10 +6,10 @@ import drone.Drone;
 
 public class DroneAdvancedTest {
 	
-	Drone drone;
 	 
 	private int[] coordinates = {30,0,30};
-	
+	private int[] endCoordinates = {0,30,30};
+	Drone drone =new Drone(coordinates);
 	
 	@Test
 	public void finalTest()
@@ -26,14 +26,16 @@ public class DroneAdvancedTest {
 							"moveLeft()-22",
 							"moveDown()-20"};
 		
-		String expectedCoordinates = "(" + Integer.toString(0) + ","
-				+ Integer.toString(30) + ","
-				+ Integer.toString(30) + ")";
 		
-		helperMoving(path);
+		
+		String expectedCoordinates = "(" + Integer.toString(endCoordinates[0]) + ","
+										 + Integer.toString(endCoordinates[1]) + ","
+										 + Integer.toString(endCoordinates[2]) + ")";
+		
+		assertEquals(expectedCoordinates, helperMoving(path, drone));
 							
 		}
-	public String helperMoving(String[] path)
+	public String helperMoving(String[] path, Drone drone)
 	{
 		int n= path.length;
 		for (int i =0; i<n;i++)
@@ -61,6 +63,7 @@ public class DroneAdvancedTest {
 		return "(" + Integer.toString(coordinates[0]) + ","
 				+ Integer.toString(coordinates[1] ) + ","
 				+ Integer.toString(coordinates[2]) + ")";
+		
 	}
 	
 

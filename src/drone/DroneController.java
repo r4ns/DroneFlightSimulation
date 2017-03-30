@@ -11,12 +11,12 @@ public class DroneController {
 			System.out.println(drone.getFormatedCoordinates());
 		}
 		System.out.println("Pomeranje desno!");
-		while(drone.coordinates[0]<50){
+		while(drone.coordinates[0]<40){
 			drone.moveRight();
 			System.out.println(drone.getFormatedCoordinates());
 		}
 		System.out.println("Podizanje gore 2!");
-		while(drone.coordinates[1]<50){
+		while(drone.coordinates[1]<45){
 			drone.moveUp();
 			System.out.println(drone.getFormatedCoordinates());
 		}

@@ -2,7 +2,7 @@
   
  public class Drone implements StandardDrone{
  	
- 	private int[] boundaries={0,10,40,50};
+ 	private int[] boundaries;
  	public int[] coordinates={30,0,30};
  	
  	public Drone()
@@ -130,7 +130,6 @@
  
  	@Override
  	public String getFormatedCoordinates() {
-		// TODO Auto-generated method stub
 		return "("+coordinates[0]+","+coordinates[1]+","+coordinates[2]+")";
 	}
   

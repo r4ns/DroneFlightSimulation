@@ -25,7 +25,7 @@ import drone.Drone;
 	}
 		public String helper(String[] metode,int[] putanja){
 		drone = new Drone(startCoordinates);
-		for(int i=0;i<metode.length;i++){
+		for(int i=0;i<methods.length;i++){
 			for(int j=0;j<putanja[i];j++){
 				if(methods[i]=="moveUp")
 					drone.moveUp();

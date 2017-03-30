@@ -33,6 +33,7 @@ public class DroneTestBasic {
 		+Integer.toString(coordinates[2]) + ")";
 		assertEquals(expectedCoordinates,drone.moveUp());
 		
+		
 		coordinates[1] = 50;
 		drone= new Drone(boundaries, coordinates);
 		expectedCoordinates="("

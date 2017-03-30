@@ -19,10 +19,10 @@ public class Drone implements StandardDrone {
 	public String moveUp() {
 
 		UP_granica();
-		//if(poruka==true){
-		//	return "PROBIJANJE GRANICE";
-		//}
-		//poruka = false;
+		if(poruka==true){
+			return "PROBIJANJE GRANICE";
+		}
+		poruka = false;
 		return "("+ this.x + "," + this.y + "," + this.z + ")";
 
 	}

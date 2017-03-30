@@ -5,17 +5,17 @@ public class DroneController {
 	public static void main(String[] args) {
 		
 		Drone drone= new Drone();
-		System.out.println("Dron ide gore!");
+		System.out.println("Dron ide gore");
 		while(drone.coordinates[1]<10){
 			drone.moveUp();
 			System.out.println(drone.getFormatedCoordinates());
 		}
-		System.out.println("Pomeranje desno!");
+		System.out.println("Dron ide desno");
 		while(drone.coordinates[0]<40){
 			drone.moveRight();
 			System.out.println(drone.getFormatedCoordinates());
 		}
-		System.out.println("Podizanje gore 2!");
+		System.out.println("Dron ide opet gore");
 		while(drone.coordinates[1]<45){
 			drone.moveUp();
 			System.out.println(drone.getFormatedCoordinates());

@@ -72,14 +72,14 @@ public class Drone implements StandardDrone {
 	}
 
 	public String moveForth() {
-		if (((z > 0 && z <= 10) || (z > 40 && y <= 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
-			z--;
+		if (((z >= 0 && z < 10) || (z > 40 && y <= 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
+			z++;
 			return getFormatedCoordinates();
-		} else if ((z > 10 && z <= 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y <= 50)) {
-			z--;
+		} else if ((z >= 10 && z < 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y <= 50)) {
+			z++;
 			return getFormatedCoordinates();
 		} else if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z > 10 && z <= 40) && (x >= 10 && x <= 40)) {
-			z--;
+			z++;
 			return getFormatedCoordinates();
 		} else {
 			return getFormatedCoordinates() + "//dron hits edge !!!";
@@ -87,14 +87,14 @@ public class Drone implements StandardDrone {
 	}
 
 	public String moveBack() {
-		if (((z >= 0 && z < 10) || (z >= 40 && y < 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
-			z++;
+		if (((z > 0 && z <= 10) || (z >= 40 && y < 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
+			z--;
 			return getFormatedCoordinates();
-		} else if ((z >= 10 && z < 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y < 50)) {
-			z++;
+		} else if ((z > 10 && z <= 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y < 50)) {
+			z--;
 			return getFormatedCoordinates();
 		} else if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z >= 10 && z < 40) && (x >= 10 && x <= 40)) {
-			z++;
+			z--;
 			return getFormatedCoordinates();
 		} else {
 			return getFormatedCoordinates() + "//dron hits edge !!!";

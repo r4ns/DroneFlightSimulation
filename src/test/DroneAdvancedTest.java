@@ -28,7 +28,7 @@ public class DroneAdvancedTest {
 					"moveLeft", 22,
 					"moveDown", 20
 		};
-		String expectedResult = "Drone went down to " + 30 + " height.";
+		String expectedResult = "[" + 0 + ", " + 30 + ", " +  30 + "]";
 		assertEquals(helperMoveDrone(array, drone), expectedResult);
 	}
 	
@@ -79,7 +79,7 @@ public class DroneAdvancedTest {
 			}
 			i += 2;
 		}
-		return result;
+		return drone.getFormatedCoordinates();
 		
 	}
 }

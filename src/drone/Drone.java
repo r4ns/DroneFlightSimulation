@@ -113,26 +113,26 @@ public class Drone implements StandardDrone{
 
 	public String moveLeft() {
 		if (x == 0 || (x== 40 && z > 10 && z < 40 && y > 10 && y < 40))
-			return "Drone can't perfom this move";
+			return "Drone can't perform this move.";
 		return "Drone went left to " + --x + " x coordinate.";
 	}
 
 	public String moveRight() {
 		if (x == 50 || (x == 10  && z > 10 && z < 40 && y > 10 && y < 40))
-			return "Drone can't perfom this move";
+			return "Drone can't perform this move.";
 		return "Drone went right to " + ++x + " x coordinate.";
 	}
 
 	public String moveBack() {
 		if (z == 50 || (z == 10 && y > 10 && y < 40 && x > 10 && x < 50))
-			return "Drone can't perfom this move";
+			return "Drone can't perform this move.";
 		return "Drone moved backwards to " + ++z + " z coordinate.";
 	}
 
 	public String moveForth() {
 		if (z == 0 || (z == 40 && y > 10 && y < 40 && x > 10 && x < 40))
-			return "Drone can't perfom this move";
-		return "Drone moved forwart to " + --z + " z coordinate.";
+			return "Drone can't perform this move.";
+		return "Drone moved forward to " + --z + " z coordinate.";
 	}
 
 	public String getFormatedCoordinates() {

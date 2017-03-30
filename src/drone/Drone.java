@@ -21,10 +21,10 @@ public class Drone implements StandardDrone {
 		if(x > 10 && x < 40 && z > 10 && z < 40)
 		{
 			if((y >= 0 && y < 10) || (y >= 40 && y < 50))
-				setY(y++);
+				setY(this.y + 1);
 		}
 		else if(y < 50)
-			setY(y++);
+			setY(this.y + 1);
 		
 		return isFinalPosition();
 	}
@@ -34,10 +34,10 @@ public class Drone implements StandardDrone {
 		if(x > 10 && x < 40 && z > 10 && z < 40)
 		{
 			if((y > 0 && y <= 10) || (y > 40 && y <= 50))
-				setY(y--);
+				setY(this.y - 1);
 		}
 		else if(y > 0)
-			setY(y--);
+			setY(this.y - 1);
 				
 		return isFinalPosition();						
 	}
@@ -47,10 +47,10 @@ public class Drone implements StandardDrone {
 		if(y > 10 && y < 40 && z > 10 && z < 40)
 		{
 			if((x > 0 && x <= 10) || (x > 40 && x <= 50))
-				setX(x--);
+				setX(this.x - 1);
 		}
 		else if(x > 0)
-			setX(x--);
+			setX(this.x - 1);
 		
 		return isFinalPosition();
 	}
@@ -60,10 +60,10 @@ public class Drone implements StandardDrone {
 		if(y > 10 && y < 40 && z > 10 && z < 40)
 		{
 			if((x >= 0 && x < 10) || (x >= 40 && x < 50))
-				setX(x++);
+				setX(this.x + 1);
 		}
 		else if(x < 50)
-			setX(x++);
+			setX(this.x + 1);
 		
 		return isFinalPosition();
 	}
@@ -73,10 +73,10 @@ public class Drone implements StandardDrone {
 		if(y > 10 && y < 40 && x > 10 && x < 40)
 		{
 			if((z >= 0 && z < 10) || (z >= 40 && z < 50))
-				setZ(z++);
+				setZ(this.z + 1);
 		}
 		else if(z < 50)
-			setZ(z++);
+			setZ(this.z + 1);
 		
 		return isFinalPosition();
 	}
@@ -86,10 +86,10 @@ public class Drone implements StandardDrone {
 		if(y > 10 && y < 40 && x > 10 && x < 40)
 		{
 			if((z > 0 && z <= 10) || (z > 40 && z <= 50))
-				setZ(z--);
+				setZ(this.z - 1);
 		}
 		else if(z > 0)
-			setZ(z--);
+			setZ(this.z - 1);
 		
 		return isFinalPosition();
 	}
@@ -97,18 +97,18 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		return "Drone position: (" + x + "," + y + "," + z + ")";
+		return "Drone position: (" + getX() + "," + getY() + "," + getZ() + ")";
 	}
 	
 	public String isFinalPosition() {
 		if(x == 0 && y == 30 && z == 30)
-			return "Drone reach the final position: (0, 30, 30)";
+			return "Drone position: (0,30,30)";
 		else
-			return "Drone position: (" + x + "," + y + "," + z + ")" ;
+			return "Drone position: (" + getX() + "," + getY() + "," + getZ() + ")" ;
 	}
 	
 	public int getX() {
-		return x;
+		return this.x;
 	}
 
 	public void setX(int x) {
@@ -116,7 +116,7 @@ public class Drone implements StandardDrone {
 	}
 
 	public int getY() {
-		return y;
+		return this.y;
 	}
 
 	public void setY(int y) {
@@ -124,7 +124,7 @@ public class Drone implements StandardDrone {
 	}
 
 	public int getZ() {
-		return z;
+		return this.z;
 	}
 
 	public void setZ(int z) {

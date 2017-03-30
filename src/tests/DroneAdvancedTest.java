@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
 import java.awt.List;
 import java.util.Arrays;
 
@@ -12,12 +11,12 @@ import drone.Drone;
 public class DroneAdvancedTest {
 	
 	private int[] startCoordinates = {30, 0, 30};
-	Drone drone;
+	Drone drone = new Drone(startCoordinates[0], startCoordinates[1], startCoordinates[2]);
 	
 	@Test
 	public void testTravelingDroneToFinalPosition()
 	{
-		drone = new Drone(startCoordinates[0], startCoordinates[1], startCoordinates[2]);
+		
 		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(0) + ","
@@ -25,20 +24,20 @@ public class DroneAdvancedTest {
 				+ Integer.toString(30) + ")";
 		
 		String [] komande = {"moveUp() 12", 
-								"moveRight() 21", 
-								"moveUp() 23", 
-								"moveForth() 16", 
-								"moveLeft() 12", 
-								"moveForth() 5", 
-								"moveLeft() 18",  
-								"moveUp() 17", 
-								"moveBack() 21", 
-								"moveLeft() 22", 
-								"moveDown() 20"};
+							 "moveRight() 21", 
+						   	 "moveUp() 23", 
+							 "moveForth() 16", 
+							 "moveLeft() 12", 
+						 	 "moveForth() 5", 
+							 "moveLeft() 18",  
+							 "moveUp() 17", 
+						 	 "moveBack() 21", 
+							 "moveLeft() 22",
+							 "moveDown() 20"
+								};
 		
 		assertEquals(expectedCoordinates, helperTravelingDroneToFinalPosition(komande));
 	}
-	
 	
 	public String helperTravelingDroneToFinalPosition(String[] komande)
 	{
@@ -61,9 +60,6 @@ public class DroneAdvancedTest {
 			}
 		}
 		
-		return "Drone position: (" 
-				+ drone.getX() + ","
-				+ drone.getY() + ","
-				+ drone.getZ() + ")";
+		return drone.getFormatedCoordinates();
 	}
 }

@@ -9,13 +9,12 @@ import drone.Drone;
 public class DroneAdvancedTest {
 	private int[] coordinates = {0, 30, 30};
 	Drone dron = new Drone();
+	
 	int [] niz = {12, 21, 23, 16, 12, 5, 18, 17, 21 , 22, 20};
-	String [] nizStringova = {"gore", "desno", "gore", "napred", "levo", "napred", "levo", "gore", "nazad", "levo", "dole", "nazad"};
+	String [] nizStringova = {"gore", "desno", "gore", "napred", "levo", "napred", "levo", "gore", "nazad", "levo", "dole"};
 	
 	@Test
 	public void TestDronPutanja(){
-		
-		
 		
 		String expectedCoordinates = "Drone position: ("
 				+ Integer.toString(coordinates[0]) + ", "

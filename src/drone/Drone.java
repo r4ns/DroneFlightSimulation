@@ -36,13 +36,17 @@ public class Drone implements StandardDrone{
 			}
 		}
 		else if(koordinataY < 50){
+			if (koordinataY == 10 && koordinataX <= 40 && koordinataX >= 10 && koordinataZ <= 40 && koordinataZ >= 10){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataY++;
 			if(koordinataY < 50){
 			return getFormatedCoordinates();}
 			else{
 				stop=false;
 				return getFormatedCoordinates() + "//Drone hits outer square border";
-			}
+			}}
 		}
 		else{
 			return getFormatedCoordinates();
@@ -62,6 +66,10 @@ public class Drone implements StandardDrone{
 		}
 		else if(koordinataY > 0)
 		{
+			if (koordinataY == 40 && koordinataX <=40 && koordinataX >= 10 && koordinataZ <= 40 && koordinataZ >= 10){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataY--;
 			if(koordinataY > 0){
 			return getFormatedCoordinates();}
@@ -69,7 +77,7 @@ public class Drone implements StandardDrone{
 				stop=false;
 				return getFormatedCoordinates() + "//Drone hits outer square border";
 			}
-		}
+		}}
 		else{
 			return getFormatedCoordinates();
 		}
@@ -88,6 +96,10 @@ public class Drone implements StandardDrone{
 		}
 		else if(koordinataX > 0)
 		{
+			if (koordinataY <= 40 && koordinataY >= 10 && koordinataX ==40 && koordinataZ <= 40 && koordinataZ >= 10){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataX--;
 			if(koordinataX > 0){
 				return getFormatedCoordinates();}
@@ -95,7 +107,7 @@ public class Drone implements StandardDrone{
 				stop=false;
 				return getFormatedCoordinates() + "//Drone hits outer square border";
 				}
-		}
+		}}
 		else{
 			return getFormatedCoordinates();
 		}
@@ -114,6 +126,10 @@ public class Drone implements StandardDrone{
 			}
 		}
 		else if(koordinataX < 50){
+			if ((koordinataY <= 40 && koordinataY >= 10) && koordinataX ==10 && (koordinataZ <= 40 && koordinataZ >= 10)){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataX++;
 			if (koordinataX==50){
 				stop=false;
@@ -122,7 +138,7 @@ public class Drone implements StandardDrone{
 			else{
 				return getFormatedCoordinates();
 			}
-		}
+		}}
 		else{
 			return getFormatedCoordinates();
 		}
@@ -141,6 +157,10 @@ public class Drone implements StandardDrone{
 			}
 		}
 		else if(koordinataZ<50){
+			if(koordinataX>=10 && koordinataX<=40 && koordinataY>=10 && koordinataY<=40 && koordinataZ==10){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataZ++;
 			if (koordinataZ==50){
 				stop=false;
@@ -150,7 +170,7 @@ public class Drone implements StandardDrone{
 				return getFormatedCoordinates();
 			}
 			
-		}
+		}}
 		else{
 			return getFormatedCoordinates();
 		}
@@ -169,6 +189,10 @@ public class Drone implements StandardDrone{
 			}
 		}
 		else if(koordinataZ>0){
+			if(koordinataX>=10 && koordinataX<=40 && koordinataY>=10 && koordinataY<=40 && koordinataZ==40){
+				return getFormatedCoordinates();
+			}
+			else{
 			koordinataZ--;
 			if(koordinataZ > 0){
 				return getFormatedCoordinates();}
@@ -176,7 +200,7 @@ public class Drone implements StandardDrone{
 					stop=false;
 					return getFormatedCoordinates() + "//Drone hits outer square border";
 				}
-		}
+		}}
 		else{
 			return getFormatedCoordinates();
 		}

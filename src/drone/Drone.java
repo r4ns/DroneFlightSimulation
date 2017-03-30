@@ -17,45 +17,27 @@ public class Drone implements StandardDrone{
 	}
 	
 	public String moveUp(){
-		x=this.x;
-		y=this.y+1;
-		z=this.z;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		upBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String moveDown(){
-		x=this.x;
-		y=this.y-1;
-		z=this.z;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		downBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String moveLeft(){
-		x=this.x-1;
-		y=this.y;
-		z=this.z;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		leftBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String moveRight(){
-		x=this.x+1;
-		y=this.y;
-		z=this.z;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		rightBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String moveBack(){
-		x=this.x;
-		y=this.y;
-		z=this.z+1;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		backBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String moveForth(){
-		x=this.x;
-		y=this.y;
-		z=this.z-1;
-		System.out.println("Drone position(x:"+this.x+" y:"+this.y+" z:"+this.z+")");
+		forthBorder();
 		return "Drone position(x:"+x+" y:"+y+" z:"+z+")";
 	}
 	public String getFormatedCoordinates(){
@@ -84,6 +66,76 @@ public class Drone implements StandardDrone{
 
 	public void setZ(int z) {
 		this.z = z;
+	}
+	
+	public void upBorder(){
+		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
+			if(y <= 10 && y > 0 || y > 40 && y <= 50){
+				y++;
+			}
+		}else if(y<=50){
+			y++;
+		}
+	}
+	
+	public void downBorder(){
+		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
+			if(y <= 10 && y > 0 || y > 40 && y <= 50){
+				y--;
+			}
+		}else if(y>0){
+			y--;
+		}
+	}
+	
+	public void leftBorder(){
+		if((z<=10 && z>=0)||(z<=50 && z>=40)){
+			if(x>0)
+				x--;
+		}else if((z<=40 && z>=10)){
+			if((y<=10 && y>=0)||(y>=40 && y<50)){
+				if(x>0)
+					x--;
+			}
+		}
+		
+	}
+	
+	public void rightBorder(){
+		if((z<=10 && z>=0)||(z<=50 && z>=40)){
+			if(x<50)
+				x++;
+		}else if((z<=40 && z>=10)){
+			if((y<=10 && y>=0)||(y>=40 && y<50)){
+				if(x<50)
+					x++;
+			}
+		}
+		
+	}
+	
+	public void backBorder(){
+		if((x<=10 && x>=0) || (x<=50 && x>=40)){
+			if(z<50)
+				z++;
+		}else if((x<=40 && x>=10)){
+			if((y<=10 && y>=0) || (y>=40 && y<=50)){
+				if(z<50)
+					z++;
+			}
+		}
+	}
+	
+	public void forthBorder(){
+		if((x<=10 && x>=0) || (x<=50 && x>=40)){
+			if(z>0)
+				z--;
+		}else if((x<=40 && x>=10)){
+			if((y<=10 && y>=0) || (y>=40 && y<=50)){
+				if(z>0)
+					z--;
+			}
+		}
 	}
 
 }

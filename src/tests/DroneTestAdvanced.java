@@ -19,7 +19,6 @@ public class DroneTestAdvanced {
 	public void testPutanja(){
 		expectedCoordinates="("+pomocne[0]+","+pomocne[1]+","+pomocne[2]+")";
 		assertEquals(expectedCoordinates, helper(metode,putanja));
-
 	}
 	public String helper(String[] metode,int[] putanja){
 		drone = new Drone(startCoordinates);

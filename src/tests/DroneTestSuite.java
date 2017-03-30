@@ -6,7 +6,8 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 
-@Suite.SuiteClasses({ DroneTestBasic.class, DroneTestAdvanced.class })
+@Suite.SuiteClasses({ DroneTestBasic.class,
+	DroneTestAdvanced.class })
  
 public class DroneTestSuite {
 

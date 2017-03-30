@@ -3,65 +3,67 @@ package tests;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
 import drone.Drone;
 
 public class DroneAdvancedTest {
-	private int[] endCoordinates = {0,30,30};
 	
-	
+	Drone drone;
+		
 	@Test
-	public void testPath(){	
+	public void testDroneRoute(){
+		drone = new Drone();
+		String expectedCoordinates = "Drone position: (" 
+				+ Integer.toString(0) + ", "
+				+ Integer.toString(30) + ", "
+				+ Integer.toString(30) + ")";
 		
-		String expectedCoordinates = "Pozicija ("+Integer.toString(endCoordinates[0]) + "," + Integer.toString(endCoordinates[1] +1) + "," + Integer.toString(endCoordinates[2]) + ")";
-		//assertEquals(expectedCoordinates, pomocna());
+		String[] commandArray = {"gore", "12" 
+				, "desno" , "21" 
+				, "gore" , "23" 
+				, "napred" , "16"
+				, "levo" , "12"
+				, "napred" , "5"
+				, "levo" , "18"
+				, "gore" , "17"
+				, "nazad" , "21"
+				, "levo" , "22"
+				, "dole" , "20"};
 		
+		assertEquals(expectedCoordinates, droneMove(commandArray));
 	}
-	/*public String pomocna(){
-		Drone dr = new Drone(30,0,30);
-		System.out.println(dr.getFormatedCoordinates());
-		System.out.println("Moving up");
-		for (int i = 0; i < 12; i++){
-			 System.out.println(dr.moveUp());
+	
+	public String droneMove(String[] commandArray){
+		drone = new Drone();
+		System.out.println(drone.getFormatedCoordinates());
+		for (int i = 0; i < commandArray.length; i += 2){
+			switch (commandArray[i]){
+				case "desno":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveRight();
+					break;
+				case "levo":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveLeft();
+					break;
+				case "gore":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveUp();
+					break;
+				case "dole":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveDown();
+					break;
+				case "napred":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveForth();
+					break;
+				case "nazad":
+					for (int j = 0; j < Integer.parseInt(commandArray[i + 1]); j++)
+						drone.moveBack();
+					break;
+			}
 		}
-		System.out.println("Moving right:");
-		for (int i = 0; i < 21; i++){
-			System.out.println(dr.moveRight());
-		}
-		System.out.println("Moving up:");
-		for (int i = 0; i < 23; i++){
-			System.out.println(dr.moveUp());
-		}
-		System.out.println("Moving forth:");
-		for (int i = 0; i < 16; i++){
-			System.out.println(dr.moveForth());
-		}
-		System.out.println("Moving left:");
-		for (int i = 0; i < 12; i++){
-			System.out.println(dr.moveLeft());
-		}
-		System.out.println("Moving forth:");
-		for (int i = 0; i < 5; i++){
-			System.out.println(dr.moveForth());
-		}
-		System.out.println("Moving left:");
-		for (int i = 0; i < 18; i++){
-			System.out.println(dr.moveLeft());
-		}
-		System.out.println("Moving up:");
-		for (int i = 0; i < 17; i++){
-			System.out.println(dr.moveUp());
-		}
-		System.out.println("Moving back:");
-		for (int i = 0; i < 21; i++){
-			System.out.println(dr.moveBack());
-		}
-		System.out.println("Moving left:");
-		for (int i = 0; i < 22; i++){
-			System.out.println(dr.moveLeft());
-		}
-		System.out.println("Moving down:");
-		for (int i = 0; i < 20; i++){
-			System.out.println(dr.moveDown());
-		}*/
+		return drone.getFormatedCoordinates();
 	}
-
+}

@@ -9,7 +9,7 @@ public class Drone implements StandardDrone{
 		this.xTrenutno = x;
 		this.yTrenutno = y; 
 		this.zTrenutno = z;
-		System.out.println("Dron se stvorio, " + this.getFormatedCoordinates());
+		System.out.println("Dron se stvorio, "  + this.getFormatedCoordinates());
 	}
 	
 

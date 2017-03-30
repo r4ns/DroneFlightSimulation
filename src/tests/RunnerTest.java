@@ -1,5 +1,5 @@
 package tests;
 
-public class RunnerTest {
+public class RunnerTest{
 
 }

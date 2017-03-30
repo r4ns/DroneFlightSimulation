@@ -11,7 +11,7 @@ public class DroneAdvancedTest {
 	@Test
 	public void testMoveToDestination(){
 		drone = new Drone();
-		String expectedOutput = "Drone position: x:" +Integer.toString(destinationCoordinates[0]) + " y:" + Integer.toString(destinationCoordinates[1]) + " z:" + Integer.toString(destinationCoordinates[2]);
+		String expectedOutput =  "Drone position: x:" +Integer.toString(destinationCoordinates[0]) + " y:" + Integer.toString(destinationCoordinates[1]) + " z:" + Integer.toString(destinationCoordinates[2]);
 		String[] methodList = { "MoveUp-12", "MoveRight-21", "MoveUp-23", "MoveForth-16", "MoveLeft-12", "MoveForth-5",
 				"MoveLeft-18", "MoveUp-17", "MoveBack-21", "MoveLeft-22", "MoveDown-20" };
 		assertEquals(expectedOutput, helperDrone(methodList, drone));

@@ -1,11 +1,11 @@
 package drone;
 
 public class DroneController {
-
+ 
 	public static void main(String[] args) {		
 		Drone MojDron = new Drone(30,0,30);
 		System.out.println("----- pocetne ko0rdinate -----");
-		System.out.println(MojDron.getFormatedCoordinates());
+		System.out.println( MojDron.getFormatedCoordinates());
 		System.out.println("----- let pocinje -----");
 		
 		System.out.println("----- pomeri gore -----");

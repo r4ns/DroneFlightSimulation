@@ -9,7 +9,7 @@ import drone.Drone;
 public class DroneBasicTest {
 	
 	Drone drone;
-	private int[] startCoordinates = { 30, 0, 30 };
+	private int[] startCoordinates ={ 30, 0, 30 };
 
 	
 	

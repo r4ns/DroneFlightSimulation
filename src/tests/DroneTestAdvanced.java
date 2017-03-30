@@ -1,62 +1,83 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import drone.Drone;
 
 public class DroneTestAdvanced {
-	private int[] boundaries = {50,50,50};
-	private int[] startCoordinates = {30,0,30};
-	private int[] finishCoordinates = {0,30,30};
+		
+	private int[] pocetneKordinate = {30,0,30};
+	private int[] krajnjeKordinate={0,30,30};
 	Drone drone;
 	
-	private String []  direction = {"moveUp","moveRight",
-									"moveUp","moveForth",
-									"moveLeft","moveForth",
-									"moveLeft","moveUp",
-									"moveBack","moveLeft",
-									"moveDown"};
-	
-	private int [] steps = {12,21,23,16,12,5,18,17,21,22,20};
-	
-	
 	@Test
-	public void testPath()
-	{
-		int n = steps.length;
-		for(int i = 0;i<n;i++){
-			if(direction[i]=="moveUp"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveUp();
+	public void testDronePath(){
+		drone=new Drone(pocetneKordinate[0],pocetneKordinate[1],pocetneKordinate[2]);
+
+		String expectedCoordinates = "("+Integer.toString(krajnjeKordinate[0])+","+
+				 Integer.toString(krajnjeKordinate[1])+","+
+				 Integer.toString(krajnjeKordinate[2])+")";
+		
+		Object[] putanja=
+			{	"moveUp",12,
+				"moveRight",21,
+				"moveUp",23,
+				"moveForth",16,
+				"moveLeft",12,
+				"moveForth",5,
+				"moveLeft",18,
+				"moveUp",17,
+				"moveBack",21,
+				"moveLeft",22,
+				"moveDown",20
+				};
+		
+		assertEquals(expectedCoordinates, testDronePathHelper(drone,putanja));
+		
+	}
+	
+	public String testDronePathHelper(Drone drone1,Object[] putanja){
+		
+		int n = putanja.length;
+		for(int i=0;i<n;i+=2){
+			switch((String)putanja[i]){
+			case "moveUp":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveUp();
 				}
-			}
-			if(direction[i]=="moveDown"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveDown();
+				break;
+			case "moveDown":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveDown();
 				}
-			}
-			if(direction[i]=="moveLeft"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveLeft();
+				break;
+			case "moveRight":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveRight();
 				}
-			}
-			if(direction[i]=="moveRight"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveUp();
+				break;
+			case "moveLeft":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveLeft();
 				}
-			}
-			if(direction[i]=="moveForth"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveUp();
+				break;
+			case "moveForth":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveForth();
 				}
-			}
-			if(direction[i]=="moveBack"){
-				for(int j=0;j<steps[i];j++){
-					drone.moveUp();
+				break;
+			case "moveBack":
+				for(int j=0;j<(int)putanja[i+1];j++){
+					drone1.moveBack();
 				}
+				break;
 			}
 		}
+		return drone1.getFormatedCoordinates();
 	}
 }
+
+
+

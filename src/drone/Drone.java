@@ -1,5 +1,6 @@
 package drone;
 import java.awt.SecondaryLoop;
+
 import java.lang.*;
 public class Drone implements StandardDrone {
 
@@ -7,6 +8,7 @@ public class Drone implements StandardDrone {
 	public int y;
 	public int z;
 	public boolean poruka = false;
+	
 	public Drone(int x,int y,int z){
 		this.x =x;
 		this.y =y;
@@ -26,6 +28,42 @@ public class Drone implements StandardDrone {
 		return "("+ this.x + "," + this.y + "," + this.z + ")";
 
 	}
+
+	public int getX() {
+		return x;
+	}
+
+
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+
+
+	public int getY() {
+		return y;
+	}
+
+
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+
+
+	public int getZ() {
+		return z;
+	}
+
+
+
+	public void setZ(int z) {
+		this.z = z;
+	}
+
+
 
 	@Override
 	public String moveDown() {
@@ -103,30 +141,34 @@ public class Drone implements StandardDrone {
 	}
 	
 	public void LEFT_granica(){
-		if((z<=10 && z>=0) || (z<=50 && z>=40)){
-			if(x>0){
-				x--;
-			}
-		}else if((z<=40 && z>=10)){
-			if((y<=10 && y>=0) || ( y >= 40 && y < 50)){
-				if(x>0){
+		if(y>10 && y<40){
+			if(z>10 && z<40){
+				if((x<=10 && x>0) || (x<=50 && x>40)){
 					x--;
 				}
 			}
+			else if(x>0){
+				x--;
+			}
+		}
+		else if(x>0){
+			x--;
 		}
 	}
 	
 	public void RIGHT_granica(){
-		if((z<=10 && z>=0) || (z<=50 && z>=40)){
-			if(x<50){
-				x++;
-			}
-		}else if((z<=40 && z>=10)){
-			if((y<=10 && y>=0) || ( y >= 40 && y < 50)){
-				if(x<50){
+		if(y>10 && y<40){
+			if(z>10 && z<40){
+				if((x<=10 && x>0) || (x<=50 && x>40)){
 					x++;
 				}
 			}
+			else if(x<50){
+				x++;
+			}
+		}
+		else if(x<50){
+			x++;
 		}
 	}
 	
@@ -136,7 +178,7 @@ public class Drone implements StandardDrone {
 				z++;
 			}
 		}else if((x<=40 && x>=10)){
-			if((y<=10 && y>=0) || ( y >= 40 && y < 50)){
+			if((y<=10 && y>=0) || ( y >= 40 && y <= 50)){
 				if(z<50){
 					z++;
 				}
@@ -145,6 +187,7 @@ public class Drone implements StandardDrone {
 	}
 	
 	public void FORTH_granica(){
+
 		if((x<=10 && x>=0) || (x<=50 && x>=40)){
 			if(z>0){
 				z--;

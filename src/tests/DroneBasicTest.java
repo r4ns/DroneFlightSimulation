@@ -23,8 +23,6 @@ public class DroneBasicTest {
 			assertEquals(expectedCoordinates, drone.moveUp());
 			
 		}
-	
-	
 	@Test
 	public void testInitialMoveUpHitBottomInnerSquareBorder(){
 		

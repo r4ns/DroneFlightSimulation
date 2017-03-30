@@ -8,12 +8,12 @@ import static org.junit.Assert.*;
 
 public class DroneBasicTest {
 	
-	private int[] startcoordinates= {30,10,30};
+	private int[] startcoordinates= {30,50,30};
 	Drone drone;
 	
 	@Test
 	public void testInitialMove() {
-		drone = new Drone(30,10,30);
+		drone = new Drone(30,50,30);
 		
 		String expectedCoordinates = "Trenutna pozicija drona: "
 				+ "("+Integer.toString(startcoordinates[0])+","

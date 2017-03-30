@@ -13,16 +13,16 @@ public class Drone implements StandardDrone {
 	public String moveUp() {
 		if(((x>=0 && x<=10) || (x>=40 && x<=50))  && ((z>=0 && z<=50) && (y>=0 && y<50)) ) {
 			y++;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((x>=10&& x<=40) && (z>=10 && z<=40) && ((y>=0 && y<10) || (y>=40 && y<50))){
 			y++;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((x>=10&& x<=40) && (y>=0 && y<50) && ((z>=0 && z<10) || (z>=40 && z<50)) ) {
 			y++;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 			
 		} else
-			return "Ne moguce je pomeriti dron na gore" + getFormatedCoordinates();
+			return getFormatedCoordinates() + "dron hits the edge";
 		
 		
 		
@@ -33,16 +33,16 @@ public class Drone implements StandardDrone {
 	public String moveDown() {
 		if(((x>=0 && x<=10) || (x>=40 && x<=50))  && ((z>=0 && z<=50) && (y>0 && y<=50))) {
 			y--;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((x>=10&& x<=40) && (z>=10&& z<=40) && ((y>0 && y<=10) || (y>40 && y<=50))){
 			y--;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if ((x>=10 && x<=40) && (y>10 && y<=40) && ((z>=0 && z<10) || (z>=40 && z<50))) {
 			y--;
-			return "Y je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 			
 		} else
-			return "Ne moguce je pomeriti dron na dole" + getFormatedCoordinates();
+			return getFormatedCoordinates() + "dron hits the edge";
 		
 		
 	}
@@ -52,17 +52,17 @@ public class Drone implements StandardDrone {
 	public String moveLeft() {
 		if(((y>=0 && y<=10) || (y>=40 && y<=50)) && (x>0 && x<=50) && (z>=0 && z<=50)){
 			x--;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		}
 		else if ((y>=10 && y<=40) && ((z>=0 && z<=10) || (z>=40 && z<=50)) && (x>0 && x<=50) ){
 			x--;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((y>=10 && y<=40) && (z>=10 && z<=40) && ((x>0 && x<=10) || (x>40 && x<=50) )){
 			x--;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 			
 		} else{
-			return "Nije moguce pomeriti dron"; }
+			return getFormatedCoordinates() + "dron hits the edge"; }
 	}
 
 
@@ -71,17 +71,17 @@ public class Drone implements StandardDrone {
 	public String moveRight() {
 		if(((y>=0 && y<=10) || (y>=40 && y<=50)) && (x>=0 && x<50) && (z>=0 && z<=50)){
 			x++;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		}
 		else if ((y>=10 && y<=40) && ((z>=0 && z<=10) || (z>=40 && z<=50)) && (x>=0 && x<50) ){
 			x++;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((y>=10 && y<=40) && (z>=0 && z<=50) && ((x>=0 && x<10) || (x>=40 && x<50) )){
 			x++;
-			return "X je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 			
 		} else{
-			return "Nije moguce pomeriti dron"; }
+			return getFormatedCoordinates() + "dron hits the edge"; }
 	}
 	
 
@@ -92,15 +92,15 @@ public class Drone implements StandardDrone {
 	public String moveBack() {
 		if((z>=0 && z<10) || (z>=40 && z<50) && (x>=0 && x<=50) && (y>=0 && y<=50)) {
 			z++;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((z>=10 && z<40) && ((x>= 0 && x<=10) || (x>= 40 && x<=50) ) && (y>=0 && y<=50) ){
 			z++;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if ((z>=10 && z<40) && ((y>= 0 && y<=10) || (y>= 40 && y<=50) ) && (x>=0 && x<=50) ) {
 			z++;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else
-			return "Nije moguce pomeriti dron";
+			return getFormatedCoordinates() + "dron hits the edge";
 	}
 
 
@@ -109,15 +109,15 @@ public class Drone implements StandardDrone {
 		
 		if((z>0 && z<=10) || (z>40 && z<=50) && (x>=0 && x<=50) && (y>=0 && y<=50)) {
 			z--;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if((z>10 && z<=40) && ((x>= 0 && x<=10) || (x>= 40 && x<=50) ) && (y>=0 && y<=50) ){
 			z--;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else if ((z>10 && z<=40) && ((y>= 0 && y<=10) || (y>= 40 && y<=50) ) && (x>=0 && x<=50) ) {
 			z--;
-			return "Z je pomeren za 1" + getFormatedCoordinates();
+			return getFormatedCoordinates();
 		} else
-			return "Nije moguce pomeriti dron";
+			return getFormatedCoordinates() + "dron hits the edge";
 		
 		
 	}
@@ -127,7 +127,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		
-		return "Coordinates are: x " + x + "y " + y + "z " + z  ;
+		return "Drone position: (" + x + "," + y + "," + z + ")"   ;
 	}
 	
 	

@@ -95,7 +95,7 @@ public class Drone implements StandardDrone {
 			if(y <= 10 && y > 0 || y > 40 && y <= 50){
 				y--;
 			}
-		}else if(y<=50){
+		}else if(y>0){
 			y--;
 		}else{
 			poruka=true;

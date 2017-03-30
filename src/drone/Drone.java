@@ -93,8 +93,12 @@ public String moveForth(){
 
 
 public String getFormatedCoordinates() {
-	return ("Drone position: ("+x+","+y+","+z+")");
+	return "Drone position: (" 
+			+ Integer.toString(x) + ","
+			+ Integer.toString(y) + ","
+			+ Integer.toString(z) + ")";
 }
+
 public int getX() {
 	return x;
 }

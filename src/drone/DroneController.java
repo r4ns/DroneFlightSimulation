@@ -12,52 +12,62 @@ public class DroneController {
 			i++;
 		}
 		System.out.println("moveRight:");
+		i=0;
 		while(i<20){
 			System.out.println(dr.moveRight());
 			i++;
 		}
 		System.out.println("moveUp:");
-		while(i<13){
+		i=0;
+		while(i<23){
 			System.out.println(dr.moveUp());
 			i++;
 		}
 		System.out.println("moveForth:");
-		while(i<15){
+		i=0;
+		while(i<16){
 			System.out.println(dr.moveForth());
 			i++;
 		}
 		System.out.println("moveLeft:");
+		i=0;
 		while(i<10){
 			System.out.println(dr.moveLeft());
 			i++;
 		}
 		
 		System.out.println("moveForth:");
+		i=0;
 		while(i<5){
 			System.out.println(dr.moveForth());
 			i++;
 		}
 		System.out.println("moveLeft:");
+		i=0;
 		while(i<18){
 			System.out.println(dr.moveLeft());
 			i++;
 		}
 		System.out.println("moveUp:");
-		while(i<16){
+		i=0;
+		while(i<17){
 			System.out.println(dr.moveUp());
 			i++;
 		}
 		System.out.println("moveBack:");
-		while(i<20){
+		i=0;
+		while(i<21){
 			System.out.println(dr.moveBack());
 			i++;
 		}
 		System.out.println("moveLeft:");
-		while(i<21){
+		i=0;
+		while(i<22){
 			System.out.println(dr.moveLeft());
 			i++;
 	}
 		System.out.println("moveDown:");
+		i=0;
 		while(i<20){
 			System.out.println(dr.moveDown());
 			i++;

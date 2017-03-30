@@ -1,20 +1,19 @@
 package drone;
 
 public class Drone implements StandardDrone{
-	private int x = 30;
-	private int y = 30;
-	private int z = 30;
-	private String pomeraj = "dron se pomerio";
-	private int granicaSpoljasnja1 = 0;
-	private int granicaSpoljasnja2 = 50;
-	private int granicaUnutrasnja = 10;
-	private int granicaUnutrasnja2 = 40;
-
+	private int xTrenutno = 30;
+	private int yTrenutno = 0;
+	private int zTrenutno = 30;
+	
 	public Drone(int x, int y, int z){
-		this.x = x;
-		this.y = y; 
-		this.z = z;
+		this.xTrenutno = x;
+		this.yTrenutno = y; 
+		this.zTrenutno = z;
+		System.out.println("Dron se stvorio, " + this.getFormatedCoordinates());
 	}
+	
+
+	
 	
 	public Drone(){
 		
@@ -26,73 +25,174 @@ public class Drone implements StandardDrone{
 			System.out.println("DRON JE STIGAO NA CILJ!!!");
 		}
 		
-		return "Drone position: x:"+this.x + " y:" + this.y + " z:" +this.z;
+		return "Drone position: x:"+this.xTrenutno + " y:" + this.yTrenutno + " z:" +this.zTrenutno;
 	}
 	
 	@Override
 	public String moveUp() {
-		this.y += 1;
+
+		if ((yTrenutno >= 0 && yTrenutno < 10) && (xTrenutno >= 0 && xTrenutno < 50) && (zTrenutno >= 0 && zTrenutno < 50))
+			yTrenutno++;
+		else if ((yTrenutno >= 40 && yTrenutno < 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno < 50) && (xTrenutno >= 40 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno < 50) && (xTrenutno >= 0 && xTrenutno <= 10)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno < 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 40 && zTrenutno <= 50))
+			yTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno < 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 10))
+			yTrenutno++;
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveDown() {
-		this.y -= 1;
+		if ((yTrenutno > 0 && yTrenutno <= 10) && (xTrenutno >= 0 && xTrenutno <= 50) && (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno--;
+		else if ((yTrenutno > 40 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno--;
+		else if ((yTrenutno > 0 && yTrenutno <= 50) && (xTrenutno >= 40 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno--;
+		else if ((yTrenutno > 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 10)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			yTrenutno--;
+		else if ((yTrenutno > 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 40 && zTrenutno <= 50))
+			yTrenutno--;
+		else if ((yTrenutno > 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 10))
+			yTrenutno--;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveLeft() {
-		this.x -= 1 ; 
+		if ((yTrenutno >= 0 && yTrenutno <= 10) && (xTrenutno > 0 && xTrenutno <= 50) && (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno--;
+		else if ((yTrenutno >= 40 && yTrenutno <= 50) && (xTrenutno > 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno > 40 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno > 0 && xTrenutno <= 10)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno > 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 40 && zTrenutno <= 50))
+			xTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno > 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 10))
+			xTrenutno--;
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveRight() {
-		this.x += 1;
+		if ((yTrenutno >= 0 && yTrenutno <= 10) && (xTrenutno >= 0 && xTrenutno < 50) && (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno++;
+		else if ((yTrenutno >= 40 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno < 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 40 && xTrenutno < 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno < 10)
+				&& (zTrenutno >= 0 && zTrenutno <= 50))
+			xTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno < 50)
+				&& (zTrenutno >= 40 && zTrenutno <= 50))
+			xTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno < 50)
+				&& (zTrenutno >= 0 && zTrenutno <= 10))
+			xTrenutno++;
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveBack() {
-		z = this.z + 1;
+		if ((yTrenutno >= 0 && yTrenutno <= 10) && (xTrenutno >= 0 && xTrenutno <= 50) && (zTrenutno >= 0 && zTrenutno < 50))
+			zTrenutno++;
+		else if ((yTrenutno >= 40 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno < 50))
+			zTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 40 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno < 50))
+			zTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 10)
+				&& (zTrenutno>= 0 && zTrenutno < 50))
+			zTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 40 && zTrenutno < 50))
+			zTrenutno++;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno >= 0 && zTrenutno < 10))
+			zTrenutno++;
 		return getFormatedCoordinates();
 	}
 
 	@Override
 	public String moveForth() {
-		z = this.z - 1;
+		if ((yTrenutno >= 0 && yTrenutno <= 10) && (xTrenutno >= 0 && xTrenutno <= 50) && (zTrenutno > 0 && zTrenutno <= 50))
+			zTrenutno--;
+		else if ((yTrenutno >= 40 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno > 0 && zTrenutno <= 50))
+			zTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 40 && xTrenutno <= 50)
+				&& (zTrenutno > 0 && zTrenutno <= 50))
+			zTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 10)
+				&& (zTrenutno > 0 && zTrenutno <= 50))
+			zTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno > 40 && zTrenutno <= 50))
+			zTrenutno--;
+		else if ((yTrenutno >= 0 && yTrenutno <= 50) && (xTrenutno >= 0 && xTrenutno <= 50)
+				&& (zTrenutno > 0 && zTrenutno <= 10))
+			zTrenutno--;
+
 		return getFormatedCoordinates();
 	}
 
 
 	public int getX() {
-		return x;
+		return xTrenutno;
 	}
 
 	public int getY() {
-		return y;
+		return yTrenutno;
 	}
 
 	public int getZ() {
-		return z;
+		return zTrenutno;
 	}
 
 	public void setX(int x) {
-		this.x = x;
+		this.xTrenutno = x;
 	}
 
 	public void setY(int y) {
-		this.y = y;
+		this.yTrenutno = y;
 	}
 
 	public void setZ(int z) {
-		this.z = z;
+		this.zTrenutno = z;
 	}
 	
 	
 	public boolean goalReached(){
-		if(this.x == 0 && this.y == 30 && this.z == 30){
+		if(this.xTrenutno == 0 && this.yTrenutno == 30 && this.zTrenutno == 30){
 			return true;
 		}
 		return false;

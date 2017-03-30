@@ -1,20 +1,40 @@
 package drone;
 
 public class Drone implements StandardDrone {
-	private int x = 30;
-	private int y = 0;
-	private int z = 30;
+	private int x;
+	private int y;
+	private int z;
 	
 
 	public Drone() {
+		this.x = 30;
+		this.y = 0;
+		this.z = 30;
 
 	}
-
-
+	
+	public Drone(int x, int y, int z)
+	{
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
+	public Drone(int[] array)
+	{
+		this.x = array[0];
+		this.y = array[1];
+		this.z = array[2];
+	}
 
 	@Override
 	public String moveUp() {
-		y++;
+		if(((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y < 50))
+			y++;
+		else if((y >= 0 && y < 10) || (y >= 40 && y < 50))
+			y++;
+		else if((z >= 0 && z <= 10) || (z >= 40 && z <= 50))
+			y++;
 		return getFormatedCoordinates();
 	}
 
@@ -22,7 +42,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveDown() {
-		y--;
+		if(((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y > 0))
+			y--;
+		else if((y > 0 && y <= 10) || (y > 40 && y <= 50))
+			y--;
+		else if(((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (y > 0))
+			y--;
 		return getFormatedCoordinates();
 	}
 
@@ -30,7 +55,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveLeft() {
-		x--;
+		if(((y >= 40 && y <= 50) || (y >= 0 && y<= 10)) && (x > 0))
+			x--;
+		else if(((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (x > 0))
+			x--;
+		else if((x > 0 && x <= 10) || (x > 40 && x <= 50))
+			x--;
 		return getFormatedCoordinates();
 	}
 
@@ -38,7 +68,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveRight() {
-		x++;
+		if(((y >= 40 && y <= 50) || (y >= 0 && y<= 10)) && (x < 50))
+			x++;
+		else if(((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (x < 50))
+			x++;
+		else if((x >= 0 && x < 10) || (x >= 40 && x < 50))
+			x++;
 		return getFormatedCoordinates();
 	}
 
@@ -46,7 +81,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveBack() {
-		z++;
+		if(((x >=0 && x <= 10) || (x >= 40 && x <= 50)) && (z < 50))
+			z++;
+		else if(((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z < 50))
+			z++;
+		else if((z >= 0 && z < 10) || (z >= 40 && z < 50))
+			z++;
 		return getFormatedCoordinates();
 	}
 
@@ -54,7 +94,12 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveForth() {
-		z--;
+		if(((x >=0 && x <= 10) || (x >= 40 && x <= 50)) && (z > 0))
+			z--;
+		else if(((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z > 0))
+			z--;
+		else if((z > 0 && z <= 10) || (z > 40 && z <= 50))
+			z--;
 		return getFormatedCoordinates();
 	}
 

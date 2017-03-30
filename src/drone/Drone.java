@@ -104,6 +104,7 @@ public class Drone implements StandardDrone {
  		return getFormatedCoordinates();
  	}
 	
+	
 	public String moveForth() {
  		if(y > 10 && y < 40 && x > 10 && x < 40)
  			 		{

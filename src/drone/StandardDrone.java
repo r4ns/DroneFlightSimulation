@@ -2,6 +2,7 @@ package drone;
 
 public interface StandardDrone {
 	
+	
 	public abstract String moveUp();
 	public abstract String moveDown();
 	public abstract String moveLeft();

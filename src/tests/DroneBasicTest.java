@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 public class DroneBasicTest {
 
 	
+	
 	private int[] boundaries={50,50,50};
 	private int[] startCoordinates={30,0,30};
 	Drone drone;

@@ -2,32 +2,59 @@ package drone;
 
 public class DroneController {
 
-	public static void main(String[] args) {		
-		Drone drone = new Drone(30,0,30);
+	public static void main(String[] args) {
+		
+		Drone drone= new Drone();
 		drone.getFormatedCoordinates();
-		while(drone.getY()<10){
+		
+		while(drone.coordinates[1]<7){
 			drone.moveUp();
+			
 		}
-		while(drone.getX()<45){
-			drone.moveRight();		
+		
+		while(drone.coordinates[0]<45){
+			drone.moveRight();
+			
 		}
-		while(drone.getZ()>5){
+		while(drone.coordinates[2]>5)
+		{
 			drone.moveForth();
+			
+			
 		}
-		while(drone.getY()<50){
+		
+		while(drone.coordinates[1]<45){
 			drone.moveUp();
+			
 		}
-		while(drone.getX()>30){
+	
+		while(drone.coordinates[0]>30)
+		{
 			drone.moveLeft();
+			
+			
 		}
-		while(drone.getZ()<30){
+		
+		while(drone.coordinates[2]<30)
+		{
 			drone.moveBack();
+			
 		}
-		while(drone.getX()>0){
+	
+		while(drone.coordinates[0]>0)
+		{
 			drone.moveLeft();
+			
+			
 		}
-		while(drone.getY()>30){
+		
+		while(drone.coordinates[1]>30)
+		{
 			drone.moveDown();
+			
+			
 		}
+		System.out.println("You arrived!");
+		
 	}
 }

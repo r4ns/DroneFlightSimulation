@@ -1,96 +1,136 @@
-package drone;
-
-public class Drone implements StandardDrone {
-	 private int x;
-	 private int y;
-	 private int z;
-	 private int[] boundaries ;
-	 private int[] coordinates ;
-	//private int distanceFromOuterBox =10;
-	public Drone(){
+ package drone;
+ public class Drone implements StandardDrone{
+ 	
+ 	private int[] boundaries;
+ 	public int[] coordinates={30,0,30};
+ 	
+ 	public Drone()
+ 	{
+ 		
+ 	}
+ 	
+ 	public Drone(int[] coordinates){
+ 		this.coordinates=coordinates;
+ 	}
+ 	
+ 	public Drone(int[] boundaries, int[] coordinates){
+ 		this.boundaries=boundaries;
+ 		this.coordinates=coordinates;
+ 	}
+ 	public String moveUp() {
+ 		// TODO Auto-generated method stub
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]<10){
+ 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[1]>=40 && coordinates[1]<50)){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<=10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]<50){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ @Override
+ 	public String moveDown() {
+ 		// TODO Auto-generated method stub
+	 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]>0 && coordinates[1]<=10){
+			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[1]<=50 && coordinates[1]>40)){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]>0){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 			
+			 		} else {
+			 			
+			 			return getFormatedCoordinates();
+			 		}
+	}
+ 	
+ 
+ 	@Override
+ 	public String moveLeft() {
+ 		// TODO Auto-generated method stub
+ 		
+ 		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]<=10 && coordinates[0]>0)){
+ 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[0]>40 && coordinates[0]<=50)){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]>0){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 		
+ 	}
+ 	
+ 	@Override
+ 	public String moveRight() {
+		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[0]<10){
+			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]>=40 && coordinates[0]<50)){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]<50){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else {
+			 			return getFormatedCoordinates();
+			 		}
 		
 	}
-	public Drone(int x, int y, int z){
-		this.x=x;
-		this.y=y;
-		this.z=z;
+ 	
+ 		// TODO Auto-generated method stub
+ 		
+ 
+ 	@Override
+ 	public String moveBack() {
+ 		// TODO Auto-generated method stub
+ 		 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && coordinates[2]<10){
+ 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>=40 && coordinates[2]<50)){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]<50){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	
+ 	}
+ 
+ 	@Override
+ 	public String moveForth() {
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>0 && coordinates[2]<=10)){
+ 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 && coordinates[1]<40) && coordinates[2]>40){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]>0){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ 	@Override
+ 	public String getFormatedCoordinates() {
+ 		System.out.println( "Drone position: ("+coordinates[0]+","+coordinates[1]+","+coordinates[2]+")");
+		return "("+coordinates[0]+","+coordinates[1]+","+coordinates[2]+")";
 	}
-	public Drone(int[] boundaries, int[] coordinates){
-		this.boundaries = boundaries;
-		//distanceFromOuterBox=10;
-		this.coordinates=coordinates;
-	}
-	
-	public String moveUp() {
-		if(y<10){
-			setY(y+1);
-			getFormatedCoordinates();
-			return "Drone position: (" + Integer.toString(x) + ","+ Integer.toString(y) + "," + Integer.toString(z) + ")";
-		}
-		else
-		{
-			System.out.println("Ne moze gore!");
-			return "Ne moze gore!";
-		}
-	}
-
-	@Override
-	public String moveDown() {
-		setY(y-1);
-		getFormatedCoordinates();
-		return "Drone position: (" + x + ","+ y + "," + z + ")";
-	}
-
-	@Override
-	public String moveLeft() {
-		setX(x - 1);
-		getFormatedCoordinates();
-		return "Drone position: (" + x + ","+ y + "," + z + ")";
-	}
-
-	@Override
-	public String moveRight() {
-		setX(x + 1);
-		getFormatedCoordinates();
-		return "Drone position: (" + x + ","+ y + "," + z + ")";
-	}
-
-	@Override
-	public String moveBack() {
-		setZ(z+1);
-		getFormatedCoordinates();
-		return "Drone position: (" + x + ","+ y + "," + z + ")";
-	}
-
-	@Override
-	public String moveForth() {
-		setZ(z-1);
-		getFormatedCoordinates();
-		return "Drone position: (" + x + ","+ y + "," + z + ")";
-	}
-
-	@Override
-	public String getFormatedCoordinates() {
-		System.out.println("Drone position: (" + x + ","+ y + "," + z + ")");
-		return "Drone position: (" + Integer.toString(x) + ","+ Integer.toString(y) + "," + Integer.toString(z) + ")";
-	}
-	public int getX() {
-		return x;
-	}
-	public int getY() {
-		return y;
-	}
-	public int getZ() {
-		return z;
-	}
-	public void setX(int x) {
-		this.x = x;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	public void setZ(int z) {
-		this.z = z;
-	}
-
+  
 }

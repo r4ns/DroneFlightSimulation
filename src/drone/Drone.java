@@ -3,6 +3,11 @@ package drone;
 public class Drone implements StandardDrone{
  
 	private int x,y,z;
+	private int[] startCoordinates;
+	private int boundryOfX;
+	private int boundryOfY;
+	private int boundryOfZ;
+	private int distanceOfInnerCube;
 	
 	public Drone(int x, int y, int z){
 		
@@ -10,60 +15,64 @@ public class Drone implements StandardDrone{
 			this.y=y;
 			this.z=z;
 	}
+	public Drone(int[] startCoordinates, int[] boundries, int distanceOfInnerCube){
 		
-	public String moveUp() {
-		if((x>=0 && x<=10) || (x>=40 && x<=50))
-		{
-			if(y<50)
-				y++;
-			return getFormatedCoordinates();
+		this.x=startCoordinates[0];
+		this.y=startCoordinates[1];
+		this.z=startCoordinates[2];
+		this.boundryOfX=boundries[0];
+		this.boundryOfY=boundries[1];
+		this.boundryOfZ=boundries[2];
+		this.distanceOfInnerCube=distanceOfInnerCube;
+		
+	}
+	public boolean proveri(String nameOfMethod){
+		if(nameOfMethod=="moveUp"){
+			if((x>=0 && x<=distanceOfInnerCube) || (x>=boundryOfX-distanceOfInnerCube && x<=boundryOfX) && y<boundryOfY )
+				return true;
+			else if((z>=0 && z<=distanceOfInnerCube) || (z>=boundryOfZ-distanceOfInnerCube && z<=boundryOfZ) && y<boundryOfY)
+				return true;
+			else if((y>=0 && y<distanceOfInnerCube) || (y>=boundryOfY-distanceOfInnerCube && y<boundryOfY))	
+				return true;
+			else
+				return false;
 		}
-		else if((z>=0 && z<=10) || (z>=40 && z<=50))
+		else if(nameOfMethod == "moveDown")
 		{
-			if(y<50)
-				y++;
-			return getFormatedCoordinates();
+			if((x>=0 && x<=distanceOfInnerCube) || (x>=boundryOfX-distanceOfInnerCube && x<=boundryOfX) && y>0)
+				return true;
+			else if((z>=0 && z<=distanceOfInnerCube) || (z>=boundryOfZ-distanceOfInnerCube && z<=boundryOfZ) && y>0)
+				return true;
+			else if((y>0 && y<=distanceOfInnerCube) || (y>boundryOfY-distanceOfInnerCube && y<=boundryOfY))
+				return true;
+			else
+				return false;
 			
 		}
-		else if((y>=0 && y<10) || (y>=40 && y<50))
+		else if(nameOfMethod=="moveLeft")
 		{
+			if((y>=0 && y<=distanceOfInnerCube) || (y>=boundryOfY-distanceOfInnerCube && y<=boundryOfY) && x>0)
+				return true;
+			
+			
+		}
+		
+		
+		return false;
+		
+	}
+	
+	public String moveUp() {
+			proveri("moveUp");
 			y++;
 			return getFormatedCoordinates();
-		}
-		else
-		{
-			return getFormatedCoordinates();
-		}
-		
-		
-		
 	}
 
 	
 	public String moveDown() {
-		if((x>=0 && x<=10) || (x>=40 && x<=50))
-		{
-			if(y>0)
-				y--;
-			return getFormatedCoordinates();
-		}
-		else if((z>=0 && z<=10) || (z>=40 && z<=50))
-		{
-			if(y>0)
-				y--;
-			return getFormatedCoordinates();
-			
-		}
-		else if((y>0 && y<=10) || (y>40 && y<=50))
-		{
-			y--;
-			return getFormatedCoordinates();
-		}
-		else
-		{
-			return getFormatedCoordinates();
-		}
-		 
+		proveri("moveDown");
+		y--;
+		return getFormatedCoordinates();
 		
 	}
 

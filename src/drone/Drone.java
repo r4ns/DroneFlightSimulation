@@ -3,17 +3,18 @@ package drone;
 public class Drone {
 	private int x,y,z;
 	private int [] boundaries;
-	private boolean signal;
+	
 	public int[] getBoundaries() {
 		return boundaries;
 	}
 	public void setBoundaries(int[] boundaries) {
 		this.boundaries = boundaries;
 	}
-	public Drone (int x, int y, int z) {
+	public Drone (int x, int y, int z, int[] boundaries) {
 		this.x=x;
 		this.y=y;
 		this.z=z;
+		this.boundaries = boundaries;
 	}
 	public Drone() {
 		
@@ -85,11 +86,11 @@ public class Drone {
 	} 
 	public boolean check() {
 		
-		if((10<x&&x<40)&&(10<y&&y<40)&&(10<z&&z<40))
+		if((10<x&&x<boundaries[0]-10)&&(10<y&&y<boundaries[1]-10)&&(10<z&&z<boundaries[2]-10))
 		{
 			return false;
 		}
-		else if (0>x||x>50||0>y||y>50||0>z||z>50)
+		else if (0>x||x>boundaries[0]||0>y||y>boundaries[1]||0>z||z>boundaries[2])
 		{
 			return false;
 		}

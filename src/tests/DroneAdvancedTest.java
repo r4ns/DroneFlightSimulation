@@ -23,7 +23,7 @@ public class DroneAdvancedTest {
 	}
 	
 	public String help() {
-		drone = new Drone(30,0,30);
+		drone = new Drone(30,0,30,boundaries);
 		for (int i=0; i<funkcije.length;i++) {
 			String [] fk = funkcije[i].split("-");
 			

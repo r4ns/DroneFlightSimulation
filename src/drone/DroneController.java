@@ -3,8 +3,8 @@ package drone;
 public class DroneController {
 
 	public static void main(String[] args) {		
-       
-		Drone dr = new Drone(30,0,30);
+		 int[] boundaries ={50,50,50};
+		Drone dr = new Drone(30,0,30,boundaries);
 		System.out.println("pocetne koordinate. "+dr.getFormatedCoordinates());
 		System.out.println("Dron leti gore");
        for(int i =0; i<10;i++)

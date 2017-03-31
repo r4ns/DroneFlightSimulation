@@ -1,10 +1,17 @@
 package drone;
 
 public class Drone implements StandardDrone {
+	
+	
+	//int [] boundaries={granicaX,granicaY,granicaZ};
 
-	int x = 30;
-	int y= 0;
-	int z = 30;
+	private int x;
+	private int y;
+	private int z;
+	private int [] boundaries;
+	private int [] coordinates; 
+	private int razmak; 
+	
 	
 
 	public Drone(int x, int y, int z){
@@ -13,40 +20,48 @@ public class Drone implements StandardDrone {
 		this.y=y;
 		this.z=z;
 	}
+	
+	private Drone(int [] boundaries, int [] coordinates, int razmak){
+			
+		this.boundaries=boundaries;
+		this.coordinates=coordinates; 
+		this.razmak = razmak; 
+	}
+	
 
 	@Override
 	public String moveUp() {
 		
 		
-		if(x>10 && x<40 && z>10 && z<40 && y>=0 && y<10){
+		if(x>razmak && x<(boundaries[0]-razmak) && z>razmak && z<(boundaries[2]-razmak) && y>=0 && y<razmak){
 			
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if(x>10 && x<40 && z>10 && z<40 && y>=40 && y<50) {
+		} else if(x>razmak && x<(boundaries[0]-razmak) && z>razmak && z<(boundaries[2]-razmak) && y>=(boundaries[1]-razmak) && y<(boundaries[1])){
 			
 			y++;       
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if (x>=0 && x<=10 && z>=0 && z<=50 && y>=0 && y<50){
+		} else if (x>=0 && x<=razmak && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]){
 			
 			y++;
 			
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if (x>=40 && x<=50 && z>=0 && z<=50 && y>=0 && y<50){
+		} else if (x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]){
 			
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
 			
-		} else if (x>=0 && x<=50 && z>=40 && z<=50 && y>=0 && y<50){
+		} else if (x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>=0 && y<boundaries[1]){
 			
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
 			
-		} else if (x>=0 && x<=50 && z>=0 && z<=10 && y>=0 && y<50){
+		} else if (x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>=0 && y<boundaries[1]){
 			
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -73,27 +88,27 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveDown() {
 
-		if(x>=0 && x<=50 && z>=0 && z<=50 && y>0 && y<=10){
+		if(x>=0 && x<=boundaries[0] && z>=0 && z<=50 && y>0 && y<=10){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		} else if(x>=0 && x<=50 && z>=0 && z<=50 && y>40 && y<=50){
+		} else if(x>=0 && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>40 && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(x>=0 && x<=10 && z>=0 && z<=50 && y>0 && y<=50){
+		}else if(x>=0 && x<=razmak && z>=0 && z<=boundaries[2] && y>0 && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(x>=40 && x<=50 && z>=0 && z<=50 && y>0 && y<=50){
+		}else if(x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>0 && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(x>=0 && x<=50 && z>=40 && z<=50 && y>0 && y<=50){
+		}else if(x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>0 && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(x>=0 && x<=50 && z>=0 && z<=10 && y>0 && y<=50){
+		}else if(x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>0 && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -107,32 +122,32 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveLeft() {
 
-		if(y>=0 && y<=10 && z>=0 && z<=50 && x>0 && x<50){
+		if(y>=0 && y<=razmak && z>=0 && z<=boundaries[2] && x>0 && x<boundaries[0]){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if(y>10 && y<40 && z>10 && z<40 && x>0 && x<=10){
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>0 && x<=razmak){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if(y>10 && y<40 && z>10 && z<40 && x>40 && x<=50){
+		} else if(y>razmak && y<boundaries[1]-razmak && z>10 && z<40 && x>40 && x<=50){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		}else if(y>=40 && y<=50 && z>=0 && z<=50 && x>0 && x<=50){
+		}else if(y>=boundaries[1]-razmak && y<=boundaries[1] && z>=0 && z<=boundaries[2] && x>0 && x<=boundaries[0]){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		}else if(y>=0 && y<=50 && z>=40 && z<= 50 && x>0 && x<=50){
+		}else if(y>=0 && y<=boundaries[1] && z>=40 && z<= boundaries[2] && x>0 && x<=boundaries[0]){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		}else if(y>=0 && y<=50 && z>=0 && z<=10 && x>0 && x<=50){
+		}else if(y>=0 && y<=boundaries[1] && z>=0 && z<=razmak && x>0 && x<=boundaries[0]){
 			
 			x--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -150,28 +165,28 @@ public class Drone implements StandardDrone {
 	public String moveRight() {
 
 
-		if(y>10 && y<40 && z>10 && z<40 && x>=0 && x<10){
+		if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=0 && x<razmak){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		} else if(y>10 && y<40 && z>10 && z<40 && x>=40 && x<50){
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=boundaries[0]-razmak && x<boundaries[0]){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(y>=0 && y<=10 && z>=0 && z<=50 && x>=0 && x<50){
+		}else if(y>=0 && y<=razmak && z>=0 && z<=boundaries[2] && x>=0 && x<boundaries[0]){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		} else if(y>=40 && y<=50 && z>=0 && z<=50 && x>=0 && x<50){
+		} else if(y>=boundaries[1]-razmak && y<=boundaries[1] && z>=0 && z<=boundaries[2] && x>=0 && x<boundaries[0]){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		} else if(y>=0 && y<=50 && z>=0 && z<=10 && x>=0 & x<50){
+		} else if(y>=0 && y<=boundaries[1] && z>=0 && z<=razmak && x>=0 & x<boundaries[0]){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		}else if(y>=0 && y<=50 && z>=40 && z<=50 && x>=0 && x<50){
+		}else if(y>=0 && y<=boundaries[1] && z>=boundaries[2]-razmak && z<=boundaries[2] && x>=0 && x<boundaries[0]){
 			
 			x++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -187,21 +202,21 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveBack() {
 		
-		if(y>=0 && y<=10 && x>=0 && x<=50 && z>=0 && z<50){
+		if(y>=0 && y<=razmak && x>=0 && x<=boundaries[0] && z>=0 && z<boundaries[2]){
 			
 			z++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		} else if(y>10 && y<40 && x>10 && x<40 && z>=40 && z<50){
-			
-			z++;
-			System.out.println("Drone position: ("+x+","+y+","+z+")");
-			
-		}else if(y>10 && y<40 && x>10 && x<40 && z>=0 && z<10){
+		} else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>=boundaries[2]-razmak && z<boundaries[2]){
 			
 			z++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 			
-		}else if(y>=40 && y<=50 && x>=0 && x<=50 && z>=0 && z<50){
+		}else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>=0 && z<razmak){
+			
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+			
+		}else if(y>=boundaries[1]-razmak && y<=boundaries[1] && x>=0 && x<=boundaries[0] && z>=0 && z<boundaries[2]){
 			
 			z++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");

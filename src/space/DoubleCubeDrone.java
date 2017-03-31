@@ -1,41 +1,22 @@
-package drone;
+package space;
 
-public class Drone {
-	private int x,y,z;
-	private int [] boundaries;
+public class DoubleCubeDrone {
 	
-	public int[] getBoundaries() {
-		return boundaries;
-	}
-	public void setBoundaries(int[] boundaries) {
-		this.boundaries = boundaries;
-	}
-	
-	public Drone (int x, int y, int z, int[] boundries) {
-		this.x=x;
-		this.y=y;
-		this.z=z;
-		this.boundaries=boundries;
-	}
-	
-	public Drone() {
+	private int x, y, z;
+	private int[] boundaries;
+
+public  String moveUp(){
 		
-	}
-	public  String moveUp(){
-		
-	    
 		y++;
 		if(!check())
 			y--;
-		
-	    
+		    
 		return  "("+x+","+y+","+z+")";
 	    
 	}
 	public  String moveDown() {
 		
-		
-		y--;
+			y--;
 		if(!check())
 			y++;
 		
@@ -63,30 +44,24 @@ public class Drone {
 		return "("+x+","+y+","+z+")";
 	}
 	public  String moveBack(){
-		
-		
+			
 		z++;
 		if(!check())
-			z--;
-		
+			z--;		
 		
 		return "("+x+","+y+","+z+")";
 	}
+	
 	public String moveForth(){
-		
-		
+			
 		z--;
 		if(!check())
 			z++;
-		
-		
-		
+				
 		return "("+x+","+y+","+z+")";
 	}
-	public  String getFormatedCoordinates(){
-		return "("+x+","+y+","+z+")";
-	} 
-	public boolean check() {
+	
+public boolean check() {
 		
 		if((10<x&&x<boundaries[0]-10)&&(10<y&&y<boundaries[1]-10)&&(10<z&&z<boundaries[2]-10))
 		{
@@ -101,23 +76,4 @@ public class Drone {
 		return true;
 		}
 	}
-	public int getX() {
-		return x;
-	}
-	public void setX(int x) {
-		this.x = x;
-	}
-	public int getY() {
-		return y;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	public int getZ() {
-		return z;
-	}
-	public void setZ(int z) {
-		this.z = z;
-	}
-
 }

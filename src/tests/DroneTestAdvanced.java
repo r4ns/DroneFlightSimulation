@@ -23,7 +23,7 @@ public class DroneTestAdvanced {
 	}
 	
 	public String pom() {
-		drone = new Drone(30,0,30);
+		drone = new Drone(30,0,30, boundaries);
 		for (int i=0; i<poziviFunkcija.length;i++) {
 			String [] fk = poziviFunkcija[i].split("-");
 			

@@ -5,7 +5,23 @@ public class Drone implements StandardDrone {
 		private int x=30;
 		private int y=0;
 		private int z=30;
-	@Override
+		private int granicaX=50;
+		private int granicaY=50;
+		private int granicaZ=50;
+		private int razmak=10;
+		
+		public Drone(int[] start,int[] granice, int razmak){
+			granicaX=granice[0];
+			granicaY=granice[1];
+			granicaZ=granice[2];
+			this.razmak=razmak;
+			
+			
+		}
+		public Drone(){
+			
+		}
+	
 	/*public String moveUp() {
 		if(x<=40 &&x>=10 && z>=10 && z<=40 && (y<10||y>=40)&&y>=0&&y<50){
 			y=y+1;
@@ -19,8 +35,90 @@ public class Drone implements StandardDrone {
 			return getFormatedCoordinates();
 		}
 	}*/
+	public boolean provera(String smer){
+		if(smer=="moveUp"){
+			if(((x<=razmak&& x>=0)||(x>=granicaX-razmak&&x<=granicaX))&&y<granicaY){
+				return true;
+			}
+			else if(((z<=razmak &&z>=0)||(z>=granicaZ-razmak &&z<=granicaZ))&&y<granicaY){
+				return true;
+			}
+			else if((y<granicaY&&y>=granicaY-razmak)||(y>=0&&y<razmak)){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+		else if(smer=="moveDown"){
+			if(((x<=razmak&& x>=0)||(x>=granicaX-razmak&&x<=50))&&y>0){
+				
+				return true;
+			}
+			else if(((z<=razmak &&z>=0)||(z>=granicaZ-razmak &&z<=50))&&y>0){
+				
+				return true;
+			}
+			else if((y<=granicaY&&y>granicaY-razmak)||(y>0&&y<=razmak)){
+				
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+		else if(smer=="moveRight"){
+			if(((y<=razmak&& y>=0)||(y>=granicaY-razmak&&y<=granicaY))&&x<granicaX){
+				
+				return true;
+			}
+			else if(((z<=razmak &&z>=0)||(z>=granicaZ-razmak &&z<=granicaZ))&&x<granicaX){
+				
+				return true;
+			}
+			else if((x<granicaX&&x>=granicaX-razmak)||(x>=0&&x<razmak)){
+				
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}
+		else if(smer=="moveLeft"){
+			if(((y<=razmak&& y>=0)||(y>=granicaY-razmak&&y<=granicaY))&&x>0){
+				
+				return true;
+			}
+			else if(((z<=razmak &&z>=0)||(z>=granicaZ-razmak &&z<=granicaZ))&&x>0){
+				
+				return true;
+			}
+			else if((x<=granicaX&&x>granicaX-razmak)||(x>0&&x<=razmak)){
+			
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
+		
+	}
 	public String moveUp() {
-		if(((x<=10&& x>=0)||(x>=40&&x<=50))&&y<50){
+		if(provera("moveUp")){
+			y++;
+			return getFormatedCoordinates();
+			
+		}
+		else{
+			return getFormatedCoordinates();
+		}
+	/*	if(((x<=10&& x>=0)||(x>=40&&x<=50))&&y<50){
 			y=y+1;
 			return getFormatedCoordinates();
 		}
@@ -34,10 +132,18 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 	}
 	public String moveDown(){
-		if(((x<=10&& x>=0)||(x>=40&&x<=50))&&y>0){
+		if(provera("moveDown")){
+			y--;
+			return getFormatedCoordinates();
+			
+		}
+		else{
+			return getFormatedCoordinates();
+		}
+		/*if(((x<=10&& x>=0)||(x>=40&&x<=50))&&y>0){
 			y--;
 			return getFormatedCoordinates();
 		}
@@ -51,7 +157,7 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 	}
 
 	/*@Override
@@ -72,7 +178,14 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveLeft() {
-		if(((y<=10&& y>=0)||(y>=40&&y<=50))&&x>0){
+		if(provera("moveLeft")){
+			x--;
+			return getFormatedCoordinates();
+		}
+		else{
+			return getFormatedCoordinates();
+		}
+		/*if(((y<=10&& y>=0)||(y>=40&&y<=50))&&x>0){
 			x=x-1;
 			return getFormatedCoordinates();
 		}
@@ -86,16 +199,25 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 		
 		
 	}
 	public String moveRight(){
-		if(((y<=10&& y>=0)||(y>=40&&y<=50))&&x<50){
+		
+		if(provera("moveRight")){
+			x++;
+			return getFormatedCoordinates();
+		}
+		else{
+			return getFormatedCoordinates();
+			
+		}
+		/*if(((y<=10&& y>=0)||(y>=40&&y<=50))&&x<50){
 			x=x+1;
 			return getFormatedCoordinates();
 		}
-		else if(((z<=10 &&z>=0)||(z>=40 &&z<=50))&&x<500){
+		else if(((z<=10 &&z>=0)||(z>=40 &&z<=50))&&x<50){
 			x=x+1;
 			return getFormatedCoordinates();
 		}
@@ -105,7 +227,7 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 	}
 
 	/*@Override

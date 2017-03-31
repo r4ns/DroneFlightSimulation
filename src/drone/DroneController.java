@@ -3,8 +3,10 @@ package drone;
 public class DroneController {
 
 	public static void main(String[] args) {
-		
-		Drone dron = new Drone();
+		int[] start= {30,0,30};
+		int[] granice={50,50,50};
+		int razmak = 10;
+		Drone dron = new Drone(start,granice,razmak);
 		for(int i=0;i<=13;i++){
 			System.out.println(dron.moveUp());
 		}

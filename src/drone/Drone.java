@@ -17,8 +17,8 @@ public class Drone implements StandardDrone {
 	}
 
 	@Override
-	public String moveUp() {
-		if(x > 10 && x < 40 && z > 10 && z < 40)
+	public String moveUp() {	
+		if(x > 10 && x < 40 && z > 10 && z < 40)  //Izmestiti proveru u novu metodu
 		{
 			if((y >= 0 && y < 10) || (y >= 40 && y < 50))
 				setY(this.y + 1);

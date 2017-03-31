@@ -44,7 +44,7 @@ public class DroneAdvancedTest {
 		for (int i = 0; i < komande.length; i++) {
 			String[] trenutneKomande = komande[i].split(" ");
 				
-			if(trenutneKomande[0].equals("moveUp"))
+			if(trenutneKomande[0].equals("moveUp()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)
@@ -53,7 +53,7 @@ public class DroneAdvancedTest {
 					j--;
 				}
 			}
-			else if(trenutneKomande[0].equals("moveDown"))
+			else if(trenutneKomande[0].equals("moveDown()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)
@@ -62,7 +62,7 @@ public class DroneAdvancedTest {
 					j--;
 				}
 			}
-			else if(trenutneKomande[0].equals("moveLeft"))
+			else if(trenutneKomande[0].equals("moveLeft()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)
@@ -71,7 +71,7 @@ public class DroneAdvancedTest {
 					j--;
 				}
 			}
-			else if(trenutneKomande[0].equals("moveRight"))
+			else if(trenutneKomande[0].equals("moveRight()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)
@@ -80,7 +80,7 @@ public class DroneAdvancedTest {
 					j--;
 				}
 			}
-			else if(trenutneKomande[0].equals("moveForth"))
+			else if(trenutneKomande[0].equals("moveForth()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)
@@ -89,7 +89,7 @@ public class DroneAdvancedTest {
 					j--;
 				}
 			}
-			else if(trenutneKomande[0].equals("moveBack"))
+			else if(trenutneKomande[0].equals("moveBack()"))
 			{
 				int j = Integer.parseInt(trenutneKomande[1]);
 				while(j > 0)

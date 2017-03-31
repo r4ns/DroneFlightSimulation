@@ -1,120 +1,232 @@
 package drone;
 
-public class Drone implements StandardDrone{
-	private int x=30,y,z=30;
+import javax.swing.BoundedRangeModel;
 
-	public String moveUp() {
-		if (x>10 && x<40) {
-			if (z>10 && z<40) {
-				if((y<10 && y>=0)||(y<50 && y>=40)){
-					y++;
+public class Drone implements StandardDrone{
+	private int x=30;
+	private int z=30;
+	private int y = 0;
+	
+	private int granicaX=50;
+	private int granicaY=50;
+	private int granicaZ=50;
+	
+	private int distanceFromOuter=10;
+	
+	private int[] pocetneKoordinate={30,0,30};
+	
+	public Drone (int [] start, int [] boundaries, int distanceFromBoundaris){
+		this.pocetneKoordinate=start;
+		this.granicaX=boundaries[0];
+		this.granicaY=boundaries[1];
+		this.granicaZ=boundaries[2];
+		this.distanceFromOuter=distanceFromBoundaris;
+	}
+	public Drone(){
+		
+	}
+	
+	public boolean check(int kojeKretanje){
+		if (kojeKretanje==1) {
+			if (x>distanceFromOuter && x<granicaX-distanceFromOuter) {
+				if (z>distanceFromOuter && z<granicaZ-distanceFromOuter) {
+					if((y<distanceFromOuter && y>=0)||(y<granicaY && y>granicaY-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(y<granicaY){
+					return true;
 				}
 			}
-			else if(y<50){
-				y++;
+			else if(y<granicaY){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+		}else if (kojeKretanje==2) {
+			if(x>distanceFromOuter && x<granicaX-distanceFromOuter){
+				if(z>distanceFromOuter && z<granicaZ-distanceFromOuter){
+					if((y<=distanceFromOuter && y>0) || (y<=granicaY && y>granicaY-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(y>0){
+					return true;
+				}
+			}
+			else if(y>0){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if (kojeKretanje==3) {
+			if(y>distanceFromOuter && y<granicaY-distanceFromOuter){
+				if(z>distanceFromOuter && z<granicaZ-distanceFromOuter){
+					if((x<=distanceFromOuter && x>0) || (x<=granicaX && x>granicaX-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(x>0){
+					return true;
+				}
+			}
+			else if(x>0){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if (kojeKretanje==4) {
+			if (y>distanceFromOuter && y<granicaY-distanceFromOuter) {
+				if (z>distanceFromOuter && z<granicaY-distanceFromOuter) {
+					if((x<distanceFromOuter && x>=0)||(x<granicaX && x>=granicaX-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(x<granicaX){
+					return true;
+				}
+			}
+			else if(x<granicaX){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if (kojeKretanje==5) {
+			if(y>distanceFromOuter && y<granicaY-distanceFromOuter){
+				if(x>distanceFromOuter && x<granicaX-distanceFromOuter){
+					if((z<=distanceFromOuter && z>0) || (z<=granicaZ && z>granicaZ-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(z>0){
+					return true;
+				}
+			}
+			else if(z>0){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}else if(kojeKretanje==6){
+			if (y>distanceFromOuter && y<granicaY-distanceFromOuter) {
+				if (x>distanceFromOuter && x<granicaX-distanceFromOuter) {
+					if((z<distanceFromOuter && z>=0)||(z<granicaZ && z>=granicaZ-distanceFromOuter)){
+						return true;
+					}
+				}
+				else if(z<granicaZ){
+					return true;
+				}
+			}
+			else if(z<granicaZ){
+				return true;
+			}
+			else{
+				return false;
 			}
 		}
-		else if(y<50){
-			y++;
-		}
-		return getFormatedCoordinates() ;
+		return false;
 	}
 
+	public String moveUp() {
+		if(check(1)){
+			y++;
+			return getFormatedCoordinates() ;
+		}
+		else{
+			return getFormatedCoordinates() ;
+		}
+		
+	}
 
 	public String moveDown() {
-		if(x>10 && x<40){
-			if(z>10 && z<40){
-				if((y<=10 && y>0) || (y<=50 && y>40)){
-					y--;
-				}
-			}
-			else if(y<50){
-				y--;
-			}
-		}
-		else if(y>0){
+		if(check(2)){
 			y--;
+			return getFormatedCoordinates() ;
 		}
-		return getFormatedCoordinates();
+		else{
+			return getFormatedCoordinates();
+		}
+		
 	}
 
 
 	public String moveLeft() {
-		if(y>10 && y<40){
-			if(z>10 && z<40){
-				if((x<=10 && x>0) || (x<=50 && x>40)){
-					x--;
-				}
-			}
-			else if(x>0){
-				x--;
-			}
-		}
-		else if(x>0){
+		if(check(3)){
 			x--;
+			return getFormatedCoordinates();
 		}
-		return getFormatedCoordinates();
+		else{
+			return getFormatedCoordinates();
+		}
+		
 	}
 
-	@Override
 	public String moveRight() {
-		if (y>10 && y<40) {
-			if (z>10 && z<40) {
-				if((x<10 && x>=0)||(x<50 && x>=40)){
-					x++;
-				}
-			}
-			else if(x<50){
-				x++;
-			}
-		}
-		else if(x<50){
+		if(check(4)){
 			x++;
+			return getFormatedCoordinates();
 		}
-		return getFormatedCoordinates() ;
+		else{
+			return getFormatedCoordinates();
+		}
 	}
 
 	@Override
-	public String moveBack() {
-		if(y>10 && y<40){
-			if(x>10 && x<40){
-				if((z<=10 && z>0) || (z<=50 && z>40)){
-					z--;
-				}
-			}
-			else if(z>0){
-				z--;
-			}
-		}
-		else if(z>0){
+	public String moveForth() {
+		if(check(5)){
 			z--;
+			return getFormatedCoordinates();
 		}
-		return getFormatedCoordinates();
+		else{
+			return getFormatedCoordinates();
+		}
 	}
 
 	
-	public String moveForth() {
-		if (y>10 && y<40) {
-			if (x>10 && x<40) {
-				if((z<10 && z>=0)||(z<50 && z>=40)){
-					z++;
-				}
-			}
-			else if(z<50){
-				z++;
-			}
-		}
-		else if(z<50){
-			z++;
-		}
+	public String moveBack() {
+		
 		return getFormatedCoordinates() ;
 	}
 
-	
+
 	public String getFormatedCoordinates() {
 		return "Drone position: "+"("+x+","+y+","+z+")" ;
 	}
 	
-	
+	public int getX() {
+		return x;
+	}
+
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+
+	public int getY() {
+		return y;
+	}
+
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+
+	public int getZ() {
+		return z;
+	}
+
+
+	public void setZ(int z) {
+		this.z = z;
+	}
 
 }

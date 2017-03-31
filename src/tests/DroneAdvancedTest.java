@@ -1,37 +1,81 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import java.util.List;
 
-import java.awt.List;
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
 
 import org.junit.Test;
+import org.junit.Assert.*;
+
+
+
 
 import drone.Drone;
 
 public class DroneAdvancedTest {
 
-	private int[] boundaries = {50,50,50};
-	private int [] startCoordinates = {30,0,30};
+	private String movements[] = {"moveUp()", "moveRight()", "moveUp()", "moveForth()"
+			,"moveLeft()","moveForth()","moveLeft()", "moveUp()","moveBack()"
+			,"moveLeft()", "moveDown()"};
+	
+	int howManyTimes[]={12,21,23,16,12,5,18,17,21,22,20};
+	
 	Drone drone;
 	
-	String[] movements = {drone.moveUp(),drone.moveDown(),drone.moveBack(),drone.moveForth(),drone.moveLeft(),drone.moveRight()};
-	int [] multipleTimes = {12,21,23,16,12,5,18,17,21,22,20};
-	
 	@Test
-	public void testDroneMovementFromStartToEndTestCase(){
-		HelperMovingDroneUp(movements, multipleTimes);
+	public void testMovementFromStartToEnd(){
+		 drone = new Drone();
 		
-		}
-	
-	
-	String HelperMovingDroneUp(String[] movements,int[] multipleTimes){
-		if(movements=="drone.MoveUp()"){
-		for (int i = 0; i < multipleTimes[0]; i++) {
-			
-			assertEquals(expectedCoordinates, drone.moveUp());
-		}
-	
-		return drone.getFormatedCoordinates();
+		String expectedCoordinates = "(0,30,30)";
+		
+		assertEquals("Drone position: "+expectedCoordinates,helperMovementFromStartToEnd(movements,howManyTimes));
+		
 	}
 	
+	public String helperMovementFromStartToEnd(String movements[], int howManyTimes[]){
+		
+		for (int i = 0; i < movements.length; i++) {
+			if(movements[i]=="moveUp()"){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveUp();
+				}
+			}
+			
+			
+			if(movements[i]=="moveDown()" ){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveDown();
+					}
+				}
+			
+			if(movements[i]=="moveRight()"){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveRight();
+					}
+				}
+			
+			if(movements[i]=="moveLeft()" ){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveLeft();
+					}
+				}
+			
+			
+			if(movements[i]=="moveBack()" ){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveBack();
+					}
+				}
+			
+			if(movements[i]=="moveForth()"){
+				for (int j = 0; j < howManyTimes[i]; j++) {
+					drone.moveForth();
+					}
+				}
+		}
+		
+		return drone.getFormatedCoordinates();
+	}
 }

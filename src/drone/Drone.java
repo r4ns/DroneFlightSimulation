@@ -16,7 +16,7 @@ public class Drone implements StandardDrone {
 	public Drone(){
 		
 	}
-
+	int[] boundaries = {50, 50, 50};
 	@Override
 	public String moveUp() {
 		

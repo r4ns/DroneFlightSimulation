@@ -21,7 +21,7 @@ public class DroneTestAdvanced {
 				 Integer.toString(krajnjeKordinate[2])+")";
 		
 		Object[] putanja=
-			{	"moveUp",12,
+			  {	"moveUp",12,
 				"moveRight",21,
 				"moveUp",23,
 				"moveForth",16,

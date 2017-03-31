@@ -69,6 +69,7 @@ public class DroneAdvancedTest {
 		 					break;
 		 			}
 		 		}
+		 		System.out.println(drone.getFormatedCoordinates());
 		 		return drone.getFormatedCoordinates();
 		 	}
 	

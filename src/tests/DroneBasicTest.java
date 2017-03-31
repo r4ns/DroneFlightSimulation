@@ -26,7 +26,7 @@ public class DroneBasicTest {
 		
 		
 	}
-	
+	@Test
 	public void testInitialMoveDown(){
 		drone = new Drone();
 		
@@ -37,10 +37,8 @@ public class DroneBasicTest {
 		
 		
 		assertEquals(expectedCoordinates, drone.moveDown());
-		
-		
 	}
-	
+	@Test
 	public void testInitialMoveLeft(){
 		drone = new Drone();
 		
@@ -54,7 +52,7 @@ public class DroneBasicTest {
 		
 		
 	}
-	
+	@Test
 	public void testInitialMoveRight(){
 		drone = new Drone();
 		
@@ -68,7 +66,7 @@ public class DroneBasicTest {
 		
 		
 	}
-	
+	@Test
 	public void testInitialMoveForth(){
 		drone = new Drone();
 		
@@ -82,7 +80,7 @@ public class DroneBasicTest {
 		
 		
 	}
-	
+	@Test
 	public void testInitialMoveBack(){
 		drone = new Drone();
 		

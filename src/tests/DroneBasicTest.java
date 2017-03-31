@@ -26,7 +26,7 @@ public class DroneBasicTest {
 	}
 
 	@Test
-	public void testInitialMoveDown(){
+	public void testInitialMoveDown(){ /* ovo je granicni test a ne kretnja initial */
 		drone=new Drone();
 		drone.setX(startCoordinates[0]);
 		drone.setY(startCoordinates[1]);

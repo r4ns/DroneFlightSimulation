@@ -1,19 +1,23 @@
 package drone;
 
+import space.FlySpace;
+
 public class Drone implements StandardDrone{
 	private int x=30;
 	private int y=0;
 	private int z=30;
-
+	
+	private FlySpace obj=new FlySpace();
+	
 	@Override
 	public String moveUp() {
-		if(((x>=0&&x<=10)||(x>=40&&x<=50))&&(z>=0&&z<=50)&&(y>=0&&y<50)){
+		if(((x>=obj.getStartOuter()&&x<=obj.getStartInner())||(x>=obj.getFinishInner()&&x<=obj.getFinishOuter()))&&(z>=obj.getStartOuter()&&z<=obj.getFinishOuter())&&(y>=obj.getStartOuter()&&y<obj.getFinishOuter())){
 			y++;
 			return getFormatedCoordinates();
-		}else if(((y>=0&&y<10)||(y>=40&&y<50))&&((z>=0&&z<=50)&&(x>=0&&x<=50))){
+		}else if(((y>=obj.getStartOuter()&&y<obj.getStartInner())||(y>=obj.getFinishInner()&&y<obj.getFinishOuter()))&&((z>=obj.getStartOuter()&&z<=obj.getFinishOuter())&&(x>=obj.getStartOuter()&&x<=obj.getFinishOuter()))){
 			y++;
 			return getFormatedCoordinates();
-		}else if((x>=0&&x<=50)&&((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=0&&y<50)){
+		}else if((x>=obj.getStartOuter()&&x<=obj.getFinishOuter())&&((z>=obj.getStartOuter()&&z<=obj.getStartInner())||(z>=obj.getFinishInner()&&z<=obj.getFinishOuter()))&&(y>=obj.getStartOuter()&&y<obj.getFinishOuter())){
 			y++;
 			return getFormatedCoordinates();
 		}else {
@@ -22,13 +26,13 @@ public class Drone implements StandardDrone{
 	}
 	@Override
 	public String moveDown() {
-		if(((x>=0&&x<=10)||(x>=40&&x<=50))&&(z>=0&&z<=50)&&(y>0&&y<=50)){
+		if(((x>=obj.getStartOuter()&&x<=obj.getStartInner())||(x>=obj.getFinishInner()&&x<=obj.getFinishOuter()))&&(z>=obj.getStartOuter()&&z<=obj.getFinishOuter())&&(y>obj.getStartOuter()&&y<=obj.getFinishOuter())){
 			y--;
 			return getFormatedCoordinates();
-		}else if(((y>0&&y<=10)||(y>40&&y<=50))&&((z>=0&&z<=50)&&(x>=0&&x<=50))){
+		}else if(((y>obj.getStartOuter()&&y<=obj.getStartInner())||(y>obj.getFinishInner()&&y<=obj.getFinishOuter()))&&((z>=obj.getStartOuter()&&z<=obj.getFinishOuter())&&(x>=obj.getStartOuter()&&x<=obj.getFinishOuter()))){
 			y--;
 			return getFormatedCoordinates();
-		}else if((x>=0&&x<=50)&&((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>0&&y<=50)){
+		}else if((x>=obj.getStartOuter()&&x<=obj.getFinishOuter())&&((z>=obj.getStartOuter()&&z<=obj.getStartInner())||(z>=obj.getFinishInner()&&z<=obj.getFinishOuter()))&&(y>obj.getStartOuter()&&y<=obj.getFinishOuter())){
 			y--;
 			return getFormatedCoordinates();
 		}else {
@@ -37,13 +41,13 @@ public class Drone implements StandardDrone{
 	}
 	@Override
 	public String moveLeft() {
-		if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(x>0&&x<=50)&&((z>=0&&z<=50))){
+		if(((y>=obj.getStartOuter()&&y<=obj.getStartInner())||(y>=obj.getFinishInner()&&y<=obj.getFinishOuter()))&&(x>obj.getStartOuter()&&x<=obj.getFinishOuter())&&((z>=obj.getStartOuter()&&z<=obj.getFinishOuter()))){
 			x--;
 			return getFormatedCoordinates();
-		}else if((y>=10&&y<=40)&&((x>0&&x<=10)||(x>40&&x<=50))&&z>=0&&z<=50){
+		}else if((y>=obj.getStartInner()&&y<=obj.getFinishInner())&&((x>obj.getStartOuter()&&x<=obj.getStartInner())||(x>obj.getFinishInner()&&x<=obj.getFinishOuter()))&&z>=obj.getStartOuter()&&z<=obj.getFinishOuter()){
 			x--;
 			return getFormatedCoordinates();
-		}else if(((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=10&&y<=40)&&(x>10&&x<=40)){
+		}else if(((z>=obj.getStartOuter()&&z<=obj.getStartInner())||(z>=obj.getFinishInner()&&z<=obj.getFinishOuter()))&&(y>=obj.getStartInner()&&y<=obj.getFinishInner())&&(x>obj.getStartInner()&&x<=obj.getFinishInner())){
 			x--;
 			return getFormatedCoordinates();
 		}
@@ -53,13 +57,13 @@ public class Drone implements StandardDrone{
 	}
 	@Override
 	public String moveRight() {
-		if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(x>=0&&x<50)&&((z>=0&&z<=50))){
+		if(((y>=obj.getStartOuter()&&y<=obj.getStartInner())||(y>=obj.getFinishInner()&&y<=obj.getFinishOuter()))&&(x>=obj.getStartOuter()&&x<obj.getFinishOuter())&&((z>=obj.getStartOuter()&&z<=obj.getFinishOuter()))){
 			x++;
 			return getFormatedCoordinates();
-		}else if((y>=10&&y<=40)&&((x>=0&&x<10)||(x>=40&&x<50))&&(z>=0&&z<=50)){
+		}else if((y>=obj.getStartInner()&&y<=obj.getFinishInner())&&((x>=obj.getStartOuter()&&x<obj.getStartInner())||(x>=obj.getFinishInner()&&x<obj.getFinishOuter()))&&(z>=obj.getStartOuter()&&z<=obj.getFinishOuter())){
 			x++;
 			return getFormatedCoordinates();
-		}else if(((z>=0&&z<=10)||(z>=40&&z<=50))&&(y>=10&&y<=40)&&(x>=10&&x<40)){
+		}else if(((z>=obj.getStartOuter()&&z<=obj.getStartInner())||(z>=obj.getFinishInner()&&z<=obj.getFinishOuter()))&&(y>=obj.getStartInner()&&y<=obj.getFinishInner())&&(x>=obj.getStartInner()&&x<obj.getFinishInner())){
 			x++;
 			return getFormatedCoordinates();
 		}
@@ -69,13 +73,13 @@ public class Drone implements StandardDrone{
 	}
 	@Override
 	public String moveForth() {
-		if(((z>0&&z<=10)||(z>40&&y<=50))&&(x>=0&&x<=50)&&((y>=0&&y<=50))){
+		if(((z>obj.getStartOuter()&&z<=obj.getStartInner())||(z>obj.getFinishInner()&&y<=obj.getFinishOuter()))&&(x>=obj.getStartOuter()&&x<=obj.getFinishOuter())&&((y>=obj.getStartOuter()&&y<=obj.getFinishOuter()))){
 			z--;
 			return getFormatedCoordinates();
-		}else if((z>10&&z<=40)&&((x>=0&&x<=10)||(x>=40&&x<=50))&&(y>=0&&y<=50)){
+		}else if((z>obj.getStartInner()&&z<=obj.getFinishInner())&&((x>=obj.getStartOuter()&&x<=obj.getStartInner())||(x>=obj.getFinishInner()&&x<=obj.getFinishOuter()))&&(y>=obj.getStartOuter()&&y<=obj.getFinishOuter())){
 			z--;
 			return getFormatedCoordinates();
-		}else if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(z>10&&z<=40)&&(x>=10&&x<=40)){
+		}else if(((y>=obj.getStartOuter()&&y<=obj.getStartInner())||(y>=obj.getFinishInner()&&y<=obj.getFinishOuter()))&&(z>obj.getStartInner()&&z<=obj.getFinishInner())&&(x>=obj.getStartInner()&&x<=obj.getFinishInner())){
 			z--;
 			return getFormatedCoordinates();
 		}
@@ -85,13 +89,13 @@ public class Drone implements StandardDrone{
 	}
 	@Override
 	public String moveBack() {
-		if(((z>=0&&z<10)||(z>=40&&y<50))&&(x>=0&&x<=50)&&((y>=0&&y<=50))){
+		if(((z>=obj.getStartOuter()&&z<obj.getStartInner())||(z>=obj.getFinishInner()&&y<obj.getFinishOuter()))&&(x>=obj.getStartOuter()&&x<=obj.getFinishOuter())&&((y>=obj.getStartOuter()&&y<=obj.getFinishOuter()))){
 			z++;
 			return getFormatedCoordinates();
-		}else if((z>=10&&z<40)&&((x>=0&&x<=10)||(x>=40&&x<=50))&&(y>=0&&y<50)){
+		}else if((z>=obj.getStartInner()&&z<obj.getFinishInner())&&((x>=obj.getStartOuter()&&x<=obj.getStartInner())||(x>=obj.getFinishInner()&&x<=obj.getFinishOuter()))&&(y>=obj.getStartOuter()&&y<obj.getFinishOuter())){
 			z++;
 			return getFormatedCoordinates();
-		}else if(((y>=0&&y<=10)||(y>=40&&y<=50))&&(z>=10&&z<40)&&(x>=10&&x<=40)){
+		}else if(((y>=obj.getStartOuter()&&y<=obj.getStartInner())||(y>=obj.getFinishInner()&&y<=obj.getFinishOuter()))&&(z>=obj.getStartInner()&&z<obj.getFinishInner())&&(x>=obj.getStartInner()&&x<=obj.getFinishInner())){
 			z++;
 			return getFormatedCoordinates();
 		}

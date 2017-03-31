@@ -6,14 +6,14 @@ import static org.junit.Assert.*;
 import drone.Drone;
 
 public class DroneBasicTest {
-	//private int[] boundaries = {50, 50, 50};
+	
 	private int[] startCoordinates = {30, 0, 30};
 	Drone drone;
 	
 	@Test
 	public void testInitialMoveUp(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1] + 1) + ", "
@@ -25,7 +25,7 @@ public class DroneBasicTest {
 	@Test
 	public void testInitialMoveDown(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -37,7 +37,7 @@ public class DroneBasicTest {
 	@Test
 	public void testInitialMoveRight(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0] + 1) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -49,7 +49,7 @@ public class DroneBasicTest {
 	@Test
 	public void testInitialMoveLeft(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0] - 1) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -61,7 +61,7 @@ public class DroneBasicTest {
 	@Test
 	public void testInitialMoveForth(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -73,7 +73,7 @@ public class DroneBasicTest {
 	@Test
 	public void testInitialMoveBack(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -85,7 +85,7 @@ public class DroneBasicTest {
 	@Test
 	public void testUpperBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1] + 10) + ", "
@@ -100,7 +100,7 @@ public class DroneBasicTest {
 	@Test
 	public void testBottomBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -115,7 +115,7 @@ public class DroneBasicTest {
 	@Test
 	public void testRightBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0] + 20) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -130,7 +130,7 @@ public class DroneBasicTest {
 	@Test
 	public void testLeftBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0] - 30) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -145,7 +145,7 @@ public class DroneBasicTest {
 	@Test
 	public void testForthBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "
@@ -160,7 +160,7 @@ public class DroneBasicTest {
 	@Test
 	public void testBackBoundaries(){
 		drone = new Drone();
-		//drone.setBoundaries(boundaries);
+		
 		String expectedCoordinates = "Drone position: (" 
 				+ Integer.toString(startCoordinates[0]) + ", "
 				+ Integer.toString(startCoordinates[1]) + ", "

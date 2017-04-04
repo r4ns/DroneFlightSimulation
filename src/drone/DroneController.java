@@ -4,7 +4,8 @@ public class DroneController {
 
 	public static void main(String[] args) {		
 
-		Drone dron = new Drone(30,0,30);
+		//Drone dron = new Drone(30,0,30);
+		Drone dron = new Drone(30,0,30, new int[]{50,50,50},10);
 		System.out.println("Drone position: ("+dron.getX()+","+dron.getY()+","+dron.getZ()+")");
 		
 		System.out.println("-----Moving up-----");

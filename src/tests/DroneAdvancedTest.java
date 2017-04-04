@@ -9,7 +9,7 @@ import drone.Drone;
 public class DroneAdvancedTest  {
 	
 	Drone dron;
-	Drone dron1;
+
 
 
 
@@ -115,7 +115,7 @@ public class DroneAdvancedTest  {
 	@Test
 	public void testTargetMoveUp(){
 		
-		dron = new Drone(30,0,30);
+		dron = new Drone(30,0,30, new int[]{50,50,50},10);
 		
 		String expectedCoordinates = "Drone position: ("+Integer.toString(0)+","+Integer.toString(30)+","+Integer.toString(30)+")";
 		

@@ -3,7 +3,18 @@ package drone;
 public class DroneController {
 
 	public static void main(String[] args) {		
-		Drone dr = new Drone();
+		//Drone dr = new Drone();
+		
+		DoubleCubeDrone dr = new DoubleCubeDrone(new Drone(30, 0, 30));
+		
+		
+		System.out.println("Drone position: " + dr.getFormatedCoordinates());
+		dr.moveDown();
+		System.out.println("Drone position: " + dr.getFormatedCoordinates());
+		dr.moveBack();
+		System.out.println("Drone position: " + dr.getFormatedCoordinates());
+		dr.moveRight();
+		System.out.println("Drone position: " + dr.getFormatedCoordinates());
 		System.out.println("Drone position: " + dr.getFormatedCoordinates());
 		System.out.println("-------------Moving up-------------");
 		for (int i = 0; i < 12; i++) {

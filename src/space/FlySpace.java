@@ -1,8 +1,9 @@
 package space;
 
-public class FlySpace extends DoubleCubeDron {
-	
-	
+import drone.Drone;
+
+public class FlySpace extends Drone {
+
 
 	public FlySpace(){
 
@@ -16,11 +17,5 @@ public class FlySpace extends DoubleCubeDron {
 	}
 
 	
-	
-	
-
-
-
-
 
 }

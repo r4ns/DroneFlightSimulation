@@ -15,8 +15,6 @@ public class Drone implements StandardDrone {
 
 	}
 
-
-
 	public Drone(int x, int y, int z){
 
 		this.x=x;
@@ -45,35 +43,35 @@ public class Drone implements StandardDrone {
 	public String moveUp() {
 
 
-		if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak){
+		if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak){//donja
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=boundaries[1]-razmak && y<boundaries[1]){
+		} else if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=boundaries[1]-razmak && y<boundaries[1]){//gornja
 
 			y++;       
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if (x>=0 && x<=razmak && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]){
+		} else if (x>=0 && x<=razmak && z>=razmak && z<=boundaries[2]-razmak && y>=0 && y<boundaries[1]){ //leva***
 
 			y++;
 
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if (x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]){
+		} else if (x>=boundaries[0]-razmak && x<=boundaries[0] && z>=razmak && z<=boundaries[2]-razmak && y>=0 && y<boundaries[1]){//desna***
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
 
-		} else if (x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>=0 && y<boundaries[1]){
+		} else if (x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>=0 && y<boundaries[1]){//napred
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
 
-		} else if (x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>=0 && y<boundaries[1]){
+		} else if (x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>=0 && y<boundaries[1]){ //nazad
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");

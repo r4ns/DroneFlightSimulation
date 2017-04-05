@@ -14,7 +14,7 @@ public class DoubleCubeTest {
 	
 	DoubleCubeDron drone;
 	
-	@Test
+	/*@Test
 	public void testLowerFirstCaseMoveUp(){
 		
 		drone = new DoubleCubeDron(9,7,35,space.getBoundaries(),space.getRazmak(),1);
@@ -396,7 +396,7 @@ public class DoubleCubeTest {
 		
 		assertEquals(expectedCoordinates,drone.moveForth());
 		
-	}
+	}*/
 	
 	
 	

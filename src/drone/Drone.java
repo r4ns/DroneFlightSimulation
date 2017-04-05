@@ -89,11 +89,11 @@ public class Drone implements StandardDrone {
 	@Override
 	public String moveDown() {
 
-		if(x>=0 && x<=boundaries[0] && z>=0 && z<=50 && y>0 && y<=10){
+		if(x>=0 && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>0 && y<=razmak){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
-		} else if(x>=0 && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>40 && y<=boundaries[1]){
+		} else if(x>=0 && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>boundaries[1]-razmak && y<=boundaries[1]){
 			
 			y--;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -112,6 +112,9 @@ public class Drone implements StandardDrone {
 		}else if(x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>0 && y<=boundaries[1]){
 			
 			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else {
+			
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 		}
 

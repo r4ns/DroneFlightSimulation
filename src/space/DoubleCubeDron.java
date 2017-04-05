@@ -43,35 +43,47 @@ public class DoubleCubeDron implements StandardDrone {
 	@Override
 	public String moveUp() {
 
-		if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak-duzinaStranice*2){
+		if(x>=razmak && x<boundaries[0]-razmak-duzinaStranice && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak-duzinaStranice*2){ //10-39
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=boundaries[1]-razmak && y<boundaries[1]-duzinaStranice*2){
+		} else if(x>razmak && x<boundaries[0]-razmak && z>razmak && z<boundaries[2]-razmak && y>=boundaries[1]-razmak && y<boundaries[1]-duzinaStranice*2){ //gornja
 
 			y++;       
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if (x>=0 && x<=razmak && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){
+		} else if (x>=0 && x<razmak-duzinaStranice*2 && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){ //leva
 
 			y++;
 
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
-		} else if (x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){
+		} else if (x>=boundaries[0]-razmak && x<=boundaries[0]-duzinaStranice*2 && z>=0 && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){ //desna
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
 
-		} else if (x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){
+		} else if (x>=0 && x<=boundaries[0]-duzinaStranice*2 && z>=boundaries[2]-razmak && z<=boundaries[2] && y>=0 && y<boundaries[1]-duzinaStranice*2){//napred
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
 
 
-		} else if (x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>=0 && y<boundaries[1]-duzinaStranice*2){
+		} else if (x>=0 && x<=boundaries[0]-razmak && z>=0 && z<=razmak && y>=0 && y<boundaries[1]-duzinaStranice*2){ //nazad
+
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+
+		}else if (x>=boundaries[0]-razmak-duzinaStranice && x<=boundaries[0]-razmak && z>=razmak && z<=boundaries[2]-razmak && y>=0 && y<razmak-duzinaStranice){ //donja novi uslov
+
+			y++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+
+		}else if (x>=boundaries[0]-razmak-duzinaStranice && x<=boundaries[0]-razmak && z>=0 && z<=razmak && y>=0 && y<razmak-duzinaStranice){ //donja treci uslov
 
 			y++;
 			System.out.println("Drone position: ("+x+","+y+","+z+")");
@@ -84,31 +96,167 @@ public class DoubleCubeDron implements StandardDrone {
 
 		return "Drone position: ("+x+","+y+","+z+")";
 
-
 	}
 
 	@Override
 	public String moveDown() {
 
-		return null;
+		if(x>=0 && x<=boundaries[0] && z>=0 && z<=50 && y>0 && y<=razmak){ //donja
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(x>=0 && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>boundaries[2]-razmak && y<=boundaries[1]){
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=razmak && z>=0 && z<=boundaries[2] && y>0 && y<=boundaries[1]){
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<=boundaries[2] && y>0 && y<=boundaries[1]){
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=boundaries[0] && z>=boundaries[2]-razmak && z<=boundaries[2] && y>0 && y<=boundaries[1]){
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>0 && y<=boundaries[1]){
+
+			y--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else {
+
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}
+
+
+		return "Drone position: ("+x+","+y+","+z+")";
+
+
 	}
 
 	@Override
 	public String moveLeft() {
 
-		return null;
+		if(y>=0 && y<=razmak && z>=0 && z<=boundaries[2] && x>=duzinaStranice && x<boundaries[0]){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=duzinaStranice && x<=razmak){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>boundaries[0]-razmak && x<=boundaries[0]){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=boundaries[1]-razmak && y<=boundaries[1] && z>=0 && z<=boundaries[2] && x>=duzinaStranice && x<=boundaries[0]){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=0 && y<=boundaries[1] && z>=40 && z<= boundaries[2] && x>=duzinaStranice && x<=boundaries[0]){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=0 && y<=boundaries[1] && z>=0 && z<=razmak && x>=duzinaStranice && x<=boundaries[0]){
+
+			x--;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		} else {
+
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}
+
+
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveRight() {
 
-		return null;
+		if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=0 && x<razmak-duzinaStranice*2){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=boundaries[0]-razmak && x<boundaries[0]-duzinaStranice*2){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(y>=0 && y<=razmak && z>=0 && z<=boundaries[2] && x>=0 && x<boundaries[0]-duzinaStranice*2){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=boundaries[1]-razmak && y<=boundaries[1] && z>=0 && z<=boundaries[2] && x>=0 && x<boundaries[0]-duzinaStranice*2){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>=0 && y<=boundaries[1] && z>=0 && z<=razmak && x>=0 & x<boundaries[0]){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}else if(y>=0 && y<=boundaries[1] && z>=boundaries[2]-razmak && z<=boundaries[2] && x>=0 && x<boundaries[0]-duzinaStranice*2){
+
+			x++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else {
+
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}
+
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
 
 	@Override
 	public String moveBack() {
 
-		return null;
+		if(y>=0 && y<=razmak && x>=0 && x<boundaries[0] && z>=0 && z<boundaries[2]-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		} else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>=boundaries[2]-razmak && z<boundaries[2]-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>=0 && z<razmak-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=boundaries[1]-razmak && y<=boundaries[1] && x>=0 && x<=boundaries[0] && z>=0 && z<boundaries[2]-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=0 && y<=boundaries[1] && x>=0 && x<=razmak && z>=0 && z<boundaries[2]){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=0 && y<=boundaries[1] && x>=boundaries[0]-razmak && x<=boundaries[0] && z>=0 && z<boundaries[2]-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		}else if(y>=0 && y<=razmak-duzinaStranice && x>=razmak && x<=boundaries[0]-razmak && z>=0 && z<boundaries[2]-duzinaStranice){
+
+			z++;
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+
+		} else {
+
+			System.out.println("Drone position: ("+x+","+y+","+z+")");
+		}
+
+		return "Drone position: ("+x+","+y+","+z+")";
 	}
 
 	@Override

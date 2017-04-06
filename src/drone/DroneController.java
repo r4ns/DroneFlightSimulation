@@ -4,7 +4,7 @@ public class DroneController {
 
 	public static void main(String[] args) {	
 		
-		Drone dr = new Drone();
+		/*Drone dr = new Drone();
 		
 		while(dr.getY()!=5) dr.moveUp();
 		while(dr.getX()!=45) dr.moveRight();
@@ -16,7 +16,7 @@ public class DroneController {
 		while(dr.getX()!=5) dr.moveLeft();
 		while(dr.getZ()!=30)dr.moveForth();
 		while(dr.getY()!=30) dr.moveDown();
-		while(dr.getX()!=0) dr.moveLeft();
+		while(dr.getX()!=0) dr.moveLeft();*/
 		
 		
 		

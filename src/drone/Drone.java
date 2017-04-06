@@ -7,6 +7,7 @@ public class Drone implements StandardDrone {
 	protected int x;
 	protected int y;
 	protected int z;
+	protected int [] coordinates = {x,y,z};
 	protected int [] boundaries;
 	protected int razmak; 
 

@@ -6,12 +6,16 @@ import drone.Drone;
 public class DoubleCubeDron extends Drone {
 
 	private int duzinaStranice; 
-
-
-
+	
 	public DoubleCubeDron(){
 
 
+	}
+	
+	public DoubleCubeDron(int [] coordinates, int [] boundaries, int razmak, int duzinaStranice){
+
+		super();
+		this.duzinaStranice=duzinaStranice;
 	}
 
 	public DoubleCubeDron(int x, int y, int z, int [] boundaries, int razmak, int duzinaStranice){
@@ -19,7 +23,7 @@ public class DoubleCubeDron extends Drone {
 		super(x,y,z,boundaries,razmak);
 		this.duzinaStranice=duzinaStranice;
 	}
-
+	
 
 	@Override
 	public String moveUp() {
@@ -90,7 +94,7 @@ public class DoubleCubeDron extends Drone {
 
 			y--;
 			System.out.println(getFormatedCoordinates());
-		}else if(x>=razmak-duzinaStranice && x<=boundaries[0]-razmak && z>=razmak && z<=boundaries[2]-razmak && y>=boundaries[2]-razmak && y<=boundaries[1]){ //gornja_2
+		}else if(x>=razmak-duzinaStranice && x<=boundaries[0]-razmak && z>=razmak && z<=boundaries[2]-razmak && y>boundaries[2]-razmak && y<=boundaries[1]){ //gornja_2
 
 			y--;
 			System.out.println(getFormatedCoordinates());
@@ -106,7 +110,7 @@ public class DoubleCubeDron extends Drone {
 
 			y--;
 			System.out.println(getFormatedCoordinates());
-		}else if(x>=0 && x<=boundaries[0] && z>=0 && z<=razmak && y>0 && y<=boundaries[1]){
+		}else if(x>=razmak && x<=boundaries[0]-razmak && z>=0 && z<=razmak && y>0 && y<=boundaries[1]){
 
 			y--;
 			System.out.println(getFormatedCoordinates());
@@ -134,12 +138,12 @@ public class DoubleCubeDron extends Drone {
 			x--;
 			System.out.println(getFormatedCoordinates());
 
-		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>boundaries[0]-razmak && x<=boundaries[0]){ //desna_1
+		} else if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>boundaries[0]-razmak && x<=boundaries[0]-2*duzinaStranice){ //desna_1
 
 			x--;
 			System.out.println(getFormatedCoordinates());
 
-		}else if(y>razmak-duzinaStranice && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>boundaries[0]-razmak-duzinaStranice && x<=boundaries[0]){ //desna_2
+		}else if(y>razmak-duzinaStranice && y<razmak && z>razmak && z<boundaries[2]-razmak && x>boundaries[0]-razmak-duzinaStranice && x<=boundaries[0]){ //desna_2
 
 			x--;
 			System.out.println(getFormatedCoordinates());
@@ -270,7 +274,7 @@ public class DoubleCubeDron extends Drone {
 			z--;
 			System.out.println(getFormatedCoordinates());
 
-		} else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>=boundaries[2]-razmak-duzinaStranice && z<boundaries[2]-duzinaStranice){ //napred
+		} else if(y>razmak && y<boundaries[1]-razmak && x>razmak && x<boundaries[0]-razmak && z>boundaries[2]-razmak && z<boundaries[2]-duzinaStranice){ //napred
 
 			z--;
 			System.out.println(getFormatedCoordinates());

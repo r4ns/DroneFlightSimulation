@@ -15,7 +15,7 @@ public class FlySpace {
 	}
 	
 	public boolean unutrasnjaKocka(int n1, int n2){
-		if((n1 >= unutrasnjaDonjaGranica  && n1<=unutrasnjaGornjaGranica) && (n2>=unutrasnjaDonjaGranica && n2<=unutrasnjaGornjaGranica)){
+		if((n1 > unutrasnjaDonjaGranica  && n1< unutrasnjaGornjaGranica) && (n2> unutrasnjaDonjaGranica && n2< unutrasnjaGornjaGranica)){
 			return true;
 		}else{
 			return false;

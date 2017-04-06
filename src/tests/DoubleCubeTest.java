@@ -10,21 +10,53 @@ import space.FlySpace;
 public class DoubleCubeTest {
 	
 	
-	FlySpace space = new FlySpace(new int[] {50,50,50},10);
-	
+	FlySpace space = new FlySpace(new int[] {50,50,50},10);	
 	DoubleCubeDron drone;
-	
-	/*@Test
+		
+	@Test
 	public void testLowerFirstCaseMoveUp(){
 		
 		drone = new DoubleCubeDron(9,7,35,space.getBoundaries(),space.getRazmak(),1);
-		String expectedCoordinates = "Drone position: ("+drone.getX()+","+drone.getY()+","+drone.getZ()+")";
-		
+		int x=drone.getX();
+		int y=drone.getY()+1;
+		int z= drone.getZ();
+		int duzinaStranice=drone.getDuzinaStranice();
+		String expectedCoordinates = "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		assertEquals(expectedCoordinates,drone.moveUp());
 		
 	}
 	
-	//moveUp
+	@Test
+	public void testLowerSecondCaseMoveUp(){
+		
+		drone = new DoubleCubeDron(39,8,39,space.getBoundaries(),space.getRazmak(),1);
+		int x=drone.getX();
+		int y=drone.getY()+1;
+		int z= drone.getZ();
+		int duzinaStranice=drone.getDuzinaStranice();
+		String expectedCoordinates = "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
+		assertEquals(expectedCoordinates,drone.moveUp());
+		
+	}
+	
+	@Test
+	public void testLowerThirdCaseMoveUp(){
+		
+		drone = new DoubleCubeDron(9,39,10,space.getBoundaries(),space.getRazmak(),1);
+		int x=drone.getX();
+		int y=drone.getY()+1;
+		int z= drone.getZ();
+		int duzinaStranice=drone.getDuzinaStranice();
+		String expectedCoordinates = "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
+		assertEquals(expectedCoordinates,drone.moveUp());
+		
+	}
+	
+	
+	
+	
+	
+	/*//moveUp
 	@Test
 	public void testLowerSecondCaseMoveUp(){
 		

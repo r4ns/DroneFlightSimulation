@@ -24,13 +24,19 @@ public class DoubleCubeDrone extends Drone{
 		int x = this.getX();
 		int y = this.getY();
 		int z = this.getZ();
-		if (y == boundaries.getOuterBorder() || (y == boundaries.getSpaceBetween() && x > boundaries.getSpaceBetween() && x < boundaries.getInnerBorder() && z > boundaries.getSpaceBetween() && z < boundaries.getInnerBorder() ))
+		
+		//Provera da li se dron nalazi na ivicama ili oko donje povrsine unutrasnje kocke
+		boolean xMoveUp = (boundaries.getSpaceBetween() < rightX && x < boundaries.getSpaceBetween() + boundaries.getInnerBorder() -1) && upperY == boundaries.getSpaceBetween(); 
+		boolean zMoveUp = (boundaries.getSpaceBetween() < backZ && z < boundaries.getSpaceBetween() + boundaries.getInnerBorder()) && upperY == boundaries.getSpaceBetween();
+		if (upperY == boundaries.outerBorder || xMoveUp || zMoveUp)
 			canMoveUp = false;
 		else 
 			canMoveUp = true;
 		
+		
 		if ((y == boundaries.getInnerBorder() && x > boundaries.getSpaceBetween() && x < boundaries.getInnerBorder() && z > boundaries.getSpaceBetween() && z < boundaries.getInnerBorder())|| y == 0)
 			canMoveDown = false;
+		
 		else 
 			canMoveDown = true;
 		//boundaries.getSpaceBetween()

@@ -10,8 +10,6 @@ import org.junit.Test;
 import org.junit.Assert.*;
 
 
-
-
 import drone.Drone;
 
 public class DroneAdvancedTest {

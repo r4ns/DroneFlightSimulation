@@ -2,6 +2,8 @@ package drone;
 
 import javax.swing.BoundedRangeModel;
 
+import space.FlyClass;
+
 public class Drone implements StandardDrone{
 	private int x=30;
 	private int z=30;
@@ -12,16 +14,28 @@ public class Drone implements StandardDrone{
 	private int granicaZ=50;
 	
 	private int distanceFromOuter=10;
+
 	
-	private int[] pocetneKoordinate={30,0,30};
-	
-	public Drone (int [] start, int [] boundaries, int distanceFromBoundaris){
-		this.pocetneKoordinate=start;
+	public Drone (int [] start, int [] boundaries, int distanceFromOuter){
+		this.x=start[0];
+		this.y=start[1];
+		this.x=start[2];
 		this.granicaX=boundaries[0];
 		this.granicaY=boundaries[1];
 		this.granicaZ=boundaries[2];
-		this.distanceFromOuter=distanceFromBoundaris;
+		this.distanceFromOuter=distanceFromOuter;
 	}
+	
+	public Drone (int [] start, FlyClass fly){
+		this.distanceFromOuter=fly.getDistanceFromOuter();
+		this.granicaX=fly.getGranicaX();
+		this.granicaY=fly.getGranicaY();
+		this.granicaZ=fly.getGranicaZ();
+		this.x=start[0];
+		this.y=start[1];
+		this.z=start[2];
+	}
+	
 	public Drone(){
 		
 	}
@@ -191,8 +205,13 @@ public class Drone implements StandardDrone{
 
 	
 	public String moveBack() {
-		
-		return getFormatedCoordinates() ;
+		if(check(6)){
+			z++;
+			return getFormatedCoordinates();
+		}
+		else{
+			return getFormatedCoordinates();
+		}
 	}
 
 

@@ -4,8 +4,125 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import drone.Drone;
+import space.DoubleCubeDrone;
+import space.FlyClass;
 
 public class DroneBasicTest {
+	Drone drone;
+	int[] start={9,8,35};
+	int[] boundaries={50,50,50};
+	int razmak=10;
+	FlyClass fs= new FlyClass(boundaries,razmak);
+	DoubleCubeDrone cubeDrone;
+	
+	@Test(expected=NullPointerException.class)
+	public void testNullBoundaries(){
+		start=new int[]{9,7,35};
+		cubeDrone=new DoubleCubeDrone(start,null);
+		drone.moveUp();
+
+		
+
+}
+	
+	@Test(expected=NullPointerException.class)
+	public void testNullCoordinates(){
+		cubeDrone=new DoubleCubeDrone(null,fs);
+
+		cubeDrone.moveUp();
+
+	}
+	@Test
+	public void testBoundaryLevelMoveUpCube(){
+		start=new int[]{9,8,35};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveUp());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveUpCube1(){
+		start=new int[]{38,8,39};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveUp());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveDownCube(){
+		start=new int[]{9,39,25};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveDown());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveLeftCube(){
+		start=new int[]{39,9,10};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveLeft());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveRightCube(){
+		start=new int[]{9,39,39};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveRight());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveForthCube(){
+		start=new int[]{9,38,10};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveForth());
+		
+		
+	}
+	@Test
+	public void testBoundaryLevelMoveBackCube(){
+		start=new int[]{9,38,40};
+		cubeDrone=new DoubleCubeDrone(start,fs);
+		String expectedCoordinates="Drone position: "+"("+Integer.toString(cubeDrone.getDroneA1().getX())+","+Integer.toString(cubeDrone.getDroneA1().getY())+","+Integer.toString(cubeDrone.getDroneA1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneB1().getX())+","+Integer.toString(cubeDrone.getDroneB1().getY())+","+Integer.toString(cubeDrone.getDroneB1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneC1().getX())+","+Integer.toString(cubeDrone.getDroneC1().getY())+","+Integer.toString(cubeDrone.getDroneC1().getY())+")"
+				 +"("+Integer.toString(cubeDrone.getDroneD1().getX())+","+Integer.toString(cubeDrone.getDroneD1().getY())+","+Integer.toString(cubeDrone.getDroneD1().getY())+")";
+		
+		assertEquals(expectedCoordinates, cubeDrone.moveBack());
+		
+		
+}
 	
 	
 	@Test

@@ -1,12 +1,24 @@
 package space;
 
 public class FlyClass {
-	private int granicaX =50;
-	private int granicaY =50;
-	private int granicaZ =50;
+	private int granicaX;
+	private int granicaY;
+	private int granicaZ;
 	
+	private int distanceFromOuter;
 	
-	
+	public FlyClass(int[] boundaries, int razmak) {
+		granicaX=boundaries[0];
+		granicaY=boundaries[1];
+		granicaZ=boundaries[2];
+		distanceFromOuter=razmak;
+	}
+	public int getDistanceFromOuter() {
+		return distanceFromOuter;
+	}
+	public void setDistanceFromOuter(int distanceFromOuter) {
+		this.distanceFromOuter = distanceFromOuter;
+	}
 	public int getGranicaX() {
 		return granicaX;
 	}

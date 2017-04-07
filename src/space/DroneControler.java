@@ -6,7 +6,7 @@ public static void main(String[] args) {
  	DroneCube drone = new DroneCube(30, 0, 30, space);
  		
  		for (int i = 0; i < 32; i++){
- 			System.out.println(drone.moveBack());
+ 			System.out.println(drone.moveUp());
  		}
  	}
  

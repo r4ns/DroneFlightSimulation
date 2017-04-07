@@ -4,6 +4,7 @@ private Tacka upRightForth = new Tacka();
 private Tacka upRightBack = new Tacka();
 private Tacka downLeftBack = new Tacka();
 public FlySpace space;	
+
 public DroneCube(int x, int y, int z, FlySpace space){
 		downLeftBack.setX(x);
 		downLeftBack.setY(y);
@@ -23,7 +24,7 @@ public DroneCube(int x, int y, int z, FlySpace space){
 public String getFormatedCoordinates (){
  		return "Drone position: (" + downLeftBack.getX() + ", " + downLeftBack.getY() + ", " + downLeftBack.getZ() + ")"; 
  	} 
- 	
+	
 public String moveUp(){
  		if ((downLeftBack.getX() < space.getOuterBoundariesX() - space.getInnerSpaceX() && downLeftBack.getX() >= space.getInnerSpaceX()) && upRightBack.getX() < space.getOuterBoundariesX() - space.getInnerSpaceX() && upRightBack.getX() > space.getInnerSpaceX() && downLeftBack.getZ() <= space.getOuterBoundariesZ() - space.getInnerSpaceZ() && downLeftBack.getZ() > space.getInnerSpaceZ() && upRightForth.getY() < space.getInnerSpaceY()){
  			downLeftBack.setY(downLeftBack.getY() + 1);
@@ -179,5 +180,6 @@ public String moveBack(){
  			return getFormatedCoordinates();
  		}	
  	}
+  
 }
 

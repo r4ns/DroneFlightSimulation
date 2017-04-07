@@ -35,7 +35,6 @@ public class DroneAdvancedTest {
 	
 	public String droneMove(String[] commandArray){
 		drone = new Drone();
-		System.out.println(drone.getFormatedCoordinates());
 		for (int i = 0; i < commandArray.length; i += 2){
 			switch (commandArray[i]){
 				case "desno":

@@ -72,9 +72,14 @@ public class Drone implements StandardDrone{
 		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
 			if(y < 10 && y >= 0 || y >= 40 && y < 50){
 				y++;
+				//System.out.println(getFormatedCoordinates());
 			}
 		}else if(y<=50){
 			y++;
+			//System.out.println(getFormatedCoordinates());
+		}else{
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 	}
 	
@@ -82,9 +87,14 @@ public class Drone implements StandardDrone{
 		if((x >= 10 && x<= 40) && (z >= 10 && z<= 40)){
 			if(y < 10 && y > 0 || y >= 40 && y < 50){
 				y--;
+				//System.out.println(getFormatedCoordinates());
 			}
 		}else if(y>0){
 			y--;
+			//System.out.println(getFormatedCoordinates());
+		}else {
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 	}
 	
@@ -93,14 +103,17 @@ public class Drone implements StandardDrone{
 			if(z>10 && z<40){
 				if((x<=10 && x>0) || (x<=50 && x>40)){
 					x--;
+					//System.out.println(getFormatedCoordinates());
 				}
 			}
 			else if(x>0){
 				x--;
+				//System.out.println(getFormatedCoordinates());
 			}
 		}
-		else if(x>0){
-			x--;
+		else {
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 		
 	}
@@ -110,14 +123,17 @@ public class Drone implements StandardDrone{
 			if (z>10 && z<40) {
 				if((x<10 && x>=0)||(x<50 && x>=40)){
 					x++;
+					//System.out.println(getFormatedCoordinates());
 				}
 			}
 			else if(x<50){
 				x++;
+				//System.out.println(getFormatedCoordinates());
 			}
 		}
-		else if(x<50){
-			x++;
+		else {
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 		
 	}
@@ -126,11 +142,17 @@ public class Drone implements StandardDrone{
 		if((x<=10 && x>=0) || (x<=50 && x>=40)){
 			if(z<50)
 				z++;
+			//System.out.println(getFormatedCoordinates());
 		}else if((x<=40 && x>=10)){
 			if((y<=10 && y>=0) || (y>=40 && y<=50)){
-				if(z<50)
+				if(z<50){
 					z++;
+				//System.out.println(getFormatedCoordinates());
+				}
 			}
+		}else {
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 	}
 	
@@ -138,11 +160,17 @@ public class Drone implements StandardDrone{
 		if((x<=10 && x>=0) || (x<=50 && x>=40)){
 			if(z>0)
 				z--;
+			//System.out.println(getFormatedCoordinates());
 		}else if((x<=40 && x>=10)){
 			if((y<=10 && y>=0) || (y>=40 && y<=50)){
-				if(z>0)
+				if(z>0){
 					z--;
+					//System.out.println(getFormatedCoordinates());
+				}
 			}
+		}else{
+			//System.out.println(getFormatedCoordinates());
+			System.out.println("Can't move in that direction, hitting border!");
 		}
 	}
 

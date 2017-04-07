@@ -1,24 +1,30 @@
 package space;
 
-public class FlySpace {
+
+
+public class FlySpace  {
+
+	private int x,y,z;
+	private int distance=10;
+	private int [] boundaries={50,50,50};
 	
-	private int[] boundries={50, 50, 50};
-	int distance=10;
 	
-	public FlySpace(int[] boundries, int distance) {
-		
-		this.boundries=boundries;
-		this.distance=distance;
+	public int[] getBoundaries() {
+		return boundaries;
+	}
+	public void setBoundaries(int[] boundaries) {
+		this.boundaries = boundaries;
+	}
+	
+	public FlySpace () {
 		
 	}
 	
-	public int[] getBoundries() {
-		return boundries;
+	public FlySpace(int[] boundaries, int distance){
+		this.boundaries=boundaries;
+		this.distance=distance;
 	}
 
-	public void setBoundries(int[] boundries) {
-		this.boundries = boundries;
-	}
 	
 
 }

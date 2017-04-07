@@ -1,15 +1,11 @@
 package drone;
 
+import space.FlySpace;
+
 public class Drone {
 	private int x,y,z;
-	private int [] boundaries;
-	
-	public int[] getBoundaries() {
-		return boundaries;
-	}
-	public void setBoundaries(int[] boundaries) {
-		this.boundaries = boundaries;
-	}
+	int[] boundaries;
+
 	public Drone (int x, int y, int z, int[] boundaries) {
 		this.x=x;
 		this.y=y;
@@ -24,6 +20,7 @@ public class Drone {
 	    
 		y++;
 		if(!check())
+			
 			y--;
 		
 	    
@@ -116,6 +113,12 @@ public class Drone {
 	}
 	public void setZ(int z) {
 		this.z = z;
+	}
+	public int[] getBoundaries() {
+		return boundaries;
+	}
+	public void setBoundaries(int[] boundaries) {
+		this.boundaries = boundaries;
 	}
 
 }

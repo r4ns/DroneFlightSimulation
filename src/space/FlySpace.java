@@ -16,6 +16,10 @@ public class FlySpace  {
 		this.boundaries = boundaries;
 	}
 	
+	public FlySpace () {
+		
+	}
+	
 	public FlySpace(int[] boundaries, int distance){
 		this.boundaries=boundaries;
 		this.distance=distance;

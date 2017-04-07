@@ -2,32 +2,56 @@ package space;
 
 public class FlySpace {
 	
-	private int granica=50;
-	private int unutrasnjaGranica=10;
+	private int granicaX=50;
+	private int granicaY=50;
+	private int granicaZ=50;
+	private int razmak=10;
 	
-	public FlySpace(int x,int u){
+	public FlySpace(int[] granice,int u){
 		
-		granica=x;
-		unutrasnjaGranica=u;
+		granicaX=granice[0];
+		granicaY=granice[1];
+		granicaZ=granice[2];
+		razmak=u;
 		
 		
 		
 	}
 
-	public int getGranica() {
-		return granica;
+	
+
+	public int getRazmak() {
+		return razmak;
 	}
 
-	public int getUnutrasnjaGranica() {
-		return unutrasnjaGranica;
+	
+
+	public void setRazmak(int razmak) {
+		this.razmak = razmak;
 	}
 
-	public void setGranica(int granica) {
-		this.granica = granica;
+	public int getGranicaX() {
+		return granicaX;
 	}
 
-	public void setUnutrasnjaGranica(int unutrasnjaGranica) {
-		this.unutrasnjaGranica = unutrasnjaGranica;
+	public int getGranicaY() {
+		return granicaY;
+	}
+
+	public int getGranicaZ() {
+		return granicaZ;
+	}
+
+	public void setGranicaX(int granicaX) {
+		this.granicaX = granicaX;
+	}
+
+	public void setGranicaY(int granicaY) {
+		this.granicaY = granicaY;
+	}
+
+	public void setGranicaZ(int granicaZ) {
+		this.granicaZ = granicaZ;
 	}
 	
 }

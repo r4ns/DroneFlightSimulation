@@ -1,5 +1,7 @@
 package drone;
 
+import space.FlySpace;
+
 public class Drone implements StandardDrone {
 
 		private int x=30;
@@ -11,11 +13,24 @@ public class Drone implements StandardDrone {
 		private int razmak=10;
 		
 		public Drone(int[] start,int[] granice, int razmak){
+			x=start[0];
+			y=start[1];
+			z=start[2];
 			granicaX=granice[0];
 			granicaY=granice[1];
 			granicaZ=granice[2];
 			this.razmak=razmak;
 			
+			
+		}
+		public Drone(int[] start,FlySpace fs){
+			x=start[0];
+			y=start[1];
+			z=start[2];
+			granicaX=fs.getGranicaX();
+			granicaY=fs.getGranicaY();
+			granicaZ=fs.getGranicaZ();
+			razmak=fs.getRazmak();
 			
 		}
 		public Drone(){
@@ -98,6 +113,40 @@ public class Drone implements StandardDrone {
 			}
 			else if((x<=granicaX&&x>granicaX-razmak)||(x>0&&x<=razmak)){
 			
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		else if(smer=="moveBack"){
+			if(((y<=razmak&& y>=0)||(y>=granicaY-razmak&&y<=granicaY))&&z>0){
+				
+				return true;
+			}
+			else if(((x<=razmak &&x>=0)||(x>=granicaX-razmak &&x<=granicaX))&&z>0){
+				
+				return true;
+			}
+			else if((z<=granicaZ&&z>granicaZ-razmak)||(z>0&&z<=razmak)){
+				
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		else if(smer=="moveForth"){
+			if(((y<=razmak&& y>=0)||(y>=granicaY-razmak&&y<=granicaY))&&z<granicaZ){
+				
+				return true;
+			}
+			else if(((x<=razmak &&x>=0)||(x>=granicaX-razmak &&x<=granicaX))&&z<granicaZ){
+				
+				return true;
+			}
+			else if((z<granicaZ&&z>=granicaZ-razmak)||(z>=0&&z<razmak)){
+				
 				return true;
 			}
 			else{
@@ -248,7 +297,14 @@ public class Drone implements StandardDrone {
 
 	@Override
 	public String moveBack() {
-		if(((y<=10&& y>=0)||(y>=40&&y<=50))&&z>0){
+		if(provera("moveBack")){
+			z--;
+			return getFormatedCoordinates();
+		}
+		else{
+			return getFormatedCoordinates();
+		}
+		/*if(((y<=10&& y>=0)||(y>=40&&y<=50))&&z>0){
 			z=z-1;
 			return getFormatedCoordinates();
 		}
@@ -262,12 +318,19 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 	}
 
 	@Override
 	public String moveForth() {
-		if(((y<=10&& y>=0)||(y>=40&&y<=50))&&z<50){
+		if(provera("moveForth")){
+			z++;
+			return getFormatedCoordinates();
+		}else{
+			return getFormatedCoordinates();
+		}
+	
+		/*if(((y<=10&& y>=0)||(y>=40&&y<=50))&&z<50){
 			z=z+1;
 			return getFormatedCoordinates();
 		}
@@ -281,7 +344,7 @@ public class Drone implements StandardDrone {
 		}
 		else{
 			return getFormatedCoordinates();
-		}
+		}*/
 	}
 
 	@Override

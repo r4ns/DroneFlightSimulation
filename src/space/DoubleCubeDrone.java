@@ -11,12 +11,14 @@ public class DoubleCubeDrone extends DoubleCubeHelp {
 	 int y;
 	 int z;
 	
-	private DoubleCubeHelp tDoleDesno;
-	private DoubleCubeHelp tSrednjaDesno;
-	private DoubleCubeHelp tSrednjaLevo;
-	private DoubleCubeHelp tGoreLevo;
+	public static  DoubleCubeHelp tDoleDesno;
+	public static DoubleCubeHelp tSrednjaDesno;
+	public static DoubleCubeHelp tSrednjaLevo;
+	public static  DoubleCubeHelp tGoreLevo;
 	 
-	
+	public DoubleCubeDrone(){
+		
+	}
 	public DoubleCubeDrone(int x, int y, int z){
 		tDoleDesno.setX(x);
 		tDoleDesno.setY(y);

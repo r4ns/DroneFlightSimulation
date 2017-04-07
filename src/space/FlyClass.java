@@ -1,11 +1,16 @@
 package space;
 
+import drone.Cube;
+
 public class FlyClass {
 	private int granicaX;
 	private int granicaY;
 	private int granicaZ;
 	
 	private int distanceFromOuter;
+	
+	Cube cubeVeca;
+	Cube cubeManja;
 	
 	public FlyClass(int[] boundaries, int razmak) {
 		granicaX=boundaries[0];

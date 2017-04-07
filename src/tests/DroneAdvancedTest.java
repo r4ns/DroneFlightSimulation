@@ -5,12 +5,13 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import drone.Drone;
+import drone.DroneOne;
 
 public class DroneAdvancedTest {
 	private int[] boundaries = {50, 50, 50};
 	private int[] startCoordinates = {30, 0, 30};
 	private int[] finishCoordinates = {0, 30, 30};
-	Drone drone;
+	DroneOne drone;
 	
 	private String[] strings = {"up", "right", "up", "forth", "left", "forth", "left", "up", "back", "left", "down"};
 	
@@ -44,7 +45,7 @@ public class DroneAdvancedTest {
 	
 	@Test
 	public void testFinishPosition() {
-		drone = new Drone(30, 0, 30);
+		drone = new DroneOne(30, 0, 30);
 		
 		String expectedCoordinates = "(" + Integer.toString(finishCoordinates[0]) + 
 				", " + Integer.toString(finishCoordinates[1]) +

@@ -120,7 +120,6 @@ public class DroneDoubleCubeTest {
 		dron = new DoubleCubeDrone(a);
 		
 		dron.moveUp();
-		dron.moveUp();
 		
 		String expectedCoordinates = "(39,9,39) ";
 

@@ -22,27 +22,27 @@ public class DoubleCubeDrone implements StandardDrone {
 	public DoubleCubeDrone(Drone najbliziKoordinatnomPocetku){
 		//donji kvadrat donje kocke
 		doubleCube.add(najbliziKoordinatnomPocetku);
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z + 1));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y, najbliziKoordinatnomPocetku.z + 1));
 		
 		
 		//gornji kvadrat donje kocke
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z + 1));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
 		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z + 1));
 		
 		
 		//donji kvadrat gornje kocke, samo desna ivica
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 1, najbliziKoordinatnomPocetku.z + 1));
 		
 		//gornji kvadrat gornje kocke
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 1, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z + 1));
 		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z));
-		doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z + 1));
+		//doubleCube.add(new Drone(najbliziKoordinatnomPocetku.x + 2, najbliziKoordinatnomPocetku.y + 2, najbliziKoordinatnomPocetku.z + 1));
 		
 	}
 

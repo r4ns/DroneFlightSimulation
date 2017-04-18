@@ -33,6 +33,16 @@ public class DoubleCubeDroneTestBasic {
 		this.coordinates[2] = z;
 
 	}
+	
+	@Test
+	public void testNullCoordinates()
+	{
+		
+		drone = new DoubleCubeDrone(null, flyspace);
+		String expectedCoordinates = "Position: ( 0, 0, 0 )";
+		assertEquals(expectedCoordinates, drone.getFormatedCoordinates());
+	}
+	
 	@Test
 	public void testInitialMoveUp()
 	{
@@ -116,4 +126,6 @@ public class DoubleCubeDroneTestBasic {
 				+Integer.toString(coordinates[2])+" )";
 		assertEquals(expectedCoordinates, drone.moveRight());
 	}
+	
+	
 }

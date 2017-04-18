@@ -5,6 +5,8 @@ public class Cube {
 	private int[] startPoint = {0,0,0};
 	private int[] dimension = {1,1,1};
 	
+	public Cube(){}
+	
 	public Cube(int[] startPoint, int[] size)
 	{
 	  for (int i = 0; i < 3; i++) 

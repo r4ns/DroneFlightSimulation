@@ -15,9 +15,18 @@ public class FlySpace {
 	{
 		int[] point0 = {0,0,0};
 		int[] point1 ={0,0,0};
+		if(outerBoundaries!=null&&innerBoundaries!=null)
+		{
 		for (int i = 0; i < 3; i++) point1[i]=(outerBoundaries[i]-innerBoundaries[i])/2;
 		this.innerCube = new Cube(point1, innerBoundaries);
 		this.outerCube = new Cube(point0, outerBoundaries);
+		}
+		else 
+		{
+			this.innerCube = new Cube();
+			this.outerCube = new Cube();
+		}
+		
 	
 	}
 	

@@ -11,11 +11,20 @@ public class DoubleCubeDrone implements StandardDrone{
 	public DoubleCubeDrone(int[] start, FlySpace space)
 	{
 		
+		if(start!=null&&space!=null)
+		{
 		this.cubeOne= new Cube(start, dimension);
 		this.cubeTwo=new Cube(new int[] {start[0]+dimension[0],start[1]+dimension[1],start[0]}, dimension);
 		this.coordinates = start;
 		this.fs = space;
+		}
 		
+		else
+		{
+			this.cubeOne = new Cube();
+			this.cubeTwo = new Cube();
+			this.fs=new FlySpace();
+		}
 	}
 
 	@Override

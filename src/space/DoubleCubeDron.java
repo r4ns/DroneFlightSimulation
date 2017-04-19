@@ -1,17 +1,22 @@
 package space;
 
+import static org.junit.Assert.assertEquals;
+
+import drone.Cube;
 import drone.Drone;
 
 
 public class DoubleCubeDron extends Drone {
 
 	private int duzinaStranice; 
-	
+	private FlySpace space;
+
+
 	public DoubleCubeDron(){
 
 
 	}
-	
+
 	public DoubleCubeDron(int [] coordinates, int [] boundaries, int razmak, int duzinaStranice){
 
 		super();
@@ -23,14 +28,14 @@ public class DoubleCubeDron extends Drone {
 		super(x,y,z,boundaries,razmak);
 		this.duzinaStranice=duzinaStranice;
 	}
-	
+
 
 	@Override
 	public String moveUp() {
 
 
 		if(x>=razmak-duzinaStranice && x<boundaries[0]-razmak-duzinaStranice && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak-duzinaStranice*2){//donja_1
-
+			
 			y++;
 			System.out.println(getFormatedCoordinates());
 
@@ -320,6 +325,131 @@ public class DoubleCubeDron extends Drone {
 
 		return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 	}
+
+	public boolean validateDronePositionAfter(String command){
+
+		if(command == "moveUp()"){
+			
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentY = getY();
+			drone.moveUp();
+			if(drone.getY() == currentY+1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveUp();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+			
+			
+		}
+
+		if(command == "moveDown()"){
+			
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentY = getY();
+			drone.moveDown();
+			if(drone.getY() == currentY-1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveDown();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+			
+
+		}
+		
+		if(command == "moveLeft()"){
+			
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentX = getX();
+			drone.moveLeft();
+			if(drone.getX() == currentX-1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveLeft();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+			
+		}
+		
+		if(command == "moveRight()"){
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentX = getX();
+			drone.moveRight();
+			if(drone.getX() == currentX+1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveRight();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+
+		}
+		
+		if(command == "moveBack()"){
+			
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentZ = getZ();
+			drone.moveBack();
+			if(drone.getZ() == currentZ+1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveBack();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+			
+
+		}
+		
+		if(command == "moveForth()"){
+			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());	
+			int currentZ = getZ();
+			drone.moveForth();
+			if(drone.getZ() == currentZ-1){
+				
+				System.out.println("Dron se moze pomeriti");
+				moveForth();
+				return true;
+				
+			} else {
+				
+				System.out.println("Dron se ne moze pomeriti");
+				return false;
+			}
+
+		}
+		
+		
+
+
+
+		return false; 
+	}
+
 
 
 

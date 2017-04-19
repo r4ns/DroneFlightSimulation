@@ -1,10 +1,19 @@
 package drone;
 
-public class DroneController {
 
-	public static void main(String[] args) {		
+public class DroneController extends Cube {
 
-		//Drone dron = new Drone(30,0,30);
+	public static void main(String[] args) {	
+		
+		
+		
+		Cube cube = new Cube(new int []{50,50,50},50);
+		Cube cubeForTesting = new Cube(new int []{52,42,100},10);
+		cube.checkIfCubesAreTouchingFromOutside(cubeForTesting);
+		
+		
+		
+		/*//Drone dron = new Drone(30,0,30);
 		Drone dron = new Drone(30,0,30, new int[]{50,50,50},10);
 		System.out.println("Drone position: ("+dron.getX()+","+dron.getY()+","+dron.getZ()+")");
 		
@@ -97,11 +106,13 @@ public class DroneController {
 			
 			dron.moveDown();
 			
-		}
+		}*/
 		
 		
 		
 		
 		
 	}
+
+
 }

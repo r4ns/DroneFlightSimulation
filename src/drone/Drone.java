@@ -10,6 +10,8 @@ public class Drone implements StandardDrone {
 	protected int [] coordinates = {x,y,z};
 	protected int [] boundaries;
 	protected int razmak; 
+	public boolean existCubes; //prepreke spracavaju dron da se krece
+	
 
 	public Drone(){
 
@@ -344,6 +346,16 @@ public class Drone implements StandardDrone {
 	public void setRazmak(int razmak) {
 		this.razmak = razmak;
 	}
+
+	public boolean isExistCubes() {
+		return existCubes;
+	}
+
+	public void setExistCubes(boolean existCubes) {
+		this.existCubes = existCubes;
+	}
+
+	
 
 
 

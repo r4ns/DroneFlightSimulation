@@ -6,6 +6,7 @@ public class Cube {
 	private int cubeSideLength; //duzina stranice kocke
 	private int [] maxCoordinates;
 	private boolean checkFunction; //posebno proveravanje koordinata kada se kocke seku
+	private String [] methods = new String[6];
 
 	//kreira kocku na osnovu prosledjenih parametara
 	public Cube(int [] cubeStartCoordinates, int side)
@@ -30,7 +31,7 @@ public class Cube {
 	//default konstruktor
 	public Cube()
 	{
-
+		
 	}
 
 	public Cube(int [] cubeStartCoordinates)
@@ -157,7 +158,7 @@ public class Cube {
 
 				if(cube.maxCoordinates[2]>=minCoordinates[2] && cube.maxCoordinates[2]<=maxCoordinates[2]){
 
-					
+					methods[2]="moveLeft";
 					return true;
 				}
 			}		
@@ -167,7 +168,7 @@ public class Cube {
 			if(cube.getG()[1]>=minCoordinates[1] && cube.getG()[1]<=maxCoordinates[1]){
 
 				if(cube.getG()[2]>=minCoordinates[2] && cube.getG()[2]<=maxCoordinates[2]){
-					
+					methods[2]="moveLeft";
 					return true;
 				}
 			}		
@@ -177,7 +178,7 @@ public class Cube {
 			if(cube.getB()[1]>=minCoordinates[1] && cube.getB()[1]<=maxCoordinates[1]){
 
 				if(cube.getB()[2]>=minCoordinates[2] && cube.getB()[2]<=maxCoordinates[2]){
-				
+					methods[2]="moveLeft";
 					return true;
 				}
 			}		
@@ -187,7 +188,7 @@ public class Cube {
 			if(cube.getC()[1]>=minCoordinates[1] && cube.getC()[1]<=maxCoordinates[1]){
 
 				if(cube.getC()[2]>=minCoordinates[2] && cube.getC()[2]<=maxCoordinates[2]){
-					
+					methods[2]="moveLeft";
 					return true;
 				}
 			}		
@@ -202,6 +203,7 @@ public class Cube {
 
 				if(cube.getE()[2]>=minCoordinates[2] && cube.getE()[2]<=maxCoordinates[2]){
 					
+					methods[0]="moveUp";
 					return true;
 				}
 			}
@@ -212,6 +214,7 @@ public class Cube {
 
 				if(cube.maxCoordinates[2]>=minCoordinates[2] && cube.maxCoordinates[2]<=maxCoordinates[2]){
 					
+					methods[0]="moveUp";
 					return true;
 				}
 			}
@@ -221,7 +224,7 @@ public class Cube {
 			if(cube.getG()[1]==minCoordinates[1]){
 
 				if(cube.getG()[2]>=minCoordinates[2] && cube.getG()[2]<=maxCoordinates[2]){
-					
+					methods[0]="moveUp";
 					return true;
 				}
 			}
@@ -231,7 +234,7 @@ public class Cube {
 			if(cube.getH()[1]==minCoordinates[1]){
 
 				if(cube.getH()[2]>=minCoordinates[2] && cube.getH()[2]<=maxCoordinates[2]){
-					
+					methods[0]="moveUp";
 					return true;
 				}
 			}
@@ -245,7 +248,7 @@ public class Cube {
 			if(cube.minCoordinates[1]>=minCoordinates[1] && cube.minCoordinates[1]<=maxCoordinates[1]){
 
 				if(cube.minCoordinates[2]>=minCoordinates[2] && cube.minCoordinates[2]<=maxCoordinates[2]){
-					
+					methods[3]="moveRight";
 					return true; 
 				}
 			}
@@ -255,7 +258,7 @@ public class Cube {
 			if(cube.getA()[1]>=minCoordinates[1] && cube.getA()[1]<=maxCoordinates[1]){
 
 				if(cube.getA()[2]>=minCoordinates[2] && cube.getA()[2]<=maxCoordinates[2]){
-					
+					methods[3]="moveRight";
 					return true; 
 				}
 			}
@@ -265,7 +268,7 @@ public class Cube {
 			if(cube.getE()[1]>=minCoordinates[1] && cube.getE()[1]<=maxCoordinates[1]){
 
 				if(cube.getE()[2]>=minCoordinates[2] && cube.getE()[2]<=maxCoordinates[2]){
-					
+					methods[3]="moveRight";
 					return true; 
 				}
 			}
@@ -275,7 +278,7 @@ public class Cube {
 			if(cube.getH()[1]>=minCoordinates[1] && cube.getH()[1]<=maxCoordinates[1]){
 
 				if(cube.getH()[2]>=minCoordinates[2] && cube.getH()[2]<=maxCoordinates[2]){
-					
+					methods[3]="moveRight";
 					return true; 
 				}
 			}
@@ -288,7 +291,7 @@ public class Cube {
 			if(cube.getE()[1]>=minCoordinates[1] && cube.getE()[1]<=maxCoordinates[1]){
 
 				if(cube.getE()[2]==minCoordinates[2]){
-					
+					methods[5]="moveForth";
 					return true;
 				}
 			}
@@ -298,7 +301,7 @@ public class Cube {
 			if(cube.maxCoordinates[1]>=minCoordinates[1] && cube.maxCoordinates[1]<=maxCoordinates[1]){
 
 				if(cube.maxCoordinates[2]==minCoordinates[2]){
-					
+					methods[5]="moveForth";
 					return true;
 				}
 			}
@@ -308,7 +311,7 @@ public class Cube {
 			if(cube.getA()[1]>=minCoordinates[1] && cube.getA()[1]<=maxCoordinates[1]){
 
 				if(cube.getA()[2]==minCoordinates[2]){
-					
+					methods[5]="moveForth";
 					return true;
 				}
 			}
@@ -318,7 +321,7 @@ public class Cube {
 			if(cube.getB()[1]>=minCoordinates[1] && cube.getB()[1]<=maxCoordinates[1]){
 
 				if(cube.getB()[2]==minCoordinates[2]){
-					
+					methods[5]="moveForth";
 					return true;
 				}
 			}
@@ -331,7 +334,7 @@ public class Cube {
 			if(cube.getH()[1]>=minCoordinates[1] && cube.getH()[1]<=maxCoordinates[1]){
 
 				if(cube.getH()[2]==maxCoordinates[2]){
-					
+					methods[4]="moveBack";
 					return true;
 				}
 			}
@@ -341,7 +344,7 @@ public class Cube {
 			if(cube.getG()[1]>=minCoordinates[1] && cube.getG()[1]<=maxCoordinates[1]){
 
 				if(cube.getG()[2]==minCoordinates[2]){
-					
+					methods[4]="moveBack";
 					return true;
 				}
 			}
@@ -351,7 +354,7 @@ public class Cube {
 			if(cube.minCoordinates[1]>=minCoordinates[1] && cube.minCoordinates[1]<=maxCoordinates[1]){
 
 				if(cube.minCoordinates[2]==minCoordinates[2]){
-					
+					methods[4]="moveBack";
 					return true;
 				}
 			}
@@ -361,7 +364,7 @@ public class Cube {
 			if(cube.getC()[1]>=minCoordinates[1] && cube.getC()[1]<=maxCoordinates[1]){
 
 				if(cube.getC()[2]==minCoordinates[2]){
-					
+					methods[4]="moveBack";
 					return true;
 				}
 			}
@@ -374,7 +377,7 @@ public class Cube {
 			if(cube.getA()[1]==minCoordinates[1]){
 
 				if(cube.getA()[2]>=minCoordinates[2] && cube.getA()[2]<=maxCoordinates[2]){
-					
+					methods[1]="moveDown";
 					return true;
 				}
 			}
@@ -384,7 +387,7 @@ public class Cube {
 			if(cube.getB()[1]==minCoordinates[1]){
 
 				if(cube.getB()[2]>=minCoordinates[2] && cube.getB()[2]<=maxCoordinates[2]){
-					
+					methods[1]="moveDown";
 					return true;
 				}
 			}
@@ -394,7 +397,7 @@ public class Cube {
 			if(cube.getC()[1]==minCoordinates[1]){
 
 				if(cube.getC()[2]>=minCoordinates[2] && cube.getC()[2]<=maxCoordinates[2]){
-					
+					methods[1]="moveDown";
 					return true;
 				}
 			}
@@ -404,7 +407,7 @@ public class Cube {
 			if(cube.minCoordinates[1]==minCoordinates[1]){
 
 				if(cube.minCoordinates[2]>=minCoordinates[2] && cube.minCoordinates[2]<=maxCoordinates[2]){
-					
+					methods[1]="moveDown";
 					return true;
 				}
 			}
@@ -606,6 +609,16 @@ public class Cube {
 		
 		 
 	}
+
+	public String[] getMethods() {
+		return methods;
+	}
+
+	public void setMethods(String[] methods) {
+		this.methods = methods;
+	}
+
+	
 
 
 

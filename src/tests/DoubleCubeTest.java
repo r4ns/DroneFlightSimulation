@@ -44,7 +44,7 @@ public class DoubleCubeTest {
 		Cube cubePartOfDroneSecond = new Cube(new int[]{drone.getX()+drone.getDuzinaStranice(),drone.getY()+drone.getDuzinaStranice(),drone.getZ()},1);
 		Cube cube = new Cube(new int[]{0,1,0},1);
 		
-		if(cube.checkCubeIntersection(cubePartOfDroneFirst)==true|| cube.checkCubeIntersection(cubePartOfDroneSecond)==true){
+		if(cube.checkCubeIntersection(cubePartOfDroneFirst)==true || cube.checkCubeIntersection(cubePartOfDroneSecond)==true){
 			
 			assertFalse(drone.validateDronePositionAfter("moveUp()"));
 			drone.setCallByTest(false);
@@ -242,7 +242,7 @@ public class DoubleCubeTest {
 		drone.moveUp();
 	}
 
-	@Test
+	/*@Test
 	public void testFirstCaseMoveUp(){
 		
 		drone = new DoubleCubeDron(9,7,35,space.getBoundaries(),space.getRazmak(),1);
@@ -456,7 +456,7 @@ public class DoubleCubeTest {
 		String expectedCoordinates = "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		assertEquals(expectedCoordinates,drone.moveForth());
 
-	}
+	}*/
 
 
 

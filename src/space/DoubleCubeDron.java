@@ -10,9 +10,11 @@ public class DoubleCubeDron extends Drone {
 	private FlySpace space; //prostor
 	private int[] startCoordinates = new int[]{0,0,0};
 	public boolean callByTest=false; //pomoc za testove
-	
-	
-	
+	Cube cubeOfDroneFirst;
+	Cube cubeOfDroneSecond;
+
+
+
 	public DoubleCubeDron(){
 
 
@@ -23,21 +25,25 @@ public class DoubleCubeDron extends Drone {
 		super();
 		this.duzinaStranice=duzinaStranice;
 		space = new FlySpace(startCoordinates,boundaries,razmak);
+		cubeOfDroneFirst = new Cube(new int[]{coordinates[0],coordinates[1],coordinates[2]},duzinaStranice);
+		cubeOfDroneSecond = new Cube(new int[] {coordinates[0]+duzinaStranice,coordinates[1]+duzinaStranice,coordinates[2]},duzinaStranice);
 	}
 
 	public DoubleCubeDron(int x, int y, int z, int [] boundaries, int razmak, int duzinaStranice){
 
 		super(x,y,z,boundaries,razmak);
 		this.duzinaStranice=duzinaStranice;
-		space = new FlySpace(new int[]{0,0,0},boundaries,razmak);
+		space = new FlySpace(startCoordinates,boundaries,razmak);
+		cubeOfDroneFirst = new Cube(new int[]{coordinates[0],coordinates[1],coordinates[2]},duzinaStranice);
+		cubeOfDroneSecond = new Cube(new int[] {coordinates[0]+duzinaStranice,coordinates[1]+duzinaStranice,coordinates[2]},duzinaStranice);
 	}
 
 
 	@Override
 	public String moveUp() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveUp()") == true){
+
 			if(x>=razmak-duzinaStranice && x<boundaries[0]-razmak-duzinaStranice && z>razmak && z<boundaries[2]-razmak && y>=0 && y<razmak-duzinaStranice*2){//donja_1
 
 				y++;
@@ -88,10 +94,10 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
-		
+
 
 
 
@@ -102,9 +108,9 @@ public class DoubleCubeDron extends Drone {
 
 	@Override
 	public String moveDown() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveDown()") == true){
+
 			if(x>=razmak && x<=boundaries[0]-razmak && z>=razmak && z<=boundaries[2]-razmak && y>0 && y<=razmak){ //donja
 
 				y--;
@@ -138,11 +144,11 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
 
-		
+
 
 
 		return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
@@ -152,9 +158,9 @@ public class DoubleCubeDron extends Drone {
 
 	@Override
 	public String moveLeft() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveLeft()") == true){
+
 			if(y>=0 && y<=razmak-2*duzinaStranice && z>=0 && z<=boundaries[2] && x>=duzinaStranice && x<boundaries[0]){ //dole
 
 				x--;
@@ -195,7 +201,7 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
 
@@ -205,9 +211,9 @@ public class DoubleCubeDron extends Drone {
 
 	@Override
 	public String moveRight() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveRight()") == true){
+
 			if(y>razmak && y<boundaries[1]-razmak && z>razmak && z<boundaries[2]-razmak && x>=0 && x<razmak-duzinaStranice*2){ //levo
 
 				x++;
@@ -242,20 +248,20 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
 
-		
+
 
 		return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 	}
 
 	@Override
 	public String moveBack() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveBack()") == true){
+
 			if(y>=0 && y<=razmak-2*duzinaStranice && x>=razmak-duzinaStranice && x<boundaries[0]-razmak-duzinaStranice && z>=0 && z<boundaries[2]-duzinaStranice){ //dole_1
 
 				z++;
@@ -300,20 +306,20 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
 
-		
+
 
 		return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 	}
 
 	@Override
 	public String moveForth() {
-		
-		if(existCubes==false){
-			
+
+		if(validateDronePositionAfter("moveForth()") == true){
+
 			if(y>=0 && y<=razmak-2*duzinaStranice && x>=razmak-duzinaStranice && x<boundaries[0]-razmak-duzinaStranice && z>=duzinaStranice && z<boundaries[2]-duzinaStranice){ //dole_1
 
 				z--;
@@ -358,11 +364,11 @@ public class DoubleCubeDron extends Drone {
 				System.out.println(getFormatedCoordinates());
 			}
 		} else {
-			
+
 			return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 		}
 
-		
+
 
 		return "Drone position: ("+x+","+y+","+z+"), ("+(x+duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+"), ("+(x+duzinaStranice)+","+(y+2*duzinaStranice)+","+z+"), ("+(x+2*duzinaStranice)+","+(y+duzinaStranice)+","+(z+duzinaStranice)+")";
 
@@ -377,45 +383,55 @@ public class DoubleCubeDron extends Drone {
 	}
 
 	public boolean validateDronePositionAfter(String command){
+		
+		DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+		try{
+			
+			check(drone);
+		} catch(DroneException e){
+			
+			System.out.println(e + "\n");
+		}
+		
 
 		if(command == "moveUp()"){
 			
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveUp()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
-				existCubes=true; //seku se, dron se ne može pomeriti
+
+				//existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
-				
+
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
-				int currentY = drone.getY();
+
+				//existCubes=false;
+				/*int currentY = drone.getY();
 				drone.moveUp();
 				if(drone.getY() == currentY+1){
 
-					moveUp();
+					//moveUp();
 					return true;
 
 				} else {
 
 					return false;
-				}
+				}*/
+				return true;
 			}
-			
+
 
 
 		}
 
 		if(command == "moveDown()"){
 
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+			//DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveDown()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
-				existCubes=true; //seku se, dron se ne može pomeriti
+
+				//existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
+
+				/*existCubes=false;
 				int currentY = drone.getY();
 				drone.moveDown();
 				if(drone.getY() == currentY-1){
@@ -426,7 +442,9 @@ public class DoubleCubeDron extends Drone {
 				} else {
 
 					return false;
-				}
+				}*/
+				
+				return true;
 			}
 
 
@@ -434,14 +452,14 @@ public class DoubleCubeDron extends Drone {
 
 		if(command == "moveLeft()"){
 
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+			//DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveLeft()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
-				existCubes=true; //seku se, dron se ne može pomeriti
+
+				//existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
+
+				/*existCubes=false;
 				int currentX = drone.getX();
 				drone.moveLeft();
 				if(drone.getX() == currentX-1){
@@ -452,20 +470,22 @@ public class DoubleCubeDron extends Drone {
 				} else {
 
 					return false;
-				}
+				}*/
+				
+				return true;
 			}
 
 		}
 
 		if(command == "moveRight()"){
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+			//DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveRight()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
-				existCubes=true; //seku se, dron se ne može pomeriti
+
+				//existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
+
+				/*existCubes=false;
 				int currentX = drone.getX();
 				drone.moveRight();
 				if(drone.getX() == currentX+1){
@@ -478,21 +498,23 @@ public class DoubleCubeDron extends Drone {
 
 
 					return false;
-				}
+				}*/
+				
+				return true;
 			}
 
 		}
 
 		if(command == "moveBack()"){
 
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+			//DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveBack()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
+
 				existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
+
+				/*existCubes=false;
 				int currentZ = drone.getZ();
 				drone.moveBack();
 				if(drone.getZ() == currentZ+1){
@@ -504,25 +526,27 @@ public class DoubleCubeDron extends Drone {
 
 
 					return false;
-				}
+				}*/
+				
+				return true;
 			}
 
 
 		}
 
 		if(command == "moveForth()"){
-			DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
+			
+			//DoubleCubeDron drone = new DoubleCubeDron(getX(),getY(),getZ(),getBoundaries(),getRazmak(),getDuzinaStranice());
 			if(callByTest == false && cubes("moveForth()",drone.getX(),drone.getY(),drone.getZ()) == false){ 
-				
-				existCubes=true; //seku se, dron se ne može pomeriti
+
+				//existCubes=true; //seku se, dron se ne može pomeriti
 				return false;
 			} else { //prepreke ne sprecavaju dron
-				
-				existCubes=false;
+
+				/*existCubes=false;
 				int currentZ = drone.getZ();
 				drone.moveForth();
 				if(drone.getZ() == currentZ-1){
-
 
 					moveForth();
 					return true;
@@ -531,7 +555,9 @@ public class DoubleCubeDron extends Drone {
 
 
 					return false;
-				}
+				}*/
+				
+				return true;
 			}
 
 		}
@@ -540,17 +566,17 @@ public class DoubleCubeDron extends Drone {
 	}
 
 	public boolean cubes(String command,int x, int y, int z){
-			
+
 		if(command == "moveUp()"){
 			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x,y+1,z},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice+1,z},1);
-			
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x,y+1,z},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice+1,z},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -559,17 +585,17 @@ public class DoubleCubeDron extends Drone {
 					return true;
 				}
 			}
-			
+
 		} else if(command == "moveDown()"){
-			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x,y-1,z},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x+duzinaStranice,y,z},1);
-			
+
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x,y-1,z},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x+duzinaStranice,y,z},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -579,15 +605,15 @@ public class DoubleCubeDron extends Drone {
 				}
 			}
 		} else if(command == "moveLeft()"){
-			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x-1,y,z},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x,y,z},1);
-			
+
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x-1,y,z},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x,y,z},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -597,15 +623,15 @@ public class DoubleCubeDron extends Drone {
 				}
 			}
 		} else if(command == "moveRight()"){
-			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x+1,y,z},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x+duzinaStranice+1,y+duzinaStranice,z},1);
-			
+
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x+1,y,z},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x+duzinaStranice+1,y+duzinaStranice,z},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -615,15 +641,15 @@ public class DoubleCubeDron extends Drone {
 				}
 			}
 		}else if(command == "moveBack()"){
-			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x,y,z+1},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice,z+1},1);
-			
+
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x,y,z+1},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice,z+1},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -633,15 +659,15 @@ public class DoubleCubeDron extends Drone {
 				}
 			}
 		}else if(command == "moveForth()"){
-			
-			Cube cubeOfDroneFirst = new Cube(new int [] {x,y,z-1},1);
-			Cube cubeOfDroneSecond = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice,z-1},1);
-			
+
+			Cube cubeOfDroneFirstAfter = new Cube(new int [] {x,y,z-1},1);
+			Cube cubeOfDroneSecondAfter = new Cube(new int [] {x+duzinaStranice,y+duzinaStranice,z-1},1);
+
 			for(int i=0; i<space.getNumberOfCubes(); i++){
 
 				Cube cube = space.getListOfCubes().get(i);
 
-				if(cube.checkCubeIntersection(cubeOfDroneFirst)==true || cube.checkCubeIntersection(cubeOfDroneSecond)==true){
+				if(cube.checkCubeIntersection(cubeOfDroneFirstAfter)==true || cube.checkCubeIntersection(cubeOfDroneSecondAfter)==true){
 
 					return false; //seku se, ne moze se pomeriti
 
@@ -651,11 +677,33 @@ public class DoubleCubeDron extends Drone {
 				}
 			}
 		}
-		
+
 
 
 
 		return false; 
+	}
+
+
+	public static void check(DoubleCubeDron drone_) throws DroneException{
+		
+		for(int i=0; i<drone_.space.getNumberOfCubes(); i++){
+
+			Cube cube = drone_.space.getListOfCubes().get(i);
+
+			if(cube.checkIfCubesAreTouching(drone_.getCubeOfDroneFirst())==true || cube.checkIfCubesAreTouching(drone_.getCubeOfDroneSecond())==true){
+				
+				throw new DroneException();
+			}
+
+				
+		}
+		
+
+		/*if(cubeFirst.checkIfCubesAreTouching(cubeSecond) == true){
+
+			throw new DroneException();
+		}*/
 	}
 
 
@@ -691,6 +739,30 @@ public class DoubleCubeDron extends Drone {
 
 	public void setCallByTest(boolean callByTest) {
 		this.callByTest = callByTest;
+	}
+
+	public Cube getCubeOfDroneFirst() {
+		return cubeOfDroneFirst;
+	}
+
+	public void setCubeOfDroneFirst(Cube cubeOfDroneFirst) {
+		this.cubeOfDroneFirst = cubeOfDroneFirst;
+	}
+
+	public Cube getCubeOfDroneSecond() {
+		return cubeOfDroneSecond;
+	}
+
+	public void setCubeOfDroneSecond(Cube cubeOfDroneSecond) {
+		this.cubeOfDroneSecond = cubeOfDroneSecond;
+	}
+
+	public FlySpace getSpace() {
+		return space;
+	}
+
+	public void setSpace(FlySpace space) {
+		this.space = space;
 	}
 
 

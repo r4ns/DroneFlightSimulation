@@ -66,10 +66,7 @@ public class Cube {
 
 	// proverava da li se kocke dodiruju sa spoljasnje strane
 	public boolean checkIfCubesAreTouchingFromOutside(Cube cube) {
-		if (checkIfCubesAreTouching(cube) && !checkCubeIntersection(cube))
-			return true;
-
-		return false;
+		return (checkIfCubesAreTouching(cube) && !checkCubeIntersection(cube))?true:false;
 	}
 
 	public int[] getCenterOfCube() {

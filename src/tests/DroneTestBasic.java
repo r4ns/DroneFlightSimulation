@@ -5,9 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import drone.Drone;
+import space.DoubleCubeDrone;
 
 public class DroneTestBasic {
 	Drone drone;
+	DoubleCubeDrone dg;
 	private int[] boundaries={50,50,50};
 	private int[] startCoordinates={30,0,30};
 	
@@ -100,5 +102,5 @@ public class DroneTestBasic {
 		assertEquals(expectedCoordinates,drone.moveBack());
 		
 	}
-
+	
 }

@@ -3,7 +3,9 @@
  public class Drone implements StandardDrone{
  	
  	private int[] outerBoundaries;
+ 	int [] boundaries;
  	public int[] coordinates={30,0,30};
+ 	int space;
  	//private int distanceFromOuterBox;
  	//private int step=2;
  	
@@ -20,6 +22,13 @@
  		//distanceFromOuterBox=10;
  		this.coordinates=coordinates;
  	}
+ 	
+ 	public Drone(int [] boundaries, int space){
+ 		
+ 		 		this.boundaries=boundaries;
+ 		 		this.space=space;
+ 		 }
+ 	
  	public String moveUp() {
  		// TODO Auto-generated method stub
  		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]<10){

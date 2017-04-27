@@ -38,15 +38,15 @@ public void testIfCubesAreTouchingFromInsideAlongOneCubeSide()
 @Test
 public void testIfCubesAreTouchingFromOutsideInOnePoint()
 {
-	cube = new Cube(new int[] {0, 0, 0}, 50);
-	assertTrue(cube.checkIfCubesAreTouchingFromOutside(new Cube(new int[] {60, 60, 60}, 10)));
+	cube = new Cube(new int[] {0, 0, 0}, 20);
+	assertTrue(cube.checkIfCubesAreTouchingFromOutside(new Cube(new int[] {20, 20, 20}, 20)));
 }
 
 @Test
 public void testIfCubesAreTouchingFromOutsideAlongOneCubeSide()
 {
 	cube = new Cube(new int[] {0, 0, 0}, 50);
-	assertTrue(cube.checkIfCubesAreTouchingFromOutside(new Cube(new int[] {60, 60, 60}, 10)));
+	assertTrue(cube.checkIfCubesAreTouchingFromOutside(new Cube(new int[] {50, 0, 0}, 50)));
 }
 @Test
 public void testIfCubesAreTouchingFromOutside()

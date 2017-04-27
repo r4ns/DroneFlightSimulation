@@ -101,8 +101,6 @@ public boolean checkIfCubesAreTouching(Cube cube)
 	
 		int[] startCoordinates = {cube.minCoordinates[0], cube.minCoordinates[1], cube.minCoordinates[2] - cube.cubeSideLength};
 		Cube dummy = new Cube(startCoordinates, cube.cubeSideLength + 1);
-		System.out.println(startCoordinates);
-		System.out.println(dummy);
 		if (this.checkCubeIntersection(dummy) == true) {
 			return true;
 		}

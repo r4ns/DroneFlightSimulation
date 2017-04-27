@@ -1,5 +1,8 @@
 package space;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 import drone.Cube;
 
 public class FlySpace extends Cube{
@@ -8,6 +11,7 @@ public class FlySpace extends Cube{
 	private int granicaZ = 50;
 	Cube cubeInside;
 	Cube cubeOutside;
+	Cube[] arrayOfCubes;
 		
 	public FlySpace () {
 		
@@ -24,10 +28,12 @@ public class FlySpace extends Cube{
 		this.cubeOutside = cubeOutside;
 		
 		if (cubeInside.getCubeSideLength() < cubeOutside.getCubeSideLength()) {
-			Cube obstacle1 = new Cube(new int[] {0, 2, 33}, 1);
+			Cube obstacle1 = new Cube(new int[] {6, 4, 33}, 1);
 			Cube obstacle2 = new Cube(new int[] {40, 16, 9}, 1);
 			Cube obstacle3 = new Cube(new int[] {22, 0, 49}, 1);
 			Cube obstacle4 = new Cube(new int[] {46, 35, 3}, 1);
+			
+			arrayOfCubes = new Cube[] {obstacle1, obstacle2, obstacle3, obstacle4};
 		}
 	}
 
@@ -69,6 +75,14 @@ public class FlySpace extends Cube{
 
 	public void setCubeOutside(Cube cubeOutside) {
 		this.cubeOutside = cubeOutside;
+	}
+
+	public Cube[] getArrayOfCubes() {
+		return arrayOfCubes;
+	}
+
+	public void setArrayOfCubes(Cube[] arrayOfCubes) {
+		this.arrayOfCubes = arrayOfCubes;
 	}
 	
 	

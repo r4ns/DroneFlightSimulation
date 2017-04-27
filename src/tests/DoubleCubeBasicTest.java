@@ -304,6 +304,151 @@ public class DoubleCubeBasicTest {
 				+ Integer.toString(topMax[2]) + ")";
 		assertEquals(expectedCoordinates, drone.moveForth());
 	}
+	
+	@Test
+	public void testObstacleMoveUp() {
+		drone = new DoubleCubeDrone(new int[] {5, 2, 33}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveUp());
+	}
+	
+	@Test
+	public void testObstacleMoveDown() {
+		drone = new DoubleCubeDrone(new int[] {5, 4, 33}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveDown());
+	}
+	
+	@Test
+	public void testObstacleMoveRight() {
+		drone = new DoubleCubeDrone(new int[] {4, 3, 33}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveRight());
+	}
+	
+	@Test
+	public void testObstacleMoveLeft() {
+		drone = new DoubleCubeDrone(new int[] {6, 3, 33}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveLeft());
+	}
+	
+	@Test
+	public void testObstacleMoveBack() {
+		drone = new DoubleCubeDrone(new int[] {5, 3, 32}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveBack());
+	}
+	
+	@Test
+	public void testObstacleMoveForth() {
+		drone = new DoubleCubeDrone(new int[] {5, 3, 34}, 1);
+		topMax = drone.getCubeTop().getMaxCoordinates();
+		topMin = drone.getCubeTop().getMinCoordinates();
+		botMax = drone.getCubeBottom().getMaxCoordinates();
+		botMin = drone.getCubeBottom().getMinCoordinates();
+		String expectedCoordinates = "Drone position: ("
+				+ Integer.toString(botMin[0]) + ","
+				+ Integer.toString(botMin[1]) + ","
+				+ Integer.toString(botMin[2]) + "), ("
+				+ Integer.toString(botMax[0]) + ","
+				+ Integer.toString(botMax[1]) + ","
+				+ Integer.toString(botMax[2]) + ")"
+				+ "Drone position: ("
+				+ Integer.toString(topMin[0]) + ","
+				+ Integer.toString(topMin[1]) + ","
+				+ Integer.toString(topMin[2]) + "), ("
+				+ Integer.toString(topMax[0]) + ","
+				+ Integer.toString(topMax[1]) + ","
+				+ Integer.toString(topMax[2]) + ")";
+		assertEquals(expectedCoordinates, drone.moveForth());
+	}
+	
 	/*@Test
 	public void testInitialMoveUpOne(){
 		

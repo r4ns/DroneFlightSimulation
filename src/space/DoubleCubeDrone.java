@@ -2,6 +2,7 @@ package space;
 
 import drone.Cube;
 import drone.DroneOne;
+import tests.DroneException;
 
 public class DoubleCubeDrone extends DroneOne {
 	
@@ -57,6 +58,9 @@ public class DoubleCubeDrone extends DroneOne {
 		int[] botMax = this.cubeBottom.getMaxCoordinates();
 		int[] botMin = this.cubeBottom.getMinCoordinates();
 		
+		int[] startDummy = {botMin[0], botMin[1], botMin[2] - 1};
+		DoubleCubeDrone dummy;
+		
 		if (space.cubeOutside.checkCoordinates(this.cubeTop.getMaxCoordinates()) == true 
 				&& space.cubeOutside.checkCoordinates(this.cubeBottom.getMinCoordinates()) == true
 				&& space.cubeOutside.checkCoordinates(this.cubeBottom.getMaxCoordinates()) == true
@@ -80,18 +84,39 @@ public class DoubleCubeDrone extends DroneOne {
 				else {
 					return false;
 				}*/
-				if ((botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0)) {
-					if (topMax[1] < space.cubeInside.getCubeSideLength() || (botMin[1] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[1] < space.cubeOutside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[1]++;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0)) {
+						if (topMax[1] < space.cubeInside.getCubeSideLength() || (botMin[1] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[1] < space.cubeOutside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
+				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
 				}
 				else {
 					return false;
@@ -112,22 +137,44 @@ public class DoubleCubeDrone extends DroneOne {
 				else {
 					return false;
 				}*/
-				if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
-					if ((botMin[1] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMax[1] < space.cubeOutside.getCubeSideLength()) || (botMin[1] > 0 && topMax[1] < space.cubeInside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[1]--;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
+						if ((botMin[1] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMax[1] < space.cubeOutside.getCubeSideLength()) || (botMin[1] > 0 && topMax[1] < space.cubeInside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
 				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
+				}
 				else {
 					return false;
 				}
+				
 			}
 			
 			else if (command == "moveRight") {
@@ -144,18 +191,39 @@ public class DoubleCubeDrone extends DroneOne {
 				else {
 					return false;
 				}*/
-				if ((botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0)) {
-					if (topMax[0] < space.cubeInside.getCubeSideLength() || (botMin[0] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[0] < space.cubeOutside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[1] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[0]++;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (botMin[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0)) {
+						if (topMax[0] < space.cubeInside.getCubeSideLength() || (botMin[0] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[0] < space.cubeOutside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[1] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
+				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
 				}
 				else {
 					return false;
@@ -176,18 +244,39 @@ public class DoubleCubeDrone extends DroneOne {
 				else {
 					return false;
 				}*/
-				if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
-					if ((botMin[0] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMax[0] < space.cubeOutside.getCubeSideLength()) || (botMin[0] > 0 && topMax[0] < space.cubeInside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[1] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[0]--;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
+						if ((botMin[0] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMax[0] < space.cubeOutside.getCubeSideLength()) || (botMin[0] > 0 && topMax[0] < space.cubeInside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[2] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[2] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[1] <= space.cubeInside.getCubeSideLength() || topMax[2] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
+				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
 				}
 				else {
 					return false;
@@ -209,18 +298,39 @@ public class DoubleCubeDrone extends DroneOne {
 					return false;
 				}
 			}*/
-				if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
-					if (topMax[2] < space.cubeInside.getCubeSideLength() || (botMin[2] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[2] < space.cubeOutside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[1] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[2]++;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
+						if (topMax[2] < space.cubeInside.getCubeSideLength() || (botMin[2] > space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && botMin[2] < space.cubeOutside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[1] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
+				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
 				}
 				else {
 					return false;
@@ -241,19 +351,39 @@ public class DoubleCubeDrone extends DroneOne {
 				else {
 					return false;
 				}*/
-				
-				if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
-					if ((botMin[2] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMin[2] < space.cubeOutside.getCubeSideLength()) || (botMin[2] > 0 && botMax[2] < space.cubeInside.getCubeSideLength())) {
-						return true;
-					}
-					else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
-						|| (botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
-						|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[1] <= space.cubeInside.getCubeSideLength()) {
-						return true;
+				startDummy[2]--;
+				dummy = new DoubleCubeDrone(startDummy, 1);
+				if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == true) {
+					if ((topMax[0] < space.cubeOutside.getCubeSideLength() && botMin[0] > 0) && (topMax[1] < space.cubeOutside.getCubeSideLength() && botMin[1] > 0) && (topMin[2] < space.cubeOutside.getCubeSideLength() && topMax[2] > 0)) {
+						if ((botMin[2] >= (space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength()) && topMin[2] < space.cubeOutside.getCubeSideLength()) || (botMin[2] > 0 && botMax[2] < space.cubeInside.getCubeSideLength())) {
+							return true;
+						}
+						else if ((botMin[0] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[0] <= space.cubeOutside.getCubeSideLength())
+							|| (botMin[1] >= space.cubeOutside.getCubeSideLength() - space.cubeInside.getCubeSideLength() && topMax[1] <= space.cubeOutside.getCubeSideLength())
+							|| topMax[0] <= space.cubeInside.getCubeSideLength() || topMax[1] <= space.cubeInside.getCubeSideLength()) {
+							return true;
+						}
+						else {
+							return false;
+						}
 					}
 					else {
 						return false;
 					}
+				}
+				else if (checkTouchingCubeTop(dummy) == true && checkTouchingCubeBottom(dummy) == false) {
+					/*this.moveRight();
+					this.moveUp();
+					this.moveUp();
+					this.moveLeft();*/
+					return true;
+				}
+				else if (checkTouchingCubeTop(dummy) == false && checkTouchingCubeBottom(dummy) == true) {
+					/*this.moveLeft();
+					this.moveUp();
+					this.moveUp();
+					this.moveRight();*/
+					return true;
 				}
 				else {
 					return false;
@@ -367,7 +497,7 @@ public class DoubleCubeDrone extends DroneOne {
 		else
 				return getFormatedCoordinates();*/
 		
-		if (this.validateDronePositionAfter("moveDown") == true) {
+		if (this.validateDronePositionAfter("moveBack") == true) {
 			this.cubeBottom.increaseZ();
 			this.cubeTop.increaseZ();
 			return getFormatedCoordinates();
@@ -406,6 +536,60 @@ public class DoubleCubeDrone extends DroneOne {
 				+ "Gore leva: (" + this.tGoreLevo.getX() + ", " + this.tGoreLevo.getY() + ", " + this.tGoreLevo.getZ() + ")"; */
 		
 		return this.cubeBottom.toString() + this.cubeTop.toString();
+	}
+	
+	public boolean checkTouchingCubeBottom (DoubleCubeDrone drone) {
+		/*for (int i = 0; i < space.getArrayOfCubes().length; i++) {
+			if (drone.cubeBottom.checkIfCubesAreTouching(space.arrayOfCubes[i]) || drone.cubeTop.checkIfCubesAreTouching(space.arrayOfCubes[i])) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}*/
+		
+		if (drone.cubeBottom.checkCubeIntersection(space.arrayOfCubes[0]) 
+				|| drone.cubeBottom.checkCubeIntersection(space.arrayOfCubes[1]) 
+				|| drone.cubeBottom.checkCubeIntersection(space.arrayOfCubes[2]) 
+				|| drone.cubeBottom.checkCubeIntersection(space.arrayOfCubes[3])) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public boolean checkTouchingCubeTop (DoubleCubeDrone drone) {
+		/*for (int i = 0; i < space.getArrayOfCubes().length; i++) {
+			if (drone.cubeBottom.checkIfCubesAreTouching(space.arrayOfCubes[i]) || drone.cubeTop.checkIfCubesAreTouching(space.arrayOfCubes[i])) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}*/
+		
+		if (drone.cubeTop.checkCubeIntersection(space.arrayOfCubes[0]) 
+				|| drone.cubeTop.checkCubeIntersection(space.arrayOfCubes[1]) 
+				|| drone.cubeTop.checkCubeIntersection(space.arrayOfCubes[2]) 
+				|| drone.cubeTop.checkCubeIntersection(space.arrayOfCubes[3])) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+public void check() throws DroneException {
+		
+		for(int i=0; i < space.getArrayOfCubes().length; i++){
+			if(this.cubeBottom.checkIfCubesAreTouching(space.arrayOfCubes[i]) || this.cubeTop.checkIfCubesAreTouching(space.arrayOfCubes[i])){
+				
+				throw new DroneException();
+			}
+		}
+		
+	
 	}
 
 	public DroneOne gettDoleDesno() {

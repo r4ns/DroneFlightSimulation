@@ -1,4 +1,4 @@
-package drone;
+/*package drone;
 
 import space.FlySpace;
 
@@ -126,3 +126,4 @@ public class Drone implements StandardDrone{
 		this.z = z;
 	}
 }
+*/

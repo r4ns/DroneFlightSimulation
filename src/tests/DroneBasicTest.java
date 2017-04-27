@@ -1,119 +1,139 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
 import drone.Drone;
+import space.DoubleCubeDrone;
 
 public class DroneBasicTest {
-	
 	Drone drone;
+	DoubleCubeDrone dg;
 	private int[] boundaries={50,50,50};
 	private int[] startCoordinates={30,0,30};
-	//uvek fiksiramo vrednosti koje su konstante i provlacimo ih kroz sve testove
-	
 	
 	@Test
 	public void testInitialMoveUp(){
 		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0])+", "
-				 +Integer.toString(startCoordinates[1]+1)+", "
-				 +Integer.toString(startCoordinates[2])+")";
-		
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1]+1)+","
+		+Integer.toString(startCoordinates[2]) + ")";
 		assertEquals(expectedCoordinates,drone.moveUp());
-			
+		
 	}
 	
-	/*@Test
+	@Test
 	public void testMoveUpHitBottominnerSquareBorder(){
+		startCoordinates[1] = 10;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveUp());
 		
-		startCoordinates[1]=10;
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-				+Integer.toString(startCoordinates[0])+", "
-				+Integer.toString(10)+","
-				+Integer.toString(startCoordinates[2])+") ";
-		
-	   assertEquals(expectedCoordinates, drone.moveUp());
-	}*/
+	}
 	
 	@Test
 	public void testInitialMoveDown(){
-		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0])+", "
-				 +Integer.toString(startCoordinates[1])+", "
-				 +Integer.toString(startCoordinates[2])+")";
-		
+		startCoordinates[1]=40;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
 		assertEquals(expectedCoordinates,drone.moveDown());
-			
+		
 	}
 	
+	@Test
+	public void testBoundaryMoveDown(){
+		startCoordinates[1] = 39;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveUp());	
+	}
 	
 	@Test
 	public void testInitialMoveLeft(){
-		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0]-1)+", "
-				 +Integer.toString(startCoordinates[1])+", "
-				 +Integer.toString(startCoordinates[2])+")";
-		
+		startCoordinates[0]=40;
+		startCoordinates[1]=30;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
 		assertEquals(expectedCoordinates,drone.moveLeft());
-			
+		
 	}
 	
-	
+	/*@Test
+	public void testBoundaryMoveLeft(){
+		startCoordinates[1] = 0;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveUp());	
+	}
+	*/
 	@Test
 	public void testInitialMoveRight(){
+		startCoordinates[0]=10;
+		startCoordinates[1]=30;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveRight());
 		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0]+1)+", "
-				 +Integer.toString(startCoordinates[1])+", "
-				 +Integer.toString(startCoordinates[2])+")";
+	}
+	
+	/*@Test
+	public void testBoundaryMoveRight(){
+		startCoordinates[0] = 10;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveUp());	
+	}
+	*/
+	@Test
+	public void testInitialMoveForth(){
+		startCoordinates[0]=30;
+		startCoordinates[1]=30;
+		startCoordinates[2]=40;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
+		assertEquals(expectedCoordinates,drone.moveForth());
 		
-		assertEquals(expectedCoordinates,drone.moveRight());		
 	}
 	
 	@Test
 	public void testInitialMoveBack(){
-		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0])+", "
-				 +Integer.toString(startCoordinates[1])+", "
-				 +Integer.toString(startCoordinates[2]+1)+")";
-		
+		startCoordinates[0]=30;
+		startCoordinates[1]=30;
+		startCoordinates[2]=10;
+		drone= new Drone(boundaries, startCoordinates);
+		String expectedCoordinates="("
+				+Integer.toString(startCoordinates[0])+","
+		+Integer.toString(startCoordinates[1])+","
+		+Integer.toString(startCoordinates[2]) + ")";
 		assertEquals(expectedCoordinates,drone.moveBack());
-			
+		
 	}
 	
-	@Test
-	public void testInitialMoveForth(){
-		
-		drone=new Drone(startCoordinates);
-		String expectedCoordinates="Drone position: ("
-		         +Integer.toString(startCoordinates[0])+", "
-				 +Integer.toString(startCoordinates[1])+", "
-				 +Integer.toString(startCoordinates[2]-1)+")";
-		
-		assertEquals(expectedCoordinates,drone.moveForth());
-			
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

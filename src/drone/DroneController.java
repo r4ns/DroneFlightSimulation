@@ -2,67 +2,54 @@ package drone;
 
 public class DroneController {
 
-	public static void main(String[] args) {	
+	public static void main(String[] args) {
 		
-		Drone dron=new Drone(30,0,30);
-		System.out.println(dron.getFormatedCoordinates());
-		
+		Drone drone= new Drone();
+		System.out.println("Drone position: "+drone.getFormatedCoordinates()+"\n\n");
 		System.out.println("-------Moving up-------");
-	    while(dron.getY()<10){
-	    	
-		 	dron.moveUp();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-	    
-	    System.out.println("-------Moving right-------");
-		 while(dron.getX()<45){
-			 
-		 	dron.moveRight();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving forth-------");
-		 while(dron.getZ()>5){
-			 
-		 	dron.moveForth();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving up-------");
-		 while(dron.getY()<50){
-			 
-		 	dron.moveUp();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving left-------");
-		 while(dron.getX()>30){
-			 
-		 	dron.moveLeft();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving back-------");
-		 while(dron.getZ()<30){
-			 
-		 	dron.moveBack();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving left-------");
-		 while(dron.getX()>0){
-			 
-		 	dron.moveLeft();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-		 
-		 System.out.println("-------Moving down-------");
-		 while(dron.getY()>30){
-			 
-		 	dron.moveDown();
-		 	System.out.println(dron.getFormatedCoordinates());
-		 }
-
-
+		while(drone.coordinates[1]<10){
+			drone.moveUp();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving right-------");
+		while(drone.coordinates[0]<50){
+			drone.moveRight();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving up-------");
+		while(drone.coordinates[1]<25){
+			drone.moveUp();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving back-------");
+		while(drone.coordinates[2]<50){
+			drone.moveBack();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving left-------");
+		while(drone.coordinates[0]>25){
+			drone.moveLeft();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving up-------");
+		while(drone.coordinates[1]<50){
+			drone.moveUp();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving forth-------");
+		while(drone.coordinates[2]>30){
+			drone.moveForth();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving left-------");
+		while(drone.coordinates[0]>0){
+			drone.moveLeft();
+			System.out.println(drone.getFormatedCoordinates());
+		}
+		System.out.println("-------Moving down-------");
+		while(drone.coordinates[1]>30){
+			drone.moveDown();
+			System.out.println(drone.getFormatedCoordinates());
+		}
 	}
 }

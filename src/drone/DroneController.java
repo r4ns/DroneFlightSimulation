@@ -1,66 +1,30 @@
 package drone;
 
+import space.FlySpace;
+
+import utility.Cube;
+
 public class DroneController {
 
 	
 	public static void main(String[] args) {		
 	
 		
-		Drone dron = new Drone();
+		Cube malaKocka = new Cube(new int[]{10,10,10},30);
+		Cube velikaKocka = new Cube(new int[]{0,0,0},50);
+		Cube prepreka = new Cube(new int [] {20,5,10},1);
+	
 		
-		System.out.println("Move up:");
+		FlySpace fs = new FlySpace(velikaKocka, malaKocka, 10, prepreka);
 		
-		for(int i=0; i<10; i++)
-			//
-		{
-			System.out.println(dron.moveUp());
+		Cube k2 = new Cube(new int[]{20,3,10},1);
+		Cube k1 = new Cube(new int[]{19,2,10},1);
 		
-		}
+	
+		Drone dron = new Drone(k1,k2,fs);
 		
-		
-		System.out.println("Move right");
-		
-		for(int i=30; i<50; i++)
-		{
-			System.out.println(dron.moveRight());
-			
-		}
-		System.out.println("Move up:");
-		
-		for(int i=0; i<30; i++)
-		{
-			System.out.println(dron.moveUp());
-			
-		}
 		System.out.println("Move forth:");
 		
-		for(int i=30; i<50; i++)
-		{
-			System.out.println(dron.moveForth());
-			
-		}
-		System.out.println("Move left:");
-		
-		for(int i=0; i<50; i++)
-		{
-			System.out.println(dron.moveLeft());
-			
-		}
-		
-		System.out.println("Move back:");
-		
-		for(int i=0; i<20; i++)
-		{
-			System.out.println(dron.moveBack());
-		}
-		
-		System.out.println("Move down:");
-		
-		for(int i=30; i<40; i++)
-		{
-			System.out.println(dron.moveDown());
-			
-		}
-		
+		System.out.println(dron.moveForth(5));
 	}
 }

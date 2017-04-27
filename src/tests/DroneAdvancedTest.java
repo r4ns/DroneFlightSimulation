@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 
 
-import drone.Drone;
+/*import drone.Drone;
 
 public class DroneAdvancedTest {
 	Drone drone;
@@ -58,3 +58,4 @@ public class DroneAdvancedTest {
 	}
 
 }
+*/

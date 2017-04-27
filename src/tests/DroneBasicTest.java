@@ -1,6 +1,6 @@
 package tests;
 
-import org.junit.Test;
+/*import org.junit.Test;
 import static org.junit.Assert.*;
 
 import drone.Drone;
@@ -327,4 +327,4 @@ public class DroneBasicTest {
 	}
 	
 
-}
+}*/

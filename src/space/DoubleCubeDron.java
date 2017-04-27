@@ -1,32 +1,269 @@
 package space;
 
-import drone.Drone;
+import drone.Cube;
+import tests.DroneException;
 
-public class DoubleCubeDron extends Drone {
-	
-	private Drone tacka1;
-	private Drone tacka2;
-	private Drone tacka3;
-	private Drone tacka4;
-	private Drone tacka5;
-	private Drone tacka6;
-	private Drone tacka7;
-	private Drone tacka8;
-	private Drone tacka9;
-	private Drone tacka10;
-	
-	private Drone tacka11;
-	private Drone tacka12;
-	private Drone tacka13;
-	private Drone tacka14;
+public class DoubleCubeDron {
 	
 	
 	
+	Cube prvaKocka;
+	Cube drugaKocka;
+	FlySpace fs;
+	
+	public DoubleCubeDron(int[] start,int duzina, FlySpace fs){
+		prvaKocka=new Cube(start,duzina);
+		int x=start[0]+duzina;
+		int y=start[1]+duzina;
+		int z=start[2];
+		drugaKocka=new Cube(new int[]{x,y,z},duzina);
+		this.fs=fs;
+	}
+	public DoubleCubeDron(Cube prva, Cube druga, FlySpace  fs){
+		prvaKocka=prva;
+		drugaKocka=druga;
+		this.fs=fs;
+	}
+	protected boolean validateDronePositionAfter(String smer){
+		int[] x=prvaKocka.getMinCoordinates();
+		int[] y=drugaKocka.getMinCoordinates();
+		int z= prvaKocka.getCubeSideLength();
+		int m=drugaKocka.getCubeSideLength();
+		
+		Cube pomocnaDruga=new Cube(y,m);
+		Cube pomocnaPrva=new Cube(x,z);
+		try{
+			proveri();
+		}catch(DroneException e){
+			System.out.println(e);
+		}
+		
+		if(smer=="moveUp"){
+			//moras proveriti da li dodiruje veliku kocku i da li se sece sa vecom kockom 
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaDruga.getMaxCoordinates()[1]==fs.getVecaKocka().getMaxCoordinates()[1]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+		}
+		else if(smer=="moveDown"){
+			
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaPrva.getMinCoordinates()[1]==fs.getVecaKocka().getMinCoordinates()[1]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+		}
+		else if(smer=="moveRight"){
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaDruga.getMaxCoordinates()[0]==fs.getVecaKocka().getMaxCoordinates()[0]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+			
+		}
+		else if(smer=="moveLeft"){
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaPrva.getMinCoordinates()[0]==fs.getVecaKocka().getMinCoordinates()[0]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+			
+		}
+		else if(smer=="moveBack"){
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaDruga.getMinCoordinates()[2]==fs.getVecaKocka().getMinCoordinates()[2]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+			
+		}
+		else if(smer=="moveForth"){
+			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+				return false;
+			}else{
+				if(pomocnaDruga.getMaxCoordinates()[2]==fs.getVecaKocka().getMinCoordinates()[2]){
+					return false;
+				}else{
+					if(proveriPrepreke())
+						return true;
+					else
+						return false;
+				}
+			}
+			
+		}
+		else{
+			return false;
+		}
+		
+	}
+
+	public String moveUp() {
+		if(this.validateDronePositionAfter("moveUp")){
+			prvaKocka.increaseY(1);
+			drugaKocka.increaseY(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+	
+	
+	}
+	public String moveDown(){
+		if(this.validateDronePositionAfter("moveDown")){
+			prvaKocka.decreaseY(1);
+			drugaKocka.decreaseY(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+	
+	}
+	
+	
+	
+	public String moveLeft() {
+		if(this.validateDronePositionAfter("moveLeft")){
+			prvaKocka.decreaseX(1);
+			drugaKocka.decreaseX(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+	
+		
+		
+	}
+	public String moveRight(){
+		if(this.validateDronePositionAfter("moveRight")){
+			prvaKocka.increaseX(1);
+			drugaKocka.increaseX(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+		
+		
+	
+	}
 	
 	
 	
 	
-	public DoubleCubeDron(int[] start,FlySpace fs){
+	public String moveBack() {
+		if(this.validateDronePositionAfter("moveBack")){
+			prvaKocka.decreaseZ(1);
+			drugaKocka.decreaseZ(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+		
+		
+	}
+	
+	
+	public String moveForth() {
+		if(this.validateDronePositionAfter("moveForth")){
+			prvaKocka.increaseZ(1);
+			drugaKocka.increaseZ(1);
+			return this.toString();
+		}else{
+			return this.toString();
+		}
+		
+	
+	}
+	@Override 
+	public String toString() { 
+		return "Drone position: ("  + Integer.toString(prvaKocka.getMinCoordinates()[0]) + ","    + Integer.toString(prvaKocka.getMinCoordinates()[1]) + ","      + Integer.toString(prvaKocka.getMinCoordinates()[2]) + "), ("    + Integer.toString(prvaKocka.getMaxCoordinates()[0]) + ","    + Integer.toString(prvaKocka.getMaxCoordinates()[1]) + ","      + Integer.toString(prvaKocka.getMaxCoordinates()[2]) + ")"
+				+", ("  + Integer.toString(drugaKocka.getMinCoordinates()[0]) + ","    + Integer.toString(drugaKocka.getMinCoordinates()[1]) +","      + Integer.toString(drugaKocka.getMinCoordinates()[2]) + "), (" + Integer.toString(drugaKocka.getMaxCoordinates()[0]) + ","    + Integer.toString(drugaKocka.getMaxCoordinates()[1]) + ","      + Integer.toString(drugaKocka.getMaxCoordinates()[2]) + ")";     
+		
+	}
+	public Cube getPrvaKocka() {
+		return prvaKocka;
+	}
+	public Cube getDrugaKocka() {
+		return drugaKocka;
+	}
+	public FlySpace getFs() {
+		return fs;
+	}
+	public void setPrvaKocka(Cube prvaKocka) {
+		this.prvaKocka = prvaKocka;
+	}
+	public void setDrugaKocka(Cube drugaKocka) {
+		this.drugaKocka = drugaKocka;
+	}
+	public void setFs(FlySpace fs) {
+		this.fs = fs;
+	}
+
+
+	public boolean proveriPrepreke(){
+		
+		for(int i=0;i<fs.getPrepreke().size();i++){
+			if(prvaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))||drugaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))){
+				
+				return false;
+			}
+		}
+		
+		return true;
+	}
+public void proveri() throws DroneException{
+		
+		for(int i=0;i<fs.getPrepreke().size();i++){
+			if(prvaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))||drugaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))){
+				
+				throw new DroneException();
+			}
+		}
+		
+	
+	}
+	
+}	
+	
+	
+	
+	/*public DoubleCubeDron(int[] start,FlySpace fs){
 		tacka1=new Drone(start,fs);
 		start[0]++;
 		start[1]++;
@@ -66,8 +303,8 @@ public class DoubleCubeDron extends Drone {
 		
 		
 		
-	}
-	public String getFormatedCoordinates(){
+	}*/
+	/*public String getFormatedCoordinates(){
 		//return "("+ tacka1.getFormatedCoordinates()+","+tacka2.getFormatedCoordinates()+","+tacka3.getFormatedCoordinates()+","+tacka4.getFormatedCoordinates()+")";
 		return "("+"("+Integer.toString(getTacka1().getX())+","+Integer.toString(getTacka1().getY())+","+Integer.toString(getTacka1().getZ())+"),"
 		+"("+Integer.toString(getTacka2().getX())+","+Integer.toString(getTacka2().getY())+","+Integer.toString(getTacka2().getZ())+"),"
@@ -263,4 +500,4 @@ public class DoubleCubeDron extends Drone {
 	
 	
 
-}
+}*/

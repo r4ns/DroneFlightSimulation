@@ -3,14 +3,15 @@ package space;
 public class DoubleCubeDroneController {
 
 	public static void main(String[] args) {
-		int[] start={9,8,39};
-		int[] boundaries={50,50,50};
-		int razmak=10;
-		FlySpace fs= new FlySpace(boundaries,razmak);
-		DoubleCubeDron cubeDron=new DoubleCubeDron(start,fs);
-		for(int i=0;i<13;i++){
-			System.out.println(cubeDron.moveUp());
-		}
+			
+			FlySpace fs = new FlySpace(new int[]{0,0,0},50,10);
+			fs.dodajPrepreku(new int[]{30,4,30});
+			DoubleCubeDron dron = new DoubleCubeDron(new int[] {30,0,30},1,fs);
+			System.out.println(dron.toString());
+			for(int i=0;i<10;i++){
+				System.out.println(dron.moveUp());
+			}
+		
 
 	}
 

@@ -1,57 +1,76 @@
 package space;
 
+import java.util.ArrayList;
+
+
+import drone.Cube;
+
 public class FlySpace {
 	
-	private int granicaX=50;
-	private int granicaY=50;
-	private int granicaZ=50;
-	private int razmak=10;
+	private Cube vecaKocka;
+	private Cube manjaKocka;
+	private ArrayList<Cube> prepreke= new ArrayList<Cube>();
 	
-	public FlySpace(int[] granice,int u){
+	
+	
+	public FlySpace(int[] start, int duzina, int razmak){
 		
-		granicaX=granice[0];
-		granicaY=granice[1];
-		granicaZ=granice[2];
-		razmak=u;
-		
+		vecaKocka= new Cube(start,duzina);
+		int x=start[0]+razmak;
+		int y=start[1]+razmak;
+		int z=start[2]+razmak;
+		int d=duzina-razmak-razmak;
+		manjaKocka= new Cube(new int[]{x,y,z},d);
 		
 		
 	}
+
+
+
+	public Cube getVecaKocka() {
+		return vecaKocka;
+	}
+
+
+	public Cube getManjaKocka() {
+		return manjaKocka;
+	}
+
 
 	
 
-	public int getRazmak() {
-		return razmak;
+	public void setVecaKocka(Cube vecaKocka) {
+		this.vecaKocka = vecaKocka;
 	}
+
+
+	public void setManjaKocka(Cube manjaKocka) {
+		this.manjaKocka = manjaKocka;
+	}
+
+
+
+	public ArrayList<Cube> getPrepreke() {
+		return prepreke;
+	}
+
+
+
+	public void setPrepreke(ArrayList<Cube> prepreke) {
+		this.prepreke = prepreke;
+	}
+	public void dodajPrepreku(int[] start){
+		Cube prepreka=new Cube(start,2);
+		if(!manjaKocka.checkCubeIntersection(prepreka)&&vecaKocka.checkCoordinates(start)){
+			prepreke.add(prepreka);
+		}
+	}
+
+
+
 
 	
 
-	public void setRazmak(int razmak) {
-		this.razmak = razmak;
-	}
-
-	public int getGranicaX() {
-		return granicaX;
-	}
-
-	public int getGranicaY() {
-		return granicaY;
-	}
-
-	public int getGranicaZ() {
-		return granicaZ;
-	}
-
-	public void setGranicaX(int granicaX) {
-		this.granicaX = granicaX;
-	}
-
-	public void setGranicaY(int granicaY) {
-		this.granicaY = granicaY;
-	}
-
-	public void setGranicaZ(int granicaZ) {
-		this.granicaZ = granicaZ;
-	}
+	
 	
 }

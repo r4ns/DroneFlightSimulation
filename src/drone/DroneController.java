@@ -1,4 +1,4 @@
-package drone;
+/*package drone;
 
 public class DroneController {
 
@@ -55,4 +55,4 @@ public class DroneController {
 
 
 	}
-}
+}*/

@@ -5,12 +5,13 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.junit.Test;
 
-import drone.Drone;
+import drone.DoubleCubeDrone;
 
 public class DroneAdvancedTest {
-	Drone drone;
+/*	Drone drone;
 	private int [] boundaries={50,50,50};
 	private int [] startCoordinates = {30,0,30};
+	
 	
 	@Test
 	public void celaPutanja(){
@@ -81,6 +82,6 @@ public class DroneAdvancedTest {
 		{
 			System.out.println(drone.moveDown());
 		}
-	}
+	}*/
 
 }

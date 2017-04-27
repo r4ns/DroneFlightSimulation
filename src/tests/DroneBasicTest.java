@@ -15,7 +15,7 @@ public class DroneBasicTest {
 	//a equals uzme i poredi ceo objekat
 	//sto jednostavnija logika, be if while for, sto jednostavnije
 	//ako zatreba if koristimo helper metodu, nju jednostavno napisemo, i pozovemo je u tesu
-	Drone drone;
+/*	Drone drone;
 	private int [] boundaries={50,50,50};
 	private int [] startCoordinates = {30,0,30};
 	
@@ -228,6 +228,6 @@ public class DroneBasicTest {
 				    assertEquals(expectedCoordinates, drone.moveForth());
 							
 						}
-			
+			*/
 				
 }

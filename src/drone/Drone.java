@@ -1,126 +1,151 @@
 package drone;
 
+import space.FlySpace;
+import utility.Cube;
+
 public class Drone implements StandardDrone {
 	
-	private int x;
-	private int y;
-	private int z;
-	private int [] outerBoundaries;
-	private int distanceFromOuterBox=10;
-	private int [] coordinates={30,0,30};
-	private int step=1;
+	private Cube k1;
+	private Cube k2;
+	private FlySpace fs;
 
    public Drone ()
    {
 	   
    }
-   public Drone (int x, int y, int z)
-   {
-	   x=this.x;
-	   y=this.y;
-	   z=this.z;
-   }
-   public Drone (int [] boundaries, int [] coordinates)
-   {
-	   this.outerBoundaries=boundaries;
-	  // distanceFromOuterBox=10;
-	   this.coordinates=coordinates;
+   
+   public Drone(Cube k1, Cube k2, FlySpace fs){
+	   this.k1 = k1;
+	   this.k2 = k2;
+	   this.fs = fs;
    }
    
-	public String moveUp() {
+   
+   @Override
+	public String moveUp( int j ) {
+	 //  int kolicinaPrepreka=fs.getNizPrepreka().length;
+		for(int i=0; i<j; i++){
+			
+			
+			k1.increaseY(1);
+		//	for(int k=0; k<kolicinaPrepreka; k++){
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.decreaseY(1);	
+			}else{
+				
+				k2.increaseY(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) && !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.decreaseY(1);
+					k2.decreaseY(1);
+				}
+			}
+		//}
+	}
 		
-		
-		if (coordinates[1]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
-		{  
-			
-			
-		}														
-		else {
-			
-			coordinates[1]++;
-			
-		}
-		
+
 		return getFormatedCoordinates();
 		
 	}
 
 	@Override
-	public String moveDown() {
-		if (coordinates[1]<=0  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
-		{  
+	public String moveDown(int j) {
+		for(int i=0; i<j; i++){	
+			k1.decreaseY(1);
 			
-			
-		}														
-		else {
-			
-			coordinates[1]--;
-			
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.increaseY(1);	
+			}else{
+				
+				k2.decreaseY(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.increaseY(1);
+					k2.increaseY(1);
+				}
+			}
 		}
-		
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
-	public String moveLeft() {
+	public String moveLeft(int j) {
 	
-		if (coordinates[0]<=0  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
-		{  
+		for(int i=0; i<j; i++){	
+			k1.decreaseX(1);
 			
-			
-		}														
-		else {
-			
-			coordinates[0]--;
-			
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.increaseX(1);	
+			}else{
+				
+				k2.decreaseX(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.increaseX(1);
+					k2.increaseX(1);
+				}
+			}
 		}
 		
 		return getFormatedCoordinates();
 	}
 
 	@Override
-	public String moveRight() {
+	public String moveRight(int j) {
 		
-		if (coordinates[0]>=50  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>10 && coordinates[1]<40 && coordinates[2]>10 && coordinates[2]<40))
-		{  
+		for(int i=0; i<j; i++){
 			
+			k1.increaseX(1);
 			
-		}														
-		else {
-			
-			coordinates[0]++;
-			
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.decreaseX(1);	
+			}else{
+				
+				k2.increaseX(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.decreaseX(1);
+					k2.decreaseX(1);
+				}
+			}
 		}
+
 		return getFormatedCoordinates();
 	}
 
 	@Override
-	public String moveBack() {
-		if (coordinates[2]<=0  || (coordinates[0]>=10 && coordinates[0]<40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
-		{  
+	public String moveBack(int j) {
+		for(int i=0; i<j; i++){	
+			k1.decreaseZ(1);
 			
-			
-		}														
-		else {
-			
-			coordinates[2]--;
-			
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.increaseZ(1);	
+			}else{
+				
+				k2.decreaseZ(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.increaseZ(1);
+					k2.increaseZ(1);
+				}
+			}
 		}
 		
 		return getFormatedCoordinates();
 	}
 
 	@Override
-	public String moveForth() {
-		if (coordinates[2]>=50  || (coordinates[0]>=10 && coordinates[0]<=40 && coordinates[1]>=10 && coordinates[1]<=40 && coordinates[2]>=10 && coordinates[2]<=40))
-		{  
+	public String moveForth(int j) {
+		for(int i=0; i<j; i++){
 			
+			k1.increaseZ(1);
 			
-		}														
-		else {
-			
-			coordinates[2]++;
-			
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+				k1.decreaseZ(1);	
+			}else{
+				
+				k2.increaseZ(1);
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+					k1.decreaseZ(1);
+					k2.decreaseZ(1);
+				}
+			}
 		}
 		return getFormatedCoordinates();
 	}
@@ -128,31 +153,7 @@ public class Drone implements StandardDrone {
 	@Override
 	public String getFormatedCoordinates() {
 		
-		return "Dron position:"  + "(" + Integer.toString(coordinates[0]) + "," + Integer.toString(coordinates[1])  +  "," + Integer.toString(coordinates[2]) + ")";
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public int getZ() {
-		return z;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public void setZ(int z) {
-		this.z = z;
+		return "Dron position:"  + "k1(" + k1 + ") k2(" + k2 + ")";
 	}
 
 }

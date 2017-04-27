@@ -5,15 +5,18 @@ public class Cube {
 	private int [] minCoordinates; //donja tacka dijagonale kocke
 	private int cubeSideLength; //duzina stranice kocke
 	private int [] maxCoordinates; //gornja tacka dijagonale kocke
+	
 	//kreira kocku na osnovu prosledjenih parametara
 	public Cube(int [] cubeStartCoordinates, int side)
 	{
-	//implementacija
+		
 	}
 	//kopira prosledjenu kocku
 	public Cube(Cube cube)
 	{
-	//implementacija
+		setMinCoordinates(cube.getMinCoordinates());
+		setMaxCoordinates(cube.getMaxCoordinates());
+		setCubeSideLength(cube.getCubeSideLength());
 	}
 	//default konstruktor
 	public Cube()
@@ -22,17 +25,35 @@ public class Cube {
 	//proverava da li se prosledjene koordinate nalaze u kocki
 	public boolean checkCoordinates(int [] coordinates)
 	{
-	//implementacija
+		if (coordinates[0] >= minCoordinates[0] && coordinates[0] <= maxCoordinates[0] && coordinates[1] >= minCoordinates[1] && coordinates[1] <= maxCoordinates[1] && coordinates[2] >= minCoordinates[2] && coordinates[2] <= maxCoordinates[2])
+			 return true;
+	    else 
+			 return false;
 	}
 	//proverava da li se kocke seku
 	public boolean checkCubeIntersection(Cube cube)
 	{
-	//implementacija treba da koristi checkCoordinates metodu
+		if ((cube.minCoordinates[0] <= this.minCoordinates[0] && cube.maxCoordinates[0] >= this.minCoordinates[0])
+				 		|| (cube.minCoordinates[1] <= this.minCoordinates[1] && cube.maxCoordinates[1] >= this.minCoordinates[1])
+				 		|| (cube.minCoordinates[2] <= this.minCoordinates[2] && cube.maxCoordinates[2] >= this.minCoordinates[2])
+				 		|| (this.minCoordinates[0] <= cube.minCoordinates[0] && this.maxCoordinates[0] >= cube.minCoordinates[0])
+				 		|| (this.minCoordinates[1] <= cube.minCoordinates[1] && this.maxCoordinates[1] >= cube.minCoordinates[1])
+				 		|| (this.minCoordinates[2] <= cube.minCoordinates[2] && this.maxCoordinates[2] >= cube.minCoordinates[2])) {
+				 	return true;
+				 }
+				 else
+				 	return false;
 	}
 	//proverava da li se kocke dodiruju
 	public boolean checkIfCubesAreTouching(Cube cube)
 	{
-	//implementacija
+		int[] startCoordinates = {cube.minCoordinates[0], cube.minCoordinates[1], cube.minCoordinates[2] - cube.cubeSideLength};
+		 	Cube dummy = new Cube(startCoordinates, cube.cubeSideLength + 1);
+		 	if (this.checkCubeIntersection(dummy) == true) {
+		 		return true;
+		 	}
+		 	else
+		 		return false;
 	}
 	@Override
 	public String toString()
@@ -49,42 +70,54 @@ public class Cube {
 	//proverava da li se kocke dodiruju iznutra
 	public boolean checkIfCubesAreTouchingFromInside(Cube cube)
 	{
-	//implementacija treba da koristi checkIfCubesAreTouching
+		if (this.checkCubeIntersection(cube) == true && this.checkIfCubesAreTouching(cube) == true)
+			 	return true;
+			else
+			 	return false;
 	}
 	//proverava da li se kocke dodiruju sa spoljasnje strane
 	public boolean checkIfCubesAreTouchingFromOutside(Cube cube)
 	{
-	//implementacija treba da koristi checkIfCubesAreTouching
+		if (this.checkCubeIntersection(cube) == false && this.checkIfCubesAreTouching(cube) == true)
+			 	return true;
+			 else
+			 	return false;
 	}
 	//uvecava X
 	public void increaseX(int x)
 	{
-	//implementacija
+		this.minCoordinates[0]++;
+		this.maxCoordinates[0]++;
 	}
 	//uvecava Y
 	public void increaseY(int y)
 	{
-	//implementacija
+		this.minCoordinates[1]++;
+		this.maxCoordinates[1]++;
 	}
 	//uvecava Z
 	public void increaseZ(int z)
 	{
-	//implementacija
+		this.minCoordinates[2]++;
+		this.maxCoordinates[2]++;
 	}
 	//smanjuje X
 	public void decreaseX(int x)
 	{
-	//implementacija
+		this.minCoordinates[0]--;
+		this.maxCoordinates[0]--;
 	}
 	//smanjuje Y
 	public void decreaseY(int y)
 	{
-	//implementacija
+		this.minCoordinates[1]--;
+		this.maxCoordinates[1]--;
 	}
 	//smanjuje Z
 	public void decreaseZ(int z)
 	{
-	//implementacija
+		this.minCoordinates[2]--;
+		this.maxCoordinates[2]--;
 	}
 	public int[] getMinCoordinates() {
 	return minCoordinates;
@@ -106,3 +139,4 @@ public class Cube {
 		this.maxCoordinates = maxCoordinates;
 		}
 }
+

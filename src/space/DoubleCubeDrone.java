@@ -6,7 +6,7 @@ private Tacka upRightBack = new Tacka();
 private Tacka downLeftBack = new Tacka();
 public FlySpace space; 
  
-public DoubleCubeDrone(int x, int y, int z, FlySpace space){
+public DoubleCubeDrone( int x, int y, int z, FlySpace space){
         downLeftBack.setX(x);
         downLeftBack.setY(y);
         downLeftBack.setZ(z);

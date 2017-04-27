@@ -6,7 +6,7 @@ public class FlySpace {
     private int[] innerSpace = new int[3];
    
    
-    public FlySpace (int outerBoundariesX, int outerBoundariesY, int outerBoundariesZ, int innerSpaceX, int innerSpaceY, int innerSpaceZ){
+    public FlySpace ( int outerBoundariesX, int outerBoundariesY, int outerBoundariesZ, int innerSpaceX, int innerSpaceY, int innerSpaceZ){
         outerBoundaries[0] = outerBoundariesX;
         outerBoundaries[1] = outerBoundariesY;
         outerBoundaries[2] = outerBoundariesZ;

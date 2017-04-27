@@ -36,6 +36,7 @@ public class DroneBasicTest {
 		
 	}
 	
+	
 	@Test
 	public void testInitialMoveUpHitTopOutterSquare(){ //udara u gornju granicu velike kocke
 		startCoordinates[1]=50;

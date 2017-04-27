@@ -62,6 +62,7 @@ public class CubeTest {
 		Cube testKocka = new Cube(new int[]{10,0,0}, 10);
 		assertEquals(kocka.checkIfCubesAreTouchingFromOutside(testKocka), true);
 	}
+	
 	@Test
 	public void testIfCubesAreTouchingFromOutside()
 	{

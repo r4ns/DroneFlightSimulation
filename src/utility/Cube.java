@@ -24,6 +24,8 @@ public class Cube {
 	public Cube()
 	{
 		
+		
+		
 	}
 	//proverava da li se prosledjene koordinate nalaze u kocki
 	public boolean checkCoordinates(int [] coordinates)

@@ -150,6 +150,7 @@ public class Drone implements StandardDrone {
 		
 	}
 
+	
 	@Override
 	public String getFormatedCoordinates() {
 		

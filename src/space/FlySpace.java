@@ -28,6 +28,7 @@ public class FlySpace {
 		return prepreka;
 	}
 
+	
 
 	public void setPrepreka(Cube prepreka) {
 		this.prepreka = prepreka;
@@ -49,6 +50,7 @@ public class FlySpace {
 		this.velikaKocka = velikaKocka;
 	}
 
+	
 	public void setMalaKocka(Cube malaKocka) {
 		this.malaKocka = malaKocka;
 	}

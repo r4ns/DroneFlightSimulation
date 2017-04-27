@@ -30,8 +30,8 @@ public class DoubleCubeDron {
 		int z= prvaKocka.getCubeSideLength();
 		int m=drugaKocka.getCubeSideLength();
 		
-		Cube pomocnaDruga=new Cube(y,m);
-		Cube pomocnaPrva=new Cube(x,z);
+		Cube pomocnaDruga;
+		Cube pomocnaPrva;
 		try{
 			proveri();
 		}catch(DroneException e){
@@ -39,8 +39,34 @@ public class DoubleCubeDron {
 		}
 		
 		if(smer=="moveUp"){
+
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
 			//moras proveriti da li dodiruje veliku kocku i da li se sece sa vecom kockom 
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			if(pomocnaDruga.getMaxCoordinates()[1]==fs.getVecaKocka().getMaxCoordinates()[1]){
+				return false;
+			}
+			pomocnaPrva.increaseY(1);
+			pomocnaDruga.increaseY(1);
+			
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.decreaseY(1);
+				pomocnaDruga.decreaseY(1);
+				return false;
+			}else{
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.decreaseY(1);
+					pomocnaDruga.decreaseY(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.decreaseY(1);
+					pomocnaDruga.decreaseY(1);
+					
+					return false;
+				}
+			}
+			/*if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
 				return false;
 			}else{
 				if(pomocnaDruga.getMaxCoordinates()[1]==fs.getVecaKocka().getMaxCoordinates()[1]){
@@ -51,79 +77,139 @@ public class DoubleCubeDron {
 					else
 						return false;
 				}
-			}
+			}*/
 		}
 		else if(smer=="moveDown"){
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
+			if(pomocnaPrva.getMinCoordinates()[1]==fs.getVecaKocka().getMinCoordinates()[1]){
+				return false;
+			}
+			pomocnaPrva.decreaseY(1);
+			pomocnaDruga.decreaseY(1);
 			
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.increaseY(1);
+				pomocnaDruga.increaseY(1);
 				return false;
 			}else{
-				if(pomocnaPrva.getMinCoordinates()[1]==fs.getVecaKocka().getMinCoordinates()[1]){
+
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.increaseY(1);
+					pomocnaDruga.increaseY(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.increaseY(1);
+					pomocnaDruga.increaseY(1);
 					return false;
-				}else{
-					if(proveriPrepreke())
-						return true;
-					else
-						return false;
 				}
 			}
 		}
 		else if(smer=="moveRight"){
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
+			if(pomocnaDruga.getMaxCoordinates()[0]==fs.getVecaKocka().getMaxCoordinates()[0]){
+				return false;
+			}
+			pomocnaPrva.increaseX(1);
+			pomocnaDruga.increaseX(1);
+			
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.decreaseX(1);
+				pomocnaDruga.decreaseX(1);
 				return false;
 			}else{
-				if(pomocnaDruga.getMaxCoordinates()[0]==fs.getVecaKocka().getMaxCoordinates()[0]){
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.decreaseX(1);
+					pomocnaDruga.decreaseX(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.decreaseX(1);
+					pomocnaDruga.decreaseX(1);
 					return false;
-				}else{
-					if(proveriPrepreke())
-						return true;
-					else
-						return false;
 				}
 			}
 			
 		}
 		else if(smer=="moveLeft"){
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
+			if(pomocnaPrva.getMinCoordinates()[0]==fs.getVecaKocka().getMinCoordinates()[0]){
+				return false;
+			}
+			pomocnaPrva.decreaseX(1);
+			pomocnaDruga.decreaseX(1);
+			
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.increaseX(1);
+				pomocnaDruga.increaseX(1);
 				return false;
 			}else{
-				if(pomocnaPrva.getMinCoordinates()[0]==fs.getVecaKocka().getMinCoordinates()[0]){
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.increaseX(1);
+					pomocnaDruga.increaseX(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.increaseX(1);
+					pomocnaDruga.increaseX(1);
 					return false;
-				}else{
-					if(proveriPrepreke())
-						return true;
-					else
-						return false;
 				}
 			}
 			
 		}
 		else if(smer=="moveBack"){
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
+			if(pomocnaPrva.getMinCoordinates()[2]==fs.getVecaKocka().getMinCoordinates()[2]){
+				return false;
+			}
+			pomocnaPrva.decreaseZ(1);
+			pomocnaDruga.decreaseZ(1);
+			
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.increaseZ(1);
+				pomocnaDruga.increaseZ(1);
 				return false;
 			}else{
-				if(pomocnaDruga.getMinCoordinates()[2]==fs.getVecaKocka().getMinCoordinates()[2]){
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.increaseZ(1);
+					pomocnaDruga.increaseZ(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.increaseZ(1);
+					pomocnaDruga.increaseZ(1);
 					return false;
-				}else{
-					if(proveriPrepreke())
-						return true;
-					else
-						return false;
 				}
 			}
 			
 		}
 		else if(smer=="moveForth"){
-			if(pomocnaPrva.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())||pomocnaDruga.checkIfCubesAreTouchingFromOutside(fs.getManjaKocka())){
+			pomocnaPrva= new Cube(x,z);
+			pomocnaDruga=new Cube(y,m);
+			if(pomocnaDruga.getMaxCoordinates()[2]==fs.getVecaKocka().getMaxCoordinates()[2]){
+				return false;
+			}
+			pomocnaPrva.increaseZ(1);
+			pomocnaDruga.increaseZ(1);
+			
+			if(pomocnaPrva.checkCubeIntersection(fs.getManjaKocka())||pomocnaDruga.checkCubeIntersection(fs.getManjaKocka())){
+				pomocnaPrva.decreaseZ(1);
+				pomocnaDruga.decreaseZ(1);
 				return false;
 			}else{
-				if(pomocnaDruga.getMaxCoordinates()[2]==fs.getVecaKocka().getMinCoordinates()[2]){
+				if(proveriPrepreke(pomocnaPrva, pomocnaDruga)){
+					pomocnaPrva.decreaseZ(1);
+					pomocnaDruga.decreaseZ(1);
+					return true;
+				}
+				else{
+					pomocnaPrva.decreaseZ(1);
+					pomocnaDruga.decreaseZ(1);
 					return false;
-				}else{
-					if(proveriPrepreke())
-						return true;
-					else
-						return false;
 				}
 			}
 			
@@ -236,10 +322,10 @@ public class DoubleCubeDron {
 	}
 
 
-	public boolean proveriPrepreke(){
+	public boolean proveriPrepreke(Cube prva, Cube druga){
 		
 		for(int i=0;i<fs.getPrepreke().size();i++){
-			if(prvaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))||drugaKocka.checkIfCubesAreTouching(fs.getPrepreke().get(i))){
+			if(prva.checkCubeIntersection(fs.getPrepreke().get(i))||prva.checkCubeIntersection(fs.getPrepreke().get(i))){
 				
 				return false;
 			}

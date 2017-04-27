@@ -6,6 +6,6 @@ public class DroneException extends Exception {
 			
 		}
 		public String toString(){
-			return "Dron je udario u prepreku";
+			return "Dron dodiruje prepreku";
 		}
 }

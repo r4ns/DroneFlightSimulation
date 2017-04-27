@@ -24,7 +24,6 @@ public class Drone implements StandardDrone{
 		if(this.goalReached()){
 			System.out.println("DRON JE STIGAO NA CILJ!!!");
 		}
-		
 		return "Drone position: x:"+this.xTrenutno + " y:" + this.yTrenutno + " z:" +this.zTrenutno;
 	}
 	

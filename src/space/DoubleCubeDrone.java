@@ -4,6 +4,7 @@ import drone.StandardDrone;
 
 public class DoubleCubeDrone implements StandardDrone 
 {
+	
 	private Cube cube1;
 	private Cube cube2;
 	
@@ -100,7 +101,7 @@ public class DoubleCubeDrone implements StandardDrone
 		return true;
 	}
 	
-	protected boolean validateObsticles(String command) 
+	protected boolean validateObstacles(String command) 
 	{
 		Cube newPosition1 = new Cube(cube1);
 		Cube newPosition2 = new Cube(cube2);
@@ -150,9 +151,9 @@ public class DoubleCubeDrone implements StandardDrone
 	protected boolean validateDronePositionAfter(String command) 
 	{
 		boolean limits = validateLimits(command);
-		boolean obsticles = validateObsticles(command);
+		boolean obstacles = validateObstacles(command);
 		
-		return limits && obsticles;
+		return limits && obstacles;
 	}
 	
 	@Override

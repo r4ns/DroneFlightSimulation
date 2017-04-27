@@ -137,7 +137,7 @@ public class Drone implements StandardDrone {
 	
 	public String getFormatedCoordinates() {
 		
-		return String.format("Pozicija drona:  (" + x + "," + y + "," + z + ")");
+		return String.format("Drone position: (" + x + "," + y + "," + z + ")");
 	}
 
 	public int getX() {

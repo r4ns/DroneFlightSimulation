@@ -11,7 +11,8 @@ public class FlySpace {
 	
 	List<Cube> obsticles;
 	
-	public FlySpace(int[] minCoordinates, int[] maxCoordinates) {
+	public FlySpace(int[] minCoordinates, int[] maxCoordinates) 
+	{
 		this.minCoordinates = minCoordinates;
 		this.maxCoordinates = maxCoordinates;
 		this.obsticles = new ArrayList<Cube>();

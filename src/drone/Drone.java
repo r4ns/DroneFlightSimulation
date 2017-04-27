@@ -29,12 +29,12 @@ public class Drone implements StandardDrone {
 			
 			k1.increaseY(1);
 		//	for(int k=0; k<kolicinaPrepreka; k++){
-			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1) && !fs.getPrepreka1().checkCubeIntersection(k1))){
 				k1.decreaseY(1);	
 			}else{
 				
 				k2.increaseY(1);
-				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) && !fs.getPrepreka().checkCubeIntersection(k2))){
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) && !fs.getPrepreka().checkCubeIntersection(k2) && !fs.getPrepreka1().checkCubeIntersection(k2))){
 					k1.decreaseY(1);
 					k2.decreaseY(1);
 				}
@@ -73,7 +73,7 @@ public class Drone implements StandardDrone {
 		for(int i=0; i<j; i++){	
 			k1.decreaseX(1);
 			
-			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1) )){
 				k1.increaseX(1);	
 			}else{
 				
@@ -95,12 +95,12 @@ public class Drone implements StandardDrone {
 			
 			k1.increaseX(1);
 			
-			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1))){
+			if(!(fs.getVelikaKocka().checkCoordinates(k1.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k1) &&  !fs.getPrepreka().checkCubeIntersection(k1)&& !fs.getPrepreka1().checkCubeIntersection(k1))){
 				k1.decreaseX(1);	
 			}else{
 				
 				k2.increaseX(1);
-				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2))){
+				if(!(fs.getVelikaKocka().checkCoordinates(k2.getMaxCoordinates()) && !fs.getMalaKocka().checkCubeIntersection(k2) &&  !fs.getPrepreka().checkCubeIntersection(k2)&& !fs.getPrepreka1().checkCubeIntersection(k2))){
 					k1.decreaseX(1);
 					k2.decreaseX(1);
 				}

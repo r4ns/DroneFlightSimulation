@@ -7,6 +7,8 @@ public class FlySpace {
 	private Cube malaKocka;
 	public int granica=0;
 	private Cube [] nizPrepreka;
+	private Cube prepreka;
+	private Cube prepreka1;
 	
 	public FlySpace(Cube velikaKocka, Cube malaKocka, int granica, Cube[] nizPrepreka) {
 		//super();
@@ -15,7 +17,7 @@ public class FlySpace {
 		this.granica = granica;
 		this.nizPrepreka = nizPrepreka;
 	}
-	private Cube prepreka;
+	
 	
 	public FlySpace(Cube velikaKocka, Cube malaKocka, int granica) {
 		//super();
@@ -31,6 +33,11 @@ public class FlySpace {
 	public FlySpace(Cube velikaKocka, Cube malaKocka, int granica, Cube prepreka){
 		this(velikaKocka, malaKocka, granica);
 		this.prepreka=prepreka;
+		
+	}
+	public FlySpace(Cube velikaKocka, Cube malaKocka, int granica, Cube prepreka, Cube prepreka1){
+		this(velikaKocka, malaKocka, granica,prepreka);
+		this.prepreka1=prepreka1;
 		
 	}
 	
@@ -75,6 +82,16 @@ public class FlySpace {
 	}
 	public void setNizPrepreka(Cube[] nizPrepreka) {
 		this.nizPrepreka = nizPrepreka;
+	}
+
+
+	public Cube getPrepreka1() {
+		return prepreka1;
+	}
+
+
+	public void setPrepreka1(Cube prepreka1) {
+		this.prepreka1 = prepreka1;
 	}
 	
 	

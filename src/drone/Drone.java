@@ -10,6 +10,7 @@ public class Drone implements StandardDrone {
 		currentZ = 30;
 		System.out.println("Drone spawned at - " + getFormatedCoordinates());
 	}
+	
 
 	@Override
 	public String moveUp() {

@@ -14,7 +14,7 @@ public class FlySpace {
 	private int[] defaultBoundaries = {50,50,40,40}, coordinatesAtStart;
 	private int[] defaultCoordinates = {0,0,0,0};
 	private Cube outsideCube,insideCube;
-	private ArrayList<Cube> cubesCollection = new ArrayList<Cube>();
+	private ArrayList<Cube> obstaclesCollection = new ArrayList<Cube>();
 	
 
 	public FlySpace(int[] coordinatesAtStart, int[] boundaries, int offset) {
@@ -42,6 +42,27 @@ public class FlySpace {
 		int insideCubeSideLength = boundaries[0]-offset-(coordinatesAtStart[0]+offset);
 		insideCube = new Cube(insideCubeCoordinates, insideCubeSideLength);
 		
+	}
+	public FlySpace(int[] coordinatesAtStart, int[] boundaries, int offset,int numOfObstacles) {
+		this(coordinatesAtStart,boundaries,offset);
+		spawnObstacles(numOfObstacles); //Spawns exact number of obstacles
+	}
+	
+	public FlySpace(int[] coordinatesAtStart, int[] boundaries, int offset,boolean spawnObstacles) {
+		this(coordinatesAtStart,boundaries,offset);
+		if(spawnObstacles)
+			spawnObstacles((int)(Math.random() * 11)); //Spawns up to 10 obstacles 
+	}
+	
+	public void spawnObstacles(int numOfObstacles){
+		for(int i = 0;i<numOfObstacles;i++){
+			int tmpX = (int) Math.random() * boundaries[0];
+			int tmpY = (int) Math.random() * boundaries[1];
+			int tmpZ = (int) Math.random() * boundaries[2];
+			Cube obstacle = new Cube(new int[]{tmpX,tmpY,tmpZ}, 1);
+			obstaclesCollection.add(obstacle);
+		}
+			
 	}
 	
 	@Override
@@ -119,11 +140,11 @@ public class FlySpace {
 	}
 
 	public ArrayList<Cube> getCubesCollection() {
-		return cubesCollection;
+		return obstaclesCollection;
 	}
 
 	public void setCubesCollection(ArrayList<Cube> cubesCollection) {
-		this.cubesCollection = cubesCollection;
+		this.obstaclesCollection = cubesCollection;
 	}
 	
 	

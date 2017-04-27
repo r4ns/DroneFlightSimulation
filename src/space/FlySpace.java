@@ -1,40 +1,77 @@
 package space;
 
 public class FlySpace {
-	
-	public int x;
-	public int y;
-	public int z;
-	
-	public FlySpace(int x,int y,int z){
-		this.x = x;
-		this.y = y;
-		this.z = z;
+
+	protected int[] outerBoundaries={50,50,50};
+	protected int space=10;
+	Cube velika = new Cube(new int[] {0,0,0}, 50);
+	Cube mala = new Cube(new int[] {10,10,10}, 30);
+	Cube prepreka1 = new Cube(new int[] {28,12,1}, 1);
+	Cube prepreka2 = new Cube(new int[] {6,7,15}, 1);
+
+	public FlySpace(){
+
 	}
 
-	public int getX() {
-		return x;
+	public FlySpace(int[] outerBoundaries, int space){
+		this.outerBoundaries=outerBoundaries;
+		this.space=space;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public FlySpace(Cube velika, Cube mala, Cube prepreka1, Cube prepreka2){
+		setVelika(velika);
+		setMala(mala);
+		setPrepreka1(prepreka1);
+		setPrepreka2(prepreka2);
 	}
 
-	public int getY() {
-		return y;
+	public int[] getOuterBoundaries() {
+		return outerBoundaries;
 	}
 
-	public void setY(int y) {
-		this.y = y;
+	public int getSpace() {
+		return space;
 	}
 
-	public int getZ() {
-		return z;
+	public void setOuterBoundaries(int[] outerBoundaries) {
+		this.outerBoundaries = outerBoundaries;
 	}
 
-	public void setZ(int z) {
-		this.z = z;
+	public void setSpace(int space) {
+		this.space = space;
 	}
-	
+
+	public Cube getVelika() {
+		return velika;
+	}
+
+	public Cube getMala() {
+		return mala;
+	}
+
+	public Cube getPrepreka1() {
+		return prepreka1;
+	}
+
+	public Cube getPrepreka2() {
+		return prepreka2;
+	}
+
+	public void setVelika(Cube velika) {
+		this.velika = velika;
+	}
+
+	public void setMala(Cube mala) {
+		this.mala = mala;
+	}
+
+	public void setPrepreka1(Cube prepreka1) {
+		this.prepreka1 = prepreka1;
+	}
+
+	public void setPrepreka2(Cube prepreka2) {
+		this.prepreka2 = prepreka2;
+	}
+
 
 }

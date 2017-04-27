@@ -4,7 +4,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.junit.Test;
 
-import drone.Drone;
+import drone.DoubleCubeDron;
 
 public class DroneAdvancedTest {
 /*	Drone drone;

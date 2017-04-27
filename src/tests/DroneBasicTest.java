@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import drone.Drone;
+import drone.DoubleCubeDron;
 public class DroneBasicTest {
 	
 	//fiksatori su nam granice i pocetna i krajnja tacka

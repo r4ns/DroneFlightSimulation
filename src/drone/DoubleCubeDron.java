@@ -3,18 +3,18 @@ package drone;
 import space.FlySpace;
 import utility.Cube;
 
-public class Drone implements StandardDrone {
+public class DoubleCubeDron implements StandardDrone {
 	
 	private Cube k1;
 	private Cube k2;
 	private FlySpace fs;
 
-   public Drone ()
+   public DoubleCubeDron ()
    {
 	   
    }
    
-   public Drone(Cube k1, Cube k2, FlySpace fs){
+   public DoubleCubeDron(Cube k1, Cube k2, FlySpace fs){
 	   this.k1 = k1;
 	   this.k2 = k2;
 	   this.fs = fs;

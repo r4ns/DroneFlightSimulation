@@ -19,7 +19,7 @@ public class DroneController {
 		Cube k1 = new Cube(new int[]{19,4,10},1);
 		
 	
-		Drone dron = new Drone(k1,k2,fs);
+		DoubleCubeDron dron = new DoubleCubeDron(k1,k2,fs);
 		
 		System.out.println("Move up:");
 		System.out.println(dron.moveUp(5));

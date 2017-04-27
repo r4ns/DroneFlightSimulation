@@ -2,76 +2,52 @@ package drone;
 
 public class DroneController {
 
-	public static void main(String[] args) {	
-		Drone dr = new Drone();
-		System.out.println(dr.getFormatedCoordinates());
-		System.out.println("moveUp:");
-		int i=0;
-		while(i < 10){
-			System.out.println(dr.moveUp());
-			i++;
+	public static void main(String[] args) {		
+		Drone dron = new Drone();
+		System.out.println(dron.getFormatedCoordinates());
+		System.out.println("Moving up:");
+		for (int i = 0; i < 12; i++){
+			System.out.println(dron.moveUp());
 		}
-		System.out.println("moveRight:");
-		i=0;
-		while(i<20){
-			System.out.println(dr.moveRight());
-			i++;
+		System.out.println("Moving right:");
+		for (int i = 0; i < 21; i++){
+			System.out.println(dron.moveRight());
 		}
-		System.out.println("moveUp:");
-		i=0;
-		while(i<23){
-			System.out.println(dr.moveUp());
-			i++;
+		System.out.println("Moving up:");
+		for (int i = 0; i < 23; i++){
+			System.out.println(dron.moveUp());
 		}
-		System.out.println("moveForth:");
-		i=0;
-		while(i<16){
-			System.out.println(dr.moveForth());
-			i++;
+		System.out.println("Moving forth:");
+		for (int i = 0; i < 16; i++){
+			System.out.println(dron.moveForth());
 		}
-		System.out.println("moveLeft:");
-		i=0;
-		while(i<10){
-			System.out.println(dr.moveLeft());
-			i++;
+		System.out.println("Moving left:");
+		for (int i = 0; i < 12; i++){
+			System.out.println(dron.moveLeft());
 		}
-		
-		System.out.println("moveForth:");
-		i=0;
-		while(i<5){
-			System.out.println(dr.moveForth());
-			i++;
+		System.out.println("Moving forth:");
+		for (int i = 0; i < 5; i++){
+			System.out.println(dron.moveForth());
 		}
-		System.out.println("moveLeft:");
-		i=0;
-		while(i<18){
-			System.out.println(dr.moveLeft());
-			i++;
+		System.out.println("Moving left:");
+		for (int i = 0; i < 18; i++){
+			System.out.println(dron.moveLeft());
 		}
-		System.out.println("moveUp:");
-		i=0;
-		while(i<17){
-			System.out.println(dr.moveUp());
-			i++;
+		System.out.println("Moving up:");
+		for (int i = 0; i < 17; i++){
+			System.out.println(dron.moveUp());
 		}
-		System.out.println("moveBack:");
-		i=0;
-		while(i<21){
-			System.out.println(dr.moveBack());
-			i++;
+		System.out.println("Moving back:");
+		for (int i = 0; i < 21; i++){
+			System.out.println(dron.moveBack());
 		}
-		System.out.println("moveLeft:");
-		i=0;
-		while(i<22){
-			System.out.println(dr.moveLeft());
-			i++;
+		System.out.println("Moving left:");
+		for (int i = 0; i < 22; i++){
+			System.out.println(dron.moveLeft());
+		}
+		System.out.println("Moving down:");
+		for (int i = 0; i < 20; i++){
+			System.out.println(dron.moveDown());
+		}
 	}
-		System.out.println("moveDown:");
-		i=0;
-		while(i<20){
-			System.out.println(dr.moveDown());
-			i++;
-	     }
-	}
-
 }

@@ -1,22 +1,40 @@
 package space;
 
+import util.Cube;
+
 public class FlySpace {
 
 	/*Order : inside upper, 
 			  inside lower, 
 			  outside upper, 
 			  outside lower */
-	int[] boundaries = new int[4];
-	int[] defaultBoundaries = {50,50,40,40};
+	private int[] boundaries = new int[4];
+	private int[] defaultBoundaries = {50,50,40,40}, coordinatesAtStart;
+	private Cube outsideCube,insideCube; 
 	
 
-	public FlySpace(int[] boundaries) {
+	public FlySpace(int[] coordinatesAtStart, int[] boundaries, int offset) {
 		try{
+			if(boundaries == null)
+				throw new NullPointerException("Invalid boundaries, setting default values");
+			
 			this.boundaries = boundaries;
+			
 		} catch(NullPointerException ex){
-			System.out.println("Invalid values, setting default values");
-			setBoundaries(boundaries);
+			System.out.println(ex.getMessage());
+			setBoundaries(defaultBoundaries);
 		}
+		
+		this.coordinatesAtStart = coordinatesAtStart;
+		outsideCube = new Cube(coordinatesAtStart, boundaries[0]-coordinatesAtStart[0]);
+		int[] insideCubeCoordinates = new int[] {
+				coordinatesAtStart[0]+offset,
+				coordinatesAtStart[1]+offset,
+				coordinatesAtStart[2]+offset
+		};
+		int insideCubeSideLength = boundaries[0]-offset-(coordinatesAtStart[0]+offset);
+		insideCube = new Cube(insideCubeCoordinates, insideCubeSideLength);
+		
 	}
 	
 	public int[] getBoundaries() {

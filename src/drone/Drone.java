@@ -1,5 +1,5 @@
 /*package drone;
-
+ne moze
 import space.FlySpace;
 
 public class Drone implements StandardDrone{

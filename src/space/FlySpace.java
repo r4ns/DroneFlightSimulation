@@ -9,13 +9,13 @@ public class FlySpace {
 	private int [] minCoordinates;
 	private int [] maxCoordinates;
 	
-	List<Cube> obsticles;
+	List<Cube> obstacles;
 	
 	public FlySpace(int[] minCoordinates, int[] maxCoordinates) 
 	{
 		this.minCoordinates = minCoordinates;
 		this.maxCoordinates = maxCoordinates;
-		this.obsticles = new ArrayList<Cube>();
+		this.obstacles = new ArrayList<Cube>();
 	}
 	
 	public int[] getMinCoordinates() {

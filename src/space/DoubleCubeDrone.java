@@ -138,7 +138,7 @@ public class DoubleCubeDrone implements StandardDrone
 			break;
 		}
 		
-		for(Cube c: flySpace.obsticles)
+		for(Cube c: flySpace.obstacles)
 		{
 			if (newPosition1.checkCubeIntersection(c) || newPosition2.checkCubeIntersection(c))
 				return false;

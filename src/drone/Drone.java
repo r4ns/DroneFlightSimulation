@@ -4,105 +4,101 @@ public class Drone implements StandardDrone {
 	private int x;
 	private int y;
 	private int z;
+	private int[] boundaries = {50, 50, 50};
 	
-	public Drone(){
+	public Drone() {
 		this.x = 30;
 		this.y = 0;
 		this.z = 30;
 	}
-
+	
+	public Drone (int x, int y, int z, int[] boundaries) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.boundaries = boundaries;
+	}
+	
 	public String moveUp() {
-		if (((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (z >= 0 && z <= 50) && (y >= 0 && y < 50)) {
-			y++;
+		if(y < 10 || y > (boundaries[1] - 10)){
+			if(y == boundaries[1])
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			y += 1;
 			return getFormatedCoordinates();
-		} else if (((y >= 0 && y < 10) || (y >= 40 && y < 50)) && ((z >= 0 && z <= 50) && (x >= 0 && x <= 50))) {
-			y++;
+		} else if((y >= 10 || y <= (boundaries[1] - 10)) && ((x <= 10 || x >= (boundaries[1] - 10)) || (z <= 10 || z >= (boundaries[1] - 10)))){
+			y += 1;
 			return getFormatedCoordinates();
-		} else if ((x >= 0 && x <= 50) && ((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (y >= 0 && y < 50)) {
-			y++;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
 	}
-
+	
 	public String moveDown() {
-		if (((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (z >= 0 && z <= 50) && (y > 0 && y <= 50)) {
-			y--;
+		if(y < 10 || y > (boundaries[1] - 10)){
+			if(y == 0)
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			y -= 1;
 			return getFormatedCoordinates();
-		} else if (((y > 0 && y <= 10) || (y > 40 && y <= 50)) && ((z >= 0 && z <= 50) && (x >= 0 && x <= 50))) {
-			y--;
+		} else if((y >= 10 || y <= (boundaries[1] - 10)) && ((x <= 10 || x >= (boundaries[1] - 10)) || (z <= 10 || z >= (boundaries[1] - 10)))){
+			y -= 1;
 			return getFormatedCoordinates();
-		} else if ((x >= 0 && x <= 50) && ((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (y > 0 && y <= 50)) {
-			y--;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
 	}
-
-	public String moveLeft() {
-		if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (x > 0 && x <= 50) && ((z >= 0 && z <= 50))) {
-			x--;
-			return getFormatedCoordinates();
-		} else if ((y >= 10 && y <= 40) && ((x > 0 && x <= 10) || (x > 40 && x <= 50)) && z >= 0 && z <= 50) {
-			x--;
-			return getFormatedCoordinates();
-		} else if (((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (y >= 10 && y <= 40) && (x > 10 && x <= 40)) {
-			x--;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
-	}
-
+	
 	public String moveRight() {
-		if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (x >= 0 && x < 50) && ((z >= 0 && z <= 50))) {
-			x++;
+		if(x < 10 || x > (boundaries[0] - 10)){
+			if(x == boundaries[0])
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			x += 1;
 			return getFormatedCoordinates();
-		} else if ((y >= 10 && y <= 40) && ((x >= 0 && x < 10) || (x >= 40 && x < 50)) && (z >= 0 && z <= 50)) {
-			x++;
+		} else if((x >= 10 || x <= (boundaries[0] - 10)) && ((y <= 10 || y >= (boundaries[0] - 10)) || (z <= 10 || z >= (boundaries[0] - 10)))){
+			x += 1;
 			return getFormatedCoordinates();
-		} else if (((z >= 0 && z <= 10) || (z >= 40 && z <= 50)) && (y >= 10 && y <= 40) && (x >= 10 && x < 40)) {
-			x++;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
 	}
-
-	public String moveForth() {
-		if (((z >= 0 && z < 10) || (z > 40 && y <= 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
-			z++;
+	
+	public String moveLeft() {
+		if(x < 10 || x > (boundaries[0] - 10)){
+			if(x == 0)
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			x -= 1;
 			return getFormatedCoordinates();
-		} else if ((z >= 10 && z < 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y <= 50)) {
-			z++;
+		} else if((x >= 10 || x <= (boundaries[0] - 10)) && ((y <= 10 || y >= (boundaries[0] - 10)) || (z <= 10 || z >= (boundaries[0] - 10)))){
+			x -= 1;
 			return getFormatedCoordinates();
-		} else if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z > 10 && z <= 40) && (x >= 10 && x <= 40)) {
-			z++;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
 	}
-
+	
 	public String moveBack() {
-		if (((z > 0 && z <= 10) || (z >= 40 && y < 50)) && (x >= 0 && x <= 50) && ((y >= 0 && y <= 50))) {
-			z--;
+		if(z < 10 || z > (boundaries[2] - 10)){
+			if(z == boundaries[2])
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			z += 1;
 			return getFormatedCoordinates();
-		} else if ((z > 10 && z <= 40) && ((x >= 0 && x <= 10) || (x >= 40 && x <= 50)) && (y >= 0 && y < 50)) {
-			z--;
+		} else if((z >= 10 || z <= (boundaries[2] - 10)) && ((x <= 10 || x >= (boundaries[2] - 10)) || (y <= 10 || y >= (boundaries[2] - 10)))){
+			z += 1;
 			return getFormatedCoordinates();
-		} else if (((y >= 0 && y <= 10) || (y >= 40 && y <= 50)) && (z >= 10 && z < 40) && (x >= 10 && x <= 40)) {
-			z--;
-			return getFormatedCoordinates();
-		} else {
-			return getFormatedCoordinates() + "//dron hits edge !!!";
-		}
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
 	}
-
+	
+	public String moveForth() {
+		if(z < 10 || z > (boundaries[2] - 10)){
+			if(z == 0)
+				return getFormatedCoordinates() + " // Drone hit outside square border";
+			z -= 1;
+			return getFormatedCoordinates();
+		} else if((z >= 10 || z <= (boundaries[2] - 10)) && ((x <= 10 || x >= (boundaries[2] - 10)) || (y <= 10 || y >= (boundaries[2] - 10)))){
+			z -= 1;
+			return getFormatedCoordinates();
+		} else
+			return getFormatedCoordinates() + " // Drone hit inside square border";
+	}
+	
 	public String getFormatedCoordinates() {
-		return String.format("Drone position: (" + x + "," + y + "," + z + ")");
+		return "("+x+","+y+","+z+")";
 	}
 
 	public int getX() {

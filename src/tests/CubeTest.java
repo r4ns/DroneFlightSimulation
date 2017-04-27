@@ -20,7 +20,9 @@ public class CubeTest {
 	@Test
 	public void testIfCubeIsInSomePartContainedInOtherCube()
 	{
+		
 
+		
 		kocka = new Cube(new int[]{4,4,4}, 5);
 		Cube testKocka = new Cube(new int[]{3,3,3}, 5);
 		assertEquals(kocka.checkCubeIntersection(testKocka), true);

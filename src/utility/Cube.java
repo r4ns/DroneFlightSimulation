@@ -26,6 +26,7 @@ public class Cube {
 		
 		
 		
+		
 	}
 	//proverava da li se prosledjene koordinate nalaze u kocki
 	public boolean checkCoordinates(int [] coordinates)
@@ -57,6 +58,7 @@ public class Cube {
 	@Override
 	public String toString()
 	{
+		
 		return "Cube position: ("
 				+ Integer.toString(minCoordinates[0]) + ","
 				+ Integer.toString(minCoordinates[1]) + ","

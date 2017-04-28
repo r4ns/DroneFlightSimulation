@@ -92,6 +92,36 @@ public class DoubleCubeDrone extends Drone{
 		tDoleLevo.getFormatedCoordinates() +" Tacka srednje desno: " + tSredinaDesno.getFormatedCoordinates() +
 		" Tacka gore desno: " + tGoreDesno.getFormatedCoordinates();
 	}
+	protected boolean validateDronePositionAfter(String command){
+		DoubleCubeDrone dron = new DoubleCubeDrone(x,y,z,boundaries);
+		if(command == "moveUp" && dron.getY()+1 < this.boundaries[1] && dron.getY() > 0){
+				moveUp();
+				return true;
+			}
+		else if(command == "moveDown" && dron.getY()-1 < this.boundaries[1] && dron.getY() > 0){
+			moveDown();
+			return true;
+		}
+		else if(command == "moveLeft" && dron.getX()-1 < this.boundaries[0] && dron.getX() > 0){
+			moveDown();
+			return true;
+		}
+		else if(command == "moveRigth" && dron.getX()+1 < this.boundaries[0] && dron.getX() > 0){
+			moveDown();
+			return true;
+		}
+		else if(command == "moveBack" && dron.getZ()-1 < this.boundaries[2] && dron.getZ() > 0){
+			moveDown();
+			return true;
+		}
+		else if(command == "moveForth" && dron.getZ()+1 < this.boundaries[2] && dron.getZ() > 0){
+			moveDown();
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 	public int getX() {
 		return x;

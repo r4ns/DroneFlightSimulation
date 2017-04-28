@@ -1,84 +1,30 @@
 package drone;
 
+import space.DoubleCubeDrone;
+
 public class DroneController {
 
 	public static void main(String[] args) {		
-		 int[] boundaries ={50,50,50};
-		Drone dr = new Drone(30,0,30,boundaries);
-		System.out.println("pocetne koordinate. "+dr.getFormatedCoordinates());
-		System.out.println("Dron leti gore");
-       for(int i =0; i<10;i++)
-       {
-    	   
-    	   
-    	   dr.moveUp();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti desno");
-       for(int i=0;i<10;i++)
-       {
-    	   dr.moveRight();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti gore");
-       for(int i=0;i<20;i++)
-       {
-    	   dr.moveUp();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti napred");
-       for(int i=0;i<20;i++)
-       {
-    	   dr.moveForth();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti levo");
-       for(int i=0;i<20;i++)
-       {
-    	   dr.moveLeft();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti gore");
-       for(int i=0;i<10;i++)
-       {
-    	   dr.moveUp();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti nazad");
-       for(int i=0;i<20;i++)
-       {
-    	   dr.moveBack();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti levo");
-       for(int i=0;i<10;i++)
-       {
-    	   dr.moveLeft();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti dole");
-       for(int i=0;i<10;i++)
-       {
-    	   dr.moveDown();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron leti levo");
-       for(int i=0;i<10;i++)
-       {
-    	   dr.moveLeft();
-    	   System.out.println(dr.getFormatedCoordinates());
-    	   
-       }
-       System.out.println("Dron je stigao na odrediste");
-       
+		
+		
+		DoubleCubeDrone dron = new DoubleCubeDrone(new int[] {33, 22, 4}, 1);
+		
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveUp());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveRight());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveForth());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveLeft());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveDown());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveBack());
+		
+		
+		
+		
+		
 	}
 }

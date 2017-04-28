@@ -5,83 +5,53 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import drone.Drone;
+import drone.DroneOne;
 
 public class DroneAdvancedTest {
- 
-	private int[] boundaries ={50,50,50};
-	private int[] startCoordinates={30,0,30};
-	private String[] funkcije = {"moveUp()-12", "moveRight()-21", "moveUp()-23", "moveForth()-16","moveLeft()-12","moveForth()-5","moveLeft()-18", "moveUp()-17","moveBack()-21","moveLeft()-22", "moveDown()-20"};
-	Drone drone;
+	private int[] boundaries = {50, 50, 50};
+	private int[] startCoordinates = {30, 0, 30};
+	private int[] finishCoordinates = {0, 30, 30};
+	DroneOne drone;
 	
-	@Test
-	public void test() {
-		
-		String expectedCoordinates =  "("+0 +","+30 +","+30 +")";
-		
-		assertEquals( expectedCoordinates, help());
-		
+	private String[] strings = {"up", "right", "up", "forth", "left", "forth", "left", "up", "back", "left", "down"};
+	
+	private int[] freq = {12, 21, 23, 16, 12, 5, 18, 17, 21, 22, 20};
+	
+	
+	public String helperTestFinishPosition() 
+	{
+		for (int i = 0; i < freq.length; i++)
+		{
+			int j = freq[i];
+			for (int k = 0; k < j; k++)
+			{
+				if (strings[i] == "up")
+					drone.moveUp();
+				else if (strings[i] == "down")
+					drone.moveDown();
+				else if (strings[i] == "left")
+					drone.moveLeft();
+				else if (strings[i] == "forth")
+					drone.moveForth();
+				else if (strings[i] == "back")
+					drone.moveBack();
+				else
+					drone.moveRight();
+			}
+		}
+		String finishPosition = drone.getFormatedCoordinates();
+		return finishPosition;
 	}
 	
-	public String help() {
-		drone = new Drone(30,0,30,boundaries);
-		for (int i=0; i<funkcije.length;i++) {
-			String [] fk = funkcije[i].split("-");
-			
-				
-			
-			String part = fk[0];
-			//System.out.println(part);
-			//System.out.println(fk[1]);
-			 if(part.equals("moveUp()"))
-			 	{
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveUp();
-					 
-				 }
-				 
-			 }
-			  else if(part.equals("moveDown()")){
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveDown();	 
-				 }
-				 
-			 }
-			 else if(part.equals("moveRight()")){
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveRight();	 
-				 }
-				 
-			 }
-			 else if(part.equals("moveLeft()")){
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveLeft();	 
-				 }
-				 
-			 }
-			 else if(part.equals("moveBack()")){
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveBack();	 
-				 }
-				 
-			 }
-			 else if(part.equals("moveForth()")){
-				 int j = Integer.parseInt(fk[1]);
-				 for(int m=0;m<j;m++) {
-					 drone.moveForth();	 
-				 }
-				 
-			 }
-			
-		}
+	@Test
+	public void testFinishPosition() {
+		drone = new DroneOne(30, 0, 30);
 		
+		String expectedCoordinates = "(" + Integer.toString(finishCoordinates[0]) + 
+				", " + Integer.toString(finishCoordinates[1]) +
+				", " + Integer.toString(finishCoordinates[2]) + ")";
 		
-		
-		return  "("+drone.getX() +","+drone.getY() +","+drone.getZ() +")"; 
-		
+		assertEquals(expectedCoordinates, helperTestFinishPosition());
+	
 	}
 }

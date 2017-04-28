@@ -21,6 +21,7 @@ public class Cube {
 	
 	public Cube()
 	{
+		
 	}
 	
 	public boolean checkCoordinates(int [] coordinates)

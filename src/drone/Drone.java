@@ -1,124 +1,137 @@
 package drone;
 
-import space.FlySpace;
-
-public class Drone {
-	private int x,y,z;
-	int[] boundaries;
-
-	public Drone (int x, int y, int z, int[] boundaries) {
-		this.x=x;
-		this.y=y;
-		this.z=z;
-		this.boundaries = boundaries;
-	}
+public class Drone implements StandardDrone {
+	int x = 30;
+	int y = 0;
+	int z = 30;
+	
 	public Drone() {
 		
 	}
-	public  String moveUp(){
-		
-	    
-		y++;
-		if(!check())
-			
+	
+	
+	public Drone (int x, int y, int z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
+	
+	public String moveUp() {
+			if ((y < 10 || (y >= 40 & y < 50))) {
+				y++;
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
+			else if (((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10)) & (y < 50 & y >= 0))
+			{
+				y++;
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
+			else 
+				return "(" + x + ", " + y + ", " + z + ")";
+			}
+
+	@Override
+	public String moveDown() {
+		if ((y > 0 & y <= 10) || (y > 40 & y <= 50)) {
 			y--;
-		
-	    
-		return  "("+x+","+y+","+z+")";
-	    
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else if (((x >= 40 & x <= 50) || (z >= 40 & z <=50) || (x >= 0 & x <= 10) || (z >= 0 & z <=10)) & (y <= 50 & y > 0))
+		{
+			y--;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else 
+			return "(" + x + ", " + y + ", " + z + ")";
 	}
-	public  String moveDown() {
-		
-		
-		y--;
-		if(!check())
-			y++;
-		
-		
-		return"("+x+","+y+","+z+")";
-	}
-	public  String moveLeft(){
-		
-		
-		x--;
-		if(!check())
-			x++;
-		
-		
-		return "("+x+","+y+","+z+")";
-	}
-	public  String moveRight(){
-		
-		
-		x++;
-		if(!check())
+
+	@Override
+	public String moveLeft() {
+		if ((x > 0 & x <= 10) || (x > 40 & x <= 50)) {
 			x--;
-		
-		
-		return "("+x+","+y+","+z+")";
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else if (((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10)) & (x <= 50 & x > 0))
+		{
+			x--;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else 
+			return "(" + x + ", " + y + ", " + z + ")";
 	}
-	public  String moveBack(){
-		
-		
-		z++;
-		if(!check())
+
+	@Override
+	public String moveRight() {
+		if (x < 10 || (x >= 40 & x < 50)) {
+			x++;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else if (((y >= 40 & y <= 50) || (z >= 40 & z <=50) || (y >= 0 & y <= 10) || (z >= 0 & z <=10)) & (x < 50 & x >= 0))
+		{
+			x++;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else 
+			return "(" + x + ", " + y + ", " + z + ")";
+	}
+
+	@Override
+	public String moveForth() {
+		if ((z > 0 & z <= 10) || (z > 40 & z <= 50)) {
 			z--;
-		
-		
-		return "("+x+","+y+","+z+")";
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else if (((y >= 40 & y <= 50) || (x >= 40 & x <=50) || (y >= 0 & y <= 10) || (x >= 0 & x <=10)) & (z <= 50 & z > 0))
+		{
+			z--;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else 
+			return "(" + x + ", " + y + ", " + z + ")";
 	}
-	public String moveForth(){
-		
-		
-		z--;
-		if(!check())
+
+	@Override
+	public String moveBack() {
+		if (z < 10 || (z >= 40 & z < 50)) {
 			z++;
-		
-		
-		
-		return "("+x+","+y+","+z+")";
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else if (((x >= 40 & x <= 50) || (y >= 40 & y <=50) || (x >= 0 & x <= 10) || (y >= 0 & y <=10)) & (z < 50 & z >= 0))
+		{
+			z++;
+			return "(" + x + ", " + y + ", " + z + ")";
+		}
+		else 
+			return "(" + x + ", " + y + ", " + z + ")";
 	}
-	public  String getFormatedCoordinates(){
-		return "("+x+","+y+","+z+")";
-	} 
-	public boolean check() {
-		
-		if((10<x&&x<boundaries[0]-10)&&(10<y&&y<boundaries[1]-10)&&(10<z&&z<boundaries[2]-10))
-		{
-			return false;
-		}
-		else if (0>x||x>boundaries[0]||0>y||y>boundaries[1]||0>z||z>boundaries[2])
-		{
-			return false;
-		}
-		else
-		{
-		return true;
-		}
+
+	@Override
+	public String getFormatedCoordinates() {
+		return "(" + x + ", " + y + ", " + z + ")";
 	}
+
 	public int getX() {
 		return x;
 	}
-	public void setX(int x) {
-		this.x = x;
-	}
+
 	public int getY() {
 		return y;
 	}
-	public void setY(int y) {
-		this.y = y;
-	}
+
 	public int getZ() {
 		return z;
 	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
 	public void setZ(int z) {
 		this.z = z;
-	}
-	public int[] getBoundaries() {
-		return boundaries;
-	}
-	public void setBoundaries(int[] boundaries) {
-		this.boundaries = boundaries;
 	}
 
 }

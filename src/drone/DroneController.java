@@ -1,73 +1,30 @@
 package drone;
 
-import java.io.ObjectInputStream.GetField;
+import space.DoubleCubeDrone;
 
 public class DroneController {
 
-	public static void main(String[] args) {	
+	public static void main(String[] args) {		
 		
-		Drone dron=new Drone();
-		dron.setX(30);
-		dron.setY(0);
-		dron.setZ(30);
-		System.out.println(dron.getFormatedCoordinates());
-		System.out.println("Dron se pokrece!");
 		
-		System.out.println("Dron ide gore!");
-		for (int i=0; i<10; i++) {
-			dron.moveUp();
-			System.out.println(dron.getFormatedCoordinates());
-		}
+		DoubleCubeDrone dron = new DoubleCubeDrone(new int[] {33, 22, 4}, 1);
 		
-		System.out.println("Dron ide desno!");
-		for (int i=0; i<10; i++) {
-			dron.moveRight();
-			System.out.println(dron.getFormatedCoordinates());
-		}
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveUp());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveRight());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveForth());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveLeft());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveDown());
+		for (int i = 0; i < 2; i++)
+			System.out.println(dron.moveBack());
 		
-		System.out.println("Dron ide gore!");
-		for (int i=0; i<20; i++) {
-			dron.moveUp();
-			System.out.println(dron.getFormatedCoordinates());
-		}
 		
-		System.out.println("Dron ide napred!");
-		for (int i=0; i<20; i++) {
-			dron.moveForth();
-			System.out.println(dron.getFormatedCoordinates());
-		}
 		
-		System.out.println("Dron ide levo!");
-		for (int i=0; i<20; i++) {
-			dron.moveLeft();
-			System.out.println(dron.getFormatedCoordinates());
-		}
 		
-		System.out.println("Dron ide gore!");
-		for (int i=0; i<10; i++) {
-			dron.moveUp();
-			System.out.println(dron.getFormatedCoordinates());
-		}
 		
-		System.out.println("Dron ide nazad!");
-		for (int i=0; i<20; i++) {
-			dron.moveBack();
-			System.out.println(dron.getFormatedCoordinates());
-		}
-		
-		System.out.println("Dron ide levo!");
-		for (int i=0; i<20; i++) {
-			dron.moveLeft();
-			System.out.println(dron.getFormatedCoordinates());
-		}
-		
-		System.out.println("Dron ide dole!");
-		for (int i=0; i<10; i++) {
-			dron.moveDown();
-			System.out.println(dron.getFormatedCoordinates());
-		}
-		
-		System.out.println("Dron je stigao na cilj!");
-                                    
-	}   
+	}
 }

@@ -3,7 +3,6 @@ package space;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FlySpace {
 	
 	private int [] minCoordinates;

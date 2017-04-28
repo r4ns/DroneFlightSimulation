@@ -4,7 +4,6 @@ import drone.StandardDrone;
 
 public class DoubleCubeDrone implements StandardDrone 
 {
-	
 	private Cube cube1;
 	private Cube cube2;
 	

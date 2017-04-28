@@ -5,7 +5,6 @@ public class Cube {
 	private int cubeSideLength; //duzina stranice kocke
 	private int [] maxCoordinates; //gornja tacka dijagonale kocke
 	
-	
 	public Cube(int [] cubeStartCoordinates, int side)
 	{
 		minCoordinates = cubeStartCoordinates;

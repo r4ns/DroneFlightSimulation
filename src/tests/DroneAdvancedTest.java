@@ -39,23 +39,23 @@ public class DroneAdvancedTest {
 			
 			for(int j=0; j<Integer.parseInt(pom[1]); j++)
 			{
-				if(pom[0] == "moveUp")
+				if(pom[0].equals("moveUp"))
 				{
 					drone.moveUp();
 				}
-				else if(pom[0] == "moveDown")
+				else if(pom[0].equals("moveDown"))
 				{
 					drone.moveDown();
 				}
-				else if(pom[0] == "moveRight")
+				else if(pom[0].equals("moveRight"))
 				{
 					drone.moveRight();
 				}
-				else if(pom[0] == "moveLeft")
+				else if(pom[0].equals("moveLeft"))
 				{
 					drone.moveLeft();
 				}
-				else if(pom[0] == "moveForth")
+				else if(pom[0].equals("moveForth"))
 				{
 					drone.moveForth();
 				}

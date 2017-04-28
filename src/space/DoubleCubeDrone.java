@@ -1,64 +1,274 @@
 package space;
 
-import drone.Drone;
+import java.util.ArrayList;
 
-public class DoubleCubeDrone extends Drone{
+import drone.StandardDrone;
+
+public class DoubleCubeDrone implements StandardDrone{
+	Cube bottomCube, topCube;
+	FlySpace boundaries;
+	
 	
 	public DoubleCubeDrone(){
-		super();
+		this(new int[]{0,0,0});
 	}
 	
 	public DoubleCubeDrone(int[] startCoordinates){
-		super(startCoordinates);
-	}
-	public DoubleCubeDrone(int[] startCoordinates, FlySpace boundaries){
 		
-		super(startCoordinates, boundaries);
+		this(startCoordinates, 1);
+		
 	}
 	
-	public void CheckMovementPossibilites(){
-		int rightX = this.getX() + 2;
-		int upperY = this.getY() + 2; 
-		int backZ = this.getZ() + 1;
-		
-		int x = this.getX();
-		int y = this.getY();
-		int z = this.getZ();
-		
-		//Provera da li se dron nalazi na ivicama ili oko donje povrsine unutrasnje kocke
-		boolean xMoveUp = (boundaries.getSpaceBetween() < rightX && x < boundaries.getSpaceBetween() + boundaries.getInnerBorder() -1) && upperY == boundaries.getSpaceBetween(); 
-		boolean zMoveUp = (boundaries.getSpaceBetween() < backZ && z < boundaries.getSpaceBetween() + boundaries.getInnerBorder()) && upperY == boundaries.getSpaceBetween();
-		if (upperY == boundaries.outerBorder || xMoveUp || zMoveUp)
-			canMoveUp = false;
-		else 
-			canMoveUp = true;
+	public DoubleCubeDrone(int[] startCoordinates, int sideLength){
+	
+		this(startCoordinates, sideLength,new FlySpace(50,40));
 		
 		
-		if ((y == boundaries.getInnerBorder() && x > boundaries.getSpaceBetween() && x < boundaries.getInnerBorder() && z > boundaries.getSpaceBetween() && z < boundaries.getInnerBorder())|| y == 0)
-			canMoveDown = false;
+	}
+	
+	public DoubleCubeDrone(int[] startCoordinates, int sideLength, FlySpace boundaries){
 		
-		else 
-			canMoveDown = true;
-		//boundaries.getSpaceBetween()
-		if (x == 0 || (x== boundaries.getInnerBorder() && z > boundaries.getSpaceBetween() && z < boundaries.getInnerBorder() && y > boundaries.getSpaceBetween() && y < boundaries.getInnerBorder()))
-			canMoveLeft = false;
-		else 
-			canMoveLeft = true;
-		
-		if (x == boundaries.getOuterBorder() || (x == boundaries.getSpaceBetween()  && z >  boundaries.getSpaceBetween() && z < boundaries.getInnerBorder() && y > boundaries.getSpaceBetween() && y < boundaries.getInnerBorder()))
-			canMoveRight = false;
-		else 
-			canMoveRight = true;
-		
-		if (z == boundaries.getOuterBorder() || (z == boundaries.getSpaceBetween() && y > boundaries.getSpaceBetween() && y < boundaries.getInnerBorder() && x > boundaries.getSpaceBetween() && x < boundaries.getOuterBorder()))
-			canMoveBack = false;
-		else 
-			canMoveBack = true;
-		
-		if (z == 0 || (z == boundaries.getInnerBorder() && y > boundaries.getSpaceBetween() && y < boundaries.getInnerBorder() && x > boundaries.getSpaceBetween() && x < boundaries.getInnerBorder()))
-			canMoveForth = false;
-		else 
-			canMoveForth = true;
+		this(new Cube(startCoordinates, sideLength), new Cube(new int[]{startCoordinates[0] + sideLength,startCoordinates[1] + sideLength, startCoordinates[2] + sideLength}, sideLength), boundaries);
+	}
+	
+	public DoubleCubeDrone(Cube bottomCube, Cube topCube, FlySpace boundaries){
+		this.bottomCube = bottomCube;
+		this.topCube = topCube;
+		this.boundaries = boundaries;
+	}
+	
+
+	public String moveUp(){
+		boolean canMoveUp = validateDronePositionAfter("moveUp");
+		if (canMoveUp){
+			bottomCube.increaseY(1);
+			topCube.increaseY(1);
+			return "Drone moved up to " + bottomCube.getMinCoordinates()[1] + " height.";
+		}
+		return "Drone can't perform this move.";
+
+	}
+	public String moveDown(){
+		boolean canMoveDown = validateDronePositionAfter("moveDown");
+		if (canMoveDown){
+			bottomCube.decreaseY(1);
+			topCube.decreaseY(1);
+			return "Drone moved down to " + bottomCube.getMinCoordinates()[1] + " height.";
+		}
+		return "Drone can't perform this move.";
+	}
+	
+	public String moveLeft(){
+		boolean canMoveLeft = validateDronePositionAfter("moveLeft");
+		if (canMoveLeft){
+			bottomCube.decreaseX(1);
+			topCube.decreaseX(1);
+			return "Drone moved left to " + bottomCube.getMinCoordinates()[0] + " x coordinate.";
+		}
+		return "Drone can't perform this move.";
 	}
 
+	@Override
+	public String moveRight() {
+		boolean canMoveRight= validateDronePositionAfter("moveRight");
+		if (canMoveRight){
+			bottomCube.increaseX(1);
+			topCube.increaseX(1);
+			return "Drone moved right to " + bottomCube.getMinCoordinates()[0] + " x coordinate.";
+		}
+		return "Drone can't perform this move.";
+	}
+
+	@Override
+	public String moveBack() {
+		boolean canMoveBack= validateDronePositionAfter("moveBack");
+		if (canMoveBack){
+			bottomCube.increaseZ(1);
+			topCube.increaseZ(1);
+			return "Drone moved back to " + bottomCube.getMinCoordinates()[2] + " z coordinate.";
+		}
+		return "Drone can't perform this move.";
+	}
+
+	@Override
+	public String moveForth() {
+		boolean canMoveForth= validateDronePositionAfter("moveForth");
+		if (canMoveForth){
+			bottomCube.decreaseZ(1);
+			topCube.decreaseZ(1);
+			return "Drone moved forth to " + bottomCube.getMinCoordinates()[2] + " z coordinate.";
+		}
+		return "Drone can't perform this move.";
+	}
+
+	@Override
+	public String getFormatedCoordinates() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	protected boolean validateDronePositionAfter(String command){
+		boolean isValid = true;
+		ArrayList<Cube> cubesToCheck = new ArrayList<Cube>();
+		cubesToCheck.add(new Cube(bottomCube));
+		cubesToCheck.add(new Cube(topCube));
+		switch(command){
+			case "moveUp" : {
+					
+					for(Cube c : cubesToCheck){
+						c.increaseY(1);
+					}
+
+					for (Cube c : cubesToCheck){
+						if(c.getMaxCoordinates()[1] > this.boundaries.outerCube.getMaxCoordinates()[1])
+							isValid = false;
+						if(c.getMaxCoordinates()[1] > this.boundaries.innerCube.getMinCoordinates()[1] && c.getMaxCoordinates()[1] < boundaries.spaceBetween){
+							if(c.getMaxCoordinates()[0] > this.boundaries.spaceBetween && c.getMaxCoordinates()[0]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//X koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[2] > this.boundaries.spaceBetween && c.getMaxCoordinates()[2]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Z koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi ispod donje strane unutrasnje kocke
+									isValid = false;
+								}
+								
+							}
+						
+						}
+					}
+				break;
+				}
+			case "moveDown" : {
+					for(Cube c : cubesToCheck){
+						c.decreaseY(1);
+					}
+					
+					for (Cube c : cubesToCheck){
+						if (c.getMinCoordinates()[1] < boundaries.outerCube.getMinCoordinates()[1]){
+							isValid = false;
+						}
+						if (c.getMinCoordinates()[1] < boundaries.innerCube.getMaxCoordinates()[1] && c.getMinCoordinates()[1] > boundaries.spaceBetween){
+							System.out.println(c);
+							System.out.println(boundaries.innerCube);
+							if(c.getMaxCoordinates()[0] > this.boundaries.spaceBetween && c.getMaxCoordinates()[0]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//X koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[2] > this.boundaries.spaceBetween && c.getMaxCoordinates()[2]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Z koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi iznad donje strane unutrasnje kocke
+									isValid = false;
+								}
+								
+							}
+						}
+					}
+					break;
+				}
+			case "moveLeft" : { 
+					for(Cube c : cubesToCheck){
+						c.decreaseX(1);
+						
+					}
+					
+					for (Cube c : cubesToCheck){
+						if (c.getMinCoordinates()[0] < boundaries.outerCube.getMinCoordinates()[0]){
+							isValid = false;
+							break;
+						}
+						
+						if (c.getMinCoordinates()[0] < boundaries.innerCube.getMaxCoordinates()[0] && c.getMinCoordinates()[0] > boundaries.spaceBetween){
+							//Uzima x koordinatu koja se nalazi unutar unutrasnje kocke
+							if(c.getMaxCoordinates()[1] > this.boundaries.spaceBetween && c.getMaxCoordinates()[1]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//Y koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[2] > this.boundaries.spaceBetween && c.getMaxCoordinates()[2]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Z koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi na levoj strani unutrasnje kocke
+									isValid = false;
+									break;
+								}
+								
+							}
+						}
+					}
+					break;
+				}
+			case "moveRight" : { 
+					for(Cube c : cubesToCheck){
+						c.increaseX(1);
+					}
+					for (Cube c : cubesToCheck){
+						if (c.getMaxCoordinates()[0] > boundaries.outerCube.getMaxCoordinates()[0]){
+							isValid = false;
+						}
+						
+						if (c.getMaxCoordinates()[0] > boundaries.innerCube.getMinCoordinates()[0] && c.getMaxCoordinates()[0] < boundaries.innerCube.getMaxCoordinates()[0]){
+							//Uzima x koordinatu koja se nalazi unutar unutrasnje kocke
+							if(c.getMaxCoordinates()[1] > this.boundaries.spaceBetween && c.getMaxCoordinates()[1]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//Y koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[2] > this.boundaries.spaceBetween && c.getMaxCoordinates()[2]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Z koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi na levoj strani unutrasnje kocke
+									isValid = false;
+								}
+								
+							}
+						}
+					}
+					
+					break;
+				}
+			case "moveForth" : {
+					for(Cube c : cubesToCheck){
+						c.decreaseZ(1);
+					}
+	
+					for (Cube c : cubesToCheck){
+						if(c.getMinCoordinates()[2] < this.boundaries.outerCube.getMinCoordinates()[2]){
+							isValid = false;
+							break;
+						}
+						if(c.getMinCoordinates()[2] < this.boundaries.innerCube.getMaxCoordinates()[2] && c.getMinCoordinates()[2] > this.boundaries.spaceBetween){
+							System.out.println(c.getMinCoordinates()[2] + " < " + boundaries.innerCube.getMaxCoordinates()[2]);
+							if(c.getMaxCoordinates()[0] > this.boundaries.spaceBetween && c.getMaxCoordinates()[0]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//X koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[1] > this.boundaries.spaceBetween && c.getMaxCoordinates()[1]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Y koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi na prednjoj strani unutrasnje kocke
+									isValid = false; 
+									break;
+								}
+								
+							}
+						
+						}
+					}
+					break;
+				}
+			case "moveBack" : {
+					for(Cube c : cubesToCheck){
+						c.increaseZ(1);
+					}
+					
+					for (Cube c : cubesToCheck){
+						if(c.getMaxCoordinates()[2] > this.boundaries.outerCube.getMaxCoordinates()[2]){
+							isValid = false;
+							break;
+						}
+						if(c.getMaxCoordinates()[2] > this.boundaries.innerCube.getMinCoordinates()[2] && c.getMaxCoordinates()[2] < boundaries.innerCube.getMaxCoordinates()[2]){
+							System.out.println(c.getMinCoordinates()[2] + " < " + boundaries.innerCube.getMaxCoordinates()[2]);
+							if(c.getMaxCoordinates()[0] > this.boundaries.spaceBetween && c.getMaxCoordinates()[0]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+								//X koordinata uzima jednu od koordinata koja odgovara unutrasnjoj kocki
+								if(c.getMaxCoordinates()[1] > this.boundaries.spaceBetween && c.getMaxCoordinates()[1]  < boundaries.spaceBetween + boundaries.innerCube.getCubeSideLength() + c.getCubeSideLength()){
+									//Y koordinata uzma jednu od koordinata koja odgovara unutrasnjoj kocki i dron se nalazi na prednjoj strani unutrasnje kocke
+									isValid = false; 
+									break;
+								}
+								
+							}
+						
+						}
+					}
+					
+					break;
+				}
+			default : System.out.println("Invalid command"); break;
+		}
+		
+		
+		return isValid;
+	}
+	
 }

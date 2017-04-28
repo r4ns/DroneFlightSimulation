@@ -29,7 +29,7 @@ public class DroneBasicTest {
 		
 		String expectedCoordinates= "Drone position: (" 
 								+Integer.toString(startCoordinates[0]) + ", "
-								+Integer.toString(startCoordinates[1]) + ", "
+								+Integer.toString(startCoordinates[1])+ ", "
 								+Integer.toString(startCoordinates[2]) + ")";
 		
 		 extracted(expectedCoordinates);
@@ -115,7 +115,7 @@ public class DroneBasicTest {
 	 		assertEquals(expectedCoordinates, helper(drone,20 , "movedown"));
 	 	}
 	 
-	 	@Test
+ 	@Test
 	 	public void testiranjeGranicaDesno () {
 	 		drone = new Drone(startCoordinates[0], startCoordinates[1], startCoordinates[2]);
 	 		String expectedCoordinates = "Drone position: (" 
@@ -159,7 +159,7 @@ public class DroneBasicTest {
 	 		assertEquals(expectedCoordinates, helper(drone, 20, "moveback"));
 	 	}
 	 	
-	 	public String helper(Drone drone, int moves, String direction) {
+	 public String helper(Drone drone, int moves, String direction) {
 	 		 		
 	 		 			if (direction.equals("moveup")){
 	 		 				for (int i = 0; i < moves; i++)

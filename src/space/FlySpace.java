@@ -1,74 +1,35 @@
 package space;
 
+import utility.*;
+
 public class FlySpace {
+	int[] p1={0,0,0};
+	int[] p2={10,10,10};
+	private Cube velika;
+	private Cube mala;
 	
-	public int outerStart=0;
-	public int outerFinish=50;
-	public int innerStart=10;
-	public int innerFinish=40;
-	
-	
-	public FlySpace() {
-		
+	public FlySpace(){
+		velika=new Cube(p1,50);
+		mala=new Cube(p2,30);
 	}
 	
-	public FlySpace(int oBS, int oBF, int iBS, int iBF){
-		outerStart=oBS;
-		outerFinish=oBF;
-		innerStart=iBS;
-		innerFinish=iBF;
-	}
-
-	public int getOuterStart() {
-		return outerStart;
-	}
-
-	public void setOuterStart(int outerStart) {
-		this.outerStart = outerStart;
-	}
-
-	public int getOuterFinish() {
-		return outerFinish;
-	}
-
-	public void setOuterFinish(int outerFinish) {
-		this.outerFinish = outerFinish;
-	}
-
-	public int getInnerStart() {
-		return innerStart;
-	}
-
-	public void setInnerStart(int innerStart) {
-		this.innerStart = innerStart;
-	}
-
-	public int getInnerFinish() {
-		return innerFinish;
-	}
-
-	public void setInnerFinish(int innerFinish) {
-		this.innerFinish = innerFinish;
+	public FlySpace(int[] k1,int[] k2,int k1d,int k2d){
+		velika=new Cube(k1,k1d);
+		mala=new Cube(k2,k2d);
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
+	public Cube getVelika() {
+		return velika;
+	}
+	public void setVelika(Cube velika) {
+		this.velika = velika;
+	}
+	public Cube getMala() {
+		return mala;
+	}
+	public void setMala(Cube mala) {
+		this.mala = mala;
+	}
 	
 	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 public class FlySpace {
 	
-	
 	private int [] minCoordinates;
 	private int [] maxCoordinates;
 	

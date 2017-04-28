@@ -1,286 +1,149 @@
-package drone;
-
-public class Drone implements StandardDrone{
-	
-	private int x;
-	private int y;
-	private int z;
-	
-	public Drone (int x, int y, int z)
-	{
-		setX(x);
-		setY(y);
-		setZ(z);
+ package drone;
+  
+ public class Drone implements StandardDrone{
+ 	
+ 	private int[] outerBoundaries;
+ 	int [] boundaries;
+ 	public int[] coordinates={30,0,30};
+ 	int space;
+ 	//private int distanceFromOuterBox;
+ 	//private int step=2;
+ 	
+ 	public Drone(){
+ 	};
+ 	
+ 	public Drone(int[] coordinates){
+ 		this.coordinates=coordinates;
+ 	}
+ 	
+ 	public Drone(int[] boundaries, int[] coordinates){
+ 		//,
+ 		this.outerBoundaries=boundaries;
+ 		//distanceFromOuterBox=10;
+ 		this.coordinates=coordinates;
+ 	}
+ 	
+ 	public Drone(int [] boundaries, int space){
+ 		
+ 		 		this.boundaries=boundaries;
+ 		 		this.space=space;
+ 		 }
+ 	
+ 	public String moveUp() {
+ 		// TODO Auto-generated method stub
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]<10){
+ 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]>=40){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]< 50){
+ 			 			coordinates[1]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ @Override
+ 	public String moveDown() {
+ 		// TODO Auto-generated method stub
+	 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[1]>0 && coordinates[1]<=10){
+			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[1]<=50 && coordinates[1]>40)){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[1]>0){
+			 			coordinates[1]--;
+			 			return getFormatedCoordinates();
+			 			
+			 		} else {
+			 			
+			 			return getFormatedCoordinates();
+			 		}
 	}
-	
-	
-	@Override
-	public String moveUp() {
+ 	
+ 
+ 	@Override
+ 	public String moveLeft() {
+ 		// TODO Auto-generated method stub
+ 		
+ 		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]<=10 && coordinates[0]>0)){
+ 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 && coordinates[2]<40) && (coordinates[0]>40 && coordinates[0]<=50)){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]>0){
+ 			 			coordinates[0]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 		
+ 	}
+ 	
+ 	@Override
+ 	public String moveRight() {
+		 if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && coordinates[0]<10){
+			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if ((coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>10 &&coordinates[2]<40) && (coordinates[0]>=40 && coordinates[0]<50)){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else if (((coordinates[1]>=40 || coordinates[1]<= 10) || (coordinates[2]>=40 || coordinates[2]<= 10))  && coordinates[0]<50){
+			 			coordinates[0]++;
+			 			return getFormatedCoordinates();
+			 		} else {
+			 			return getFormatedCoordinates();
+			 		}
+		
+	}
+ 	
+ 		// TODO Auto-generated method stub
+ 		
+ 
+ 	@Override
+ 	public String moveBack() {
+ 		// TODO Auto-generated method stub
+ 		 if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && coordinates[2]<10){
+ 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>=40 && coordinates[2]<50)){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]<50){
+ 			 			coordinates[2]++;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	
+ 	}
+ 
+ 	@Override
+ 	public String moveForth() {
+ 		if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 &&coordinates[1]<40) && (coordinates[2]>0 && coordinates[2]<=10)){
+ 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if ((coordinates[0]>10 &&coordinates[0]<40) && (coordinates[1]>10 && coordinates[1]<40) && coordinates[2]>40){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else if (((coordinates[0]>=40 || coordinates[0]<= 10) || (coordinates[1]>=40 || coordinates[1]<= 10))  && coordinates[2]>0){
+ 			 			coordinates[2]--;
+ 			 			return getFormatedCoordinates();
+ 			 		} else {
+ 			 			return getFormatedCoordinates();
+ 			 		}
+ 	}
+ 
+ 	@Override
+ 	public String getFormatedCoordinates() {
 		// TODO Auto-generated method stub
-		
-		
-		if ((x <= 10 || x >= 40) || (z <= 10 || z >= 40))  // proveravamo da li je dron u "provaliji"
-		{
-			if(y < 50)
-			{
-				setY(getY()+1);
-				
-				if(y == 50)
-				{
-					System.out.println("Drone hits the upper border of the outer cube.");
-				}
-			}
-		}		
-		else  // ili je ispod ili iznad unutrasnje kocke
-		{
-			if(y < 10)  // ako je ispod
-			{
-				setY(getY()+1);
-				if(y == 10)
-				{
-					System.out.println("Drone hits the lower border of the inner cube.");
-				}
-				
-			}
-			else if (y >=40 && y < 50)  // ako je iznad
-			{
-				setY(getY()+1);
-				if(y == 50)
-				{
-					System.out.println("Drone hits the upper border of the outer cube.");
-				}
-			}
-		}		
-		return getFormatedCoordinates();
+		return "("+coordinates[0]+","+coordinates[1]+","+coordinates[2]+")";
 	}
-
-	@Override
-	public String moveDown() {
-		// TODO Auto-generated method stub
-		
-		
-		if ((x <= 10 || x >= 40) || (z <= 10 || z >= 40))  // proveravamo da li je dron u "provaliji"
-		{
-			if(y > 0)
-			{
-				setY(getY()-1);
-				if(y == 0)
-				{
-					System.out.println("Drone hits the lower border of the outer cube.");
-				}
-			}
-		}
-		else  // ili je ispod ili iznad unutrasnje kocke
-		{
-			if(y > 40)  // ako je iznad
-			{
-				setY(getY()-1);
-				if(y == 40)
-				{
-					System.out.println("Drone hits the upper border of the inner cube.");
-				}
-				
-			}
-			else if (y <= 10 && y > 0)  // ako je ispod
-			{
-				setY(getY()-1);
-				if(y == 0)
-				{
-					System.out.println("Drone hits the lower border of the outer cube.");
-				}
-			}
-		}		
-		return getFormatedCoordinates();
-	}
-
-	@Override
-	public String moveLeft() {
-		// TODO Auto-generated method stub
-		
-		if ((z <= 10 || z >= 40) || (y <= 10 || y >= 40))  //  proveravamo da li je dron u "provaliji"
-		{
-			if (x > 0)
-			{
-				setX(getX() - 1);
-				if(x == 0)
-				{
-					System.out.println("Drone hits the left border of the outer cube.");
-				}
-			}
-		}
-		else  // ili je levo ili desno od unutrasnje kocke
-		{
-			if (x > 40) // ako je desno
-			{
-				setX(getX()-1);
-				if(x == 40)
-				{
-					System.out.println("Drone hits the right border of the inner cube.");
-				}
-			}
-			else if (x > 0 && x <= 10) // ako je levo
-			{
-				setX(getX()-1);
-				if(x == 0)
-				{
-					System.out.println("Drone hits the left border of the outer cube.");
-				}
-			}
-		}		
-		return getFormatedCoordinates();
-	}
-
-	@Override
-	public String moveRight() {
-		// TODO Auto-generated method stub
-		
-		if ((z <= 10 || z >= 40) || (y <= 10 || y >= 40))  //  proveravamo da li je dron u "provaliji"
-		{
-			if (x < 50)
-			{
-				setX(getX() + 1);
-				if(x == 50)
-				{
-					System.out.println("Drone hits the right border of the outer cube.");
-				}
-			}
-		}
-		else  // ili je levo ili desno od unutrasnje kocke
-		{
-			if (x < 10) // ako je levo
-			{
-				setX(getX()+1);
-				if(x == 10)
-				{
-					System.out.println("Drone hits the left border of the inner cube.");
-				}
-			}
-			else if (x < 50 && x >= 40) // ako je desno
-			{
-				setX(getX()+1);
-				if(x == 50)
-				{
-					System.out.println("Drone hits the right border of the outer cube.");
-				}
-			}
-		}
-		return getFormatedCoordinates();
-	}
-
-	@Override
-	public String moveBack() {
-		// TODO Auto-generated method stub
-		
-		if ((x <= 10 || x >= 40) || (y <= 10 || y >= 40))  //  proveravamo da li je dron u "provaliji"
-		{
-			if (z < 50)
-			{
-				setZ(getZ() + 1);
-				if(z == 50)
-				{
-					System.out.println("Drone hits the closer border of the outer cube.");
-				}
-			}
-		}
-		else  // ili je ispred ili iza od unutrasnje kocke
-		{
-			if (z < 10) // ako je iza
-			{
-				setZ(getZ()+1);
-				if(z == 10)
-				{
-					System.out.println("Drone hits the farther border of the inner cube.");
-				}
-			}
-			else if (z < 50 && z >= 40) // ako je ispred
-			{
-				setZ(getZ()+1);
-				if(z == 50)
-				{
-					System.out.println("Drone hits the closer border of the outer cube.");
-				}
-			}
-		}
-		
-		
-		return getFormatedCoordinates();
-	}
-
-	@Override
-	public String moveForth() {
-		// TODO Auto-generated method stub
-		
-		if ((x <= 10 || x >= 40) || (y <= 10 || y >= 40))  //  proveravamo da li je dron u "provaliji"
-		{
-			if (z > 0)
-			{
-				setZ(getZ() - 1);
-				if(z == 0)
-				{
-					System.out.println("Drone hits the farther border of the outer cube.");
-				}
-			}
-		}
-		else  // ili je ispred ili iza od unutrasnje kocke
-		{
-			if (z > 40) // ako je ispred
-			{
-				setZ(getZ()-1);
-				if(z == 40)
-				{
-					System.out.println("Drone hits the closer border of the inner cube.");
-				}
-			}
-			else if (z > 0 && z <= 10) // ako je iza
-			{
-				setZ(getZ()-1);
-				if(z == 0)
-				{
-					System.out.println("Drone hits the farther border of the outer cube.");
-				}
-			}
-		}
-		
-		
-		return getFormatedCoordinates();
-	}
-
-	@Override
-	public String getFormatedCoordinates() {
-		// TODO Auto-generated method stub
-		return "Drone position: (" + getX() + "," + getY() + "," + getZ() + ")";
-	}
-
-
-	/////////////////////////////////////////////////GETTERS AND SETTERS///////////////////////////////////////////////////
-	
-	public int getX() {
-		return x;
-	}
-
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-
-	public int getY() {
-		return y;
-	}
-
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-
-	public int getZ() {
-		return z;
-	}
-
-
-	public void setZ(int z) {
-		this.z = z;
-	}
-
-}
+  
+ }
+ 

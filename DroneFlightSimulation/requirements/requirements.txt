@@ -1,0 +1,12 @@
+DroneFlightSimulation - opis zadatka:
+
+DroneFlightSimulation predstavlja simulaciju leta drona u 3D prostoru. Koristeci dati interfejs potrebno je implementirati kretanje drona u prostoru na odgovarajuci nacin.
+Let drona je ogranicen uz pomoc dve kocke, tako da je jedna kocka sadrzana unutar druge.
+Spoljasnja granica prostora u kojem je dozvoljen let je definisana sa x = 50, y = 50 i z = 50, dok je unutrasnja granica za 10 manja od spoljasnje (granice unutrasnje kocke).
+Dron ima mogucnost leta izmedju dve kocke. Cilj zadatka jeste dovesti dron iz pocetne pozicije do krajnje pozicije. Pocetna pozicija je definisana sa koordinatama (x,y,z) = (30, 0, 30), 
+a krajnja sa koordinatama (x,y,z) = (0, 30, 30). Kao dodatni uslov definisano je da dron mora da obidje 5 strana kocke (ukljucujuci i stranu na kojoj je poceo).
+Dron ima mogucnost kretanja gore, dole, levo, desno, napred i nazad za vrednost 1 (npr. Y = 5 => moveUp() => Y = 6). Kretanje gore/dole se vrsi na Y osi, levo/desno na X osi i napred/nazad na Z osi.
+Pre pocetka izrade zadatka potrebno je obezbediti implementaciju interfejsa StandardDrone od strane klase Drone.
+Prilikom izrade zadatka potrebno je voditi racuna o tome da dron ne sme da predje definisane granice.
+
+Srecno :)

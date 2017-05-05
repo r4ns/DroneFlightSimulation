@@ -1,19 +1,21 @@
 package drone;
-
+ 
 import javax.swing.BoundedRangeModel;
+import space.FlyClass;
 
 import space.FlyClass;
 
-public class Drone implements StandardDrone{
-	private int x=30;
-	private int z=30;
-	private int y = 0;
+public class Drone extends FlyClass implements StandardDrone{
+	private int x; 
+	private int z;
+	private int y;
 	
-	private int granicaX=50;
-	private int granicaY=50;
-	private int granicaZ=50;
+	private int granicaX;
+	private int granicaY;
+	private int granicaZ;
 	
 	private int distanceFromOuter=10;
+	private FlyClass space;
 
 	
 	public Drone (int [] start, int [] boundaries, int distanceFromOuter){
@@ -39,6 +41,12 @@ public class Drone implements StandardDrone{
 	public Drone(){
 		
 	}
+	public Drone(int x, int y, int z) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		
+}
 	
 	public boolean check(int kojeKretanje){
 		if (kojeKretanje==1) {
